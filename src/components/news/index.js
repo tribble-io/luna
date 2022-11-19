@@ -4,28 +4,28 @@ import styles from "./news.module.scss";
 
 const API_URL = "http://theatre.restomatik.ru:1337";
 
-// function cutToLength(s, l) {
-//   const words = s.split(" ");
-//   let i = 1;
-//
-//   console.log(words);
-//
-//   while (words.slice(0, i).join(" ").length < l) {
-//     i += 1;
-//
-//     if (i > words.length) {
-//       break;
-//     }
-//   }
-//
-//   const res = words.slice(0, i - 1).join(" ");
-//
-//   if (res.length < s.length) {
-//     return res + "...";
-//   } else {
-//     return s;
-//   }
-// }
+function cutToLength(s, l) {
+  const words = s.split(" ");
+  let i = 1;
+
+  console.log(words);
+
+  while (words.slice(0, i).join(" ").length < l) {
+    i += 1;
+
+    if (i > words.length) {
+      break;
+    }
+  }
+
+  const res = words.slice(0, i - 1).join(" ");
+
+  if (res.length < s.length) {
+    return res + "...";
+  } else {
+    return s;
+  }
+}
 
 export default function News({ itemsNews /*setItemsNews*/ }) {
   console.log(itemsNews);
@@ -95,7 +95,9 @@ export default function News({ itemsNews /*setItemsNews*/ }) {
                       <div className={styles.date}>
                         {item.attributes.date_str}
                       </div>
-                      <div className={styles.text}>text</div>
+                      <div className={styles.text}>
+                        {cutToLength(item.attributes.text, 150)}
+                      </div>
                     </div>
                   </div>
                 </a>
