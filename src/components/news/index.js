@@ -71,7 +71,12 @@ export default function News({ itemsNews /*setItemsNews*/ }) {
               className={styles.bigNewsText}
               href={`${API_URL}/news/${itemsNews[0].id}`}
             >
-              a
+              <div className={styles.title}>
+                {itemsNews[0].attributes.title}
+              </div>
+              <div className={styles.date}>
+                {itemsNews[0].attributes.date_str}
+              </div>
             </a>
             <a
               className={styles.smallNewsItem1}

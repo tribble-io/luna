@@ -83,6 +83,25 @@
     grid-column-end: 2;
     grid-row-start: 5;
     grid-row-end: 7;
+
+    position: relative;
+
+    padding: 20px;
+
+    .title {
+      font-family: "Montserrat";
+      font-weight: 600;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .date {
+      font-family: "Montserrat";
+      position: absolute;
+      bottom: 20px;
+      color: #929fcc;
+    }
   }
 
   .smallNewsItem1 {
