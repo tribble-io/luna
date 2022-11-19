@@ -4,47 +4,40 @@ import styles from "./news.module.scss";
 
 const API_URL = "http://theatre.restomatik.ru:1337";
 
-function cutToLength(s, l) {
-  const words = s.split(" ");
-  let i = 1;
+// function cutToLength(s, l) {
+//   const words = s.split(" ");
+//   let i = 1;
+//
+//   console.log(words);
+//
+//   while (words.slice(0, i).join(" ").length < l) {
+//     i += 1;
+//
+//     if (i > words.length) {
+//       break;
+//     }
+//   }
+//
+//   const res = words.slice(0, i - 1).join(" ");
+//
+//   if (res.length < s.length) {
+//     return res + "...";
+//   } else {
+//     return s;
+//   }
+// }
 
-  console.log(words);
-
-  while (words.slice(0, i).join(" ").length < l) {
-    i += 1;
-
-    if (i > words.length) {
-      break;
-    }
-  }
-
-  const res = words.slice(0, i - 1).join(" ");
-
-  if (res.length < s.length) {
-    return res + "...";
-  } else {
-    return s;
-  }
-}
-
-export default function News({ itemsNews, setItemsNews }) {
+export default function News({ itemsNews /*setItemsNews*/ }) {
   console.log(itemsNews);
-  const news = React.useMemo(() => {
-    const res = itemsNews.map((item) => ({ item, style: styles.smallNews }));
-    if (res.length > 0) {
-      res[0].style = styles.bigNews;
-    }
-    return res;
-  }, [itemsNews]);
 
-  function scrollNews(d) {
-    setItemsNews((items) =>
-      Array.from(
-        { length: items.length },
-        (_, i) => items[(i + d + items.length) % items.length]
-      )
-    );
-  }
+  // function scrollNews(d) {
+  //   setItemsNews((items) =>
+  //     Array.from(
+  //       { length: items.length },
+  //       (_, i) => items[(i + d + items.length) % items.length]
+  //     )
+  //   );
+  // }
 
   return (
     <>
@@ -59,31 +52,41 @@ export default function News({ itemsNews, setItemsNews }) {
             </div>
           </a>
         </div>
-        <div className={styles.newsContent}>
-          {news.map(({ item, style }, i) => (
-            <a href={`${API_URL}/news/${item.id}`} key={i} className={style}>
+        {itemsNews.length === 0 ? (
+          "Loading.."
+        ) : (
+          <div className={styles.newsContent}>
+            <a
+              className={styles.bigNewsImage}
+              href={`${API_URL}/news/${itemsNews[0].id}`}
+            >
               <img
-                src={API_URL + item.attributes.cover.data.attributes.url}
+                src={
+                  API_URL + itemsNews[0].attributes.cover.data.attributes.url
+                }
                 alt=""
               />
-              <div className={styles.date}>{item.attributes.date_str}</div>
-              <div className={styles.title}>
-                {i === 0
-                  ? item.attributes.title
-                  : cutToLength(item.attributes.title, 40)}
-              </div>
-              {i === 0 ? (
-                <div className={styles.text}>
-                  {cutToLength(item.attributes.text, 120)}
-                </div>
-              ) : null}
             </a>
-          ))}
-        </div>
-        <div className={styles.arrowsContainer}>
-          <img src="/img/newsLarr.png" alt="" onClick={() => scrollNews(-1)} />
-          <img src="/img/newsRarr.png" alt="" onClick={() => scrollNews(1)} />
-        </div>
+            <a
+              className={styles.bigNewsText}
+              href={`${API_URL}/news/${itemsNews[0].id}`}
+            >
+              a
+            </a>
+            <a
+              className={styles.smallNewsItem1}
+              href={`${API_URL}/news/${itemsNews[1].id}`}
+            >
+              b
+            </a>
+            <a
+              className={styles.smallNewsItem2}
+              href={`${API_URL}/news/${itemsNews[2].id}`}
+            >
+              c
+            </a>
+          </div>
+        )}
       </div>
     </>
   );
