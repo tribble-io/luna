@@ -1,16 +1,25 @@
-ul {
-  flex: 1;
-
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-
-  align-items: center;
+.frame {
+  padding-bottom: 60px;
 
   padding-left: 12vw;
   padding-right: 12vw;
 
-  li {
+  .header {
+    color: white;
+    margin-bottom: 40px;
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 50px;
+  }
+
+  .sponsors {
+    flex: 1;
+
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+    align-items: center;
     a {
       font-family: "Montserrat";
       font-style: normal;
@@ -22,8 +31,5 @@ ul {
       color: #f4f4f4;
     }
   }
-
-  li.a:not(:last-child) {
-    margin-left: 30px;
-  }
 }
+
