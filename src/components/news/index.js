@@ -78,18 +78,18 @@ export default function News({ itemsNews /*setItemsNews*/ }) {
                 {itemsNews[0].attributes.date_str}
               </div>
             </a>
-            <a
-              className={styles.smallNewsItem1}
-              href={`${API_URL}/news/${itemsNews[1].id}`}
-            >
-              b
-            </a>
-            <a
-              className={styles.smallNewsItem2}
-              href={`${API_URL}/news/${itemsNews[2].id}`}
-            >
-              c
-            </a>
+            {[0, 1].map((i) => {
+              const item = itemsNews[i + 1];
+              const st = [styles.smallNewsItem1, styles.smallNewsItem2][i];
+              return (
+                <a className={st} href={`${API_URL}/news/${item.id}`}>
+                  <img
+                    src={API_URL + item.attributes.cover.data.attributes.url}
+                    alt=""
+                  />
+                </a>
+              );
+            })}
           </div>
         )}
       </div>

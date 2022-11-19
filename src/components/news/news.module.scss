@@ -109,6 +109,8 @@
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 4;
+
+    @extend .smallNewsItem;
   }
 
   .smallNewsItem2 {
@@ -116,5 +118,17 @@
     grid-column-end: 3;
     grid-row-start: 4;
     grid-row-end: 7;
+
+    @extend .smallNewsItem;
+  }
+}
+
+.smallNewsItem {
+  img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+
+    border-right: 1px solid #6f7081;
   }
 }
