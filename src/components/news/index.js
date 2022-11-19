@@ -1,5 +1,7 @@
 import React from "react";
 
+import Separator from "../separator";
+
 import styles from "./news.module.scss";
 
 const API_URL = "http://theatre.restomatik.ru:1337";
@@ -82,7 +84,7 @@ export default function News({ itemsNews /*setItemsNews*/ }) {
               const item = itemsNews[i + 1];
               const st = [styles.smallNewsItem1, styles.smallNewsItem2][i];
               return (
-                <a className={st} href={`${API_URL}/news/${item.id}`}>
+                <a key={i} className={st} href={`${API_URL}/news/${item.id}`}>
                   <img
                     src={API_URL + item.attributes.cover.data.attributes.url}
                     alt=""
@@ -106,6 +108,7 @@ export default function News({ itemsNews /*setItemsNews*/ }) {
           </div>
         )}
       </div>
+      <Separator />
     </>
   );
 }
