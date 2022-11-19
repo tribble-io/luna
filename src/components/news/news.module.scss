@@ -89,18 +89,13 @@
     padding: 20px;
 
     .title {
-      font-family: "Montserrat";
       font-weight: 600;
       font-size: 22px;
-      text-transform: uppercase;
-      color: white;
     }
 
     .date {
-      font-family: "Montserrat";
       position: absolute;
       bottom: 20px;
-      color: #929fcc;
     }
   }
 
@@ -124,6 +119,9 @@
 }
 
 .smallNewsItem {
+  display: flex;
+  flex-direction: row;
+
   img {
     width: 50%;
     height: 100%;
@@ -131,4 +129,33 @@
 
     border-right: 1px solid #6f7081;
   }
+
+  .boxWrapper {
+    width: 50%;
+
+    .box {
+      padding: 20px;
+
+      .title {
+        font-size: 16px;
+        font-weight: 550;
+      }
+
+      .date {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.title {
+  font-family: "Montserrat";
+  text-transform: uppercase;
+  color: white;
+}
+
+.date {
+  font-family: "Montserrat";
+  font-size: 14px;
+  color: #929fcc;
 }

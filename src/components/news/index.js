@@ -87,6 +87,17 @@ export default function News({ itemsNews /*setItemsNews*/ }) {
                     src={API_URL + item.attributes.cover.data.attributes.url}
                     alt=""
                   />
+                  <div className={styles.boxWrapper}>
+                    <div className={styles.box}>
+                      <div className={styles.title}>
+                        {item.attributes.title}
+                      </div>
+                      <div className={styles.date}>
+                        {item.attributes.date_str}
+                      </div>
+                      <div className={styles.text}>text</div>
+                    </div>
+                  </div>
                 </a>
               );
             })}
