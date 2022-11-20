@@ -74,7 +74,7 @@ export default function News({ itemsNews /*setItemsNews*/ }) {
               href={`${API_URL}/news/${itemsNews[0].id}`}
             >
               <div className={styles.title}>
-                {itemsNews[0].attributes.title}
+                {cutToLength(itemsNews[0].attributes.title, 70)}
               </div>
               <div className={styles.date}>
                 {itemsNews[0].attributes.date_str}
@@ -92,7 +92,7 @@ export default function News({ itemsNews /*setItemsNews*/ }) {
                   <div className={styles.boxWrapper}>
                     <div className={styles.box}>
                       <div className={styles.title}>
-                        {item.attributes.title}
+                        {cutToLength(item.attributes.title, 70)}
                       </div>
                       <div className={styles.date}>
                         {item.attributes.date_str}
