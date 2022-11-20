@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "../../components/items";
+import Separator from "../../components/separator";
 
 import styles from "./calendar.module.scss";
 const ARR_OFFSET = 7;
@@ -33,8 +34,8 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
           isselected
             ? styles.dateBtnContainerSelected
             : free
-              ? styles.dateBtnContainer
-              : styles.dateBtnContainerHover
+            ? styles.dateBtnContainer
+            : styles.dateBtnContainerHover
         }
         style={{
           "--date-width": `${DATE_WIDTH}vw`,
@@ -119,17 +120,18 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
           className={styles.dateWindow}
           style={{
             width: `${CALENDAR_WIDTH + 3 * WINDOW_OFFSET}vw`,
-            "margin-left": `${DATE_LEFT_MARGIN - 2 * WINDOW_OFFSET}vw`,
-            "padding-left": `${2 * WINDOW_OFFSET}vw`,
+            marginLeft: `${DATE_LEFT_MARGIN - 2 * WINDOW_OFFSET}vw`,
+            paddingLeft: `${2 * WINDOW_OFFSET}vw`,
           }}
         >
           <div
             className={styles.dateSlider}
             style={{
               width: `${SLIDER_WIDTH}vw`,
-              left: `-${((firstDate.getTime() - dates[0].date.getTime()) / DAY) *
+              left: `-${
+                ((firstDate.getTime() - dates[0].date.getTime()) / DAY) *
                 (DATE_WIDTH + DATE_MARGIN)
-                }vw`,
+              }vw`,
             }}
           >
             {(() => {
@@ -168,15 +170,17 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
           <div
             className={styles.cardsSlider}
             style={{
-              width: `${items.length * ITEM_WIDTH + (items.length - 1) * ITEM_MARGIN
-                }px`,
-              left: `-${items.filter(
-                (item) =>
-                  new Date(item.attributes.date).getTime() <
-                  selected.getTime()
-              ).length *
+              width: `${
+                items.length * ITEM_WIDTH + (items.length - 1) * ITEM_MARGIN
+              }px`,
+              left: `-${
+                items.filter(
+                  (item) =>
+                    new Date(item.attributes.date).getTime() <
+                    selected.getTime()
+                ).length *
                 (ITEM_WIDTH + ITEM_MARGIN)
-                }px`,
+              }px`,
             }}
           >
             {items.map((item, i) => (
@@ -185,6 +189,7 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
           </div>
         </div>
       </div>
+      <Separator />
     </>
   );
 }
