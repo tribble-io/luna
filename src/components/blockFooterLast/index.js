@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 
 import styles from "./block.module.scss";
 
@@ -68,4 +68,3 @@ export default function LastBlock() {
     </>
   );
 }
-

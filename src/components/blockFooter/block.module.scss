@@ -1,4 +1,7 @@
 .block1 {
+  width: var(--op-width);
+  margin: auto;
+
   padding-top: 60px;
   display: flex;
   flex-direction: row;
@@ -7,12 +10,10 @@
   margin-bottom: 40px;
 
   .group1 {
-    margin-left: 165px;
     height: 184px;
   }
 
   .item1 {
-
     a {
       font-family: "Montserrat", sans-serif;
       font-style: normal;
@@ -68,7 +69,7 @@
     height: 400px;
     position: absolute;
     top: 70%;
-    left: 89%;
+    right: 0;
 
     img {
       position: absolute;
@@ -77,3 +78,4 @@
     }
   }
 }
+
