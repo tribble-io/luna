@@ -10,6 +10,7 @@ import News from "./components/news";
 import Partners from "./components/partners";
 import Block from "./components/blockFooter";
 import LastBlock from "./components/blockFooterLast";
+import { OP_WIDTH } from "./consts";
 
 function App() {
   const [items, setItems] = React.useState([]);
@@ -51,7 +52,7 @@ function App() {
   );
 
   return (
-    <>
+    <div style={{ "--op-width": OP_WIDTH }}>
       <Header />
       <Nav />
       <Slider firstDate={firstDate} items={items} />
@@ -77,7 +78,7 @@ function App() {
         <hr />
         <LastBlock />
       </footer>
-    </>
+    </div>
   );
 }
 

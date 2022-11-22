@@ -1,6 +1,7 @@
 import React from "react";
 import Item from "../../components/items";
 import Separator from "../../components/separator";
+import { OP_WIDTH } from "../../consts";
 
 import styles from "./calendar.module.scss";
 const ARR_OFFSET = 7;
@@ -19,11 +20,10 @@ const SLIDER_WIDTH =
   DATE_LOAD_LENGTH * DATE_WIDTH + (DATE_LOAD_LENGTH - 1) * DATE_MARGIN;
 const DATE_LEFT_MARGIN = (100 - CALENDAR_WIDTH) / 2;
 
-const ITEM_WIDTH = 260;
-const ITEM_MARGIN = 30;
+const ITEM_WINDOW_WIDTH = OP_WIDTH;
 const CARDS_N = 4;
-
-const ITEM_WINDOW_WIDTH = CARDS_N * ITEM_WIDTH + (CARDS_N - 1) * ITEM_MARGIN;
+const ITEM_WIDTH = 260;
+const ITEM_MARGIN = (ITEM_WINDOW_WIDTH - CARDS_N * ITEM_WIDTH) / (CARDS_N - 1);
 
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
   const week = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
