@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 
 .wrapper {
-  padding-left: 12.5vw;
-  padding-right: 13vw;
+  width: var(--op-width);
+  margin: auto;
   justify-content: center;
   align-items: center;
 }

@@ -52,7 +52,7 @@ function App() {
   );
 
   return (
-    <div style={{ "--op-width": OP_WIDTH }}>
+    <div style={{ "--op-width": `${OP_WIDTH}px` }}>
       <Header />
       <Nav />
       <Slider firstDate={firstDate} items={items} />
