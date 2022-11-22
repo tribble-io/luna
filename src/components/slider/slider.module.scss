@@ -22,11 +22,10 @@
   justify-content: space-between;
 
   position: relative;
-  // width: 100vw;
+  width: var(--op-width);
+  margin: auto;
   height: 188px;
 
-  padding-left: 12.5vw;
-  padding-right: 13vw;
   top: 350px;
 
   .block1 {
@@ -160,17 +159,13 @@
   z-index: 2;
   position: relative;
   top: 250px;
-  // margin-left: 168px;
-  // margin-right: 164px;
-  // max-width: 100%;
-  width: 100vw;
+  width: var(--op-width);
+  margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
   h1 {
-    margin-left: 13vw;
-
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 600;
@@ -183,7 +178,6 @@
   .buttons {
     display: flex;
     flex-direction: row;
-    margin-right: 13vw;
 
     .post {
       background: #8b1313;
@@ -227,4 +221,3 @@
     }
   }
 }
-
