@@ -14,7 +14,8 @@ const SPONSORS = [
   { href: "https://bus.gov.ru/pub/info-card/137565?activeTab=3", img: "/img/sponsor/3.png" },
   { href: "https://historydepositarium.ru/", img: "/img/sponsor/6.jpeg" },
   { href: "https://grants.culture.ru/helpful_information/", img: "/img/sponsor/8.jpeg" },
-  { href: "http://www.lunatheatre.ru/pages/otkrytaya-informaciya", img: "/img/sponsor/9.png" }
+  { href: "http://www.lunatheatre.ru/pages/otkrytaya-informaciya", img: "/img/sponsor/9.png" },
+  { href: "", img: "" }
 ];
 
 export default function Partners() {
