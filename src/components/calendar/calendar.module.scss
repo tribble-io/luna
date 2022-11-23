@@ -27,7 +27,6 @@ $wk-font-size: 23px;
 }
 
 .dateWindow {
-  margin: auto;
   padding-top: 20px;
   padding-right: 15px;
   padding-left: 15px;
@@ -199,19 +198,16 @@ $wk-font-size: 23px;
 
 .rarr,
 .larr {
-  position: absolute;
+  margin: auto;
   margin-top: calc(1.3 * $strip-height);
   height: 23px;
   cursor: pointer;
 }
 
-$arr-margin: 15px;
-
 .rarr {
-  margin-left: $arr-margin;
+  margin-left: 0px;
 }
 
 .larr {
-  margin-right: $arr-margin;
+  margin-right: 0px;
 }
-

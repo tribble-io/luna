@@ -114,14 +114,11 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
           onClick={() => {
             moveDate(-ARR_OFFSET);
           }}
-          style={{
-            right: `${CALENDAR_WIDTH + DATE_LEFT_MARGIN}px`,
-          }}
         />
         <div
           className={styles.dateWindow}
           style={{
-            width: `${CALENDAR_WIDTH}px`,
+            width: `${CALENDAR_WIDTH - 53}px`,
           }}
         >
           <div
@@ -152,9 +149,6 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
           className={styles.rarr}
           onClick={() => {
             moveDate(ARR_OFFSET);
-          }}
-          style={{
-            left: `${CALENDAR_WIDTH + DATE_LEFT_MARGIN}px`,
           }}
         />
       </div>
