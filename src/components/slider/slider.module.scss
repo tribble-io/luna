@@ -62,7 +62,8 @@
 
     .premiere {
       width: 153px;
-      height: 45px;
+      padding-top: 9px;
+      padding-bottom: 9px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -74,8 +75,8 @@
         color: #cccccc;
         font-family: "Montserrat";
         font-style: normal;
-        font-weight: 700;
-        font-size: 22px;
+        font-weight: 600;
+        font-size: 18px;
         line-height: 27px;
 
         text-transform: uppercase;

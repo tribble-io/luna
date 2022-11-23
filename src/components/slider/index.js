@@ -29,15 +29,6 @@ const MONTHS = [
 ];
 
 export default function Slider({ items, firstDate }) {
-  function isPremiere(offer) {
-    if (offer.attributes.play.data.attributes.isPremiere) {
-      return (
-        <div className={styles.premiere}>
-          <a href={offer.webSite}>Премьера</a>
-        </div>
-      );
-    }
-  }
   return (
     <>
       <Swiper
@@ -70,7 +61,13 @@ export default function Slider({ items, firstDate }) {
                   <p className={styles.title}>
                     {offer.attributes.play.data.attributes.title}
                   </p>
-                  {isPremiere(offer)}
+                  {offer.attributes.play.data.attributes.isPremiere ? (
+                    <div className={styles.premiere}>
+                      <a href={offer.webSite}>Премьера</a>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
                 </div>
                 <div className={styles.block2}>
                   <p className={styles.date}>
