@@ -1,31 +1,32 @@
 import React from "react";
 import Item from "../../components/items";
 import Separator from "../../components/separator";
+import { OP_WIDTH } from "../../consts";
 
 import styles from "./calendar.module.scss";
 const ARR_OFFSET = 7;
 const DAY = 1000 * 60 * 60 * 24;
 
-const DATE_WIDTH = 3;
-const DATE_MARGIN = 1.8;
+const CALENDAR_WIDTH = OP_WIDTH; // 70
+const DATE_WIDTH = 43; // 3
 const DATE_NUMBER = 15;
+const DATE_MARGIN =
+  (CALENDAR_WIDTH - DATE_NUMBER * DATE_WIDTH) / (DATE_NUMBER - 1);
 
-const WINDOW_OFFSET = 0.37;
+// const WINDOW_OFFSET = 5.3;
 
 const DATE_LOAD_LENGTH = DATE_NUMBER + 20 * ARR_OFFSET;
-const CALENDAR_WIDTH =
-  DATE_NUMBER * DATE_WIDTH + (DATE_NUMBER - 1) * DATE_MARGIN;
+
 const SLIDER_WIDTH =
   DATE_LOAD_LENGTH * DATE_WIDTH + (DATE_LOAD_LENGTH - 1) * DATE_MARGIN;
-const DATE_LEFT_MARGIN = (100 - CALENDAR_WIDTH) / 2;
 
-const ITEM_WIDTH = 260;
-const ITEM_MARGIN = 30;
+const ITEM_WINDOW_WIDTH = OP_WIDTH;
 const CARDS_N = 4;
-
-const ITEM_WINDOW_WIDTH = CARDS_N * ITEM_WIDTH + (CARDS_N - 1) * ITEM_MARGIN;
+const ITEM_WIDTH = 260;
+const ITEM_MARGIN = (ITEM_WINDOW_WIDTH - CARDS_N * ITEM_WIDTH) / (CARDS_N - 1);
 
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
+  console.log(CALENDAR_WIDTH);
   const week = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
   return (
     <>
@@ -38,7 +39,7 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
             : styles.dateBtnContainerHover
         }
         style={{
-          "--date-width": `${DATE_WIDTH}vw`,
+          "--date-width": `${DATE_WIDTH}px`,
         }}
       >
         <img src="/img/calendar_luna.png" alt="" />
@@ -112,26 +113,21 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
           onClick={() => {
             moveDate(-ARR_OFFSET);
           }}
-          style={{
-            right: `${CALENDAR_WIDTH + DATE_LEFT_MARGIN}vw`,
-          }}
         />
         <div
           className={styles.dateWindow}
           style={{
-            width: `${CALENDAR_WIDTH + 3 * WINDOW_OFFSET}vw`,
-            marginLeft: `${DATE_LEFT_MARGIN - 2 * WINDOW_OFFSET}vw`,
-            paddingLeft: `${2 * WINDOW_OFFSET}vw`,
+            width: `${CALENDAR_WIDTH - 53}px`,
           }}
         >
           <div
             className={styles.dateSlider}
             style={{
-              width: `${SLIDER_WIDTH}vw`,
+              width: `${SLIDER_WIDTH}px`,
               left: `-${
                 ((firstDate.getTime() - dates[0].date.getTime()) / DAY) *
                 (DATE_WIDTH + DATE_MARGIN)
-              }vw`,
+              }px`,
             }}
           >
             {(() => {
@@ -152,9 +148,6 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
           className={styles.rarr}
           onClick={() => {
             moveDate(ARR_OFFSET);
-          }}
-          style={{
-            left: `${CALENDAR_WIDTH + DATE_LEFT_MARGIN}vw`,
           }}
         />
       </div>

@@ -22,17 +22,17 @@
   justify-content: space-between;
 
   position: relative;
-  // width: 100vw;
+  width: var(--op-width);
+  margin: auto;
   height: 188px;
 
-  padding-left: 12.5vw;
-  padding-right: 13vw;
   top: 350px;
 
   .block1 {
     justify-content: flex-end;
     display: flex;
     flex-direction: column;
+    width: 50%;
 
     .author {
       font-family: "Source Sans Pro", sans-serif;
@@ -62,7 +62,8 @@
 
     .premiere {
       width: 153px;
-      height: 45px;
+      padding-top: 9px;
+      padding-bottom: 9px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -74,8 +75,8 @@
         color: #cccccc;
         font-family: "Montserrat";
         font-style: normal;
-        font-weight: 700;
-        font-size: 22px;
+        font-weight: 600;
+        font-size: 18px;
         line-height: 27px;
 
         text-transform: uppercase;
@@ -160,17 +161,13 @@
   z-index: 2;
   position: relative;
   top: 250px;
-  // margin-left: 168px;
-  // margin-right: 164px;
-  // max-width: 100%;
-  width: 100vw;
+  width: var(--op-width);
+  margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
   h1 {
-    margin-left: 13vw;
-
     font-family: "Montserrat";
     font-style: normal;
     font-weight: 600;
@@ -183,7 +180,6 @@
   .buttons {
     display: flex;
     flex-direction: row;
-    margin-right: 13vw;
 
     .post {
       background: #8b1313;
@@ -227,4 +223,3 @@
     }
   }
 }
-

@@ -1,8 +1,8 @@
 .frame {
   padding-bottom: 60px;
 
-  padding-left: 12vw;
-  padding-right: 12vw;
+  width: var(--op-width);
+  margin: auto;
 
   .header {
     color: white;

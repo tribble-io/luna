@@ -2,9 +2,12 @@ import React from "react";
 
 import styles from "./block.module.scss";
 
-const social = ["tg_logo", "vk_logo", "rutube_logo"]
-const links = ["https://t.me/lunatheatre", "https://vk.com/teatr_luny", "https://rutube.ru/channel/26047198/"]
-
+const social = ["tg_logo", "vk_logo", "rutube_logo"];
+const links = [
+  "https://t.me/lunatheatre",
+  "https://vk.com/teatr_luny",
+  "https://rutube.ru/channel/26047198/",
+];
 
 export default function Block() {
   return (
@@ -34,9 +37,6 @@ export default function Block() {
         <div className={styles.group3}>
           <img src="/img/footer_logo.png" alt="" />
         </div>
-      </div>
-      <div className={styles.block2}>
-        <div className={styles.group2}></div>
       </div>
     </>
   );
