@@ -1,6 +1,6 @@
 .swiper {
   height: 800px;
-  max-width: 100%;
+  max-width: var(--op-width);
 }
 .wrapper {
   display: flex;

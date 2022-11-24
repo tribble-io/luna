@@ -8,7 +8,9 @@
 .slide {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   cursor: pointer;
+  height: 100%;
 }
 
 .swiper {
@@ -22,24 +24,20 @@
   justify-content: space-between;
 
   position: relative;
-  width: var(--op-width);
-  margin: auto;
-  height: 188px;
-
-  top: 350px;
+  margin-top: 17%;
 
   .block1 {
     justify-content: flex-end;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 70%;
+    margin-left: 50px;
 
     .author {
       font-family: "Source Sans Pro", sans-serif;
       font-style: italic;
       font-weight: 400;
-      font-size: 40.3472px;
-      line-height: 51px;
+      font-size: 40px;
 
       text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 
@@ -93,6 +91,7 @@
     height: 188px;
     background: #15141e;
     padding: 0 10px;
+    margin-right: 50px;
 
     align-items: center;
 
@@ -136,8 +135,6 @@
   height: 250px;
   filter: blur(20px);
   transform: matrix(1, 0, 0, -1, 0, 0);
-  margin-right: 50px;
-  padding-right: 20px;
 
   .overlay {
     width: 100%;
@@ -148,21 +145,21 @@
 }
 
 .blurContainer {
-  position: relative;
-  top: 440px;
-  margin-top: -50;
-  width: 120%;
-  left: -150px;
-  height: 250px;
+  position: absolute;
+  bottom: -20px;
+  right: -40px;
+  left: -40px;
+
+  height: 200px;
   overflow: hidden;
 }
 
 .startCalendarText {
   z-index: 2;
   position: relative;
-  top: 250px;
-  width: var(--op-width);
-  margin: auto;
+  margin-bottom: 50px;
+  padding-right: 40px;
+  padding-left: 40px; 
   display: flex;
   flex-direction: row;
   justify-content: space-between;

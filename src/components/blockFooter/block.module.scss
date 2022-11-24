@@ -1,5 +1,6 @@
 .block1 {
-  width: var(--op-width);
+  max-width: var(--op-width);
+  width: 100%;
   margin: auto;
 
   padding-top: 60px;

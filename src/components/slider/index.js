@@ -45,8 +45,8 @@ export default function Slider({ items, firstDate }) {
           <SwiperSlide
             key={offer.id}
             style={{
-              background: `url('http://theatre.restomatik.ru:1337${offer.attributes.play.data.attributes.cover.data.attributes.url}')no-repeat center`,
-              backgroundColor: "#000000",
+              background: `url('http://theatre.restomatik.ru:1337${offer.attributes.play.data.attributes.cover.data.attributes.url}') no-repeat center / cover`,
+              backgroundColor: "#15141e",
             }}
           >
             <div className={styles.slide}>
@@ -87,8 +87,7 @@ export default function Slider({ items, firstDate }) {
                 <div
                   className={styles.startCalendar}
                   style={{
-                    background: `url('http://theatre.restomatik.ru:1337${offer.attributes.play.data.attributes.cover.data.attributes.url}')no-repeat center `,
-                    backgroundSize: "cover",
+                    background: `url('http://theatre.restomatik.ru:1337${offer.attributes.play.data.attributes.cover.data.attributes.url}')no-repeat bottom / cover`,
                   }}
                 >
                   <div className={styles.overlay}></div>

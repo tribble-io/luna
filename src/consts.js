@@ -1,1 +1,1 @@
-export const OP_WIDTH = 1130;
+export const OP_WIDTH = 1300;

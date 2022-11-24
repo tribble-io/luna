@@ -1,6 +1,10 @@
 .header_top {
+  max-width: var(--op-width);
   width: 100%;
+  margin: auto;
   height: 200px;
+
+  position: relative;
 
   display: flex;
   align-items: center;
@@ -51,7 +55,7 @@
   flex-direction: row;
   position: absolute;
   top: 37px;
-  left: 74px;
+  left: 20px;
 }
 
 .header_info_blind {
@@ -59,7 +63,7 @@
   flex-direction: row;
   position: absolute;
   top: 121px;
-  left: 76px;
+  left: 20px;
 }
 
 .header_info_text {
