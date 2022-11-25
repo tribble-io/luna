@@ -1,7 +1,23 @@
 .swiper {
-  height: 800px;
-  max-width: var(--op-width);
+  height: 1100px;
+  width: 100%;
+  padding-bottom: 200px;
 }
+
+@media (max-width: 1024px) {
+  .swiper {
+    height: 800px;
+    padding-bottom: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .swiper {
+    height: 600px;
+    padding-bottom: 150px;
+  }
+}
+
 .wrapper {
   display: flex;
   flex-direction: row;

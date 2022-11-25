@@ -1,15 +1,14 @@
 import React from "react";
 import Item from "../../components/items";
 import Separator from "../../components/separator";
-import { OP_WIDTH } from "../../consts";
 
 import styles from "./calendar.module.scss";
 const ARR_OFFSET = 7;
 const DAY = 1000 * 60 * 60 * 24;
 
-const CALENDAR_WIDTH = OP_WIDTH; // 70
+const CALENDAR_WIDTH = window.screen.width;
 const DATE_WIDTH = 43; // 3
-const DATE_NUMBER = 15;
+const DATE_NUMBER = CALENDAR_WIDTH > 573 ? 15 : 8;
 const DATE_MARGIN =
   (CALENDAR_WIDTH - DATE_NUMBER * DATE_WIDTH) / (DATE_NUMBER - 1);
 
@@ -20,13 +19,12 @@ const DATE_LOAD_LENGTH = DATE_NUMBER + 20 * ARR_OFFSET;
 const SLIDER_WIDTH =
   DATE_LOAD_LENGTH * DATE_WIDTH + (DATE_LOAD_LENGTH - 1) * DATE_MARGIN;
 
-const ITEM_WINDOW_WIDTH = OP_WIDTH;
-const CARDS_N = 4;
+const ITEM_WINDOW_WIDTH = window.screen.width;
 const ITEM_WIDTH = 260;
+const CARDS_N = Math.floor(ITEM_WINDOW_WIDTH / ITEM_WIDTH);
 const ITEM_MARGIN = (ITEM_WINDOW_WIDTH - CARDS_N * ITEM_WIDTH) / (CARDS_N - 1);
 
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
-  console.log(CALENDAR_WIDTH);
   const week = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
   return (
     <>
@@ -152,14 +150,7 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
         />
       </div>
       <div className={styles.cardsWindowContainer}>
-        <div
-          className={styles.cardsWindow}
-          style={{
-            width: `${ITEM_WINDOW_WIDTH}px`,
-            paddingLeft: `${(ITEM_MARGIN * 2) / 3}px`,
-            paddingRight: `${(ITEM_MARGIN * 2) / 3}px`,
-          }}
-        >
+        <div className={styles.cardsWindow}>
           <div
             className={styles.cardsSlider}
             style={{

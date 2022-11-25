@@ -1,9 +1,9 @@
-.frame {
-  padding-bottom: 60px;
+@import "../../utils/mixins.scss";
 
-  max-width: var(--op-width);
-  width: 100%;
-  margin: auto;
+.frame {
+  @include container;
+
+  padding-bottom: 60px;
 
   .header {
     color: white;
@@ -11,6 +11,12 @@
     font-family: "Montserrat";
     font-weight: 500;
     font-size: 50px;
+
+    @media (max-width: 1200px) {
+      font-size: 40px;
+      line-height: normal;
+      margin-bottom: 50px;
+    }
   }
 
   .sponsors {
@@ -22,7 +28,6 @@
     list-style: none;
     align-items: center;
     max-height: 100%;
-    margin-bottom: 17px;
 
     img {
       width: auto;

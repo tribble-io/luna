@@ -35,16 +35,12 @@ function Nav() {
             className={styles.moon_logo}
             src="/img/moon_logo.png"
             alt=""
-            width="227px"
-            height="241px"
           />
           <img
             className={styles.text_logo}
             id={"href"}
             src="/img/text_logo.png"
             alt=""
-            width="260px"
-            height="175px"
           />
         </div>
       </div>

@@ -18,8 +18,7 @@ function Header() {
           <img className={styles.header_info_icon}
           src="/img/header-gov.png"
           alt=""
-          width="44px"
-          height="52px">
+          >
           </img>
           <div className={styles.header_info_text}>
             Департамент культуры <br/> города Москвы
@@ -35,6 +34,17 @@ function Header() {
           <a href="#" className={styles.header_info_text}>
             Версия для <br/> слабовидящих
           </a>
+        </div>
+        <div className={styles.mobileLogo}>
+        <img
+            className={styles.mobileLogoImg}
+            id={"href"}
+            src="/img/logo.png"
+            alt=""
+          />
+        </div>
+        <div className={styles.mobileMenu}>
+          <div className={styles.mobileMenuIcon}></div>
         </div>
       </div>
     </header>

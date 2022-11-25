@@ -5,10 +5,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 
+@import "../../utils/mixins.scss";
+
 .slide {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   cursor: pointer;
   height: 100%;
 }
@@ -19,19 +21,28 @@
 }
 
 .wrapper {
+  @include container;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 
   position: relative;
-  margin-top: 17%;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 
   .block1 {
     justify-content: flex-end;
     display: flex;
     flex-direction: column;
     width: 70%;
-    margin-left: 50px;
+
+    @media (max-width: 1024px) {
+      width: auto;
+    }
 
     .author {
       font-family: "Source Sans Pro", sans-serif;
@@ -42,6 +53,12 @@
       text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 
       color: #ffffff;
+
+      @media (max-width: 1024px) {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+    
     }
 
     .title {
@@ -56,6 +73,11 @@
       text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 
       color: #ffffff;
+      @media (max-width: 1024px) {
+        font-size: 30px;
+        line-height: normal;
+        margin-bottom: 20px;
+      }
     }
 
     .premiere {
@@ -69,6 +91,14 @@
       background-color: #201e32;
       box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
 
+      @media (max-width: 1024px) {
+        background-color: transparent;
+        width: auto;
+        box-shadow: unset;
+        display: block;
+        padding-top: 0;
+      }
+
       a {
         color: #cccccc;
         font-family: "Montserrat";
@@ -79,6 +109,11 @@
 
         text-transform: uppercase;
         text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+
+        @media (max-width: 1024px) {
+          color: #FAE88C;
+          text-shadow: unset;
+        }
       }
     }
   }
@@ -90,10 +125,12 @@
 
     height: 188px;
     background: #15141e;
-    padding: 0 10px;
-    margin-right: 50px;
-
+    padding: 0 15px;
     align-items: center;
+
+    @media (max-width: 1024px) {
+      height: 100px;
+    }
 
     .date {
       font-family: "Mohave";
@@ -103,6 +140,10 @@
       line-height: 93px;
       text-align: center;
       color: #cccccc;
+      @media (max-width: 1024px) {
+        font-size: 30px;
+        line-height: normal;
+      }
     }
 
     .month {
@@ -114,7 +155,12 @@
       text-align: center;
       text-transform: uppercase;
 
-      color: #ffffff;
+      color: #ffffff;      
+      
+      @media (max-width: 1024px) {
+        font-size: 16px;
+        line-height: normal;
+      }
     }
 
     a {
@@ -126,42 +172,68 @@
 
       text-decoration-line: underline;
       color: #ffffff;
+      @media (max-width: 1024px) {
+        display: none;
+      }
     }
+  }
+}
+
+.bottomBlock {
+  position: absolute;
+  bottom: -200px;
+  left: 0;
+  right: 0;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  
+  @media (max-width: 1024px) {
+    height: 150px;
+    bottom: -150px;
   }
 }
 
 .startCalendar {
   width: 100%;
-  height: 250px;
+  height: 200px;
   filter: blur(20px);
   transform: matrix(1, 0, 0, -1, 0, 0);
 
+  @media (max-width: 1024px) {
+    height: 150px;
+  }
+
   .overlay {
     width: 100%;
-    height: 300px;
+    height: 200px;
     background: #0f0d1a;
     opacity: 0.8;
+
+    @media (max-width: 1024px) {
+      height: 150px;
+    }
   }
 }
 
 .blurContainer {
   position: absolute;
-  bottom: -20px;
-  right: -40px;
-  left: -40px;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 100%;
 
-  height: 200px;
   overflow: hidden;
 }
 
 .startCalendarText {
+  @include container;
   z-index: 2;
   position: relative;
-  margin-bottom: 50px;
-  padding-right: 40px;
-  padding-left: 40px; 
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 
   h1 {
@@ -172,11 +244,19 @@
     line-height: 66px;
 
     color: white;
+    @media (max-width: 1024px) {
+      font-size: 30px;
+      line-height: normal;
+    }
   }
 
   .buttons {
     display: flex;
     flex-direction: row;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
 
     .post {
       background: #8b1313;

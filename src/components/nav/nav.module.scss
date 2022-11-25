@@ -1,3 +1,5 @@
+@import "../../utils/mixins.scss";
+
 nav {
   position: sticky;
   top: 0;
@@ -11,11 +13,14 @@ nav {
 
   box-shadow: 0px 1px 0px #000000;
 
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
   .wrapper {
-    max-width: var(--op-width);
-    width: 100%;
+    @include container;
+
     height: 100%;
-    margin: auto;
 
     display: flex;
     flex-direction: row;
@@ -54,6 +59,10 @@ nav {
     .logoContainer {
       width: 420px;
 
+      @media (max-width: 1200px) {
+        width: 220px;
+      }
+
       .back_elipse {
         position: absolute;
         z-index: 2;
@@ -61,15 +70,36 @@ nav {
         width: 241px;
         background-color: #13132d;
         border-radius: 50%;
-        margin-top: -178px;
-        right: 20px;
+        bottom: 0;
+        right: 0;
+
+        @media (min-width: 1600px) {
+          right: -5%;
+        }
+
+        @media (max-width: 1200px) {
+          height: 150px;
+          width: 150px;
+        }
       }
 
       .moon_logo {
         position: absolute;
         z-index: 3;
-        margin-top: -178px;
-        right: 20px;
+        bottom: 0;
+        right: 0;
+        width: 227px;
+        height: 241px;
+        
+        @media (min-width: 1600px) {
+          right: -5%;
+        }
+
+        @media (max-width: 1200px) {
+          height: 150px;
+          width: 150px;
+          margin-top: -150px;
+        }
       }
 
       .moon_logo:hover {
@@ -97,9 +127,21 @@ nav {
       .text_logo {
         position: absolute;
         z-index: 3;
+        width: 260px;
+        height: 175px;
 
-        margin-top: -158px;
+        bottom: 50px;
         right: 100px;
+        
+        @media (min-width: 1600px) {
+          right: 3%;
+        }
+        @media (max-width: 1200px) {
+          width: auto;
+          height: 90px;
+          right: 70px;
+          bottom: 30px;
+        } 
       }
     }
   }

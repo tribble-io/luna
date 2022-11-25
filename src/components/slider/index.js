@@ -45,7 +45,7 @@ export default function Slider({ items, firstDate }) {
           <SwiperSlide
             key={offer.id}
             style={{
-              background: `url('http://theatre.restomatik.ru:1337${offer.attributes.play.data.attributes.cover.data.attributes.url}') no-repeat center / cover`,
+              background: `url('http://theatre.restomatik.ru:1337${offer.attributes.play.data.attributes.cover.data.attributes.url}') no-repeat top / cover`,
               backgroundColor: "#15141e",
             }}
           >
@@ -83,6 +83,7 @@ export default function Slider({ items, firstDate }) {
                   </div>
                 </div>
               </div>
+              <div className={styles.bottomBlock}>
               <div className={styles.blurContainer}>
                 <div
                   className={styles.startCalendar}
@@ -108,6 +109,7 @@ export default function Slider({ items, firstDate }) {
                   </a>
                 </div>
               </div>
+            </div>
             </div>
           </SwiperSlide>
         ))}

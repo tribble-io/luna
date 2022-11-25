@@ -96,19 +96,16 @@
 
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
 
     .place {
       color: var(--text-color);
-      height: 100%;
-      width: 30%;
+      width: 80px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-
-      padding-left: 10%;
-      padding-right: 10%;
 
       font-family: "Roboto";
       font-size: 16px;
@@ -116,28 +113,14 @@
     }
 
     .buy {
-      height: 100%;
-      width: 40%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding-left: 5%;
-      padding-right: 5%;
 
       .link {
         background-color: #6f1616;
         border: 0;
-        padding: 5px;
+        padding: 5px 10px;  
+        display: inline-block;  
 
         width: 100%;
-        height: 50%;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
 
         color: #bbbbbb;
         font-family: "Montserrat";
