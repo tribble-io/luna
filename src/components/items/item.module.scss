@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@535;400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import "../../utils/fonts.scss";
 
 .mainBlock {
   height: 472px;
@@ -11,6 +9,7 @@
   flex-direction: column;
   background: linear-gradient(180deg, #191823 0%, #333643 6.25%, #161520 100%);
   padding: 0;
+  margin: 0 auto;
 
   box-shadow: 0px 0px 10px;
 
@@ -112,22 +111,18 @@
       font-weight: 400;
     }
 
-    .buy {
+    .buy .link {
+      background-color: #6f1616;
+      border: 0;
+      padding: 5px 10px;
+      display: inline-block;
 
-      .link {
-        background-color: #6f1616;
-        border: 0;
-        padding: 5px 10px;  
-        display: inline-block;  
+      width: 100%;
 
-        width: 100%;
-
-        color: #bbbbbb;
-        font-family: "Montserrat";
-        font-size: 18px;
-        font-weight: 700;
-      }
+      color: #bbbbbb;
+      font-family: "Montserrat";
+      font-size: 18px;
+      font-weight: 700;
     }
   }
 }
-

@@ -10,8 +10,6 @@ function cutToLength(s, l) {
   const words = s.split(" ");
   let i = 1;
 
-  console.log(words);
-
   while (words.slice(0, i).join(" ").length < l) {
     i += 1;
 
@@ -46,7 +44,7 @@ export default function News({ itemsNews /*setItemsNews*/ }) {
       <div className={styles.wrapper}>
         <div className={styles.header}>
           <div className={styles.title}>
-            <p>НОВОСТИ ТЕАТРА</p>
+            <p>НОВОСТИ <br className={styles.mobileVisible}/> ТЕАТРА</p>
           </div>
           <a href="http://www.lunatheatre.ru/news">
             <div className={styles.btn}>
@@ -107,6 +105,9 @@ export default function News({ itemsNews /*setItemsNews*/ }) {
             })}
           </div>
         )}
+        <div className={styles.mobileButton}>
+          <a href="http://www.lunatheatre.ru/news">ЧИТАТЬ ВСЕ</a>
+        </div>
       </div>
       <Separator />
     </>

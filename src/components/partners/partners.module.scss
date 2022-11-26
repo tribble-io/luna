@@ -17,6 +17,13 @@
       line-height: normal;
       margin-bottom: 50px;
     }
+    
+    .mobileVisible {
+      display: none;
+      @media (max-width: 576px) {
+        display: block;
+      }
+    }
   }
 
   .sponsors {

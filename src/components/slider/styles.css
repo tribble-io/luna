@@ -1,20 +1,25 @@
-.swiper {
-  height: 1100px;
+.mySwiper {
+  height: 800px;
   width: 100%;
   padding-bottom: 200px;
 }
 
-@media (max-width: 1024px) {
-  .swiper {
-    height: 800px;
+@media (max-width: 770px) {
+  .mySwiper {
     padding-bottom: 150px;
   }
 }
 
 @media (max-width: 576px) {
-  .swiper {
+  .mySwiper {
     height: 600px;
     padding-bottom: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mySwiper {
+    padding-bottom: 100px;
   }
 }
 

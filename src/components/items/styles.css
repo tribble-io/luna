@@ -1,0 +1,9 @@
+.posterSlider {
+  padding: 70px 10px 40px;
+}
+
+@media(max-width: 576px) {
+ .posterSlider {
+  padding-top: 40px;
+ }
+}

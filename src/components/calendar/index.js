@@ -19,11 +19,6 @@ const DATE_LOAD_LENGTH = DATE_NUMBER + 20 * ARR_OFFSET;
 const SLIDER_WIDTH =
   DATE_LOAD_LENGTH * DATE_WIDTH + (DATE_LOAD_LENGTH - 1) * DATE_MARGIN;
 
-const ITEM_WINDOW_WIDTH = window.screen.width;
-const ITEM_WIDTH = 260;
-const CARDS_N = Math.floor(ITEM_WINDOW_WIDTH / ITEM_WIDTH);
-const ITEM_MARGIN = (ITEM_WINDOW_WIDTH - CARDS_N * ITEM_WIDTH) / (CARDS_N - 1);
-
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
   const week = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
   return (
@@ -150,27 +145,9 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
         />
       </div>
       <div className={styles.cardsWindowContainer}>
-        <div className={styles.cardsWindow}>
-          <div
-            className={styles.cardsSlider}
-            style={{
-              width: `${
-                items.length * ITEM_WIDTH + (items.length - 1) * ITEM_MARGIN
-              }px`,
-              left: `-${
-                items.filter(
-                  (item) =>
-                    new Date(item.attributes.date).getTime() <
-                    selected.getTime()
-                ).length *
-                (ITEM_WIDTH + ITEM_MARGIN)
-              }px`,
-            }}
-          >
-            {items.map((item, i) => (
-              <Item key={i} item={item} width={ITEM_WIDTH} />
-            ))}
-          </div>
+        <Item items={items} />
+        <div className={styles.mobileButton}>
+          <a href={"http://www.lunatheatre.ru/shows"}>все спектакли</a>
         </div>
       </div>
       <Separator />

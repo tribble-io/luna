@@ -1,11 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Mohave&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300;1,400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital@1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 
 @import "../../utils/mixins.scss";
+@import "../../utils/fonts.scss";
 
 .slide {
   display: flex;
@@ -28,10 +26,17 @@
 
   position: relative;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 576px) {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+  }
+
+  @media (max-width: 576px) {
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-around;
   }
 
   .block1 {
@@ -40,7 +45,7 @@
     flex-direction: column;
     width: 70%;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 576px) {
       width: auto;
     }
 
@@ -54,11 +59,10 @@
 
       color: #ffffff;
 
-      @media (max-width: 1024px) {
+      @media (max-width: 576px) {
         font-size: 14px;
         margin-bottom: 10px;
       }
-    
     }
 
     .title {
@@ -73,7 +77,7 @@
       text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 
       color: #ffffff;
-      @media (max-width: 1024px) {
+      @media (max-width: 576px) {
         font-size: 30px;
         line-height: normal;
         margin-bottom: 20px;
@@ -91,7 +95,7 @@
       background-color: #201e32;
       box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
 
-      @media (max-width: 1024px) {
+      @media (max-width: 576px) {
         background-color: transparent;
         width: auto;
         box-shadow: unset;
@@ -110,8 +114,8 @@
         text-transform: uppercase;
         text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 
-        @media (max-width: 1024px) {
-          color: #FAE88C;
+        @media (max-width: 576px) {
+          color: #fae88c;
           text-shadow: unset;
         }
       }
@@ -128,7 +132,7 @@
     padding: 0 15px;
     align-items: center;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 576px) {
       height: 100px;
     }
 
@@ -140,7 +144,7 @@
       line-height: 93px;
       text-align: center;
       color: #cccccc;
-      @media (max-width: 1024px) {
+      @media (max-width: 576px) {
         font-size: 30px;
         line-height: normal;
       }
@@ -155,9 +159,9 @@
       text-align: center;
       text-transform: uppercase;
 
-      color: #ffffff;      
-      
-      @media (max-width: 1024px) {
+      color: #ffffff;
+
+      @media (max-width: 576px) {
         font-size: 16px;
         line-height: normal;
       }
@@ -172,9 +176,32 @@
 
       text-decoration-line: underline;
       color: #ffffff;
-      @media (max-width: 1024px) {
+      @media (max-width: 576px) {
         display: none;
       }
+    }
+  }
+
+  .mobileButton {
+    display: block;
+    max-width: 300px;
+    width: 100%;
+    background-color: #15141e;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+  
+    @media (min-width: 576px) {
+      display: none;
+    }
+    a {
+      display: block;
+      width: 100%;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 15px;
+      text-transform: uppercase;
     }
   }
 }
@@ -188,10 +215,15 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  
-  @media (max-width: 1024px) {
+
+  @media (max-width: 770px) {
     height: 150px;
     bottom: -150px;
+  }
+
+  @media (max-width: 576px) {
+    height: 100px;
+    bottom: -100px;
   }
 }
 
@@ -201,8 +233,11 @@
   filter: blur(20px);
   transform: matrix(1, 0, 0, -1, 0, 0);
 
-  @media (max-width: 1024px) {
+  @media (max-width: 770px) {
     height: 150px;
+  }
+  @media (max-width: 576px) {
+    height: 100px;
   }
 
   .overlay {
@@ -211,8 +246,11 @@
     background: #0f0d1a;
     opacity: 0.8;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 770px) {
       height: 150px;
+    }
+    @media (max-width: 576px) {
+      height: 100px;
     }
   }
 }
@@ -244,7 +282,7 @@
     line-height: 66px;
 
     color: white;
-    @media (max-width: 1024px) {
+    @media (max-width: 576px) {
       font-size: 30px;
       line-height: normal;
     }
@@ -254,7 +292,7 @@
     display: flex;
     flex-direction: row;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 576px) {
       display: none;
     }
 

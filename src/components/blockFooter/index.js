@@ -23,11 +23,6 @@ export default function Block() {
               Понедельник–Воскресенье 12:00– 19:30 <br /> Перерыв 15:00–16.00
             </p>
           </div>
-          <div className={styles.item2_mobile}>
-            <p>
-              Пн–Вс 12:00– 19:30 <br /> Перерыв 15:00–16.00
-            </p>
-          </div>
         </div>
         <div className={styles.group2}>
           <div className={styles.item1}>

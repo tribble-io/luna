@@ -77,7 +77,6 @@ function App() {
       </main>
       <footer>
         <Block />
-        <hr />
         <LastBlock />
       </footer>
     </div>

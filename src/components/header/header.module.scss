@@ -1,35 +1,37 @@
 @import "../../utils/mixins.scss";
 
 .header_top {
-  max-width: 90%;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
-  height: 200px;
-
+  height: 100px;
   position: relative;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  background-image: url("./gerasimov.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 53% center;
-
-  @media (max-width: 1200px) {
-    background-position: 100% center;
+  @media (min-width: 500px) {
+    max-width: 90%;
   }
-  @media (max-width: 1024px) {
-    height: 150px;
-    background-image: none;
-    background-position: unset;
-    padding-top: 10px;
-    padding-bottom: 10px;
+
+  @media (min-width: 770px) {
+    background-image: url("./gerasimov.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 120% center;
+    height: 200px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @media (min-width: 1200px) {
+    background-position: 53% center;
   }
 }
 
@@ -71,7 +73,7 @@
   position: absolute;
   top: 37px;
   left: 20px;
-  @media (max-width: 1024px) {
+  @media (max-width: 770px) {
     position: relative;
     top: unset;
     left: unset;
@@ -85,6 +87,9 @@
       width: 70px;
       height: auto;
     }
+    @media (max-width: 1024px) {
+      width: 40px;
+    }
   }
 }
 
@@ -94,7 +99,7 @@
   position: absolute;
   top: 121px;
   left: 20px;
-  @media (max-width: 1024px) {
+  @media (max-width: 769px) {
     display: none;
   }
 }
@@ -108,7 +113,7 @@
   text-decoration: none;
   margin-left: 21px;
   color: #ececec;
-  @media (max-width: 1024px) {
+  @media (max-width: 770px) {
     display: none;
   }
 }
@@ -119,7 +124,7 @@
   width: 50px;
   height: 50px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 770px) {
     display: block;
   }
 
@@ -196,10 +201,10 @@
 }
 
 .mobileLogo {
-  display: none;
+  display: block;
 
-  @media (max-width: 1024px) {
-    display: block;
+  @media (min-width: 770px) {
+   display: none;
   }
 
   img {
