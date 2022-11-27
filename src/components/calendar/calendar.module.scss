@@ -59,6 +59,7 @@ $wk-font-size: 23px;
   // transition: left 1s;
   transition: opacity 0.5s ease-in-out, left 0.5s ease-in-out;
   z-index: 1;
+  position: relative;
 
   img {
     position: absolute;
@@ -74,9 +75,9 @@ $wk-font-size: 23px;
 
     @media (max-width: 768px) {
       width: auto;
-      height: $strip-height * 1.5;
-      margin-top: calc(0px - ($moon-size - $strip-height) / 4);
-      margin-left: calc(2px - ($moon-size - $date-width) / 4);
+      height: 55px;
+      margin-top: -10px;
+      margin-left: -10%;
     }
   }
 }
@@ -150,6 +151,7 @@ $wk-font-size: 23px;
 .dateBtnContainerHover > .dateContainer > .dateNum,
 .dateBtnContainerSelected > .dateContainer > .dateNum {
   color: #eeeeee;
+  cursor: pointer;
 }
 
 .dateBtnContainer > .dateContainer,
@@ -165,7 +167,11 @@ $wk-font-size: 23px;
   height: $ndate-height;
   @media (max-width: 768px) {
     font-size: 32px;
+    width: calc($ndate-width * 1.3);
     height: calc($ndate-height / 1.3);
+  }
+  @media (max-width: 576px) {
+    margin-bottom: 15px;
   }
 }
 

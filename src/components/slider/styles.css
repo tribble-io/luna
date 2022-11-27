@@ -1,8 +1,6 @@
 .mySwiper {
-  height: var(--mySwiper-height, 800px) ;
   width: 100%;
   padding-bottom: 200px;
-  box-sizing: content-box;
 }
 
 @media (max-width: 770px) {
@@ -24,4 +22,14 @@
 
 .swiper-slide {
   -webkit-transform: translate3d(0, 0, 0);
+  min-height: 44vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .swiper-slide {
+    min-height: 500px;
+  }
 }

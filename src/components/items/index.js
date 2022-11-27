@@ -57,12 +57,14 @@ export default function Item({ items }) {
     const resultSlidesAmount = checkMargin >= 25 ? slidesAmount : (slidesAmount > 1) ? slidesAmount - 1 : slidesAmount;
     // Return amount of slides and margint for each slide
     return {
-      slidesPerView: resultSlidesAmount, 
-      spaceBetween: resultSlidesAmount > 3 ? checkMargin : 30, 
-      autoplay: (window.screen.width > 768) ? false : {delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true}
+      slidesPerView: window.screen.width > 576 ? resultSlidesAmount : 'auto', 
+      spaceBetween: resultSlidesAmount > 3 ? checkMargin : 10, 
+      autoplay: (window.screen.width > 768) ? false : {delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true},
+      centeredSlides: window.screen.width > 576 ? false : true
     };
   }
-  const {slidesPerView, spaceBetween, autoplay} = checkSlides();
+  const {slidesPerView, spaceBetween, autoplay, centeredSlides} = checkSlides();
+  console.log(checkSlides())
 
   function itemCheckDate(item) {
     return new Date(item.attributes.date)
@@ -74,7 +76,7 @@ export default function Item({ items }) {
 
   return (
     <>
-      <Swiper slidesPerView={slidesPerView} spaceBetween={spaceBetween} autoplay={autoplay ? autoplay : false} modules={[Autoplay]} className="posterSlider" ref={ref}>
+      <Swiper slidesPerView={slidesPerView} centeredSlides={centeredSlides} spaceBetween={spaceBetween} autoplay={autoplay ? autoplay : false} modules={[Autoplay]} className="posterSlider" ref={ref}>
         {items.map((item) => (
           <SwiperSlide key={item.id}>
             <div
@@ -102,11 +104,18 @@ export default function Item({ items }) {
                   className={styles.curtain}
                 />
                 <div className={styles.mid}>
-                  <div className={styles.date}>
-                    {itemCheckDate(item).getDate()}.{itemCheckDate(item).getMonth()}
-                  </div>
-                  <div className={styles.time}>
-                    {item.attributes.time.slice(0, 5)}
+                  <div className={styles.dateTimeContainer}>
+                    <div className={styles.date}>
+                      {itemCheckDate(item).getDate()}.{itemCheckDate(item).getMonth() + 1}
+                       <img
+                  src="/img/moon_poster.png"
+                  alt=""
+                  className={styles.moonPoster}
+                />
+                    </div>
+                    <div className={styles.time}>
+                      {item.attributes.time.slice(0, 5)}
+                    </div>
                   </div>
                   <div className={styles.title}>
                     {item.attributes.play.data.attributes.title}
