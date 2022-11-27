@@ -29,6 +29,8 @@ const MONTHS = [
 ];
 
 export default function Slider({ items, firstDate }) {
+  const WINDOW_SCREEN = window.screen.width;
+  const MY_SWIPER_HEIGHT = WINDOW_SCREEN > 576 ? Math.floor(WINDOW_SCREEN / 2.3) : 500;
   return (
     <>
       <Swiper
@@ -40,6 +42,9 @@ export default function Slider({ items, firstDate }) {
         }}
         modules={[EffectFade, Autoplay]}
         className="mySwiper"
+        style={{
+          "--mySwiper-height": `${MY_SWIPER_HEIGHT}px`,
+        }}
       >
         {items.map((offer) => (
           <SwiperSlide

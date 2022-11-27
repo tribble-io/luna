@@ -64,8 +64,6 @@ export default function Item({ items }) {
   }
   const {slidesPerView, spaceBetween, autoplay} = checkSlides();
 
-  console.log(checkSlides(), 'checkSlides')
-
   function itemCheckDate(item) {
     return new Date(item.attributes.date)
   }
