@@ -14,24 +14,24 @@ nav {
 
   box-shadow: 0px 1px 0px #000000;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 770px) {
     display: none;
   }
 
   .wrapper {
-    @include container;
-
+    max-width: 90%;
     height: 100%;
 
     display: flex;
     flex-direction: row;
     position: relative;
+    gap: 10px;
 
     padding-left: 30px;
     box-sizing: border-box;
 
     ul {
-      flex: 1;
+      @include container;
 
       display: flex;
       justify-content: space-between;
@@ -58,91 +58,19 @@ nav {
     }
 
     .logoContainer {
-      width: 420px;
+      width: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
 
       @media (max-width: 1200px) {
-        width: 220px;
+        width: 200px;
       }
 
-      .back_elipse {
-        position: absolute;
-        z-index: 2;
-        height: 241px;
-        width: 241px;
-        background-color: #13132d;
-        border-radius: 50%;
-        bottom: 0;
-        right: 0;
-
-        @media (min-width: 1600px) {
-          right: -5%;
-        }
-
-        @media (max-width: 1200px) {
-          height: 150px;
-          width: 150px;
-        }
-      }
-
-      .moon_logo {
-        position: absolute;
-        z-index: 3;
-        bottom: 0;
-        right: 0;
-        width: 227px;
-        height: 241px;
-        
-        @media (min-width: 1600px) {
-          right: -5%;
-        }
-
-        @media (max-width: 1200px) {
-          height: 150px;
-          width: 150px;
-          margin-top: -150px;
-        }
-      }
-
-      .moon_logo:hover {
-        animation: swing 2s 1 ease-out;
-      }
-
-      @keyframes swing {
-        0%,
-        100% {
-          transform: rotate(0deg);
-        }
-
-        10%,
-        50%,
-        90% {
-          transform: rotate(20deg);
-        }
-
-        30%,
-        70% {
-          transform: rotate(-20deg);
-        }
-      }
-
-      .text_logo {
-        position: absolute;
-        z-index: 3;
-        width: 260px;
-        height: 175px;
-
-        bottom: 50px;
-        right: 100px;
-        
-        @media (min-width: 1600px) {
-          right: 3%;
-        }
-        @media (max-width: 1200px) {
-          width: auto;
-          height: 90px;
-          right: 70px;
-          bottom: 30px;
-        } 
+      img {
+        max-width: 100%;
+        width: auto;
+        height: 90%;
       }
     }
   }

@@ -15,8 +15,10 @@
 
     @media (max-width: 1200px) {
       font-size: 40px;
-      line-height: normal;
       margin-bottom: 50px;
+    }
+    @media (max-width: 576px) {
+      font-size: 30px;
     }
     
     .mobileVisible {

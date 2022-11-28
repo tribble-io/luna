@@ -28,7 +28,7 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
     const fullDate = `${newDateHref.getFullYear()}-${newDateHref.getMonth()+1}-${getDateHref}`
     return `#${fullDate}`;
   }
-  
+
   return (
     <>
       <div
@@ -109,9 +109,6 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
         />
         <div
           className={styles.dateWindow}
-          style={{
-            width: `${CALENDAR_WIDTH - 53}px`,
-          }}
         >
           <div
             className={styles.dateSlider}
