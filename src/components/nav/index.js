@@ -4,7 +4,7 @@ import styles from "./nav.module.scss";
 
 function Nav() {
   const { scrollY } = useWindowScrollPositions();
-  const opacityEl = (scrollY >= 200 && window.screen.width > 768) ? 1 : 0;
+  const opacityEl = window.screen.width > 1200 ? scrollY >= 200 ? 1 : 0 : 1;
 
   return (
     <nav>

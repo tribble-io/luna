@@ -6,12 +6,15 @@ header {
   .logoContainer {
     display: none;
     position: absolute;
-    bottom: -90px;
-    right: 0;
+    bottom: -35%;
+    right: 20px;
     z-index: 10;
 
+    @media (max-width: 1200px) {
+      bottom: -55%;
+    }
+
     @media (min-width: 770px) {
-      right: 5%;
       display: block;
     }
 
@@ -35,17 +38,14 @@ header {
       position: absolute;
       z-index: 3;
       bottom: 0;
-      right: 0;
+      right: -3%;
       width: 227px;
       height: 241px;
-      
-      @media (min-width: 776px) {
-        right: -6%;
-      }
 
       @media (max-width: 1200px) {
         height: 150px;
         width: 150px;
+        right: -7%;
       }
     }
 
@@ -78,7 +78,7 @@ header {
       height: 175px;
 
       bottom: 50px;
-      right: 80px;
+      right: 40%;
       
       @media (max-width: 1200px) {
         width: auto;

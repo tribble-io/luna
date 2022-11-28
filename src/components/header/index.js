@@ -5,7 +5,7 @@ import styles from "./header.module.scss";
 function Header() {
   const [open, setOpen] = useState(false);
   const { scrollY } = useWindowScrollPositions();
-  const opacityEl = window.screen.width > 768 ? (scrollY >= 200) ? 0 : 1 : 0;
+  const opacityEl = window.screen.width > 1200 ? (scrollY >= 200) ? 0 : 1 : 0;
   return (
     <header>
       <div className={styles.header_top}>
@@ -87,7 +87,6 @@ function Header() {
             </ul>
           </div>
         </div>
-      </div>
       <div className={styles.logoContainer} 
       style={{
         transition: 'all 0.3s linear',
@@ -106,6 +105,7 @@ function Header() {
             alt=""
           />
         </div>
+      </div>
     </header>
   );
 }

@@ -19,7 +19,7 @@ nav {
   }
 
   .wrapper {
-    max-width: 90%;
+    @include container;
     height: 100%;
 
     display: flex;
@@ -31,8 +31,7 @@ nav {
     box-sizing: border-box;
 
     ul {
-      @include container;
-
+      flex: 1;
       display: flex;
       justify-content: space-between;
       list-style: none;
@@ -58,7 +57,7 @@ nav {
     }
 
     .logoContainer {
-      width: 320px;
+      width: 25%;
       display: flex;
       justify-content: center;
       align-items: flex-end;
