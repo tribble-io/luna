@@ -2,6 +2,13 @@ import React from "react";
 import Item from "../../components/items";
 import Separator from "../../components/separator";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "./styles.css";
+// import required modules
+import { Navigation } from "swiper";
+
 import styles from "./calendar.module.scss";
 const ARR_OFFSET = 7;
 const DAY = 1000 * 60 * 60 * 24;
@@ -25,8 +32,13 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
 
   function assignDateHref(date) {
     const newDateHref = new Date(date);
-    const getDateHref = newDateHref.getDate() < 10 ? '0' + newDateHref.getDate() : newDateHref.getDate();
-    const fullDate = `${newDateHref.getFullYear()}-${newDateHref.getMonth()+1}-${getDateHref}`
+    const getDateHref =
+      newDateHref.getDate() < 10
+        ? "0" + newDateHref.getDate()
+        : newDateHref.getDate();
+    const fullDate = `${newDateHref.getFullYear()}-${
+      newDateHref.getMonth() + 1
+    }-${getDateHref}`;
     return `#${fullDate}`;
   }
 
@@ -51,7 +63,9 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
             !free && setSelected(date);
           }}
         >
-          <div className={styles.dateNum}><a href={assignDateHref(date)}> {date.getDate()}</a></div>
+          <div className={styles.dateNum}>
+            <a href={assignDateHref(date)}> {date.getDate()}</a>
+          </div>
           <div className={styles.weekDay}>{week[date.getDay()]}</div>
         </div>
       </div>
@@ -60,8 +74,11 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
 }
 
 export default function Calendar({ firstDate, setFirstDate, items }) {
+  const navigationPrevRef = React.useRef(null);
+  const navigationNextRef = React.useRef(null);
+
   const [selected, setSelected] = React.useState(() => {
-    const date = new Date(items[0].attributes.date)
+    const date = new Date(items[0].attributes.date);
     return date;
   });
 
@@ -98,10 +115,12 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
     <>
       {/* <img className={styles.curLeft} src="/img/curtainsLeft.png" alt="" /> */}
       {/* <img className={styles.curRight} src="/img/curtainsRight.png" alt="" /> */}
-      <div className={styles.datesStrip} 
-      style={{
-              "--strip-height": `${SLIDER_HEIGHT}px`
-      }}>
+      <div
+        className={styles.datesStrip}
+        style={{
+          "--strip-height": `${SLIDER_HEIGHT}px`,
+        }}
+      >
         <img
           src="/img/larr.png"
           alt="<"
@@ -110,9 +129,7 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
             moveDate(-ARR_OFFSET);
           }}
         />
-        <div
-          className={styles.dateWindow}
-        >
+        <div className={styles.dateWindow}>
           <div
             className={styles.dateSlider}
             style={{
@@ -144,8 +161,63 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
           }}
         />
       </div>
+      <div
+        className={styles.datesStrip}
+        style={{
+          "--strip-height": `${SLIDER_HEIGHT}px`,
+        }}
+      >
+        <img
+          src="/img/larr.png"
+          alt="<"
+          className={styles.larr}
+          ref={navigationPrevRef}
+        />
+        <div className={styles.dateWindow}>
+          <Swiper
+            slidesPerView={5}
+            slidesPerGroup={5}
+            spaceBetween={10}
+            grabCursor={true}
+            navigation={{
+              prevEl: navigationPrevRef.current,
+              nextEl: navigationNextRef.current,
+            }}
+            modules={[Navigation]}
+            breakpoints={{
+              640: {
+                slidesPerView: 10,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 15,
+              },
+            }}
+            className="calendarSlider"
+          >
+            {dates.map((date, i) => (
+              <SwiperSlide key={i}>
+                {
+                  <DateBtn
+                    key={i}
+                    date={date}
+                    isselected={date.date.getTime() === selected.getTime()}
+                    setSelected={setSelected}
+                  />
+                }
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        <img
+          src="/img/rarr.png"
+          alt=">"
+          className={styles.rarr}
+          ref={navigationNextRef}
+        />
+      </div>
       <div className={styles.cardsWindowContainer}>
-        <Item items={items}/>
+        <Item items={items} />
         <div className={styles.mobileButton}>
           <a href={"http://www.lunatheatre.ru/shows"}>все спектакли</a>
         </div>
