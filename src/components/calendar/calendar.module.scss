@@ -60,6 +60,7 @@ $wk-font-size: 23px;
   transition: opacity 0.5s ease-in-out, left 0.5s ease-in-out;
   z-index: 1;
   position: relative;
+  user-select: none;
 
   img {
     position: absolute;
@@ -142,6 +143,10 @@ $wk-font-size: 23px;
   @media (max-width: 768px) {
     font-size: 20px;
   }
+  a {
+    color: inherit;
+    cursor: default;
+   }
 }
 
 .dateBtnContainer > .dateContainer > .dateNum {
@@ -151,7 +156,9 @@ $wk-font-size: 23px;
 .dateBtnContainerHover > .dateContainer > .dateNum,
 .dateBtnContainerSelected > .dateContainer > .dateNum {
   color: #eeeeee;
-  cursor: pointer;
+  a {
+    cursor: pointer;
+  }
 }
 
 .dateBtnContainer > .dateContainer,

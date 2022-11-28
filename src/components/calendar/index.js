@@ -21,6 +21,14 @@ const SLIDER_WIDTH =
 
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
   const week = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+
+  function assignDateHref(date) {
+    const newDateHref = new Date(date);
+    const getDateHref = newDateHref.getDate() < 10 ? '0' + newDateHref.getDate() : newDateHref.getDate();
+    const fullDate = `${newDateHref.getFullYear()}-${newDateHref.getMonth()+1}-${getDateHref}`
+    return `#${fullDate}`;
+  }
+  
   return (
     <>
       <div
@@ -37,19 +45,12 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
       >
         <img src="/img/calendar_luna.png" alt="" />
         <div
-          // className={
-          //   isselected
-          //     ? styles.dateContainerSelected
-          //     : free
-          //     ? styles.dateContainer
-          //     : [styles.dateContainer, styles.dateContainerHover].join(" ")
-          // }
           className={styles.dateContainer}
           onClick={() => {
-            setSelected(date);
+            !free && setSelected(date);
           }}
         >
-          <div className={styles.dateNum}>{date.getDate()}</div>
+          <div className={styles.dateNum}><a href={assignDateHref(date)}> {date.getDate()}</a></div>
           <div className={styles.weekDay}>{week[date.getDay()]}</div>
         </div>
       </div>
@@ -65,7 +66,6 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
   });
 
   const dates = React.useMemo(() => {
-    console.log("calc");
     const today = new Date(new Date().toISOString().slice(0, 10));
     return Array.from({ length: DATE_LOAD_LENGTH }, (_, i) => {
       const date = new Date();
@@ -145,7 +145,7 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
         />
       </div>
       <div className={styles.cardsWindowContainer}>
-        <Item items={items} />
+        <Item items={items} selected={selected}/>
         <div className={styles.mobileButton}>
           <a href={"http://www.lunatheatre.ru/shows"}>все спектакли</a>
         </div>

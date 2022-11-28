@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "./styles.css";
 // import required modules
-import { Autoplay } from "swiper";
+import { Autoplay, HashNavigation } from "swiper";
 
 import styles from "./item.module.scss";
 
@@ -43,7 +43,7 @@ const useElementWidth = () => {
   return [ref, width];
 }
 
-export default function Item({ items }) {
+export default function Item({ items, selected }) {
   const [ref, CURRENT_WIDTH] =  useElementWidth();
   const ITEM_WIDTH = 270;
 
@@ -64,7 +64,6 @@ export default function Item({ items }) {
     };
   }
   const {slidesPerView, spaceBetween, autoplay, centeredSlides} = checkSlides();
-  console.log(checkSlides())
 
   function itemCheckDate(item) {
     return new Date(item.attributes.date)
@@ -74,11 +73,17 @@ export default function Item({ items }) {
     return PLACES[item.attributes.place]
   }
 
+  function assignDataHash(item) {
+    return `${item.attributes.date}`
+  }
+
   return (
     <>
-      <Swiper slidesPerView={slidesPerView} centeredSlides={centeredSlides} spaceBetween={spaceBetween} autoplay={autoplay ? autoplay : false} modules={[Autoplay]} className="posterSlider" ref={ref}>
+      <Swiper slidesPerView={slidesPerView} centeredSlides={centeredSlides} spaceBetween={spaceBetween} autoplay={autoplay ? autoplay : false} modules={[Autoplay, HashNavigation]} hashNavigation={{
+          watchState: true,
+        }} className="posterSlider" ref={ref}>
         {items.map((item) => (
-          <SwiperSlide key={item.id}>
+          <SwiperSlide key={item.id} data-hash={assignDataHash(item)}>
             <div
               className={styles.mainBlock}
               style={{
