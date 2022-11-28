@@ -16,15 +16,11 @@ const DAY = 1000 * 60 * 60 * 24;
 const CALENDAR_WIDTH = window.screen.width;
 const DATE_WIDTH = 43; // 3
 const DATE_NUMBER = CALENDAR_WIDTH > 573 ? 15 : 8;
-const DATE_MARGIN =
-  (CALENDAR_WIDTH - DATE_NUMBER * DATE_WIDTH) / (DATE_NUMBER - 1);
 
 // const WINDOW_OFFSET = 5.3;
 
 const DATE_LOAD_LENGTH = DATE_NUMBER + 20 * ARR_OFFSET;
 
-const SLIDER_WIDTH =
-  DATE_LOAD_LENGTH * DATE_WIDTH + (DATE_LOAD_LENGTH - 1) * DATE_MARGIN;
 const SLIDER_HEIGHT = CALENDAR_WIDTH > 573 ? 33 : 40;
 
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
@@ -97,70 +93,10 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
     });
   }, [items]);
 
-  function moveDate(days) {
-    setFirstDate((prev) => {
-      const time = prev.getTime() + days * DAY;
-
-      if (time >= dates[0].date.getTime()) {
-        const d = new Date();
-        d.setTime(time);
-        return d;
-      } else {
-        return prev;
-      }
-    });
-  }
-
   return (
     <>
       {/* <img className={styles.curLeft} src="/img/curtainsLeft.png" alt="" /> */}
       {/* <img className={styles.curRight} src="/img/curtainsRight.png" alt="" /> */}
-      <div
-        className={styles.datesStrip}
-        style={{
-          "--strip-height": `${SLIDER_HEIGHT}px`,
-        }}
-      >
-        <img
-          src="/img/larr.png"
-          alt="<"
-          className={styles.larr}
-          onClick={() => {
-            moveDate(-ARR_OFFSET);
-          }}
-        />
-        <div className={styles.dateWindow}>
-          <div
-            className={styles.dateSlider}
-            style={{
-              width: `${SLIDER_WIDTH}px`,
-              left: `-${
-                ((firstDate.getTime() - dates[0].date.getTime()) / DAY) *
-                (DATE_WIDTH + DATE_MARGIN)
-              }px`,
-            }}
-          >
-            {(() => {
-              return dates.map((date, i) => (
-                <DateBtn
-                  key={i}
-                  date={date}
-                  isselected={date.date.getTime() === selected.getTime()}
-                  setSelected={setSelected}
-                />
-              ));
-            })()}
-          </div>
-        </div>
-        <img
-          src="/img/rarr.png"
-          alt=">"
-          className={styles.rarr}
-          onClick={() => {
-            moveDate(ARR_OFFSET);
-          }}
-        />
-      </div>
       <div
         className={styles.datesStrip}
         style={{
