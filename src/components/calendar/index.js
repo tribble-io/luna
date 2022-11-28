@@ -18,7 +18,7 @@ const DATE_LOAD_LENGTH = DATE_NUMBER + 20 * ARR_OFFSET;
 
 const SLIDER_WIDTH =
   DATE_LOAD_LENGTH * DATE_WIDTH + (DATE_LOAD_LENGTH - 1) * DATE_MARGIN;
-const SLIDER_HEIGHT = CALENDAR_WIDTH > 573 ? 36 : 40;
+const SLIDER_HEIGHT = CALENDAR_WIDTH > 573 ? 33 : 40;
 
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
   const week = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
