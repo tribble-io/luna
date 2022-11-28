@@ -61,8 +61,7 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
 
 export default function Calendar({ firstDate, setFirstDate, items }) {
   const [selected, setSelected] = React.useState(() => {
-    const date = new Date();
-    date.setTime(firstDate.getTime() + 2 * DAY);
+    const date = new Date(items[0].attributes.date)
     return date;
   });
 
