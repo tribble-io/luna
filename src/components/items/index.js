@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "./styles.css";
 // import required modules
-import { Autoplay, HashNavigation } from "swiper";
+import { HashNavigation } from "swiper";
 
 import styles from "./item.module.scss";
 
@@ -43,7 +43,7 @@ const useElementWidth = () => {
   return [ref, width];
 }
 
-export default function Item({ items, selected }) {
+export default function Item({ items }) {
   const [ref, CURRENT_WIDTH] =  useElementWidth();
   const ITEM_WIDTH = 270;
 
@@ -57,13 +57,12 @@ export default function Item({ items, selected }) {
     const resultSlidesAmount = checkMargin >= 25 ? slidesAmount : (slidesAmount > 1) ? slidesAmount - 1 : slidesAmount;
     // Return amount of slides and margint for each slide
     return {
-      slidesPerView: window.screen.width > 576 ? resultSlidesAmount : 'auto', 
-      spaceBetween: resultSlidesAmount > 3 ? checkMargin : 10, 
-      autoplay: (window.screen.width > 768) ? false : {delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true},
+      slidesPerView: window.screen.width > 992 ? resultSlidesAmount : 'auto', 
+      spaceBetween: resultSlidesAmount > 3 ? checkMargin : 25, 
       centeredSlides: window.screen.width > 576 ? false : true
     };
   }
-  const {slidesPerView, spaceBetween, autoplay, centeredSlides} = checkSlides();
+  const {slidesPerView, spaceBetween, centeredSlides} = checkSlides();
 
   function itemCheckDate(item) {
     return new Date(item.attributes.date)
@@ -79,9 +78,7 @@ export default function Item({ items, selected }) {
 
   return (
     <>
-      <Swiper slidesPerView={slidesPerView} centeredSlides={centeredSlides} spaceBetween={spaceBetween} autoplay={autoplay ? autoplay : false} modules={[Autoplay, HashNavigation]} hashNavigation={{
-          watchState: true,
-        }} className="posterSlider" ref={ref}>
+      <Swiper slidesPerView={slidesPerView} centeredSlides={centeredSlides} spaceBetween={spaceBetween} modules={[HashNavigation]} hashNavigation={{watchState: true,}} className="posterSlider" ref={ref}>
         {items.map((item) => (
           <SwiperSlide key={item.id} data-hash={assignDataHash(item)}>
             <div

@@ -18,6 +18,7 @@ const DATE_LOAD_LENGTH = DATE_NUMBER + 20 * ARR_OFFSET;
 
 const SLIDER_WIDTH =
   DATE_LOAD_LENGTH * DATE_WIDTH + (DATE_LOAD_LENGTH - 1) * DATE_MARGIN;
+const SLIDER_HEIGHT = CALENDAR_WIDTH > 573 ? 36 : 40;
 
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
   const week = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
@@ -98,7 +99,10 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
     <>
       {/* <img className={styles.curLeft} src="/img/curtainsLeft.png" alt="" /> */}
       {/* <img className={styles.curRight} src="/img/curtainsRight.png" alt="" /> */}
-      <div className={styles.datesStrip}>
+      <div className={styles.datesStrip} 
+      style={{
+              "--strip-height": `${SLIDER_HEIGHT}px`
+      }}>
         <img
           src="/img/larr.png"
           alt="<"
@@ -142,7 +146,7 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
         />
       </div>
       <div className={styles.cardsWindowContainer}>
-        <Item items={items} selected={selected}/>
+        <Item items={items}/>
         <div className={styles.mobileButton}>
           <a href={"http://www.lunatheatre.ru/shows"}>все спектакли</a>
         </div>

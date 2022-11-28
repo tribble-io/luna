@@ -2,6 +2,12 @@
   padding: 4rem 1rem 2rem;
 }
 
+@media(max-width: 992px) {
+  .swiper-slide {
+   width: auto;
+  }
+}
+
 @media(max-width: 576px) {
  .posterSlider {
   padding-top: 2rem;
