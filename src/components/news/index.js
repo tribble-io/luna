@@ -27,18 +27,7 @@ function cutToLength(s, l) {
   }
 }
 
-export default function News({ itemsNews /*setItemsNews*/ }) {
-  console.log(itemsNews);
-
-  // function scrollNews(d) {
-  //   setItemsNews((items) =>
-  //     Array.from(
-  //       { length: items.length },
-  //       (_, i) => items[(i + d + items.length) % items.length]
-  //     )
-  //   );
-  // }
-
+export default function News({ itemsNews }) {
   return (
     <>
       <div className={styles.wrapper}>

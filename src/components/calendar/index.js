@@ -10,10 +10,11 @@ import "./styles.css";
 import { Navigation } from "swiper";
 
 import styles from "./calendar.module.scss";
-const ARR_OFFSET = 7;
+const CALENDAR_WIDTH = window.screen.width;
+
+const ARR_OFFSET = 3;
 const DAY = 1000 * 60 * 60 * 24;
 
-const CALENDAR_WIDTH = window.screen.width;
 const DATE_WIDTH = 43; // 3
 const DATE_NUMBER = CALENDAR_WIDTH > 573 ? 15 : 8;
 
@@ -93,10 +94,12 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
     });
   }, [items]);
 
+  const initialSlide = dates.map(date => date.free).indexOf(false);
+
+  function moveDate(index) {setFirstDate(dates[index].date)}
+
   return (
     <>
-      {/* <img className={styles.curLeft} src="/img/curtainsLeft.png" alt="" /> */}
-      {/* <img className={styles.curRight} src="/img/curtainsRight.png" alt="" /> */}
       <div
         className={styles.datesStrip}
         style={{
@@ -112,13 +115,14 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
         <div className={styles.dateWindow}>
           <Swiper
             slidesPerView={5}
-            slidesPerGroup={5}
+            slidesPerGroup={3}
             spaceBetween={10}
             grabCursor={true}
             navigation={{
               prevEl: navigationPrevRef.current,
               nextEl: navigationNextRef.current,
             }}
+            initialSlide={initialSlide}
             modules={[Navigation]}
             breakpoints={{
               640: {
@@ -129,6 +133,7 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
                 slidesPerView: 15,
               },
             }}
+            onActiveIndexChange={(swiper) =>moveDate(swiper.activeIndex)}
             className="calendarSlider"
           >
             {dates.map((date, i) => (

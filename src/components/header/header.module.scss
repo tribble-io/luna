@@ -27,10 +27,8 @@ header {
       background-color: #13132d;
       border-radius: 50%;
 
-
       @media (max-width: 1200px) {
-        height: 150px;
-        width: 150px;
+        display: none;
       }
     }
 
@@ -43,9 +41,7 @@ header {
       height: 241px;
 
       @media (max-width: 1200px) {
-        height: 150px;
-        width: 150px;
-        right: -7%;
+        display: none;
       }
     }
 
@@ -81,11 +77,8 @@ header {
       right: 40%;
       
       @media (max-width: 1200px) {
-        width: auto;
-        height: 90px;
-        right: 60px;
-        bottom: 30px;
-      } 
+        display: none;
+      }
     }
   }
 }
@@ -105,7 +98,7 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: 770px) {
+  @media (min-width: 981px) {
     background-image: url("./gerasimov.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -159,7 +152,8 @@ header {
   position: absolute;
   top: 37px;
   left: 20px;
-  @media (max-width: 770px) {
+
+  @media (max-width: 980px) {
     position: relative;
     top: unset;
     left: unset;
@@ -170,11 +164,8 @@ header {
     height: 52px;
 
     @media (max-width: 1024px) {
-      width: 70px;
-      height: auto;
-    }
-    @media (max-width: 1024px) {
       width: 40px;
+      height: auto;
     }
   }
 }
@@ -207,7 +198,7 @@ header {
 .mobileMenu {
   display: none;
 
-  @media (max-width: 770px) {
+  @media (max-width: 980px) {
     display: block;
   }
 
@@ -345,7 +336,7 @@ header {
 .mobileLogo {
   display: block;
 
-  @media (min-width: 770px) {
+  @media (min-width: 981px) {
     display: none;
   }
 

@@ -35,7 +35,6 @@ function Nav() {
         <div className={styles.logoContainer}>
           <img
             style={{
-              transition: "all 0.3s linear",
               opacity: opacityEl,
             }}
             className={styles.logo_logo}
