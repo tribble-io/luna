@@ -12,8 +12,13 @@ import Block from "./components/blockFooter";
 import LastBlock from "./components/blockFooterLast";
 import { OP_WIDTH } from "./consts";
 
+function uniqueBy(a, cond) {
+  return a.filter((e, i) => a.findIndex(e2 => cond(e, e2)) === i);
+}
+
 function App() {
   const [items, setItems] = React.useState([]);
+  const [itemsSlider, setItemsSlider] = React.useState([]);
   const [itemsNews, setItemsNews] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -38,6 +43,10 @@ function App() {
 
         setItems(itemsResponse.data.data);
         setItemsNews(newsResponse.data.data);
+        setItemsSlider(
+          uniqueBy(itemsResponse.data.data, (o1, o2) => o1.attributes.play.data.id === o2.attributes.play.data.id)
+        );
+
       } catch (error) {
         alert("Ошибка при запросе данных!");
         console.error(error);
@@ -56,7 +65,7 @@ function App() {
       <Header />
       <Nav />
       <section>
-        <Slider firstDate={firstDate} items={items} />
+        <Slider firstDate={firstDate} items={itemsSlider} setItemsSlider={setItemsSlider} />
       </section>
       <main>
         <section>
