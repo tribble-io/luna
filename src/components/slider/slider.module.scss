@@ -26,6 +26,10 @@
   justify-content: space-between;
   position: relative;
 
+  @media (min-width: 1000px) {
+    top: 12vh;
+  }
+
   @media (max-width: 576px) {
     flex-direction: column;
     align-items: flex-start;
@@ -78,6 +82,7 @@
       text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 
       color: #ffffff;
+
       @media (max-width: 576px) {
         font-size: 30px;
         line-height: normal;
@@ -145,6 +150,7 @@
       line-height: 93px;
       text-align: center;
       color: #cccccc;
+
       @media (max-width: 576px) {
         font-size: 30px;
         line-height: normal;
@@ -177,6 +183,7 @@
 
       text-decoration-line: underline;
       color: #ffffff;
+
       @media (max-width: 576px) {
         display: none;
       }
@@ -191,10 +198,11 @@
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-  
+
     @media (min-width: 576px) {
       display: none;
     }
+
     a {
       display: block;
       width: 100%;
@@ -237,6 +245,7 @@
   @media (max-width: 770px) {
     height: 150px;
   }
+
   @media (max-width: 576px) {
     height: 100px;
   }
@@ -250,6 +259,7 @@
     @media (max-width: 770px) {
       height: 150px;
     }
+
     @media (max-width: 576px) {
       height: 100px;
     }
@@ -283,6 +293,7 @@
     line-height: 66px;
 
     color: white;
+
     @media (max-width: 576px) {
       font-size: 30px;
       line-height: normal;
