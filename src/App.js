@@ -55,7 +55,9 @@ function App() {
     <div style={{ "--op-width": `${OP_WIDTH}px` }}>
       <Header />
       <Nav />
-      <Slider firstDate={firstDate} items={items} />
+      <section>
+        <Slider firstDate={firstDate} items={items} />
+      </section>
       <main>
         <section>
           {!isLoading ? (
@@ -75,7 +77,6 @@ function App() {
       </main>
       <footer>
         <Block />
-        <hr />
         <LastBlock />
       </footer>
     </div>

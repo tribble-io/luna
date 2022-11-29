@@ -1,33 +1,44 @@
 import React from "react";
 import Item from "../../components/items";
 import Separator from "../../components/separator";
-import { OP_WIDTH } from "../../consts";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "./styles.css";
+// import required modules
+import { Navigation } from "swiper";
 
 import styles from "./calendar.module.scss";
-const ARR_OFFSET = 7;
+const CALENDAR_WIDTH = window.screen.width;
+
+const ARR_OFFSET = 3;
 const DAY = 1000 * 60 * 60 * 24;
 
-const CALENDAR_WIDTH = OP_WIDTH; // 70
 const DATE_WIDTH = 43; // 3
-const DATE_NUMBER = 15;
-const DATE_MARGIN =
-  (CALENDAR_WIDTH - DATE_NUMBER * DATE_WIDTH) / (DATE_NUMBER - 1);
+const DATE_NUMBER = CALENDAR_WIDTH > 573 ? 15 : 8;
 
 // const WINDOW_OFFSET = 5.3;
 
 const DATE_LOAD_LENGTH = DATE_NUMBER + 20 * ARR_OFFSET;
 
-const SLIDER_WIDTH =
-  DATE_LOAD_LENGTH * DATE_WIDTH + (DATE_LOAD_LENGTH - 1) * DATE_MARGIN;
-
-const ITEM_WINDOW_WIDTH = OP_WIDTH;
-const CARDS_N = 4;
-const ITEM_WIDTH = 260;
-const ITEM_MARGIN = (ITEM_WINDOW_WIDTH - CARDS_N * ITEM_WIDTH) / (CARDS_N - 1);
+const SLIDER_HEIGHT = CALENDAR_WIDTH > 573 ? 33 : 40;
 
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
-  console.log(CALENDAR_WIDTH);
   const week = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+
+  function assignDateHref(date) {
+    const newDateHref = new Date(date);
+    const getDateHref =
+      newDateHref.getDate() < 10
+        ? "0" + newDateHref.getDate()
+        : newDateHref.getDate();
+    const fullDate = `${newDateHref.getFullYear()}-${
+      newDateHref.getMonth() + 1
+    }-${getDateHref}`;
+    return `#${fullDate}`;
+  }
+
   return (
     <>
       <div
@@ -44,19 +55,14 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
       >
         <img src="/img/calendar_luna.png" alt="" />
         <div
-          // className={
-          //   isselected
-          //     ? styles.dateContainerSelected
-          //     : free
-          //     ? styles.dateContainer
-          //     : [styles.dateContainer, styles.dateContainerHover].join(" ")
-          // }
           className={styles.dateContainer}
           onClick={() => {
-            setSelected(date);
+            !free && setSelected(date);
           }}
         >
-          <div className={styles.dateNum}>{date.getDate()}</div>
+          <div className={styles.dateNum}>
+            <a href={assignDateHref(date)}> {date.getDate()}</a>
+          </div>
           <div className={styles.weekDay}>{week[date.getDay()]}</div>
         </div>
       </div>
@@ -65,14 +71,15 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
 }
 
 export default function Calendar({ firstDate, setFirstDate, items }) {
+  const navigationPrevRef = React.useRef(null);
+  const navigationNextRef = React.useRef(null);
+
   const [selected, setSelected] = React.useState(() => {
-    const date = new Date();
-    date.setTime(firstDate.getTime() + 2 * DAY);
+    const date = new Date(items[0].attributes.date);
     return date;
   });
 
   const dates = React.useMemo(() => {
-    console.log("calc");
     const today = new Date(new Date().toISOString().slice(0, 10));
     return Array.from({ length: DATE_LOAD_LENGTH }, (_, i) => {
       const date = new Date();
@@ -87,99 +94,73 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
     });
   }, [items]);
 
-  function moveDate(days) {
-    setFirstDate((prev) => {
-      const time = prev.getTime() + days * DAY;
+  const initialSlide = dates.map(date => date.free).indexOf(false);
 
-      if (time >= dates[0].date.getTime()) {
-        const d = new Date();
-        d.setTime(time);
-        return d;
-      } else {
-        return prev;
-      }
-    });
-  }
+  function moveDate(index) {setFirstDate(dates[index].date)}
 
   return (
     <>
-      {/* <img className={styles.curLeft} src="/img/curtainsLeft.png" alt="" /> */}
-      {/* <img className={styles.curRight} src="/img/curtainsRight.png" alt="" /> */}
-      <div className={styles.datesStrip}>
+      <div
+        className={styles.datesStrip}
+        style={{
+          "--strip-height": `${SLIDER_HEIGHT}px`,
+        }}
+      >
         <img
           src="/img/larr.png"
           alt="<"
           className={styles.larr}
-          onClick={() => {
-            moveDate(-ARR_OFFSET);
-          }}
+          ref={navigationPrevRef}
         />
-        <div
-          className={styles.dateWindow}
-          style={{
-            width: `${CALENDAR_WIDTH - 53}px`,
-          }}
-        >
-          <div
-            className={styles.dateSlider}
-            style={{
-              width: `${SLIDER_WIDTH}px`,
-              left: `-${
-                ((firstDate.getTime() - dates[0].date.getTime()) / DAY) *
-                (DATE_WIDTH + DATE_MARGIN)
-              }px`,
+        <div className={styles.dateWindow}>
+          <Swiper
+            slidesPerView={5}
+            slidesPerGroup={3}
+            spaceBetween={10}
+            grabCursor={true}
+            navigation={{
+              prevEl: navigationPrevRef.current,
+              nextEl: navigationNextRef.current,
             }}
+            initialSlide={initialSlide}
+            modules={[Navigation]}
+            breakpoints={{
+              640: {
+                slidesPerView: 10,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 15,
+              },
+            }}
+            onActiveIndexChange={(swiper) =>moveDate(swiper.activeIndex)}
+            className="calendarSlider"
           >
-            {(() => {
-              return dates.map((date, i) => (
-                <DateBtn
-                  key={i}
-                  date={date}
-                  isselected={date.date.getTime() === selected.getTime()}
-                  setSelected={setSelected}
-                />
-              ));
-            })()}
-          </div>
+            {dates.map((date, i) => (
+              <SwiperSlide key={i}>
+                {
+                  <DateBtn
+                    key={i}
+                    date={date}
+                    isselected={date.date.getTime() === selected.getTime()}
+                    setSelected={setSelected}
+                  />
+                }
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
         <img
           src="/img/rarr.png"
           alt=">"
           className={styles.rarr}
-          onClick={() => {
-            moveDate(ARR_OFFSET);
-          }}
+          ref={navigationNextRef}
         />
       </div>
       <div className={styles.cardsWindowContainer}>
-        <div
-          className={styles.cardsWindow}
-          style={{
-            width: `${ITEM_WINDOW_WIDTH}px`,
-            paddingLeft: `${(ITEM_MARGIN * 2) / 3}px`,
-            paddingRight: `${(ITEM_MARGIN * 2) / 3}px`,
-          }}
-        >
-          <div
-            className={styles.cardsSlider}
-            style={{
-              width: `${
-                items.length * ITEM_WIDTH + (items.length - 1) * ITEM_MARGIN
-              }px`,
-              left: `-${
-                items.filter(
-                  (item) =>
-                    new Date(item.attributes.date).getTime() <
-                    selected.getTime()
-                ).length *
-                (ITEM_WIDTH + ITEM_MARGIN)
-              }px`,
-            }}
-          >
-            {items.map((item, i) => (
-              <Item key={i} item={item} width={ITEM_WIDTH} />
-            ))}
-          </div>
+        <Item items={items} />
+        <div className={styles.mobileButton}>
+          <a href={"http://www.lunatheatre.ru/shows"}>все спектакли</a>
         </div>
       </div>
       <Separator />

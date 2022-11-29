@@ -1,7 +1,21 @@
+@import "../../utils/mixins.scss";
+
 .separator {
+  @include container;
+
   display: flex;
   flex-direction: row;
   margin-top: 10px;
   margin-bottom: 50px;
-  justify-content: center;
+  justify-content: center;  
+  
+  @media (max-width: 576px) {
+    display: none;
+  }
+
+  img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
 }

@@ -21,7 +21,7 @@ const SPONSORS = [
 export default function Partners() {
   return (
     <div className={styles.frame}>
-      <div className={styles.header}>НАШИ ПАРТНЁРЫ</div>
+      <div className={styles.header}>НАШИ <br className={styles.mobileVisible} /> ПАРТНЁРЫ</div>
       <Marquee speed={25} gradient={false} pauseOnHover={true}>
         <div className={styles.sponsors}>
           {SPONSORS.map(({ href, img }, i) => (

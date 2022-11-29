@@ -1,8 +1,11 @@
 import React from "react";
-
+import { useWindowScrollPositions } from "../../utils/usable-function";
 import styles from "./nav.module.scss";
 
 function Nav() {
+  const { scrollY } = useWindowScrollPositions();
+  const opacityEl = window.screen.width > 1200 ? scrollY >= 200 ? 1 : 0 : 1;
+
   return (
     <nav>
       <div className={styles.wrapper}>
@@ -30,21 +33,14 @@ function Nav() {
           </li>
         </ul>
         <div className={styles.logoContainer}>
-          <div className={styles.back_elipse} />
           <img
-            className={styles.moon_logo}
-            src="/img/moon_logo.png"
-            alt=""
-            width="227px"
-            height="241px"
-          />
-          <img
-            className={styles.text_logo}
+            style={{
+              opacity: opacityEl,
+            }}
+            className={styles.logo_logo}
             id={"href"}
-            src="/img/text_logo.png"
+            src="/img/logo.png"
             alt=""
-            width="260px"
-            height="175px"
           />
         </div>
       </div>

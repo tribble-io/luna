@@ -1,11 +1,26 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 main {
   background: #15141e;
   height: 100%;
+}
+
+header {
+  background: #15141E;
+}
+
+@media (min-width: 981px) {
+  header {
+    background: #000000;
+  }
+}
+
+section {
+  background: #15141e;
 }
 
 footer {
