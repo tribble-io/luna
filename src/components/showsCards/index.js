@@ -47,7 +47,7 @@ export default function showsCards({ items }) {
                           {item.attributes.description}
                         </div>
                         <div className={styles.place}>
-                          {item.attributes.place}
+                          {item.attributes.scene}
                         </div>
                         <div className={styles.ticket}>
                           <div className={styles.buy}>

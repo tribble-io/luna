@@ -5,9 +5,6 @@ import Slider from "../components/slider";
 import Calendar from "../components/calendar";
 import News from "../components/news";
 import Partners from "../components/partners";
-import Block from "../components/blockFooter";
-import LastBlock from "../components/blockFooterLast";
-import { OP_WIDTH } from "../consts";
 
 function Home() {
   const [items, setItems] = React.useState([]);

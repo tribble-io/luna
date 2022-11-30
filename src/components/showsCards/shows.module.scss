@@ -21,11 +21,14 @@
     padding-top: 7.5rem;
     padding-bottom: 21.9rem;
 
-    @media (max-width: 770px) {
+    @media (max-width: 992px) {
       grid-template-columns: repeat(2, 1fr);
     }
     @media (max-width: 500px) {
       grid-template-columns: 1fr;
+      padding-top: 3.8rem;
+      row-gap: 70px;
+      padding-bottom: 12.5rem;
     }
   }
 
@@ -77,6 +80,10 @@
         span {
           font-size: 18px;
           text-transform: uppercase;
+
+          @media (max-width: 765px) {
+            font-size: 14px;
+          }
         }
 
         .title {
@@ -93,6 +100,10 @@
         font-size: 16px;
         line-height: 160%;
         margin-bottom: 10px;
+
+        @media (max-width: 765px) {
+          font-size: 14px;
+        }
       }
 
       .place {
@@ -104,6 +115,10 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+
+        @media (max-width: 765px) {
+          font-size: 12px;
+        }
 
         .buy {
           max-width: 45%;
@@ -127,6 +142,10 @@
           font-size: 18px;
           color: #fae88c;
           text-transform: uppercase;
+
+          @media (max-width: 765px) {
+            font-size: 12px;
+          }
         }
       }
     }

@@ -1,29 +1,31 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, {useState} from "react";
 import styles from "./filter.module.scss";
 import CustomCheckbox from "../../components/customCheckbox";
-import ShowsCards from "../../components/showsCards";
 
-export default function ShowsFilter() {
-  const [items, setItems] = useState([]);
+export default function ShowsFilter(props) {
+  const [activeButton, setActiveButtons] = useState("Все сцены");
+  const { editValue, setEditValue } = props;
 
-  useEffect(() => {
-    async function fetchData() {
-      const apiUrl =
-        `http://theatre.restomatik.ru:1337/api/plays` + `?populate=cover`;
+  const updateInput = (e) => {
+    const value = e.target.value;
+    setEditValue((editValue) => ({ ...editValue, title: value }));
+  };
 
-      try {
-        const itemsResponse = await Promise.all([axios.get(apiUrl)]);
-
-        setItems(itemsResponse[0].data.data);
-      } catch (error) {
-        alert("Ошибка при запросе данных!");
-        console.error(error);
-      }
+  const updateFilter = (e) => {
+    const value = e.target.name;
+    setActiveButtons(value)
+    if (value === "Все сцены") {
+      setEditValue((editValue) => ({ ...editValue, scene: "" }));
+    } else {
+      setEditValue((editValue) => ({ ...editValue, scene: value }));
     }
+  };
 
-    fetchData();
-  }, []);
+  function buttonClass(name) {
+    return `${styles.buttonFilter} ${activeButton == name ? styles.active : ""}`
+  }
+  // 
+
 
   return (
     <>
@@ -38,26 +40,30 @@ export default function ShowsFilter() {
                 <div className={styles.filterArea}>
                   <div className={styles.filterGroup}>
                     <button
-                      className={`${styles.buttonFilter} ${styles.active}`}
-                      // onClick={updateFilter("all")}
+                      className={buttonClass("Все сцены")}
+                      onClick={updateFilter}
+                      name="Все сцены"
                     >
                       Все сцены
                     </button>
                     <button
-                      className={styles.buttonFilter}
-                      // onClick={updateFilter("big")}
+                      className={buttonClass("Большой зал")}
+                      onClick={updateFilter}
+                      name="Большой зал"
                     >
                       большая сцена
                     </button>
                     <button
-                      className={styles.buttonFilter}
-                      //  onClick={updateFilter("small")}
+                      className={buttonClass("Малый зал")}
+                      onClick={updateFilter}
+                      name="Малый зал"
                     >
                       малая сцена
                     </button>
                     <button
-                      className={styles.buttonFilter}
-                      // onClick={updateFilter("little_moon")}
+                      className={buttonClass('Зал "Маленькая Луна"')}
+                      onClick={updateFilter}
+                      name='Зал "Маленькая Луна"'
                     >
                       Зал "Маленькая Луна"
                     </button>
@@ -69,6 +75,7 @@ export default function ShowsFilter() {
                         name="nameSearch"
                         id="nameSearch"
                         placeholder="поиск по названию"
+                        onChange={updateInput}
                       />
                     </div>
                   </div>
@@ -95,7 +102,6 @@ export default function ShowsFilter() {
             }
           </div>
         </section>
-        <ShowsCards items={items} />
       </main>
     </>
   );
