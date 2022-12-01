@@ -4,7 +4,7 @@ import CustomCheckbox from "../../components/customCheckbox";
 
 export default function ShowsFilter(props) {
   const [activeButton, setActiveButtons] = useState("Все сцены");
-  const { editValue, setEditValue } = props;
+  const { setEditValue } = props;
 
   const updateInput = (e) => {
     const value = e.target.value;
@@ -22,7 +22,7 @@ export default function ShowsFilter(props) {
   };
 
   function buttonClass(name) {
-    return `${styles.buttonFilter} ${activeButton == name ? styles.active : ""}`
+    return `${styles.buttonFilter} ${activeButton === name ? styles.active : ""}`
   }
   // 
 

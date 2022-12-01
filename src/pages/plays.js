@@ -4,37 +4,34 @@ import axios from "axios";
 import ShowsFilter from "../components/showsFilter";
 import ShowsCards from "../components/showsCards";
 
+const playsApi = 'http://theatre.restomatik.ru:1337/api/plays';
+
+function getUrl(editValue) {
+  let filters = '';
+
+  if (editValue.title.length > 0) {
+    filters += `[title][$contains]=${editValue.title}&`
+  }
+
+  if (editValue.scene.length > 0) {
+    filters += `[scene][$eq]=${editValue.scene}`
+  }
+
+  filters += filters[filters.length-1] !== '&' ? "&" : ""
+  return `${playsApi}?filters${filters}populate=cover`
+}
+
 function Plays() {
     const [items, setItems] = useState([]);
     const [editValue, setEditValue] = useState({'title': "", 'scene': ""});
-    let filters = '';
-
-    function updateFilter() {
-      if (editValue.title.length > 0) {
-        filters += `[title][$contains]=${editValue.title}&`
-      }
-
-      if (editValue.scene.length > 0) {
-        filters += `[scene][$eq]=${editValue.scene}`
-      }
-    }
-
+    const url = getUrl(editValue);
 
     useEffect(() => {
-
-      updateFilter()
-      filters += filters[filters.length-1] !== '&' ? "&" : ""
-      
       async function fetchData() {
-        const apiUrl =
-          `http://theatre.restomatik.ru:1337/api/plays` + 
-          `?filters${filters}` +
-          `populate=cover`;
-  
         try {
-          const itemsResponse = await Promise.all([axios.get(apiUrl)]);
+          const itemsResponse = await axios.get(url);
   
-          setItems(itemsResponse[0].data.data);
+          setItems(itemsResponse.data.data);
         } catch (error) {
           alert("Ошибка при запросе данных!");
           console.error(error);
