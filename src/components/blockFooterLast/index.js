@@ -27,13 +27,13 @@ export default function LastBlock() {
         </div>
         <div className={styles.group2}>
           <div className={styles.text1}>
-            <a href="http://www.lunatheatre.ru/shows">
+            <a href="/plays">
               <h3>репертуар</h3>
             </a>
             <a href="http://www.lunatheatre.ru/afisha">
               <p>афиша</p>
             </a>
-            <a href="http://www.lunatheatre.ru/shows">
+            <a href="/plays">
               <p>спектакли</p>
             </a>
             <a href="http://www.lunatheatre.ru/pages/dtc-malenkaya-luna">
@@ -50,7 +50,7 @@ export default function LastBlock() {
             <a href="http://www.lunatheatre.ru/afisha">
               <p>афиша</p>
             </a>
-            <a href="http://www.lunatheatre.ru/shows">
+            <a href="/plays">
               <p>Спектакли</p>
             </a>
             <a href="http://www.lunatheatre.ru/pages/dtc-malenkaya-luna">
