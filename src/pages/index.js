@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { uniqueBy } from "../utils/usable-function";
 
 import Slider from "../components/slider";
 import Calendar from "../components/calendar";
@@ -7,6 +8,7 @@ import News from "../components/news";
 import Partners from "../components/partners";
 
 function Home() {
+  const [itemsSlider, setItemsSlider] = React.useState([]);
   const [items, setItems] = React.useState([]);
   const [itemsNews, setItemsNews] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
@@ -29,7 +31,10 @@ function Home() {
         ]);
 
         setIsLoading(false);
-
+        setItemsSlider(
+          uniqueBy(itemsResponse.data.data, (o1, o2) =>
+            o1.attributes.play.data.id === o2.attributes.play.data.id)
+        );
         setItems(itemsResponse.data.data);
         setItemsNews(newsResponse.data.data);
       } catch (error) {
@@ -48,7 +53,7 @@ function Home() {
   return (
     <div>
       <section>
-        <Slider firstDate={firstDate} items={items} />
+        <Slider firstDate={firstDate} items={itemsSlider} setItemsSlider={setItemsSlider} />
       </section>
       <main>
         <section>
