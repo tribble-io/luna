@@ -10,23 +10,23 @@ function getUrl(editValue) {
   let filters = '';
 
   if (editValue.title.length > 0) {
-    filters += `[title][$contains]=${editValue.title}&`
+    filters += `filters[title][$contains]=${editValue.title}&`
   }
 
   if (editValue.scene.length > 0) {
-    filters += `[scene][$eq]=${editValue.scene}&`
+    filters += `filters[scene][$eq]=${editValue.scene}&`
   }
 
   if (editValue.rating === true) {
-    filters += `[rating][$lt]=16&`
+    filters += `filters[rating][$lt]=16&`
   }
 
   if (editValue.isPremiere === true) {
-    filters += `[isPremiere][$eq]=true&`
+    filters += `filters[isPremiere][$eq]=true&`
   }
 
   filters += filters[filters.length-1] !== '&' ? "&" : ""
-  return `${playsApi}?filters${filters}populate=cover`
+  return `${playsApi}?${filters}populate=cover`
 }
 
 function Plays() {
