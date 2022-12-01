@@ -10,12 +10,12 @@ main {
 }
 
 header {
-  background: #15141E;
+  background: #000000;
 }
 
-@media (min-width: 981px) {
+@media (max-width: 991px) {
   header {
-    background: #000000;
+    background: #15141e;
   }
 }
 
