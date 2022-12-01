@@ -9,6 +9,7 @@ import LastBlock from "./components/blockFooterLast";
 import { OP_WIDTH } from "./consts";
 import Plays from "./pages/plays";
 import Home from "./pages";
+import ChildrenStudio from "./pages/children-studio";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/plays" element={<Plays />} />
+          <Route path="/children-studio" element={<ChildrenStudio />} />
         </Routes>
         <footer>
           <Block />
