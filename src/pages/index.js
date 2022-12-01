@@ -54,7 +54,6 @@ function Home() {
         <section>
           {!isLoading ? (
             <Calendar
-              firstDate={firstDate}
               setFirstDate={setFirstDate}
               items={items}
             />

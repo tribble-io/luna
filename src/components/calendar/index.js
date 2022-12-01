@@ -33,9 +33,11 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
       newDateHref.getDate() < 10
         ? "0" + newDateHref.getDate()
         : newDateHref.getDate();
-    const fullDate = `${newDateHref.getFullYear()}-${
-      newDateHref.getMonth() + 1
-    }-${getDateHref}`;
+    const getMonthHref =
+      newDateHref.getMonth() + 1 < 10
+        ? "0" + (newDateHref.getMonth() + 1)
+        : newDateHref.getMonth() + 1;
+    const fullDate = `${newDateHref.getFullYear()}-${getMonthHref}-${getDateHref}`;
     return `#${fullDate}`;
   }
 
@@ -70,7 +72,7 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
   );
 }
 
-export default function Calendar({ firstDate, setFirstDate, items }) {
+export default function Calendar({ setFirstDate, items }) {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
 
@@ -94,9 +96,11 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
     });
   }, [items]);
 
-  const initialSlide = dates.map(date => date.free).indexOf(false);
+  const initialSlide = dates.map((date) => date.free).indexOf(false);
 
-  function moveDate(index) {setFirstDate(dates[index].date)}
+  function moveDate(index) {
+    setFirstDate(dates[index].date);
+  }
 
   return (
     <>
@@ -133,7 +137,7 @@ export default function Calendar({ firstDate, setFirstDate, items }) {
                 slidesPerView: 15,
               },
             }}
-            onActiveIndexChange={(swiper) =>moveDate(swiper.activeIndex)}
+            onActiveIndexChange={(swiper) => moveDate(swiper.activeIndex)}
             className="calendarSlider"
           >
             {dates.map((date, i) => (
