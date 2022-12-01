@@ -42,7 +42,6 @@ function Plays() {
   const url = getUrl(editValue);
 
   useEffect(() => {
-    setIsLoading(true);
     async function fetchData() {
       try {
         const itemsResponse = await axios.get(url);
