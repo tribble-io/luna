@@ -1,0 +1,126 @@
+@import "../../utils/mixins.scss";
+@import "../../utils/fonts.scss";
+@import "../../utils/variables.scss";
+
+.wrapper {
+  @include container;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: $text-color;
+  background-color: $bg-color;
+
+  .descriptionContent {
+    padding-top: 14.3rem;
+    @media (max-width: 768px) {
+      padding-top: 7rem;
+    }
+  }
+
+  .descriptionBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 13rem;
+
+      @media (max-width: 768px) {
+        margin-bottom: 7rem;
+      }
+
+      @media (max-width: 500px) {
+        margin-bottom: 6rem;
+      }
+    }
+
+    .descriptionText {
+      flex-basis: 32%;
+      font-size: 16px;
+      line-height: 164%;
+
+      .marginParagraph {
+        margin-bottom: 1rem;
+      }
+
+      @media (max-width: 1024px) {
+        flex-basis: 50%;
+      }
+    }
+
+    .descriptionImg {
+      img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &.bigBlock {
+      .descriptionText {
+        padding-top: 30px;
+      }
+
+      @media (max-width: 1024px) {
+        .descriptionImg {
+          flex-basis: 50%;
+          margin-left: 30px;
+        }
+
+        .descriptionText {
+          padding-top: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .descriptionImg {
+          margin-left: 0;
+          margin-top: 30px;
+        }
+      }
+    }
+
+    &.smallBlock {
+      .descriptionText {
+        margin-right: 60px;
+      }
+      .descriptionImg {
+        margin-left: 10%;
+      }
+
+      @media (max-width: 1024px) {
+        justify-content: space-evenly;
+        .descriptionText {
+          margin-right: 0;
+        }
+        .descriptionImg {
+          margin-left: 0;
+          margin-right: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .descriptionImg {
+          margin-right: 0;
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    &.lastBlock {
+      .descriptionImg {
+        margin-left: 36%;
+      }
+      @media (max-width: 1024px) {
+        justify-content: center;
+
+        .descriptionImg {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}

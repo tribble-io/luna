@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import ChildrenTitle from "../components/childrenTitle";
+import ChildrenDescription from "../components/childrenDescription"
 import Loader from "../components/loader"
 
 const playsApi = "http://theatre.restomatik.ru:1337/api/plays";
@@ -12,7 +13,7 @@ function ChildrenStudio() {
   return (
     <main>
       <ChildrenTitle setScrollBlock={setScrollBlock} />
-      <Loader />
+      <ChildrenDescription />
     </main>
   );
 }
