@@ -14,7 +14,7 @@ function Nav() {
             <a href="http://www.lunatheatre.ru/afisha">Афиша</a>
           </li>
           <li>
-            <a href="http://www.lunatheatre.ru/shows">Спектакли</a>
+            <a href="/plays">Спектакли</a>
           </li>
           <li>
             <a href="http://www.lunatheatre.ru/actors">труппа</a>
