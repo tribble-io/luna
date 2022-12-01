@@ -3,7 +3,7 @@ import styles from "./filter.module.scss";
 import CustomCheckbox from "../../components/customCheckbox";
 
 function CreateButton(props) {
-  const {updateFilter, activeButton} = props;
+  const { updateFilter, activeButton } = props;
   const buttonArray = [
     "Все сцены",
     "Большой зал",
@@ -21,7 +21,7 @@ function CreateButton(props) {
     <>
       {buttonArray.map((button, i) => (
         <button
-        key={i}
+          key={i}
           className={buttonClass(button)}
           onClick={updateFilter}
           name={button}
@@ -51,61 +51,60 @@ export default function ShowsFilter(props) {
     }
   };
 
-  
-
   const isActive = (state, name) => {
     setEditValue((editValue) => ({ ...editValue, [name]: state }));
   };
 
   return (
     <>
-      <main>
-        <section>
-          <div className={styles.wrapper}>
-            {
-              <div className={styles.filterContent}>
-                <div className={styles.filterTitle}>
-                  <h1>спектакли</h1>
+      <section>
+        <div className={styles.wrapper}>
+          {
+            <div className={styles.filterContent}>
+              <div className={styles.filterTitle}>
+                <h1>спектакли</h1>
+              </div>
+              <div className={styles.filterArea}>
+                <div className={styles.filterGroup}>
+                  <CreateButton
+                    updateFilter={updateFilter}
+                    activeButton={activeButton}
+                  />
                 </div>
-                <div className={styles.filterArea}>
-                  <div className={styles.filterGroup}>
-                    <CreateButton updateFilter={updateFilter} activeButton={activeButton} />
+                <div className={styles.filterGroup}>
+                  <div className={styles.inputFilter}>
+                    <input
+                      type="text"
+                      name="nameSearch"
+                      id="nameSearch"
+                      placeholder="поиск по названию"
+                      onChange={updateInput}
+                    />
                   </div>
-                  <div className={styles.filterGroup}>
-                    <div className={styles.inputFilter}>
-                      <input
-                        type="text"
-                        name="nameSearch"
-                        id="nameSearch"
-                        placeholder="поиск по названию"
-                        onChange={updateInput}
-                      />
-                    </div>
+                </div>
+                <div className={styles.filterGroup}>
+                  <div className={styles.checkboxFilter}>
+                    <CustomCheckbox
+                      id="premieres"
+                      name="isPremiere"
+                      label="Премьеры"
+                      isActive={isActive}
+                    />
                   </div>
-                  <div className={styles.filterGroup}>
-                    <div className={styles.checkboxFilter}>
-                      <CustomCheckbox
-                        id="premieres"
-                        name="isPremiere"
-                        label="Премьеры"
-                        isActive={isActive}
-                      />
-                    </div>
-                    <div className={styles.checkboxFilter}>
-                      <CustomCheckbox
-                        id="kids"
-                        name="rating"
-                        label="Для детей"
-                        isActive={isActive}
-                      />
-                    </div>
+                  <div className={styles.checkboxFilter}>
+                    <CustomCheckbox
+                      id="kids"
+                      name="rating"
+                      label="Для детей"
+                      isActive={isActive}
+                    />
                   </div>
                 </div>
               </div>
-            }
-          </div>
-        </section>
-      </main>
+            </div>
+          }
+        </div>
+      </section>
     </>
   );
 }

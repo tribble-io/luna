@@ -3,6 +3,7 @@ import axios from "axios";
 
 import ShowsFilter from "../components/showsFilter";
 import ShowsCards from "../components/showsCards";
+import Loader from "../components/loader"
 
 const playsApi = "http://theatre.restomatik.ru:1337/api/plays";
 
@@ -60,7 +61,7 @@ function Plays() {
     <main>
       <ShowsFilter setEditValue={setEditValue} editValue={editValue} />
       {isLoading ? (
-        "s"
+        <Loader />
       ) : (
         <ShowsCards items={items} />
       )}
