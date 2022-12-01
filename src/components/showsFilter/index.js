@@ -13,6 +13,7 @@ export default function ShowsFilter(props) {
 
   const updateFilter = (e) => {
     const value = e.target.name;
+    console.log(value, 'value')
     setActiveButtons(value)
     if (value === "Все сцены") {
       setEditValue((editValue) => ({ ...editValue, scene: "" }));
@@ -24,7 +25,10 @@ export default function ShowsFilter(props) {
   function buttonClass(name) {
     return `${styles.buttonFilter} ${activeButton === name ? styles.active : ""}`
   }
-  // 
+
+  const isActive = (state, name) => {
+    setEditValue((editValue) => ({ ...editValue, [name]: state })) ;
+  }
 
 
   return (
@@ -83,17 +87,17 @@ export default function ShowsFilter(props) {
                     <div className={styles.checkboxFilter}>
                       <CustomCheckbox
                         id="premieres"
-                        name="premieres"
+                        name="isPremiere"
                         label="Премьеры"
-                        //onclick={updateFilter("premieres")}
+                        isActive={isActive}
                       />
                     </div>
                     <div className={styles.checkboxFilter}>
                       <CustomCheckbox
                         id="kids"
-                        name="kids"
+                        name="rating"
                         label="Для детей"
-                        //onclick={updateFilter("kids")}
+                        isActive={isActive}
                       />
                     </div>
                   </div>

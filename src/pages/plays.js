@@ -14,7 +14,15 @@ function getUrl(editValue) {
   }
 
   if (editValue.scene.length > 0) {
-    filters += `[scene][$eq]=${editValue.scene}`
+    filters += `[scene][$eq]=${editValue.scene}&`
+  }
+
+  if (editValue.rating === true) {
+    filters += `[rating][$lt]=16&`
+  }
+
+  if (editValue.isPremiere === true) {
+    filters += `[isPremiere][$eq]=true&`
   }
 
   filters += filters[filters.length-1] !== '&' ? "&" : ""
@@ -23,7 +31,7 @@ function getUrl(editValue) {
 
 function Plays() {
     const [items, setItems] = useState([]);
-    const [editValue, setEditValue] = useState({'title': "", 'scene': ""});
+    const [editValue, setEditValue] = useState({'title': "", 'scene': "", 'rating': false, 'isPremiere': false});
     const url = getUrl(editValue);
 
     useEffect(() => {
