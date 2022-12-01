@@ -1,7 +1,37 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "./filter.module.scss";
 import CustomCheckbox from "../../components/customCheckbox";
 
+function CreateButton(props) {
+  const {updateFilter, activeButton} = props;
+  const buttonArray = [
+    "Все сцены",
+    "Большой зал",
+    "Малый зал",
+    'Зал "Маленькая Луна"',
+  ];
+
+  function buttonClass(name) {
+    return `${styles.buttonFilter} ${
+      activeButton === name ? styles.active : ""
+    }`;
+  }
+
+  return (
+    <>
+      {buttonArray.map((button, i) => (
+        <button
+        key={i}
+          className={buttonClass(button)}
+          onClick={updateFilter}
+          name={button}
+        >
+          {button}
+        </button>
+      ))}
+    </>
+  );
+}
 export default function ShowsFilter(props) {
   const [activeButton, setActiveButtons] = useState("Все сцены");
   const { setEditValue } = props;
@@ -13,8 +43,7 @@ export default function ShowsFilter(props) {
 
   const updateFilter = (e) => {
     const value = e.target.name;
-    console.log(value, 'value')
-    setActiveButtons(value)
+    setActiveButtons(value);
     if (value === "Все сцены") {
       setEditValue((editValue) => ({ ...editValue, scene: "" }));
     } else {
@@ -22,14 +51,11 @@ export default function ShowsFilter(props) {
     }
   };
 
-  function buttonClass(name) {
-    return `${styles.buttonFilter} ${activeButton === name ? styles.active : ""}`
-  }
+  
 
   const isActive = (state, name) => {
-    setEditValue((editValue) => ({ ...editValue, [name]: state })) ;
-  }
-
+    setEditValue((editValue) => ({ ...editValue, [name]: state }));
+  };
 
   return (
     <>
@@ -43,34 +69,7 @@ export default function ShowsFilter(props) {
                 </div>
                 <div className={styles.filterArea}>
                   <div className={styles.filterGroup}>
-                    <button
-                      className={buttonClass("Все сцены")}
-                      onClick={updateFilter}
-                      name="Все сцены"
-                    >
-                      Все сцены
-                    </button>
-                    <button
-                      className={buttonClass("Большой зал")}
-                      onClick={updateFilter}
-                      name="Большой зал"
-                    >
-                      большая сцена
-                    </button>
-                    <button
-                      className={buttonClass("Малый зал")}
-                      onClick={updateFilter}
-                      name="Малый зал"
-                    >
-                      малая сцена
-                    </button>
-                    <button
-                      className={buttonClass('Зал "Маленькая Луна"')}
-                      onClick={updateFilter}
-                      name='Зал "Маленькая Луна"'
-                    >
-                      Зал "Маленькая Луна"
-                    </button>
+                    <CreateButton updateFilter={updateFilter} activeButton={activeButton} />
                   </div>
                   <div className={styles.filterGroup}>
                     <div className={styles.inputFilter}>
