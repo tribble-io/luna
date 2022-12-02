@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./title.module.scss";
 
 function CreateButton(props) {
-  const {  scrollTo } = props;
+  const { scrollTo } = props;
   const buttonArray = [
     { title: "ближайшие постановки", name: "nextShow" },
     { title: "Спектакли на сцене «маленькой луны»", name: "little_moon" },
@@ -10,7 +10,6 @@ function CreateButton(props) {
     { title: "Запись в студию", name: "recording" },
     { title: "Фотографии со спектаклей", name: "photo" },
   ];
-
 
   return (
     <>
@@ -28,7 +27,7 @@ function CreateButton(props) {
     </>
   );
 }
-export default function ChildrenTitle({setScrollBlock}) {
+export default function ChildrenTitle({ setScrollBlock }) {
   const scrollTo = (e) => {
     const value = e.target.name;
     setScrollBlock(value);
@@ -42,7 +41,7 @@ export default function ChildrenTitle({setScrollBlock}) {
             <div className={styles.childrenContent}>
               <div className={styles.childrenTitle}>
                 <h1>
-                  Детская театральная студия{" "}
+                  Детская театральная студия
                   <br className={styles.tabletHidden} /> "Маленькая Луна"
                 </h1>
               </div>

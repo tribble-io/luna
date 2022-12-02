@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./description.module.scss";
 
-export default function ChildrenTitle() {
+export function ChildrenDescription() {
   return (
     <>
       <section>
@@ -30,10 +30,35 @@ export default function ChildrenTitle() {
                 </div>
               </div>
               
-              <div className={`${styles.descriptionBlock} ${styles.lastBlock}`}>
+              <div className={`${styles.descriptionBlock} ${styles.imageBlock}`}>
                 <div className={styles.descriptionImg}>
                   <img
                   src="/img/description-img3.png" />
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function ChildrenDescriptionTasks() {
+  return (
+    <>
+      <section>
+        <div className={styles.wrapper}>
+          {
+            <div className={styles.descriptionContent}>
+              <div className={`${styles.descriptionBlock} ${styles.lastBlock}`}>
+                <div className={styles.descriptionText}>
+                  <p><b>Задачами ДТС «Маленькая Луна» являются:</b> общее гуманитарное развитие, повышение культурного уровня детей, грамотности, коммуникабельности, формирование собственной гражданской позиции, раскрытие творческого потенциала, воображения, нестандартного образного мышления, внимания, логики и культуры речи.</p>
+                </div>
+                <div className={styles.descriptionImg}>
+                  <img
+                  src="/img/description-img4.png"
+                  />
                 </div>
               </div>
             </div>

@@ -110,7 +110,7 @@
       }
     }
 
-    &.lastBlock {
+    &.imageBlock {
       .descriptionImg {
         margin-left: 36%;
       }
@@ -119,6 +119,35 @@
 
         .descriptionImg {
           margin-left: 0;
+        }
+      }
+    } 
+    
+    &.lastBlock {
+      .descriptionText {
+        align-self: end;
+        flex-basis: 42%;
+      }
+
+      .descriptionImg {
+        padding-bottom: 70px;
+      }
+
+      @media (max-width: 1024px) {
+        .descriptionImg {
+          flex-basis: 50%;
+          padding-bottom: 0;
+        }
+
+        .descriptionText {
+          padding-top: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .descriptionImg {
+          margin-left: 0;
+          margin-top: 30px;
         }
       }
     }
