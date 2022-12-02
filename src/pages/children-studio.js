@@ -5,6 +5,7 @@ import ChildrenTitle from "../components/childrenTitle";
 import {ChildrenDescription, ChildrenDescriptionTasks} from "../components/childrenDescription"
 import ChildrenNextShows from "../components/childrenNextShows"
 import ChildrenStudioFounder from "../components/childrenStudioFounder"
+import ChildrenScene from "../components/childrenScene"
 import Loader from "../components/loader"
 
 const playsApi = "http://theatre.restomatik.ru:1337";
@@ -12,15 +13,21 @@ const playsApi = "http://theatre.restomatik.ru:1337";
 function ChildrenStudio() {
   const [scrollBlock, setScrollBlock] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [items, setItems] = useState();
+  const [nextShows, setNextShows] = useState({});
+  const [scene, setScene] = useState({});
   console.log(scrollBlock, 'scrollBlock')
-  const url = `${playsApi}/api/shows?filters[date][$gte]=${new Date().toISOString().slice(0, 10)}&filters[place][$eq]=Зал "Маленькая Луна"&populate=play`;
+  const urlNext = `${playsApi}/api/shows?filters[date][$gte]=${new Date().toISOString().slice(0, 10)}&filters[place][$eq]=Зал "Маленькая Луна"&populate=play`;
+  const urlScene = `${playsApi}/api/plays?filters[scene][$eq]=Зал "Маленькая Луна"`;
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const itemsResponse = await axios.get(url);
-        setItems(itemsResponse.data.data);
+        const [itemsResponse, sceneResponse] = await Promise.all([
+          axios.get(urlNext),
+          axios.get(urlScene),
+        ]);
+        setNextShows(itemsResponse.data.data);
+        setScene(sceneResponse.data.data)
         setIsLoading(false)
       } catch (error) {
         alert("Ошибка при запросе данных!");
@@ -35,9 +42,10 @@ function ChildrenStudio() {
     <main>
       <ChildrenTitle setScrollBlock={setScrollBlock} />
       <ChildrenDescription />
-      {/* <ChildrenNextShows id="nextShow" items={items} /> */}
+      {/* <ChildrenNextShows id="nextShow" items={nextShows} /> */}
       <ChildrenDescriptionTasks />
       <ChildrenStudioFounder id="founder" />
+      <ChildrenScene id="little_moon" items={scene} />
     </main>
   );
 }
