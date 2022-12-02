@@ -4,6 +4,7 @@ import axios from "axios";
 import ChildrenTitle from "../components/childrenTitle";
 import {ChildrenDescription, ChildrenDescriptionTasks} from "../components/childrenDescription"
 import ChildrenNextShows from "../components/childrenNextShows"
+import ChildrenStudioFounder from "../components/childrenStudioFounder"
 import Loader from "../components/loader"
 
 const playsApi = "http://theatre.restomatik.ru:1337";
@@ -36,6 +37,7 @@ function ChildrenStudio() {
       <ChildrenDescription />
       {/* <ChildrenNextShows id="nextShow" items={items} /> */}
       <ChildrenDescriptionTasks />
+      <ChildrenStudioFounder id="founder" />
     </main>
   );
 }
