@@ -23,7 +23,7 @@ function ChildrenStudio() {
 
   const urlNext = `${playsApi}/api/shows?filters[date][$gte]=${new Date()
     .toISOString()
-    .slice(0, 10)}&populate=play`;
+    .slice(0, 10)}&filters[place][$eq]=Зал "Маленькая Луна"&populate=play`;
   const urlScene = `${playsApi}/api/plays?filters[scene][$eq]=Зал "Маленькая Луна"&populate=cover`;
   const urlPhoto = `${playsApi}/api/assets/1?populate=gallery,gallery.media`;
 

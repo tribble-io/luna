@@ -23,7 +23,7 @@ export default function ChildrenNextShows(props) {
             </div>
             {isItems ? (
               <div className={styles.nextShowsArea}>
-                {items.map((item) => (
+                {items.slice(0, 4).map((item) => (
                   <CreateLine
                     item={item}
                     key={item.id}
@@ -44,8 +44,7 @@ export default function ChildrenNextShows(props) {
               </div>
             ) : (
               <div className={styles.nextShowsArea}>
-                На данный момент нет ближайших постановок на сцене "МАЛЕНЬКАЯ
-                ЛУНА"
+                Нет ближайших спектаклей на сцене "МАЛЕНЬКАЯ ЛУНА"
               </div>
             )}
           </div>
