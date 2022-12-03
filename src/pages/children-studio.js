@@ -22,21 +22,22 @@ function ChildrenStudio() {
   const [scene, setScene] = useState({});
   const [photo, setPhoto] = useState({});
   console.log(scrollBlock, "scrollBlock");
+
   const urlNext = `${playsApi}/api/shows?filters[date][$gte]=${new Date()
     .toISOString()
-    .slice(0, 10)}&filters[place][$eq]=Зал "Маленькая Луна"&populate=play`;
+    .slice(0, 10)}&populate=play`;
   const urlScene = `${playsApi}/api/plays?filters[scene][$eq]=Зал "Маленькая Луна"&populate=cover`;
   const urlPhoto = `${playsApi}/api/assets/1?populate=gallery,gallery.media`;
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const [itemsResponse, sceneResponse, photoResponse] = await Promise.all([
+        const [nextResponse, sceneResponse, photoResponse] = await Promise.all([
           axios.get(urlNext),
           axios.get(urlScene),
           axios.get(urlPhoto),
         ]);
-        setNextShows(itemsResponse.data.data);
+        setNextShows(nextResponse.data.data);
         setScene(sceneResponse.data.data);
         setPhoto(photoResponse.data.data.attributes.gallery)
         setIsLoading(false);
@@ -53,7 +54,10 @@ function ChildrenStudio() {
     <main>
       <ChildrenTitle setScrollBlock={setScrollBlock} />
       <ChildrenDescription />
-      {/* <ChildrenNextShows id="nextShow" items={nextShows} /> */}
+      {isLoading ? 
+        <Loader/> : 
+        (<ChildrenNextShows id="nextShow" items={nextShows} />)
+      }
       <ChildrenDescriptionTasks />
       <ChildrenStudioFounder id="founder" />
 
