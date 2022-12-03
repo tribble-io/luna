@@ -9,6 +9,7 @@ import {
 import ChildrenNextShows from "../components/childrenNextShows";
 import ChildrenStudioFounder from "../components/childrenStudioFounder";
 import ChildrenScene from "../components/childrenScene";
+import ChildrenRecording from "../components/childrenRecording"
 import Loader from "../components/loader";
 
 const playsApi = "http://theatre.restomatik.ru:1337";
@@ -55,6 +56,7 @@ function ChildrenStudio() {
         <Loader/> : 
         (<ChildrenScene id="little_moon" items={scene} />)
       }
+      <ChildrenRecording id="recording" />
     </main>
   );
 }
