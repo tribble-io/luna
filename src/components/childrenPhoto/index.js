@@ -58,8 +58,10 @@ export default function ChildrenPhoto(props) {
                         data-fancybox="gallery"
                         href={apiUrl + item.media.data.attributes.url}
                         data-caption={item.caption}
+                        className={styles.sliderLink}
                       >
                         <img
+                          className={styles.sliderImg}
                           alt=""
                           src={
                             apiUrl +
