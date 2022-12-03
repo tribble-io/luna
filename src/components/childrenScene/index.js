@@ -6,13 +6,12 @@ import CreateCard from "../../components/createCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/pagination";
+import "./styles.css"
+// import required modules
+import { Pagination } from "swiper";
 
 export default function ChildrenScene({ id, items }) {
-  // Number of slides per line
-  const slidesPerView = 3;
-  // Number of lines
-  const rows = Math.ceil(items.length / slidesPerView);
-
   const screen_width = window.screen.width;
   const isMobile = screen_width > 500 ? false : true;
 
@@ -27,10 +26,20 @@ export default function ChildrenScene({ id, items }) {
             {isMobile ? (
               <div className={styles.sceneSlider}>
                 <Swiper
-                  slidesPerView={1}
+                  slidesPerView={"auto"}
                   centeredSlides={true}
                   spaceBetween={20}
+                  pagination={{
+                    clickable: true,
+                    dynamicBullets: true
+                  }}
+                  modules={[Pagination]}
                   className="sceneSwiper"
+                  style={{
+                    "--swiper-pagination-bullet-inactive-color": "#fff",
+                    "--swiper-pagination-color": "#8CABFA",
+                    "--swiper-pagination-bullet-inactive-opacity": "0.6"
+                  }}
                 >
                   {items.map((item, key) => (
                     <SwiperSlide key={key}>

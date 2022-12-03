@@ -10,7 +10,7 @@
   background-color: $bg-color;
 
   .childrenTitle {
-    padding-top: 12.7rem;
+    padding-top: 200px;
 
     @media (max-width: 991px) {
       padding-top: 8rem;
@@ -43,7 +43,7 @@
   }
 
   .linkArea {
-    padding-top: 4.3rem;
+    padding-top: 60px;
     @media (max-width: 500px) {
       padding-top: 2.5rem;
     }
@@ -60,6 +60,12 @@
 
     @media (max-width: 991px) {
       column-gap: 80px;
+    }
+
+    @media (max-width: 500px) {
+      row-gap: 15px;
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 
@@ -82,6 +88,7 @@
       border: none;
       padding: 0px;
       white-space: nowrap;
+      border-bottom: 1px solid $text-color;
     }
 
     &:hover {

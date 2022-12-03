@@ -1,9 +1,19 @@
-.photoSwiper>.swiper-wrapper {
-  flex-wrap: wrap;
-  flex-direction: row;
-  row-gap: 5px;
+@media(min-width: 500px) {
+  .photoSwiper>.swiper-wrapper {
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: 5px;
+  }
+  .photoSwiper .swiper-slide {
+    margin-top: 0 !important;
+  }
 }
 
-.photoSwiper .swiper-slide {
-  margin-top: 0 !important;
+@media (max-width: 500px) {
+  .photoSwiper.swiper {
+    padding-bottom: 40px;
+  }
+  .photoSwiper .swiper-slide {
+    max-width: 300px;
+  }
 }

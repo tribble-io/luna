@@ -21,7 +21,7 @@
 
     @media (max-width: 991px) {
       padding-top: 150px;
-      padding-bottom: 300px;
+      padding-bottom: 270px;
     }
 
     @media (max-width: 500px) {
@@ -58,6 +58,10 @@
     img {
       max-width: 60px;
       cursor: pointer;
+    }
+
+    @media (max-width: 500px) {
+      display: none;
     }
   }
 }

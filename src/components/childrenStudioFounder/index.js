@@ -1,10 +1,11 @@
 import React from "react";
 import styles from "./founder.module.scss";
 
-export default function ChildrenStudioFounder() {
+export default function ChildrenStudioFounder(props) {
+  const {id} = props;
   return (
     <>
-      <section>
+      <section id={id}>
         <div className={styles.wrapper}>
           {
             <div className={styles.studioFounderContent}>

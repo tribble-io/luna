@@ -7,16 +7,24 @@ import "swiper/css";
 import "swiper/css/grid";
 import "./styles.css";
 // import required modules
-import { Grid, Navigation } from "swiper";
+import { Grid, Navigation,Pagination } from "swiper";
 
 import Fancybox from "../../utils/fancybox";
 
 const apiUrl = "http://theatre.restomatik.ru:1337";
+const screen_width = window.screen.width;
 
 export default function ChildrenPhoto(props) {
   const { id, items } = props;
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
+
+  // slider parameters for mobile
+  const rows = screen_width > 500 ? 2 : 1;
+  const slidesPerView = screen_width > 500 ? 3 : "auto";
+  const navigation =  screen_width > 500 ? {prevEl: navigationPrevRef.current, nextEl: navigationNextRef.current,} : false;
+  const pagination =  screen_width > 500 ? false : {clickable: true, dynamicBullets: true};
+  const centeredSlides = screen_width > 500 ? false : true;
   return (
     <>
       <section id={id}>
@@ -27,17 +35,21 @@ export default function ChildrenPhoto(props) {
             </div>
             <div className={styles.photoBlock}>
               <Swiper
-                slidesPerView={3}
+                slidesPerView={slidesPerView}
+                centeredSlides={centeredSlides}
                 grid={{
-                  rows: 2,
+                  rows: rows,
                 }}
                 spaceBetween={20}
-                navigation={{
-                  prevEl: navigationPrevRef.current,
-                  nextEl: navigationNextRef.current,
-                }}
-                modules={[Grid, Navigation]}
+                navigation={navigation}
+                pagination={pagination}
+                modules={[Grid, Navigation, Pagination]}
                 className="photoSwiper"
+                style={{
+                  "--swiper-pagination-bullet-inactive-color": "#fff",
+                  "--swiper-pagination-color": "#8CABFA",
+                  "--swiper-pagination-bullet-inactive-opacity": "0.6"
+                }}
               >
                 <Fancybox>
                   {items.map((item, key) => (
