@@ -1,13 +1,13 @@
 import React from "react";
-import styles from "./shows.module.scss";
+import styles from "./card.module.scss";
 import Ripple from "../../components/rippleButton";
 
 const API_URL = "http://theatre.restomatik.ru:1337";
 
-export default function CreateCard({item}) {
+export default function CreateCard({ item }) {
   return (
     <>
-      <div className={styles.showsCard}>
+      <div className={styles.cardContent}>
         <div className={styles.showsImage}>
           <a className={styles.imageLink} href={"show/" + item.id}>
             <img
@@ -19,7 +19,6 @@ export default function CreateCard({item}) {
         <div className={styles.showsCardText}>
           <div className={styles.titleContainer}>
             <span>
-              {" "}
               <a href={"show/" + item.id} className={styles.title}>
                 {item.attributes.title}
               </a>

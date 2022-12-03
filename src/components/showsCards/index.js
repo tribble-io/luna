@@ -7,13 +7,13 @@ export default function showsCards({ items }) {
     <>
       <section>
         <div className={styles.wrapper}>
-          {
-            <div className={styles.showsContent}>
-              {items.map((item, key) => (
+          <div className={styles.showsContent}>
+            {items.map((item, key) => (
+              <div className={styles.showsCard} key={key}>
                 <CreateCard item={item} key={key} />
-              ))}
-            </div>
-          }
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>
