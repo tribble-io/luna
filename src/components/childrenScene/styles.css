@@ -1,0 +1,7 @@
+.sceneSwiper.swiper {
+  padding-bottom: 40px;
+}
+
+.sceneSwiper .swiper-slide {
+  max-width: 300px;
+}

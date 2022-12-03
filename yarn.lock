@@ -1208,6 +1208,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@fancyapps/ui@^4.0.31":
+  version "4.0.31"
+  resolved "https://registry.yarnpkg.com/@fancyapps/ui/-/ui-4.0.31.tgz#cf187b0ffe41ec1f44fd2ba2c2237f5cf7914619"
+  integrity sha512-D7+PMIloxSOFJyY+lXcNlVDhmssOmDT6PT5fqQUIiws2hT7PH29r0EKZxERmACSQpm6qrFkP7rSguzXWvRJduQ==
+
 "@humanwhocodes/config-array@^0.10.5":
   version "0.10.7"
   resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.10.7.tgz"
@@ -7461,6 +7466,11 @@ react-scripts@5.0.1:
     workbox-webpack-plugin "^6.4.1"
   optionalDependencies:
     fsevents "^2.3.2"
+
+react-scroll-into-view@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/react-scroll-into-view/-/react-scroll-into-view-1.12.0.tgz#645635cfe5692138dc9a903f96532b1708c6398a"
+  integrity sha512-n2yLN1MyiKL65AmFoYLnd/XOKhrFLB3w5m8Q1sHHcJTmXbpxoqEbCm+JooZvrNfGCaWuYVAJmXhN+uxi4jwYVg==
 
 react@^18.2.0:
   version "18.2.0"
