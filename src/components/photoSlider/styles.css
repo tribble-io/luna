@@ -1,5 +1,5 @@
-@media(min-width: 500px) {
-  .photoSwiper>.swiper-wrapper {
+@media (min-width: 500px) {
+  .photoSwiper > .swiper-wrapper {
     flex-wrap: wrap;
     flex-direction: row;
     row-gap: 5px;
