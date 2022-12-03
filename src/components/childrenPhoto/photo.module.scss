@@ -16,16 +16,16 @@
   }
 
   .photoContent {
-    padding-top: 250px;
+    //padding-top needed for correct funct 'ScrollIntoView'
+    padding-top: 120px;
     padding-bottom: 350px;
 
     @media (max-width: 991px) {
-      padding-top: 150px;
+      padding-top: 0;
       padding-bottom: 270px;
     }
 
     @media (max-width: 500px) {
-      padding-top: 80px;
       padding-bottom: 200px;
     }
   }

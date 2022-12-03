@@ -10,13 +10,16 @@
   background-color: $bg-color;
 
   .sceneContent {
-    padding-top: 250px;
+    //padding-top needed for correct funct 'ScrollIntoView'
+    padding-top: 120px;
+    padding-bottom: 130px;
 
     @media (max-width: 991px) {
-      padding-top: 8rem;
+      padding-top: 0;
+      padding-bottom: 100px;
     }
     @media (max-width: 500px) {
-      padding-top: 80px;
+      padding-bottom: 80px;
     }
   }
 

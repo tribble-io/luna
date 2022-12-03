@@ -9,14 +9,17 @@
   color: $text-color;
   background-color: $bg-color;
 
-  .childrenTitle {
+  .childrenContent {
     padding-top: 200px;
+    padding-bottom: 200px;
 
     @media (max-width: 991px) {
       padding-top: 8rem;
+      padding-bottom: 7rem;
     }
     @media (max-width: 500px) {
       padding-top: 4.4rem;
+      padding-bottom: 80px;
     }
 
     h1 {

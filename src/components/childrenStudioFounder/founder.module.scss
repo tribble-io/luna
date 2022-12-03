@@ -11,12 +11,15 @@
 }
 
 .studioFounderContent {
-  padding-top: 12.5rem;
-  @media (max-width: 768px) {
-    padding-top: 7rem;
+  //padding-top needed for correct funct 'ScrollIntoView'
+  padding-top: 70px;
+  padding-bottom: 130px;
+  @media (max-width: 991px) {
+    padding-top: 0;
+    padding-bottom: 100px;
   }
   @media (max-width: 500px) {
-    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .studioFounderBlock {
     display: grid;

@@ -10,13 +10,16 @@
   background-color: $bg-color;
 
   .nextShowsContent {
-    padding-top: 15.7rem;
+    //padding-top needed for correct funct 'ScrollIntoView'
+    padding-top: 120px;
+    padding-bottom: 200px;
 
     @media (max-width: 991px) {
-      padding-top: 8rem;
+      padding-top: 0;
+      padding-bottom: 150px;
     }
     @media (max-width: 500px) {
-      padding-top: 4.4rem;
+      padding-bottom: 80px;
     }
   }
 
