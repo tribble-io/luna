@@ -6,8 +6,6 @@ import CreateCard from "../../components/createCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/grid";
-import "swiper/css/pagination";
 
 export default function ChildrenScene({ id, items }) {
   // Number of slides per line

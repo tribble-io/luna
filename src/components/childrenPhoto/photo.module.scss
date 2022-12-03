@@ -1,0 +1,63 @@
+@import "../../utils/mixins.scss";
+@import "../../utils/fonts.scss";
+@import "../../utils/variables.scss";
+
+.wrapper {
+  @include container;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: $text-color;
+  background-color: $bg-color;
+
+  img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .photoContent {
+    padding-top: 250px;
+    padding-bottom: 350px;
+
+    @media (max-width: 991px) {
+      padding-top: 150px;
+      padding-bottom: 300px;
+    }
+
+    @media (max-width: 500px) {
+      padding-top: 80px;
+      padding-bottom: 200px;
+    }
+  }
+
+  .photoContent h2 {
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    @media (max-width: 991px) {
+      font-size: 26px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 22px;
+    }
+  }
+
+  .photoBlock {
+    padding-top: 100px;
+  }
+
+  .sliderNavigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+
+    img {
+      max-width: 60px;
+      cursor: pointer;
+    }
+  }
+}
