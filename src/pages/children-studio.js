@@ -16,12 +16,10 @@ import Loader from "../components/loader";
 const playsApi = "http://theatre.restomatik.ru:1337";
 
 function ChildrenStudio() {
-  const [scrollBlock, setScrollBlock] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [nextShows, setNextShows] = useState({});
   const [scene, setScene] = useState({});
   const [photo, setPhoto] = useState({});
-  console.log(scrollBlock, "scrollBlock");
 
   const urlNext = `${playsApi}/api/shows?filters[date][$gte]=${new Date()
     .toISOString()
@@ -52,7 +50,7 @@ function ChildrenStudio() {
 
   return (
     <main>
-      <ChildrenTitle setScrollBlock={setScrollBlock} />
+      <ChildrenTitle />
       <ChildrenDescription />
       {isLoading ? 
         <Loader/> : 
