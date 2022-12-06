@@ -10,6 +10,7 @@ import Plays from './pages/plays';
 import Home from './pages';
 import ChildrenStudio from './pages/children-studio';
 import HistoryTheathre from './components/historyTheathre';
+import Poster from './components/poster/poster';
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
                     <Route path="/plays" element={<Plays />} />
                     <Route path="/children-studio" element={<ChildrenStudio />} />
                     <Route path="/theatre-history" element={<HistoryTheathre />} />
+                    <Route path="/posters" element={<Poster />} />
                 </Routes>
                 <footer>
                     <Block />
