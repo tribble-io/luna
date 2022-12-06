@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import ShowsFilter from "../components/showsFilter";
-import ShowsCards from "../components/showsCards";
+import ShowsFilter from "../components/plays/filters";
+import ShowsCards from "../components/plays/cards";
 import Loader from "../components/loader"
 
 const playsApi = "http://theatre.restomatik.ru:1337/api/plays";

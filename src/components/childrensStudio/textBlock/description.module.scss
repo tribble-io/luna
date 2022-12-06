@@ -1,0 +1,233 @@
+@import "../../../assets/main.scss";
+
+.wrapper {
+  @include container;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: $text-color;
+  background-color: $bg-color;
+
+  .descriptionContent {
+    padding-bottom: 130px;
+    @media (max-width: 768px) {
+      padding-bottom: 100px;
+    }
+    @media (max-width: 500px) {
+      padding-bottom: 80px;
+    }
+  }
+
+  .descriptionBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 13rem;
+
+      @media (max-width: 768px) {
+        margin-bottom: 7rem;
+      }
+
+      @media (max-width: 500px) {
+        margin-bottom: 80px;
+      }
+    }
+
+    .descriptionText {
+      flex-basis: 32%;
+      font-size: 16px;
+      line-height: 174%;
+
+      .marginParagraph {
+        margin-bottom: 1rem;
+      }
+
+      @media (max-width: 1024px) {
+        flex-basis: 50%;
+      }
+    }
+
+    .descriptionImg {
+      .sliderLink {
+        display: block;
+        overflow: hidden;
+      }
+      .sliderImg {
+        object-fit: cover;
+        backface-visibility: hidden;
+        transition: transform 0.5s ease-in-out;
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+      img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+      }
+      .mobileCaption {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        margin-bottom: 80px;
+        .mobileCaption {
+          display: block;
+          margin-top: 16px;
+        }
+      }
+    }
+
+    &.bigBlock {
+      .descriptionText {
+        padding-top: 30px;
+      }
+
+      @media (max-width: 1024px) {
+        .descriptionImg {
+          flex-basis: 50%;
+          margin-left: 30px;
+        }
+
+        .descriptionText {
+          padding-top: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column-reverse;
+        .descriptionImg {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &.smallBlock {
+      .descriptionText {
+        margin-right: 60px;
+      }
+      .descriptionImg {
+        margin-left: 10%;
+      }
+
+      @media (max-width: 1024px) {
+        justify-content: space-evenly;
+        .descriptionText {
+          margin-right: 0;
+        }
+        .descriptionImg {
+          margin-left: 0;
+          margin-right: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .descriptionImg {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &.imageBlock {
+      .descriptionImg {
+        margin-left: 36%;
+      }
+      @media (max-width: 1024px) {
+        justify-content: center;
+
+        .descriptionImg {
+          margin-left: 0;
+        }
+      }
+      @media (max-width: 500px) {
+        display: none;
+      }
+    }
+
+    &.lastBlock {
+      .descriptionText {
+        align-self: end;
+        flex-basis: 42%;
+      }
+
+      .descriptionImg {
+        padding-bottom: 70px;
+      }
+
+      @media (max-width: 1024px) {
+        .descriptionImg {
+          flex-basis: 50%;
+          padding-bottom: 0;
+        }
+
+        .descriptionText {
+          padding-top: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column-reverse;
+        .descriptionImg {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .recordingContent {
+    //padding-top needed for correct funct 'ScrollIntoView'
+    padding-top: 120px;
+    padding-bottom: 130px;
+
+    @media (max-width: 991px) {
+      padding-top: 0;
+      padding-bottom: 100px;
+    }
+
+    @media (max-width: 500px) {
+      padding-bottom: 80px;
+    }
+
+    .recordingTitle h2 {
+      font-size: 30px;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      @media (max-width: 991px) {
+        font-size: 26px;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 22px;
+      }
+    }
+
+    .recordingBlock {
+      padding-top: 50px;
+
+      p {
+        font-size: 16px;
+        line-height: 164%;
+        margin-bottom: 5px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid $text-color;
+      }
+
+      .marginParagraph {
+        margin-bottom: 2rem;
+      }
+
+      .watsapp {
+        margin-left: 15px;
+      }
+    }
+  }
+}

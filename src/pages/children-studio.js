@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import ChildrenTitle from "../components/childrenTitle";
+import ChildrenTitle from "../components/childrensStudio/title";
 import {
   ChildrenDescription,
-  ChildrenDescriptionTasks,
-} from "../components/childrenDescription";
-import ChildrenNextShows from "../components/childrenNextShows";
-import ChildrenStudioFounder from "../components/childrenStudioFounder";
-import ChildrenScene from "../components/childrenScene";
-import ChildrenRecording from "../components/childrenRecording"
-import ChildrenPhoto from "../components/childrenPhoto"
+  ChildrenStudioTask,
+  ChildrenRecording
+} from "../components/childrensStudio/textBlock";
+import ChildrenNextShows from "../components/childrensStudio/nextShows";
+import ChildrenStudioFounder from "../components/childrensStudio/founder";
+import ChildrenScene from "../components/childrensStudio/scene";
+import ChildrenPhoto from "../components/childrensStudio/photo"
 import Loader from "../components/loader";
 
 const playsApi = "http://theatre.restomatik.ru:1337";
@@ -56,7 +56,7 @@ function ChildrenStudio() {
         <Loader/> : 
         (<ChildrenNextShows id="nextShow" items={nextShows} />)
       }
-      <ChildrenDescriptionTasks />
+      <ChildrenStudioTask id="studio_task" />
       <ChildrenStudioFounder id="founder" />
 
       {isLoading ? 

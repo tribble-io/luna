@@ -1,5 +1,5 @@
 import React from "react";
-import { useWindowScrollPositions } from "../../utils/usable-function";
+import { useWindowScrollPositions } from "../../assets/utils/usable-function";
 import styles from "./nav.module.scss";
 
 function Nav() {
