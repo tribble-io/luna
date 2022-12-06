@@ -1,0 +1,95 @@
+@import "../../../assets/main.scss";
+
+.wrapper {
+  @include container;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: $text-color;
+  background-color: $bg-color;
+
+  .filterTitle {
+    padding-top: 13rem;
+    @media (max-width: 500px) {
+      padding-top: 4.4rem;
+    }
+
+    h1 {
+      font-size: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      @media (max-width: 500px) {
+        font-size: 30px;
+      }
+    }
+  }
+
+  .filterArea {
+    padding-top: 5rem;
+    overflow: hidden;
+    @media (max-width: 500px) {
+      padding-top: 2.5rem;
+    }
+
+  }
+
+  .filterGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 765px) {
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    @media (max-width: 500px) {
+      flex-wrap: nowrap;
+      overflow: scroll;
+      justify-content: flex-start;
+    }
+  }
+
+  .inputFilter {
+    max-width: 460px;
+    flex-basis: 100%;
+    position: relative;
+
+    input {
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid #fff;
+      padding: 21px 30px 21px 90px;
+      font-size: 14px;
+      color: $text-color;
+
+      &:hover,
+      &:focus {
+        border-color: $compl-color;
+      }
+    }
+
+    &:before {
+      content: "";
+      z-index: 2;
+      user-select: none;
+      position: absolute;
+      top: 15px;
+      left: 30px;
+      width: 30px;
+      height: 30px;
+      background: transparent url("./icon_search.png") no-repeat center / cover;
+    }
+  }
+
+  .checkboxFilter {
+    &:not(:last-child) {
+      margin-right: 60px;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.mySwiper {
+  width: 100%;
+  padding-bottom: 200px;
+}
+
+@media (max-width: 770px) {
+  .mySwiper {
+    padding-bottom: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .mySwiper {
+    padding-bottom: 100px;
+  }
+}
+
+.mySwiper.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.mySwiper .swiper-slide {
+  -webkit-transform: translate3d(0, 0, 0);
+  min-height: 44vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .mySwiper .swiper-slide {
+    min-height: 500px;
+  }
+}
