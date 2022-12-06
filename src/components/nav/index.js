@@ -11,7 +11,7 @@ function Nav() {
             <div className={styles.wrapper}>
                 <ul>
                     <li>
-                        <a href="http://www.lunatheatre.ru/afisha">Афиша</a>
+                        <a href="/posters">Афиша</a>
                     </li>
                     <li>
                         <a href="/plays">Спектакли</a>
