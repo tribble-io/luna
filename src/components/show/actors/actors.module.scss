@@ -1,0 +1,24 @@
+@import "../../../assets/main.scss";
+
+.wrapper {
+  @include container;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+h2 {
+  @include headline_second;
+}
+
+.actorsContent {
+  padding-bottom: 200px;
+
+  .actorsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 63px;
+  }
+}
+

@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { playsApi, api } from "../api/index";
+import { API_URL, api } from "../api/index";
 
-import {TitleBlock, About} from "../components/show/titleBlock";
+import { TitleBlock, About } from "../components/show/titleBlock";
 import ComingShow from "../components/show/comingShow";
-import Loader from "../components/loader"
+import Actors from "../components/show/actors";
+import Loader from "../components/loader";
 
 function getShowData(item) {
   const data = {
-    bgImage: playsApi + item.attributes.play.data.attributes.cover.data.attributes.formats.large.url,
-    title: item.attributes.play.data.attributes.title,
-    description: item.attributes.play.data.attributes.description,
-    tickets_link: item.attributes.tickets_link,
-    rating: item.attributes.play.data.attributes.rating,
-    durationStr: item.attributes.play.data.attributes.durationStr,
-    premiereDateStr: item.attributes.play.data.attributes.premiereDateStr,
-    scene: item.attributes.play.data.attributes.scene,
-  }
+    bgImage: API_URL + item.attributes.cover.data.attributes.url,
+    title: item.attributes.title,
+    description: item.attributes.description,
+    rating: item.attributes.rating,
+    durationStr: item.attributes.durationStr,
+    premiereDateStr: item.attributes.premiereDateStr,
+    scene: item.attributes.scene,
+    body: item.attributes.body,
+  };
 
   return data;
 }
@@ -31,17 +32,20 @@ function Show() {
     rating: "",
     durationStr: "",
     premiereDateStr: "",
-    scene: ""
+    scene: "",
+    body: "",
   });
 
-  
   const [showItems, setShowItems] = useState({});
+  const [ticketsLink, setticketsLink] = useState("");
 
   useEffect(() => {
-    api.exportShowData('6')
-      .then((response) => {
-        setShowData(getShowData(response[0]));
-        setShowItems(response)
+    Promise.all([api.exportComingShow("6"), api.exportShowData("6")])
+      .then((values) => {
+        setShowItems(values[0]);
+        setticketsLink(values[0][0].attributes.tickets_link);
+
+        setShowData(getShowData(values[1]));
         setIsLoading(false);
       })
       .catch((error) => {
@@ -52,9 +56,10 @@ function Show() {
 
   return (
     <main>
-      <TitleBlock data={showData} />
+      <TitleBlock data={showData} ticketsLink={ticketsLink} />
       <About data={showData} />
-      <ComingShow items={showItems} />
+      {isLoading ? <Loader /> : <ComingShow items={showItems} />}
+      <Actors />
     </main>
   );
 }

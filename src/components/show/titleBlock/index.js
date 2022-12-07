@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./titleblock.module.scss";
 
-export function TitleBlock({ data }) {
+export function TitleBlock({ data, ticketsLink }) {
   return (
     <section className={styles.titleBlock} id="titleBlock">
       <div
@@ -17,7 +17,7 @@ export function TitleBlock({ data }) {
             <p className={styles.description}>{data.description}</p>
             <div className={styles.ticket}>
               <div className={styles.buy}>
-                <a className={styles.link} href={data.tickets_link}>
+                <a className={styles.link} href={ticketsLink}>
                   БИЛЕТЫ
                 </a>
               </div>
@@ -41,7 +41,7 @@ export function About({data}) {
             <div className={styles.aboutInfo}>
               <div className={styles.intro}>
                 <div className={styles.description}>
-                  <p>В провинциальный город после долгих лет возвращается известный московский режиссер Павел Богомолов, чтобы вновь встретиться с теми, с кем он начинал свой путь в театре. Здесь остались его друзья, любимые женщины и ему как воздух необходим «антракт», чтобы переосмыслить свою жизнь, подумать о будущем и разобраться в себе. </p>
+                  <p>{data.body}</p>
                 </div>
                 <div className={styles.durationStr}>
                   <p className={styles.title}>Продолжительность</p>
