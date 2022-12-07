@@ -22,5 +22,27 @@ h2 {
     grid-template-rows: repeat(5, 1fr);
     row-gap: 20px;
   }
+
+  .pressNavigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+  
+    img {
+      max-width: 60px;
+      cursor: pointer;
+    }
+
+    .pressFraction {
+      font-size: 20px;
+
+      span:not(:last-child) {
+        margin-right: 5px;
+      }
+    }
+  }
+  
 }
 
