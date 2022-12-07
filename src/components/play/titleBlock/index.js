@@ -40,7 +40,7 @@ export function About({ data, directors }) {
           <div className={styles.aboutInfo}>
             <div className={styles.intro}>
               <div className={styles.description}>
-              <ReactMarkdown>{data.body}</ReactMarkdown>
+              <ReactMarkdown children={data.body} />
               </div>
               <div className={styles.durationStr}>
                 <p className={styles.title}>Продолжительность</p>
