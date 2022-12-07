@@ -1,0 +1,54 @@
+@import "../../../assets/main.scss";
+
+.lineContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+
+  padding: 30px 40px;
+  background-color: transparent;
+  border: 1px solid $text-color;
+
+  color: $text-color;
+
+  &:hover {
+    .arrow {
+      transform: translateX(20px);
+    }
+  }
+
+  .lineText {
+    flex: 1;
+    font-weight: 500;
+    font-size: 16px;
+    padding-right: 15px;
+  }
+
+  .titleCont {
+    margin-bottom: 20px;
+  }
+
+  .publisher {
+    color: $compl-color;
+    margin-right: 30px;
+  }
+
+  .date {
+    color: #C0C0C0;
+  }
+
+  .title {
+    line-height: 160%;
+  }
+
+  .arrow {
+    transition: transform 0.5s ease;
+
+    img {
+      max-width: 44px;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

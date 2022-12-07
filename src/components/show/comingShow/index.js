@@ -24,7 +24,7 @@ function createLine(item) {
   return createLineData;
 }
 
-export default function ComingShow({ items }) {
+export function ComingShow({ items }) {
   // Check if we have coming show
   const isItems = items.length > 0 ? true : false;
   const isPushkinCard = items[0].attributes.play.data.attributes.isPushkinCard;

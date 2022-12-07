@@ -1,0 +1,26 @@
+@import "../../../assets/main.scss";
+
+.wrapper {
+  @include container;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+h2 {
+  @include headline_second;
+}
+
+.pressContent {
+  padding-bottom: 180px;
+
+  .pressGrid {
+    padding-top: 90px;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 20px;
+  }
+}
+

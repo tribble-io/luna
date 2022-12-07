@@ -2,8 +2,7 @@ import React from "react";
 import styles from "./actors.module.scss";
 import CreateCard from "../../createElement/actorCard";
 
-export default function Actors({ roles }) {
-  console.log(roles, 'roles')
+export function Actors({ roles }) {
   return (
     <section id="actors">
       <div className={styles.wrapper}>
