@@ -1,5 +1,5 @@
 import axios from "axios";
-const playsApi = "http://theatre.restomatik.ru:1337";
+export const playsApi = "http://theatre.restomatik.ru:1337";
 
 async function exportShows() {
   const result = await axios.get(
@@ -99,6 +99,19 @@ async function exportChildrenStudioPhoto() {
   throw new Error("Can't export studio photos");
 }
 
+async function exportShowData(showID) {
+  const result = await axios.get(
+    `${playsApi}/api/shows?filters[date][$gte]=${new Date().toISOString().slice(0, 10)}&sort[0]=date&filters[play][id][$eq]=${showID}&populate=play.cover`
+  );
+
+  if (result.status === 200) {
+    return result.data.data;
+  }
+
+  throw new Error("Can't export studio photos");
+}
+
+
 export const api = {
   exportShows,
   exportArticles,
@@ -106,4 +119,5 @@ export const api = {
   exportChildrenStudioNextShow,
   exportChildrenStudioScene,
   exportChildrenStudioPhoto,
+  exportShowData
 };
