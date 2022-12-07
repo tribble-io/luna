@@ -9,7 +9,7 @@ import LastBlock from "./components/blockFooterLast";
 import Plays from "./pages/plays";
 import Home from "./pages";
 import ChildrenStudio from "./pages/children-studio";
-import Show from "./pages/show"
+import Play from "./pages/play"
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/plays" element={<Plays />} />
           <Route path="/children-studio" element={<ChildrenStudio />} />
-          <Route path="/show/:id" element={<Show />} />
+          <Route path="/play/:id" element={<Play />} />
         </Routes>
         <footer>
           <Block />

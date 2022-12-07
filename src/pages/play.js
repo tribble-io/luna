@@ -10,7 +10,7 @@ import {
   Press,
   ShowPhoto,
   Review,
-} from "../components/show";
+} from "../components/play";
 import Loader from "../components/loader";
 
 function getShowData(item) {
@@ -91,8 +91,8 @@ function getShowReview(arr) {
   return review;
 }
 
-export default function Show() {
-  const match = useMatch('/show/:id');
+export default function Play() {
+  const match = useMatch('/play/:id');
   const showID = match.params.id;
   const [isLoading, setIsLoading] = useState(true);
 
@@ -138,10 +138,9 @@ export default function Show() {
 
 
   return (
-    
     <main>
-      <TitleBlock data={showData} ticketsLink={ticketsLink} />
-      <About data={showData} directors={directors} />
+      {isLoading ? <Loader /> : <TitleBlock data={showData} ticketsLink={ticketsLink} />}
+      {isLoading ? <Loader /> : <About data={showData} directors={directors} />}
       {isLoading ? <Loader /> : <ComingShow items={showItems} />}
       {isLoading ? <Loader /> : <Actors roles={roles} />}
       {isLoading ? <Loader /> : <Press press={press} />}
