@@ -1,0 +1,207 @@
+@import "../../../assets/utils/mixins.scss";
+@import "../../../assets/utils/fonts.scss";
+
+    .posterContent {
+        @include container;
+        color: white;
+    }
+    .posterContent:last-child {
+       padding-bottom: 200px;
+    }
+
+    .data {
+        display: flex
+    }
+    .posterContent_el {
+        width: 100%;
+        height: 190px; 
+        border-top: 1.5px solid white;
+        border-bottom: 1.5px solid white;
+        margin-top: -1px;
+    }
+    .posterContent_el_content {
+        display: flex;
+        height: 100%;
+
+
+    }
+    .data {
+        display: flex;
+        margin-top: auto;
+        margin-bottom: auto;
+        width: 180px;
+
+        @media (max-width: 1000px) {
+            min-width: 180px;
+        }
+
+        @media (max-width: 770px) {
+            order: 1
+        }
+    }
+    .posterContent_el_content_2 {
+        display: flex;
+
+        @media (max-width: 770px) {
+            flex-direction: column;
+        }
+    }
+    .dataNumber {
+        font-family: 'Montserrat';
+        font-size: 44px;
+        font-weight: 300;
+        text-align: left;
+
+        @media (max-width: 1200px) {
+            font-size: 32px;
+        }
+
+    }
+    .dataTime {
+        font-family: 'Montserrat';
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0em;
+        text-align: left;
+        padding: 8px;
+        padding-left: 10px;
+
+        @media (max-width: 1200px) {
+            font-size: 11px;
+            padding: 0;
+            padding-left: 10px;
+        }
+    }
+    .name {
+        display: flex;
+        flex-direction: column;
+        height: 60px;
+        margin: auto 0;
+        margin-left: 150px;
+        position: relative;
+        text-transform: uppercase;
+
+         @media (max-width: 1200px) {
+            margin-left: 10px;
+        }
+
+        @media (max-width: 1000px) {
+            margin-left: 0px;
+        }
+
+        @media (max-width: 770px) {
+            margin-left: 0;
+        }
+
+        div:nth-child(1) {
+            font-family: 'Montserrat';
+            font-size: 24px;
+            font-weight: 400;
+
+            @media (max-width: 1200px) {
+                font-size: 20px;
+            }
+            @media (max-width: 1000px) {
+                font-size: 15px;
+            }
+        }
+    }
+    .scien {
+        font-family: 'Montserrat';
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 15px;
+
+        @media (max-width: 1200px) {
+            font-size: 12px;
+        }
+    }
+    .premier {
+        font-family: 'Montserrat';
+        font-size: 14px;
+        font-weight: 400;
+        margin-left: 100px;
+        position: absolute;
+        left: 100%;
+        top: 15%;
+        color: #FAE88C;
+
+        @media (max-width: 1400px) {
+            left: 80%;
+            top: 15%;
+        }
+        @media (max-width: 1000px) {
+            left: 80%;
+            top: 0%;
+        }
+        @media (max-width: 770px) {
+            left: -46%;
+            top: 115%;
+            color: #8CABFA;
+
+        }
+        @media (max-width: 380px) {
+            left: -50%;
+            top: 115%;
+        }
+    }
+
+    .restrictionBlock {
+        display: flex;
+        margin: auto 0;
+        margin-right: 0;
+        margin-left: auto;
+        height: 60px;
+
+        @media (max-width: 1000px) {
+            min-width: 240px;
+        }
+
+        @media (max-width: 770px) {
+            flex-direction: column;
+            min-width: auto;
+            margin: 0;
+            margin-right: 0;
+            margin-left: auto;
+            height: 100%;
+        }
+    }
+    .buy {
+        display: block;
+        font-family: 'Montserrat';
+        font-size: 14px;
+        font-weight: 500;
+        padding: 20px 60px;
+        border: .1px solid #8CABFA;
+        color: #8CABFA;
+
+        @media (max-width: 1000px) {
+            font-size: 13px;
+            padding: 20px 25px;
+        }
+        @media (max-width: 770px) {
+            margin-top: auto;
+            margin-bottom: 25px;
+            min-width: 150px;
+        }
+    }
+    .restriction {
+        font-family: 'Montserrat';
+        font-size: 24px;
+        font-weight: 400;
+        padding-top: 15px;
+        margin-right: 50px;
+
+        @media (max-width: 770px) {
+            text-align: right;
+        }
+    }
+    .antiBlock {
+        @include container;
+        color: white;
+        text-align: center;
+        font-family: 'Montserrat';
+        font-size: 23px;
+        padding-bottom: 100px;
+    }
