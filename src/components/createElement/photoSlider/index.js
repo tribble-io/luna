@@ -11,11 +11,11 @@ import { Grid, Navigation, Pagination } from "swiper";
 
 import Fancybox from "../../../assets/utils/fancybox";
 
-const apiUrl = "http://theatre.restomatik.ru:1337";
 const screen_width = window.screen.width;
 
-export default function ChildrenPhoto(props) {
+export default function PhotoSlider(props) {
   const { items } = props;
+  console.log(items, "items");
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
@@ -49,20 +49,18 @@ export default function ChildrenPhoto(props) {
         }}
       >
         <Fancybox>
-          {items.map((item, key) => (
-            <SwiperSlide key={key}>
-              <a
-                data-fancybox="gallery"
-                href={apiUrl + item.media.data.attributes.url}
-                data-caption={item.caption}
-                className={styles.sliderLink}
-              >
-                <img
-                  className={styles.sliderImg}
-                  alt=""
-                  src={apiUrl + item.media.data.attributes.formats.small.url}
-                />
-              </a>
+          {items.map((item) => (
+            <SwiperSlide key={item.id}>
+              <div className={styles.cardImg}>
+                <a
+                  data-fancybox="gallery"
+                  href={item.href}
+                  data-caption={item.caption}
+                  className={styles.sliderLink}
+                >
+                  <img className={styles.sliderImg} alt="" src={item.src} />
+                </a>
+              </div>
             </SwiperSlide>
           ))}
         </Fancybox>

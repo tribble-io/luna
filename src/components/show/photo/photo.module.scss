@@ -1,0 +1,21 @@
+@import "../../../assets/main.scss";
+
+.wrapper {
+  @include container;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: $text-color;
+  background-color: $bg-color;
+}
+
+.photoContent {
+  padding-bottom: 200px;
+
+  h2 {
+    @include headline_second;
+  }  
+
+  .photoBlock {
+    padding-top: 100px;
+  }
+}
