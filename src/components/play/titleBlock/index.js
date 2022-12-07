@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./titleblock.module.scss";
+import ReactMarkdown from "react-markdown";
 
 export function TitleBlock({ data, ticketsLink }) {
   return (
@@ -21,9 +22,7 @@ export function TitleBlock({ data, ticketsLink }) {
                   БИЛЕТЫ
                 </a>
               </div>
-              <div className={styles.rating}>
-                {data.rating}+
-              </div>
+              <div className={styles.rating}>{data.rating}+</div>
             </div>
           </div>
         </div>
@@ -32,42 +31,45 @@ export function TitleBlock({ data, ticketsLink }) {
   );
 }
 
-export function About({data, directors }) {
+export function About({ data, directors }) {
   return (
     <section className={styles.about} id="about">
-        <div className={styles.wrapper}>
-          <div className={styles.aboutContent}>
-            <h2>о спектакле</h2>
-            <div className={styles.aboutInfo}>
-              <div className={styles.intro}>
-                <div className={styles.description}>
-                  <p>{data.body}</p>
-                </div>
-                <div className={styles.durationStr}>
-                  <p className={styles.title}>Продолжительность</p>
-                  <p>{data.durationStr}</p>
-                </div>
-                <div className={styles.premiereDate}>
-                  <p className={styles.title}>Премьера</p>
-                  <p>{data.premiereDateStr}</p>
-                </div>
-                <div className={styles.scene}>
-                  <p>{data.scene}</p>
-                  <p>{data.rating}+</p>
-                </div>
+      <div className={styles.wrapper}>
+        <div className={styles.aboutContent}>
+          <h2>о спектакле</h2>
+          <div className={styles.aboutInfo}>
+            <div className={styles.intro}>
+              <div className={styles.description}>
+              <ReactMarkdown>{data.body}</ReactMarkdown>
               </div>
-              <div className={styles.production}>
-                {directors.length > 0 ? (
-                  directors.map((director) => (
-                    <p key={director.id}><span>{director.position}</span> — {director.person.data[0].attributes.fullname}</p>
-                  ))  
-                ) : (
-                  <></>
-                )}
+              <div className={styles.durationStr}>
+                <p className={styles.title}>Продолжительность</p>
+                <p>{data.durationStr}</p>
               </div>
+              <div className={styles.premiereDate}>
+                <p className={styles.title}>Премьера</p>
+                <p>{data.premiereDateStr}</p>
+              </div>
+              <div className={styles.scene}>
+                <p>{data.scene}</p>
+                <p>{data.rating}+</p>
+              </div>
+            </div>
+            <div className={styles.production}>
+              {directors.length > 0 ? (
+                directors.map((director) => (
+                  <p key={director.id}>
+                    <span>{director.position}</span> —{" "}
+                    {director.person.data[0].attributes.fullname}
+                  </p>
+                ))
+              ) : (
+                <></>
+              )}
             </div>
           </div>
         </div>
+      </div>
     </section>
   );
 }
