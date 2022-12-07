@@ -111,7 +111,7 @@ async function exportComingShow(showID) {
 
 async function exportShowData(showID) {
   const result = await axios.get(
-    `${API_URL}/api/plays/${showID}?populate=cover,roles.actors,gallery,press,directors.person.cover`
+    `${API_URL}/api/plays/${showID}?populate=cover,roles.actors.cover,gallery,press,directors.person.cover`
   );
 
   if (result.status === 200) {

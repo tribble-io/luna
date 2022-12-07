@@ -21,6 +21,20 @@ function getShowData(item) {
   return data;
 }
 
+function getShowRoles(arr) {
+  const roles = [];
+
+  arr.map((item) => {
+    roles.push({
+      id: item.actors.data[0].id,
+      role: item.role,
+      name: item.actors.data[0].attributes.fullname,
+      src: API_URL + item.actors.data[0].attributes.cover.data.attributes.url,
+    });
+  });
+  return roles;
+}
+
 function Show() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -38,6 +52,7 @@ function Show() {
 
   const [showItems, setShowItems] = useState({});
   const [ticketsLink, setticketsLink] = useState("");
+  const [roles, setRoles] = useState({});
 
   useEffect(() => {
     Promise.all([api.exportComingShow("6"), api.exportShowData("6")])
@@ -46,6 +61,7 @@ function Show() {
         setticketsLink(values[0][0].attributes.tickets_link);
 
         setShowData(getShowData(values[1]));
+        setRoles(getShowRoles(values[1].attributes.roles));
         setIsLoading(false);
       })
       .catch((error) => {
@@ -59,7 +75,7 @@ function Show() {
       <TitleBlock data={showData} ticketsLink={ticketsLink} />
       <About data={showData} />
       {isLoading ? <Loader /> : <ComingShow items={showItems} />}
-      <Actors />
+      {isLoading ? <Loader /> : <Actors roles={roles} />}
     </main>
   );
 }
