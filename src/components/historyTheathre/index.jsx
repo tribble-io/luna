@@ -21,7 +21,7 @@ class HistoryTheathre extends React.Component {
     }
 
     componentDidMount() {
-    fetch(`http://theatre.restomatik.ru:1337/api/assets/1?populate=gallery,gallery.media`)
+    fetch(`http://theatre.restomatik.ru:1337/api/assets/2?populate=gallery,gallery.media`)
     .then(res => res.json()).then(
         (result) => {
             this.setState(
@@ -180,6 +180,7 @@ class HistoryTheathre extends React.Component {
                                             России Евгений Владимирович Герасимов. Сергей
                                             Борисович Проханов занял пост Президента театра.
                                         </p>
+
                                     </div>
                                     <div className={styles.inf}>
                                         <p>Евгений Владимирович Герасимов</p>
