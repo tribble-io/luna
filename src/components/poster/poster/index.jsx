@@ -1,7 +1,7 @@
 import React from "react";
 import PosterContent from "../posterContent";
 import SortPoster from "../SortPoster";
-
+ 
 const MONTHS = [
     "",
     "ЯНВАРЬ",
@@ -17,11 +17,11 @@ const MONTHS = [
     "НОЯБРЬ",
     "ДЕКАБРЬ",
   ];
-
+ 
 class Poster extends React.Component {
     constructor() {
         super();
-
+ 
         const MONTHS_num = [
             "",
             "01",
@@ -37,15 +37,15 @@ class Poster extends React.Component {
             "11",
             "12",
           ];
-
+ 
         const todayData = new Date()
         const todayDataM = todayData.getMonth()
-
+ 
         let year = Date() .split(' ') [3];
         let today = new Date();
         let num_month = today . getMonth() +1 ;
         let days_for_month = this.daysInMonth(num_month , year); 
-        
+ 
         this.state = {
             filterState: MONTHS[todayDataM %12 + 1],
             filerLocation: 'ВСЕ СЦЕНЫ',
@@ -63,13 +63,13 @@ class Poster extends React.Component {
             day_next: '01'
         };
     }
-
-
+ 
+ 
     daysInMonth = (month, year) => {
         return new Date(year, month, 0).getDate();
         }
         calendar = (d) => {
-
+ 
         if(d == '1') {
             d = '01'
         } else if (d == '2') {
@@ -97,7 +97,7 @@ class Poster extends React.Component {
         ) 
         this.componentDidMount()
     }
-
+ 
     calendarDefault = () => {
         this.setState (() => {
             return {
@@ -108,9 +108,9 @@ class Poster extends React.Component {
         ) 
         this.componentDidMount()
     }
-
+ 
     search = (c) => {
-
+ 
         this.setState (() => {
             return { search: c,
                 day: '01',
@@ -131,7 +131,7 @@ class Poster extends React.Component {
              }
         ) 
         this.componentDidMount()
-
+ 
     }
     filterStateUpdate = (a) => {
         this.setState (() => {
@@ -146,10 +146,10 @@ class Poster extends React.Component {
                     }
                 }
         )
-
+ 
         this.componentDidMount()
     }
-
+ 
     v1 = (a) => {
         switch (a) {
             case 'ЯНВАРЬ':
@@ -261,7 +261,7 @@ class Poster extends React.Component {
             case 'ДЕКАБРЬ':
                 return '2023';
         } 
-        
+ 
     }
     v5 = (a) => {
         switch (a) {
@@ -294,11 +294,11 @@ class Poster extends React.Component {
     getWeekDay(date) {
         let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
         let dates = new Date(date)        
-
+ 
         return days[dates.getDay()];
-        
+ 
       }
-
+ 
     componentDidMount() {
         setTimeout(() => {
         const nowData = new Date()
@@ -307,7 +307,7 @@ class Poster extends React.Component {
         let seachEl = this.state.search
         let filters = this.state.filerLocation
         let filtPathc
-
+ 
         if (filters === 'БОЛЬШАЯ СЦЕНА') {
             filtPathc = 'filters[place][$eq]=Большой зал&'
         } else if(filters === 'МАЛАЯ СЦЕНА') {
@@ -321,13 +321,13 @@ class Poster extends React.Component {
         .then(res => res.json()).then(
             (result) => {
                 if(this.state.items) { 
-                              
+ 
                     this.setState({
                     isLoaded: true,
                     items: result.data,
                 })
                 } else {
-                    
+ 
                     this.setState({
                         isLoaded: true,
                         items: 'notItem',
@@ -338,7 +338,7 @@ class Poster extends React.Component {
     }, 100);
     }
     render() {
-        
+ 
         return (
             <section>
                 <main>
@@ -359,5 +359,5 @@ class Poster extends React.Component {
         )
     }
 }
-
+ 
 export default Poster
