@@ -42,7 +42,7 @@ export function ComingShow({ items }) {
               {isPushkinCard ? (
                 <div className={styles.pushkinCard}>
                   <div className={styles.pushkinCardImage}>
-                    <img src="img/pushkinCard.png" atl="Пушкинская карта" />
+                    <img src="/img/pushkinCard.png" alt="Пушкинская карта" />
                   </div>
                   <div className={styles.pushkinCardText}>
                     <p>

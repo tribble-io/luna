@@ -32,7 +32,7 @@ export function TitleBlock({ data, ticketsLink }) {
   );
 }
 
-export function About({data}) {
+export function About({data, directors }) {
   return (
     <section className={styles.about} id="about">
         <div className={styles.wrapper}>
@@ -57,7 +57,13 @@ export function About({data}) {
                 </div>
               </div>
               <div className={styles.production}>
-
+                {directors ? (
+                  directors.map((director) => (
+                    <p><span>{director.position}</span> — {director.person.data[0].attributes.fullname}</p>
+                  ))  
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
           </div>

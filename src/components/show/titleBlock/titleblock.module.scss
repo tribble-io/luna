@@ -108,6 +108,8 @@
     line-height: 160%;
     font-weight: 400;
 
+    max-width: 505px;
+
     .description {
       margin-bottom: 60px;
     }
@@ -119,6 +121,19 @@
     .durationStr,
     .premiereDate {
       margin-bottom: 1rem;
+    }
+  }
+
+  .production {
+    font-size: 16px;
+    line-height: 160%;
+    
+    max-width: 505px;
+    span {
+      font-weight: 600;
+    }
+    p {
+      margin-bottom: 10px;
     }
   }
 }

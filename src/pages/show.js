@@ -111,6 +111,7 @@ export default function Show() {
   const [showItems, setShowItems] = useState({});
   const [ticketsLink, setticketsLink] = useState("");
   const [roles, setRoles] = useState({});
+  const [directors, setDirectors] = useState({});
   const [press, setPress] = useState({});
   const [photo, setPhoto] = useState({});
   const [review, setReview] = useState({});
@@ -122,6 +123,7 @@ export default function Show() {
         setticketsLink(values[0][0].attributes.tickets_link);
 
         setShowData(getShowData(values[1]));
+        setDirectors(values[1].attributes.directors);
         setRoles(getShowRoles(values[1].attributes.roles));
         setPress(values[1].attributes.press);
         setPhoto(getShowPhoto(values[1].attributes.gallery.data));
@@ -139,7 +141,7 @@ export default function Show() {
     
     <main>
       <TitleBlock data={showData} ticketsLink={ticketsLink} />
-      <About data={showData} />
+      <About data={showData} directors={directors} />
       {isLoading ? <Loader /> : <ComingShow items={showItems} />}
       {isLoading ? <Loader /> : <Actors roles={roles} />}
       {isLoading ? <Loader /> : <Press press={press} />}
