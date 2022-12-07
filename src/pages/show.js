@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { playsApi, api } from "../api/index";
 
 import {TitleBlock, About} from "../components/show/titleBlock";
+import ComingShow from "../components/show/comingShow";
 import Loader from "../components/loader"
 
 function getShowData(item) {
@@ -31,13 +32,16 @@ function Show() {
     durationStr: "",
     premiereDateStr: "",
     scene: ""
-
   });
+
+  
+  const [showItems, setShowItems] = useState({});
 
   useEffect(() => {
     api.exportShowData('6')
       .then((response) => {
         setShowData(getShowData(response[0]));
+        setShowItems(response)
         setIsLoading(false);
       })
       .catch((error) => {
@@ -50,6 +54,7 @@ function Show() {
     <main>
       <TitleBlock data={showData} />
       <About data={showData} />
+      <ComingShow items={showItems} />
     </main>
   );
 }

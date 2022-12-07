@@ -3,7 +3,7 @@ import styles from "./titleblock.module.scss";
 
 export function TitleBlock({ data }) {
   return (
-    <section className={styles.titleBlock}>
+    <section className={styles.titleBlock} id="titleBlock">
       <div
         className={styles.bgShows}
         style={{
@@ -34,7 +34,7 @@ export function TitleBlock({ data }) {
 
 export function About({data}) {
   return (
-    <section className={styles.about}>
+    <section className={styles.about} id="about">
         <div className={styles.wrapper}>
           <div className={styles.aboutContent}>
             <h2>о спектакле</h2>
