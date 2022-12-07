@@ -90,6 +90,10 @@
     padding-bottom: 200px;
   }
 
+  h2 {
+    @include headline_second;
+  }
+
   .aboutInfo {
     padding-top: 60px;
 

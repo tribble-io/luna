@@ -33,3 +33,17 @@
 		max-width: 1520px;
 	}
 }
+
+@mixin headline_second {
+	font-size: 22px;
+	font-weight: 600;
+	text-transform: uppercase;
+
+	@media (min-width: 576px) {
+		font-size: 26px;
+	}
+
+	@media (min-width: 992px) {
+		font-size: 30px;
+	}
+}
