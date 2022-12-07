@@ -57,9 +57,9 @@ export function About({data, directors }) {
                 </div>
               </div>
               <div className={styles.production}>
-                {directors ? (
+                {directors.length > 0 ? (
                   directors.map((director) => (
-                    <p><span>{director.position}</span> — {director.person.data[0].attributes.fullname}</p>
+                    <p key={director.id}><span>{director.position}</span> — {director.person.data[0].attributes.fullname}</p>
                   ))  
                 ) : (
                   <></>
