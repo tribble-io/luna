@@ -13,7 +13,7 @@ export default function CreatePressLine({ data }) {
           <div className={styles.title}>{data.title}</div>
         </div>
         <div className={styles.arrow}>
-          <img src="img/newsRarr.png" alt="Подробнее" title="Подробнее" />
+          <img src="/img/newsRarr.png" alt="Подробнее" title="Подробнее" />
         </div>
       </a>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { API_URL, api } from "../api/index";
+import { useMatch } from 'react-router-dom';
 
 import {
   TitleBlock,
@@ -90,7 +91,9 @@ function getShowReview(arr) {
   return review;
 }
 
-function Show() {
+export default function Show() {
+  const match = useMatch('/show/:id');
+  const showID = match.params.id;
   const [isLoading, setIsLoading] = useState(true);
 
   const [showData, setShowData] = useState({
@@ -113,7 +116,7 @@ function Show() {
   const [review, setReview] = useState({});
 
   useEffect(() => {
-    Promise.all([api.exportComingShow("6"), api.exportShowData("6")])
+    Promise.all([api.exportComingShow(showID), api.exportShowData(showID)])
       .then((values) => {
         setShowItems(values[0]);
         setticketsLink(values[0][0].attributes.tickets_link);
@@ -131,7 +134,9 @@ function Show() {
       });
   }, []);
 
+
   return (
+    
     <main>
       <TitleBlock data={showData} ticketsLink={ticketsLink} />
       <About data={showData} />
@@ -143,5 +148,3 @@ function Show() {
     </main>
   );
 }
-
-export default Show;
