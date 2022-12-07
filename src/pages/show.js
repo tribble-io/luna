@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { API_URL, api } from "../api/index";
 
-import { TitleBlock, About, Actors, ComingShow, Press, PressPhoto } from "../components/show";
+import {
+  TitleBlock,
+  About,
+  Actors,
+  ComingShow,
+  Press,
+  ShowPhoto,
+  Review,
+} from "../components/show";
 import Loader from "../components/loader";
 
 function getShowData(item) {
@@ -33,16 +41,53 @@ function getShowRoles(arr) {
 }
 
 function getShowPhoto(arr) {
-  const roles = [];
+  const photo = [];
   arr.map((item) => {
-    roles.push({
+    photo.push({
       id: item.id,
       href: API_URL + item.attributes.formats.large.url,
       src: API_URL + item.attributes.formats.small.url,
       caption: "",
     });
   });
-  return roles;
+  return photo;
+}
+
+let month = [
+  "ЯНВАРЯ",
+  "ФЕВРАЛЯ",
+  "МАРТА",
+  "АПРЕЛЯ",
+  "МАЯ",
+  "ИЮНЯ",
+  "ИЮЛЯ",
+  "АВГУСТА",
+  "СЕНТЯБРЯ",
+  "ОКТЯБРЯ",
+  "НОЯБРЯ",
+  "ДЕКАБРЯ",
+];
+
+const getFullDate = (date) => {
+  let dates = new Date(date);
+  let fulldate = `${dates.getDay()} ${
+    month[dates.getMonth()]
+  } ${dates.getFullYear()}`;
+  return fulldate;
+};
+
+function getShowReview(arr) {
+  const review = [];
+  arr.map((item) => {
+    review.push({
+      id: item.id,
+      name: item.attributes.name,
+      title: item.attributes.title,
+      text: item.attributes.text,
+      createdAt: getFullDate(item.attributes.createdAt),
+    });
+  });
+  return review;
 }
 
 function Show() {
@@ -65,6 +110,7 @@ function Show() {
   const [roles, setRoles] = useState({});
   const [press, setPress] = useState({});
   const [photo, setPhoto] = useState({});
+  const [review, setReview] = useState({});
 
   useEffect(() => {
     Promise.all([api.exportComingShow("6"), api.exportShowData("6")])
@@ -75,7 +121,8 @@ function Show() {
         setShowData(getShowData(values[1]));
         setRoles(getShowRoles(values[1].attributes.roles));
         setPress(values[1].attributes.press);
-        setPhoto(getShowPhoto(values[1].attributes.gallery.data))
+        setPhoto(getShowPhoto(values[1].attributes.gallery.data));
+        setReview(getShowReview(values[1].attributes.comments.data));
         setIsLoading(false);
       })
       .catch((error) => {
@@ -91,7 +138,8 @@ function Show() {
       {isLoading ? <Loader /> : <ComingShow items={showItems} />}
       {isLoading ? <Loader /> : <Actors roles={roles} />}
       {isLoading ? <Loader /> : <Press press={press} />}
-      {isLoading ? <Loader /> : <PressPhoto photo={photo} />}
+      {isLoading ? <Loader /> : <ShowPhoto photo={photo} />}
+      {isLoading ? <Loader /> : <Review review={review} />}
     </main>
   );
 }

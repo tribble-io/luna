@@ -15,7 +15,6 @@ const screen_width = window.screen.width;
 
 export default function PhotoSlider(props) {
   const { items } = props;
-  console.log(items, "items");
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 

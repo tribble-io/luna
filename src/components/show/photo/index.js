@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./photo.module.scss";
 import PhotoSlider from "../../createElement/photoSlider"
 
-export function PressPhoto({ photo }) {
+export function ShowPhoto({ photo }) {
 
   return (
     <>
-      <section id="pressPhoto">
+      <section id="showPhoto">
         <div className={styles.wrapper}>
           <div className={styles.photoContent}>
             <div className={styles.photoTitle}>

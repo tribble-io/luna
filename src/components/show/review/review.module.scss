@@ -1,0 +1,104 @@
+@import "../../../assets/main.scss";
+
+.wrapper {
+  @include container;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+h2 {
+  @include headline_second;
+}
+
+.reviewContent {
+  padding-bottom: 180px;
+
+  .reviewGrid {
+    padding-top: 90px;
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 20px;
+
+    .reviewBlock {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+
+      padding: 60px 0;
+
+      border-bottom: 1px solid $text-color;
+
+      &:first-child {
+        border-top: 1px solid $text-color;
+      }
+
+      .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 60px;
+        background-color: #B9C7E3;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: $text-color;
+        font-size: 34px;
+        font-weight: 600;
+      }
+
+      .textCont {
+        margin-right: 80px;
+        flex: 1;
+
+        line-height: 160%;
+      }
+
+      .name {
+        font-size: 20px;
+        font-weight: 600;
+
+        margin-bottom: 20px;
+      }
+
+      .title {
+        font-size: 18px;
+        font-weight: 500;
+
+        margin-bottom: 30px;
+      }
+
+      .text {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .reviewNavigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+  
+    img {
+      max-width: 60px;
+      cursor: pointer;
+    }
+
+    .pressFraction {
+      font-size: 20px;
+
+      span:not(:last-child) {
+        margin-right: 5px;
+      }
+    }
+  }
+  
+}
+
