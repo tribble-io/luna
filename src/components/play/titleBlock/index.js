@@ -58,10 +58,15 @@ export function About({ data, directors }) {
             <div className={styles.production}>
               {directors.length > 0 ? (
                 directors.map((director) => (
-                  <p key={director.id}>
-                    <span>{director.position}</span> —{" "}
-                    {director.person.data[0].attributes.fullname}
-                  </p>
+                  <div key={director.id}>
+                    <span>{director.position} — </span>
+                    <span>
+                      {director.person.data.map((data, index, arr) => (
+                        data.attributes.fullname + (index === arr.length - 1 ? "" : ", ")
+                      ))}
+                    </span>
+                    
+                  </div>
                 ))
               ) : (
                 <></>
