@@ -63,11 +63,6 @@
           border-bottom-color: $compl-color;
         }
       }
-
-      .warningMes {
-        color: red;
-        font-size: 14px;
-      }
     }
   }
 
@@ -131,6 +126,11 @@
         line-height: 160%;
       } 
     }
+  }
+
+  .warningMes {
+    color: red;
+    font-size: 14px;
   }
 
   .buttonSubmit {

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import styles from "./form.module.scss";
 import CustomCheckbox from "../../createElement/customCheckbox";
 
@@ -9,7 +9,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 const sendInfo = (inValue, setsendedForm) => {
   api
     .createNewComment(inValue)
-    .then((response) => {
+    .then(() => {
       setsendedForm(true);
     })
     .catch((error) => {
@@ -27,6 +27,7 @@ export function CommentForm({ showID }) {
   const { name, title, text } = inValue;
   const [error, setError] = useState(false);
   const [sendedForm, setsendedForm] = useState(false);
+  const [setCheckbox, setsetCheckbox] = useState(true);
 
   const updateInput = (e) => {
     const { name, value } = e.target;
@@ -35,7 +36,7 @@ export function CommentForm({ showID }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (name && title && text) {
+    if (name && title && text && setCheckbox) {
       sendInfo(inValue, setsendedForm);
       setError(false);
 
@@ -46,9 +47,9 @@ export function CommentForm({ showID }) {
     }
   };
 
-  function onChange(value) {
-    console.log("Captcha value:", value);
-  }
+  const isActive = (state) => {
+    setsetCheckbox(state);
+  };
 
   return (
     <section id="commentForm">
@@ -107,11 +108,18 @@ export function CommentForm({ showID }) {
               <div className={styles.recaptcha}>
                 <ReCAPTCHA
                   sitekey="6LeC1WQjAAAAAP8Wmgn5hs06R7hwOfsmlj8OCKfb"
-                  onChange={onChange}
                   hl="ru"
                 />
               </div>
               <div>
+                <div>
+                  <span className={styles.warningMes} 
+                  style={{
+                    "visibility": setCheckbox ? "hidden" : "visible",
+                  }}>
+                    Необходимо согласие на хранение и обработку данных
+                  </span>
+                </div>
                 <div className={styles.checkboxBlock}>
                   <CustomCheckbox
                     id="storage"
@@ -119,6 +127,7 @@ export function CommentForm({ showID }) {
                     label="Согласен на хранение и обработку данных"
                     checked={true}
                     className={styles.checkboxInput}
+                    isActive={isActive}
                   />
                   <div className={styles.terms}>
                     <a href="http://www.lunatheatre.ru/pages/polzovatelskoe-soglashenie">

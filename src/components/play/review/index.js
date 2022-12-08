@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./review.module.scss";
+import ReactMarkdown from "react-markdown";
 
 export function Review({ review }) {
   const [reviewArr, setReviewArr] = useState(review);
@@ -41,7 +42,7 @@ export function Review({ review }) {
                     <div className={styles.name}>{data.name}</div>
                     <div className={styles.title}>{data.title}</div>
                   </div>
-                  <div className={styles.text}>{data.text}</div>
+                  <div className={styles.text}><ReactMarkdown children={data.text} /></div>
                   <div className={styles.date}>{data.createdAt}</div>
                 </div>
               ))}
