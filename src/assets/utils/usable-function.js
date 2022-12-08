@@ -21,3 +21,5 @@ export const useWindowScrollPositions = () => {
 export function uniqueBy(a, cond) {
     return a.filter((e, i) => a.findIndex(e2 => cond(e, e2)) === i);
 }
+
+export const IsMobile = window.screen.width > 500 ? false : true;

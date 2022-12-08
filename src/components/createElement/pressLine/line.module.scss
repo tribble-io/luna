@@ -1,5 +1,11 @@
 @import "../../../assets/main.scss";
 
+ @media (max-width: 500px) {
+  .pressLine {
+    height: 100%;
+  }
+}
+
 .lineContent {
   display: flex;
   flex-direction: row;
@@ -19,7 +25,7 @@
   }
   @media (max-width: 500px) {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 25px;
   }
 
@@ -28,10 +34,23 @@
     font-weight: 500;
     font-size: 16px;
     padding-right: 15px;
+
+    @media (max-width: 500px) {
+      padding-right: 0;
+      margin-bottom: 70px;
+      font-size: 14px;
+    }
   }
 
   .titleCont {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     margin-bottom: 20px;
+
+    @media (max-width: 500px) {
+      justify-content: space-between;
+    }
   }
 
   .publisher {
@@ -49,6 +68,19 @@
 
   .arrow {
     transition: transform 0.5s ease;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 500px) {
+      justify-content: space-between;
+    }
+
+    .arrowRead {
+      font-size: 14px;
+      @media (min-width: 500px) {
+        display: none;
+      }
+    }
 
     img {
       max-width: 44px;

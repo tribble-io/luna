@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styles from "./press.module.scss";
 import CreatePressLIne from "../../createElement/pressLine";
+import {IsMobile} from "../../../assets"
+
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "./style.css";
+// import required modules
+import { Pagination } from "swiper";
 
 export function Press({ press }) {
   const [pressArr, setPressArr] = useState(press);
@@ -34,34 +42,58 @@ export function Press({ press }) {
         {press.length > 0 && (
           <div className={styles.pressContent}>
             <h2>упоминания в прессе</h2>
-            <div className={styles.pressGrid}>
+            {IsMobile ? (
+              <div className={styles.pressSlider}>
+              <Swiper
+              slidesPerView="auto"
+              centeredSlides={true}
+              spaceBetween={20}
+              pagination={{ clickable: true, dynamicBullets: true }}
+              modules={[ Pagination]}
+              className="pressSwiper"
+              style={{
+                "--swiper-pagination-bullet-inactive-color": "#fff",
+                "--swiper-pagination-color": "#8CABFA",
+                "--swiper-pagination-bullet-inactive-opacity": "0.6",
+              }}
+            >
+                {pressArr.map((item, key) => (
+                  <SwiperSlide key={item.id}>
+                    <CreatePressLIne data={item} key={key} />
+                  </SwiperSlide>
+                ))}
+            </Swiper></div>
+            ) : (
+              <div className={styles.pressGrid}>
               {pressArr.map((item, key) => (
                 <CreatePressLIne data={item} key={key} />
               ))}
-            </div>
-            <div className={styles.pressNavigation}>
-              <img
-                src="/img/newsLarr.png"
-                alt="<"
-                className={styles.prev}
-                name="prev"
-                onClick={navigation}
-              />
-
-              <div className={styles.pressFraction}>
-                <span>{actPage}</span>
-                <span>/</span>
-                <span>{allPages}</span>
+              <div className={styles.pressNavigation}>
+                <img
+                  src="/img/newsLarr.png"
+                  alt="<"
+                  className={styles.prev}
+                  name="prev"
+                  onClick={navigation}
+                />
+  
+                <div className={styles.pressFraction}>
+                  <span>{actPage}</span>
+                  <span>/</span>
+                  <span>{allPages}</span>
+                </div>
+  
+                <img
+                  src="/img/newsRarr.png"
+                  alt=">"
+                  className={styles.next}
+                  name="next"
+                  onClick={navigation}
+                />
               </div>
-
-              <img
-                src="/img/newsRarr.png"
-                alt=">"
-                className={styles.next}
-                name="next"
-                onClick={navigation}
-              />
             </div>
+            )}
+            
           </div>
         )}
       </div>

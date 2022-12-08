@@ -3,7 +3,7 @@ import styles from "./line.module.scss";
 
 export default function CreatePressLine({ data }) {
   return (
-    <div>
+    <div className={styles.pressLine}>
       <a href={data.link} className={styles.lineContent}>
         <div className={styles.lineText}>
           <div className={styles.titleCont}>
@@ -13,6 +13,7 @@ export default function CreatePressLine({ data }) {
           <div className={styles.title}>{data.title}</div>
         </div>
         <div className={styles.arrow}>
+          <span className={styles.arrowRead}>Читать</span>
           <img src="/img/newsRarr.png" alt="Подробнее" title="Подробнее" />
         </div>
       </a>

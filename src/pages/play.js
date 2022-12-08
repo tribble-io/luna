@@ -75,11 +75,17 @@ let month = [
   "ДЕКАБРЯ",
 ];
 
-const getFullDate = (date) => {
+const getFullDateMonth = (date) => {
   let dates = new Date(date);
   let fulldate = `${dates.getDay()} ${
     month[dates.getMonth()]
   } ${dates.getFullYear()}`;
+  return fulldate;
+};
+
+const getFullDate = (date) => {
+  let dates = new Date(date);
+  let fulldate = `${dates.getDay()}.${dates.getMonth()}.${dates.getFullYear()}`;
   return fulldate;
 };
 
@@ -91,7 +97,24 @@ function getShowReview(arr) {
         name: item.attributes?.name,
         title: item.attributes?.title,
         text: item.attributes?.text,
-        createdAt: getFullDate(item.attributes?.createdAt),
+        createdAt: getFullDateMonth(item.attributes?.createdAt),
+      };
+    });
+    return review;
+  } else {
+    return [];
+  }
+}
+
+function getPlayPress(arr) {
+  if (arr !== null) {
+    const review = arr.map((item) => {
+      return {
+        id: item.id,
+        title: item.title,
+        publisher: item.publisher,
+        date: getFullDate(item.date),
+        link: item.link,
       };
     });
     return review;
@@ -134,7 +157,7 @@ export default function Play() {
         setShowData(getShowData(values[1]));
         setDirectors(values[1].attributes?.directors);
         setRoles(getShowRoles(values[1].attributes?.roles));
-        setPress(values[1].attributes?.press);
+        setPress(getPlayPress(values[1].attributes?.press));
         setPhoto(getShowPhoto(values[1].attributes?.gallery?.data));
         setReview(getShowReview(values[1].attributes?.comments?.data));
         setIsLoading(false);

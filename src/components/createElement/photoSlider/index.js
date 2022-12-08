@@ -9,7 +9,7 @@ import "./styles.css";
 // import required modules
 import { Grid, Navigation, Pagination } from "swiper";
 
-import Fancybox from "../../../assets/utils/fancybox";
+import {Fancybox} from "../../../assets/index";
 
 const screen_width = window.screen.width;
 
