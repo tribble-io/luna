@@ -29,16 +29,16 @@ function getShowData(item) {
 
 function getShowRoles(arr) {
   if (arr !== null) {
-    const roles = arr.map((item) => {
-      return {
-        id: item.actors.data[0].id,
+    const roles = arr.map((item) => 
+      item.actors.data.map((data) => {
+        return {
+        id: data.id,
         role: item.role,
-        name: item.actors.data[0].attributes?.fullname,
-        src:
-          API_URL + item.actors.data[0].attributes.cover?.data?.attributes?.url,
-      };
-    });
-    return roles;
+        name: data.attributes?.fullname,
+        src: API_URL + data.attributes.cover?.data?.attributes?.url,
+      }})
+    );
+    return roles.flat();
   } else {
     return [];
   }
