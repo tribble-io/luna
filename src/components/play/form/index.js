@@ -5,11 +5,13 @@ import CustomCheckbox from "../../createElement/customCheckbox";
 
 import { api } from "../../../api/index";
 
+import ReCAPTCHA from "react-google-recaptcha";
+
 const sendInfo = (inValue, setsendedForm) => {
   api
     .createNewComment(inValue)
     .then((response) => {
-      setsendedForm(true)
+      setsendedForm(true);
     })
     .catch((error) => {
       console.log(error);
@@ -44,6 +46,10 @@ export function CommentForm({ showID }) {
       setError(true);
     }
   };
+
+  function onChange(value) {
+    console.log("Captcha value:", value);
+  }
 
   return (
     <section id="commentForm">
@@ -84,6 +90,12 @@ export function CommentForm({ showID }) {
                   {error && !title && (
                     <span className={styles.warningMes}>Заполните поле</span>
                   )}
+                </div>
+                <div>
+                  <ReCAPTCHA
+                    sitekey="6LeC1WQjAAAAAP8Wmgn5hs06R7hwOfsmlj8OCKfb"
+                    onChange={onChange}
+                  />
                 </div>
               </div>
               <div className={styles.textareaBlock}>
