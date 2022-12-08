@@ -1,29 +1,103 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import styles from "./form.module.scss";
 import ReactMarkdown from "react-markdown";
 import CustomCheckbox from "../../createElement/customCheckbox";
 
-export function CommentForm() {
+import { api } from "../../../api/index";
+
+const sendInfo = (inValue, setsendedForm) => {
+  api
+    .createNewComment(inValue)
+    .then((response) => {
+      setsendedForm(true)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export function CommentForm({ showID }) {
+  const [inValue, setInValue] = useState({
+    name: "",
+    title: "",
+    text: "",
+    play: showID,
+  });
+  const { name, title, text } = inValue;
+  const [error, setError] = useState(false);
+  const [sendedForm, setsendedForm] = useState(false);
+
+  const updateInput = (e) => {
+    const { name, value } = e.target;
+    setInValue((inValue) => ({ ...inValue, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name && title && text) {
+      sendInfo(inValue, setsendedForm);
+      setError(false);
+
+      // For clear inputs after submit
+      setInValue({ name: "", title: "", text: "" });
+    } else {
+      setError(true);
+    }
+  };
+
   return (
     <section id="commentForm">
       <div className={styles.wrapper}>
         <div className={styles.formContent}>
           <h2>Оставьте отзыв</h2>
-          <form>
+          {sendedForm && (
+            <p className={styles.sendesForm}>Спасибо за ваш отзыв</p>
+          )}
+          <form noValidate onSubmit={handleSubmit}>
             <div className={styles.formFlex}>
               <div className={styles.inputBlock}>
                 <div className={styles.formGroup}>
-                  <input type="text" placeholder="Ваше имя" required />
+                  <input
+                    type="text"
+                    name="name"
+                    value={name}
+                    placeholder="Ваше имя"
+                    required
+                    onChange={updateInput}
+                  />
+                  {error && !name && (
+                    <span className={styles.warningMes}>Заполните поле</span>
+                  )}
                 </div>
                 <div className={styles.formGroup}>
-                  <input type="email" placeholder="Ваш e-mail" required />
+                  <input type="email" name="email" placeholder="Ваш e-mail" />
                 </div>
                 <div className={styles.formGroup}>
-                  <input type="text" placeholder="Тема сообщения" required />
+                  <input
+                    type="text"
+                    name="title"
+                    value={title}
+                    placeholder="Тема сообщения"
+                    required
+                    onChange={updateInput}
+                  />
+                  {error && !title && (
+                    <span className={styles.warningMes}>Заполните поле</span>
+                  )}
                 </div>
               </div>
               <div className={styles.textareaBlock}>
-                <textarea placeholder="Сообщение" rows="15" required></textarea>
+                <textarea
+                  placeholder="Сообщение"
+                  rows="15"
+                  name="text"
+                  value={text}
+                  required
+                  onChange={updateInput}
+                ></textarea>
+                {error && !text && (
+                  <span className={styles.warningMes}>Заполните поле</span>
+                )}
                 <div className={styles.checkboxBlock}>
                   <CustomCheckbox
                     id="storage"
@@ -39,7 +113,7 @@ export function CommentForm() {
                   </div>
                 </div>
                 <div className={styles.buttonSubmit}>
-                  <button>отправить</button>
+                  <button type="submit">отправить</button>
                 </div>
               </div>
             </div>

@@ -113,6 +113,7 @@ export default function Play() {
   const [press, setPress] = useState({});
   const [photo, setPhoto] = useState({});
   const [review, setReview] = useState({});
+  const [formData, setFormData] = useState({});
 
   useEffect(() => {
     Promise.all([api.exportComingShow(showID), api.exportShowData(showID)])
@@ -147,7 +148,7 @@ export default function Play() {
       {isLoading ? <Loader /> : <Press press={press} />}
       {isLoading ? <Loader /> : <ShowPhoto photo={photo} />}
       {isLoading ? <Loader /> : <Review review={review} />}
-      <CommentForm />
+      <CommentForm showID={showID} />
     </main>
   );
 }

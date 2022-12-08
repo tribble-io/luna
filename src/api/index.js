@@ -121,6 +121,16 @@ async function exportShowData(showID) {
   throw new Error("Can't export show data");
 }
 
+async function createNewComment(data) {
+  const result = await axios.post(`${API_URL}/api/comments`, {data});
+
+  if (result.status === 200) {
+    return result.data.data;
+  }
+
+  throw new Error("Can't export show data");
+}
+
 export const api = {
   exportShows,
   exportArticles,
@@ -130,4 +140,5 @@ export const api = {
   exportChildrenStudioPhoto,
   exportComingShow,
   exportShowData,
+  createNewComment,
 };
