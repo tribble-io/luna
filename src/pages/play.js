@@ -10,45 +10,54 @@ import {
   Press,
   ShowPhoto,
   Review,
-  CommentForm
+  CommentForm,
 } from "../components/play";
 import Loader from "../components/loader";
 
 function getShowData(item) {
   return {
-    bgImage: API_URL + item.attributes.cover.data.attributes.url,
-    title: item.attributes.title,
-    description: item.attributes.description,
-    rating: item.attributes.rating,
-    durationStr: item.attributes.durationStr,
-    premiereDateStr: item.attributes.premiereDateStr,
-    scene: item.attributes.scene,
-    body: item.attributes.body,
+    bgImage: API_URL + item.attributes?.cover?.data.attributes.url,
+    title: item.attributes?.title,
+    description: item.attributes?.description,
+    rating: item.attributes?.rating,
+    durationStr: item.attributes?.durationStr,
+    premiereDateStr: item.attributes?.premiereDateStr,
+    scene: item.attributes?.scene,
+    body: item.attributes?.body,
   };
 }
 
 function getShowRoles(arr) {
-  const roles = arr.map((item) => {
-    return {
-      id: item.actors.data[0].id,
-      role: item.role,
-      name: item.actors.data[0].attributes.fullname,
-      src: API_URL + item.actors.data[0].attributes.cover?.data?.attributes?.url
-    };
-  });
-  return roles;
+  if (arr !== null) {
+    const roles = arr.map((item) => {
+      return {
+        id: item.actors.data[0].id,
+        role: item.role,
+        name: item.actors.data[0].attributes?.fullname,
+        src:
+          API_URL + item.actors.data[0].attributes.cover?.data?.attributes?.url,
+      };
+    });
+    return roles;
+  } else {
+    return [];
+  }
 }
 
 function getShowPhoto(arr) {
-  const photo = arr.map((item) => {
-    return {
-      id: item.id,
-      href: API_URL + item.attributes.formats.large.url,
-      src: API_URL + item.attributes.formats.small.url,
-      caption: "",
-    };
-  });
-  return photo;
+  if (arr !== null) {
+    const photo = arr.map((item) => {
+      return {
+        id: item.id,
+        href: API_URL + item.attributes?.formats.large.url,
+        src: API_URL + item.attributes?.formats.small.url,
+        caption: "",
+      };
+    });
+    return photo;
+  } else {
+    return [];
+  }
 }
 
 let month = [
@@ -75,16 +84,20 @@ const getFullDate = (date) => {
 };
 
 function getShowReview(arr) {
-  const review =  arr.map((item) => {
-    return {
-      id: item.id,
-      name: item.attributes.name,
-      title: item.attributes.title,
-      text: item.attributes.text,
-      createdAt: getFullDate(item.attributes.createdAt),
-    };
-  });
-  return review;
+  if (arr !== null) {
+    const review = arr.map((item) => {
+      return {
+        id: item.id,
+        name: item.attributes?.name,
+        title: item.attributes?.title,
+        text: item.attributes?.text,
+        createdAt: getFullDate(item.attributes?.createdAt),
+      };
+    });
+    return review;
+  } else {
+    return [];
+  }
 }
 
 export default function Play() {
@@ -111,20 +124,19 @@ export default function Play() {
   const [press, setPress] = useState({});
   const [photo, setPhoto] = useState({});
   const [review, setReview] = useState({});
-  console.log(roles, 'roles')
 
   useEffect(() => {
     Promise.all([api.exportComingShow(showID), api.exportShowData(showID)])
       .then((values) => {
         setShowItems(values[0]);
-        setticketsLink(values[0][0].attributes.tickets_link);
+        setticketsLink(values[0]?.[0]?.attributes?.tickets_link);
 
         setShowData(getShowData(values[1]));
-        setDirectors(values[1].attributes.directors);
-        setRoles(getShowRoles(values[1].attributes.roles));
-        setPress(values[1].attributes.press);
-        setPhoto(getShowPhoto(values[1].attributes.gallery.data));
-        setReview(getShowReview(values[1].attributes.comments.data));
+        setDirectors(values[1].attributes?.directors);
+        setRoles(getShowRoles(values[1].attributes?.roles));
+        setPress(values[1].attributes?.press);
+        setPhoto(getShowPhoto(values[1].attributes?.gallery?.data));
+        setReview(getShowReview(values[1].attributes?.comments?.data));
         setIsLoading(false);
       })
       .catch((error) => {

@@ -30,45 +30,47 @@ export function Review({ review }) {
   return (
     <section id="review">
       <div className={styles.wrapper}>
-        <div className={styles.reviewContent}>
-          <h2>Отзывы</h2>
-          <div className={styles.reviewGrid}>
-            {reviewArr.map((data) => (
-              <div className={styles.reviewBlock} key={data.id}>
-                <div className={styles.avatar}>{data.name[0]}</div>
-                <div className={styles.textCont}>
-                  <div className={styles.name}>{data.name}</div>
-                  <div className={styles.title}>{data.title}</div>
-                  <div className={styles.text}>{data.text}</div>
+        {review.length > 0 && (
+          <div className={styles.reviewContent}>
+            <h2>Отзывы</h2>
+            <div className={styles.reviewGrid}>
+              {reviewArr.map((data) => (
+                <div className={styles.reviewBlock} key={data.id}>
+                  <div className={styles.avatar}>{data.name[0]}</div>
+                  <div className={styles.textCont}>
+                    <div className={styles.name}>{data.name}</div>
+                    <div className={styles.title}>{data.title}</div>
+                    <div className={styles.text}>{data.text}</div>
+                  </div>
+                  <div className={styles.date}>{data.createdAt}</div>
                 </div>
-                <div className={styles.date}>{data.createdAt}</div>
-              </div>
-            ))}
-          </div>
-          <div className={styles.reviewNavigation}>
-            <img
-              src="/img/newsLarr.png"
-              alt="<"
-              className={styles.prev}
-              name="prev"
-              onClick={navigation}
-            />
-
-            <div className={styles.reviewFraction}>
-              <span>{actPage}</span>
-              <span>/</span>
-              <span>{allPages}</span>
+              ))}
             </div>
+            <div className={styles.reviewNavigation}>
+              <img
+                src="/img/newsLarr.png"
+                alt="<"
+                className={styles.prev}
+                name="prev"
+                onClick={navigation}
+              />
 
-            <img
-              src="/img/newsRarr.png"
-              alt=">"
-              className={styles.next}
-              name="next"
-              onClick={navigation}
-            />
+              <div className={styles.reviewFraction}>
+                <span>{actPage}</span>
+                <span>/</span>
+                <span>{allPages}</span>
+              </div>
+
+              <img
+                src="/img/newsRarr.png"
+                alt=">"
+                className={styles.next}
+                name="next"
+                onClick={navigation}
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
