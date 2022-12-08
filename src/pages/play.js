@@ -33,8 +33,7 @@ function getShowRoles(arr) {
       id: item.actors.data[0].id,
       role: item.role,
       name: item.actors.data[0].attributes.fullname,
-      src: API_URL + item.actors.data[0].attributes.cover.data.attributes.url,
-      role: item.role
+      src: API_URL + item.actors.data[0].attributes.cover?.data?.attributes?.url
     };
   });
   return roles;
@@ -76,15 +75,14 @@ const getFullDate = (date) => {
 };
 
 function getShowReview(arr) {
-  const review = [];
-  arr.map((item) => {
-    review.push({
+  const review =  arr.map((item) => {
+    return {
       id: item.id,
       name: item.attributes.name,
       title: item.attributes.title,
       text: item.attributes.text,
       createdAt: getFullDate(item.attributes.createdAt),
-    });
+    };
   });
   return review;
 }
@@ -113,7 +111,7 @@ export default function Play() {
   const [press, setPress] = useState({});
   const [photo, setPhoto] = useState({});
   const [review, setReview] = useState({});
-  const [formData, setFormData] = useState({});
+  console.log(roles, 'roles')
 
   useEffect(() => {
     Promise.all([api.exportComingShow(showID), api.exportShowData(showID)])

@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from "react";
 import styles from "./form.module.scss";
-import ReactMarkdown from "react-markdown";
 import CustomCheckbox from "../../createElement/customCheckbox";
 
 import { api } from "../../../api/index";
@@ -95,6 +94,7 @@ export function CommentForm({ showID }) {
                   <ReCAPTCHA
                     sitekey="6LeC1WQjAAAAAP8Wmgn5hs06R7hwOfsmlj8OCKfb"
                     onChange={onChange}
+                    hl="ru"
                   />
                 </div>
               </div>
