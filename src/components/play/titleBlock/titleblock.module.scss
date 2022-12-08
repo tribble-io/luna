@@ -167,6 +167,7 @@
     
     @media (max-width: 767px) {
       margin-bottom: 50px;
+      font-size: 14px;
     }
 
     .description {
@@ -195,6 +196,10 @@
     max-width: 505px;
     flex: 1;
     min-width: 300px;
+
+    @media (max-width: 500px) {
+      font-size: 14px;
+    }
     span {
       font-weight: 600;
     }
