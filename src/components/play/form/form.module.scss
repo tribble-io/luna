@@ -1,0 +1,118 @@
+@import "../../../assets/main.scss";
+
+.wrapper {
+  @include container;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+.formContent {
+  padding-bottom: 350px;
+
+  h2 {
+    @include headline_second;
+  }
+
+  .formFlex {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 80px;
+  }
+
+  .inputBlock {
+    max-width: 500px;
+    width: 100%;
+
+    margin-right: 50px;
+
+    .formGroup {
+      &:not(:last-child) {
+        margin-bottom: 50px;
+      }
+
+      input {
+        width: 100%;
+        background-color: transparent;
+        border: transparent;
+        border-bottom: 1px solid #fff;
+        box-shadow: none;
+        padding: 8px 0;
+        font-size: 14px;
+        font-weight: 400;
+        color: $text-color;
+        font-family: "Montserrat", sans-serif;
+
+        &:hover,
+        &:focus {
+          border-bottom-color: $compl-color;
+        }
+      }
+    }
+  }
+
+  .textareaBlock {
+    max-width: 600px;
+    width: 100%;
+
+    textarea {
+      width: 100%;
+      background-color: transparent;
+
+      padding: 30px;
+      margin-bottom: 30px;
+      color: $text-color;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .checkboxBlock {
+      margin-bottom: 50px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      a {
+        color: $compl-color;
+        text-decoration: none;
+        border-bottom: 1px solid $compl-color;
+      }
+
+      .checkboxInput {
+        max-width: 230px;
+        width: 100%;
+
+        svg {
+          margin-top: 5px;
+        }
+
+        label {
+          font-size: 16px;
+          line-height: 160%;
+        } 
+      }
+    }
+
+    .buttonSubmit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        font-family: "Montserrat", sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        color: $compl-color;
+
+        cursor: pointer;
+
+        border: 1px solid $compl-color;
+        background-color: transparent;
+        padding: 15px 50px;
+        text-align: center;
+      }
+    }
+  }
+}

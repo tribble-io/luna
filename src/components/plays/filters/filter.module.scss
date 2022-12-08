@@ -91,5 +91,17 @@
     &:not(:last-child) {
       margin-right: 60px;
     }
+
+    .checkbox {
+      label {
+        font-size: 14px;
+        color: $text-color;
+        text-transform: uppercase;
+    
+        @media (max-width: 500px) {
+          font-size: 12px;
+        }
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { API_URL, api } from "../api/index";
-import { useMatch } from 'react-router-dom';
+import { useMatch } from "react-router-dom";
 
 import {
   TitleBlock,
@@ -10,11 +10,12 @@ import {
   Press,
   ShowPhoto,
   Review,
+  CommentForm
 } from "../components/play";
 import Loader from "../components/loader";
 
 function getShowData(item) {
-  const data = {
+  return {
     bgImage: API_URL + item.attributes.cover.data.attributes.url,
     title: item.attributes.title,
     description: item.attributes.description,
@@ -24,32 +25,29 @@ function getShowData(item) {
     scene: item.attributes.scene,
     body: item.attributes.body,
   };
-
-  return data;
 }
 
 function getShowRoles(arr) {
-  const roles = [];
-  arr.map((item) => {
-    roles.push({
+  const roles = arr.map((item) => {
+    return {
       id: item.actors.data[0].id,
       role: item.role,
       name: item.actors.data[0].attributes.fullname,
       src: API_URL + item.actors.data[0].attributes.cover.data.attributes.url,
-    });
+      role: item.role
+    };
   });
   return roles;
 }
 
 function getShowPhoto(arr) {
-  const photo = [];
-  arr.map((item) => {
-    photo.push({
+  const photo = arr.map((item) => {
+    return {
       id: item.id,
       href: API_URL + item.attributes.formats.large.url,
       src: API_URL + item.attributes.formats.small.url,
       caption: "",
-    });
+    };
   });
   return photo;
 }
@@ -92,7 +90,7 @@ function getShowReview(arr) {
 }
 
 export default function Play() {
-  const match = useMatch('/play/:id');
+  const match = useMatch("/play/:id");
   const showID = match.params.id;
   const [isLoading, setIsLoading] = useState(true);
 
@@ -136,16 +134,20 @@ export default function Play() {
       });
   }, []);
 
-
   return (
     <main>
-      {isLoading ? <Loader /> : <TitleBlock data={showData} ticketsLink={ticketsLink} />}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <TitleBlock data={showData} ticketsLink={ticketsLink} />
+      )}
       {isLoading ? <Loader /> : <About data={showData} directors={directors} />}
       {isLoading ? <Loader /> : <ComingShow items={showItems} />}
       {isLoading ? <Loader /> : <Actors roles={roles} />}
       {isLoading ? <Loader /> : <Press press={press} />}
       {isLoading ? <Loader /> : <ShowPhoto photo={photo} />}
       {isLoading ? <Loader /> : <Review review={review} />}
+      <CommentForm />
     </main>
   );
 }
