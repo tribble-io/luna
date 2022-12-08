@@ -41,9 +41,11 @@
 
 	@media (min-width: 576px) {
 		font-size: 26px;
+		line-height: 160%;
 	}
 
 	@media (min-width: 992px) {
-		font-size: 30px;
+		font-size: 30px;    
+		line-height: normal;
 	}
 }

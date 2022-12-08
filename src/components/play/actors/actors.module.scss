@@ -13,14 +13,36 @@ h2 {
 
 .actorsContent {
   padding-bottom: 200px;
+  overflow: hidden;
+
+  @media (max-width: 500px) {
+    padding-bottom: 70px;
+  }
 
   .actorsGrid {
     padding-top: 100px;
+
+    @media (max-width: 500px) {
+      padding-top: 50px;
+    }
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
     row-gap: 63px;
+
+    @media (max-width: 500px) {
+      overflow: scroll;
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 30px;
+    }
+  }
+
+  .actorsCard {
+    @media (max-width: 500px) {
+      min-width: 130px;
+    }
   }
 }
 

@@ -37,11 +37,11 @@ export function Review({ review }) {
               {reviewArr.map((data) => (
                 <div className={styles.reviewBlock} key={data.id}>
                   <div className={styles.avatar}>{data.name[0]}</div>
-                  <div className={styles.textCont}>
+                  <div className={styles.authorName}>
                     <div className={styles.name}>{data.name}</div>
                     <div className={styles.title}>{data.title}</div>
-                    <div className={styles.text}>{data.text}</div>
                   </div>
+                  <div className={styles.text}>{data.text}</div>
                   <div className={styles.date}>{data.createdAt}</div>
                 </div>
               ))}

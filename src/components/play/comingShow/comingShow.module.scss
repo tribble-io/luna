@@ -10,12 +10,20 @@
 .comingShowContent {
   padding-bottom: 200px;
 
+  @media (max-width: 500px) {
+    padding-bottom: 100px;
+  }
+
   h2 {
     @include headline_second;
   }
 
   .comingShowsArea {
     padding-top: 80px;
+
+    @media (max-width: 500px) {
+      padding-top: 60px;
+    }
   }
 
   .pushkinCard {
@@ -27,8 +35,17 @@
     align-items: center;
     justify-content: space-between;
 
+    @media (max-width: 500px) {
+      padding-top: 50px;  
+    }
+
     .pushkinCardImage {
       margin-right: 100px;
+
+      @media (max-width: 500px) {
+        margin-right: 20px;
+        max-width: 80px;
+      }
       img {
         max-width: 100%;
         width: 100%;
@@ -40,6 +57,10 @@
       font-size: 14px;
       line-height: 180%;
       text-transform: uppercase;
+
+      @media (max-width: 500px) {
+        font-size: 10px;
+      }
     }
   }
 }

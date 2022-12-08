@@ -14,9 +14,17 @@ h2 {
 .pressContent {
   padding-bottom: 180px;
 
+  @media (max-width: 500px) {
+    padding-bottom: 100px;
+  }
+
   .pressGrid {
     padding-top: 90px;
-    
+
+    @media (max-width: 500px) {
+      padding-top: 50px;
+    }
+
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
@@ -29,7 +37,11 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding-top: 40px;
-  
+
+    @media (max-width: 500px) {
+      padding-top: 25px;
+    }
+
     img {
       max-width: 60px;
       cursor: pointer;
@@ -43,6 +55,4 @@ h2 {
       }
     }
   }
-  
 }
-

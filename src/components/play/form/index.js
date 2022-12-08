@@ -90,13 +90,6 @@ export function CommentForm({ showID }) {
                     <span className={styles.warningMes}>Заполните поле</span>
                   )}
                 </div>
-                <div>
-                  <ReCAPTCHA
-                    sitekey="6LeC1WQjAAAAAP8Wmgn5hs06R7hwOfsmlj8OCKfb"
-                    onChange={onChange}
-                    hl="ru"
-                  />
-                </div>
               </div>
               <div className={styles.textareaBlock}>
                 <textarea
@@ -110,6 +103,15 @@ export function CommentForm({ showID }) {
                 {error && !text && (
                   <span className={styles.warningMes}>Заполните поле</span>
                 )}
+              </div>
+              <div className={styles.recaptcha}>
+                <ReCAPTCHA
+                  sitekey="6LeC1WQjAAAAAP8Wmgn5hs06R7hwOfsmlj8OCKfb"
+                  onChange={onChange}
+                  hl="ru"
+                />
+              </div>
+              <div>
                 <div className={styles.checkboxBlock}>
                   <CustomCheckbox
                     id="storage"
@@ -118,7 +120,7 @@ export function CommentForm({ showID }) {
                     checked={true}
                     className={styles.checkboxInput}
                   />
-                  <div>
+                  <div className={styles.terms}>
                     <a href="http://www.lunatheatre.ru/pages/polzovatelskoe-soglashenie">
                       Пользовательское соглашение
                     </a>
