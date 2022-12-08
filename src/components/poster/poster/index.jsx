@@ -41,9 +41,9 @@ class Poster extends React.Component {
         const todayData = new Date()
         const todayDataM = todayData.getMonth()
 
-        let year = Date() .split(' ') [3];
+        let year = Date().split(' ')[3];
         let today = new Date();
-        let num_month = today . getMonth() +1 ;
+        let num_month = today.getMonth() +1 ;
         let days_for_month = this.daysInMonth(num_month , year); 
         
         this.state = {
@@ -70,23 +70,23 @@ class Poster extends React.Component {
         }
         calendar = (d) => {
 
-        if(d == '1') {
+        if(d === '1') {
             d = '01'
-        } else if (d == '2') {
+        } else if (d === '2') {
             d = '02'
-        } else if (d == '3') {
+        } else if (d === '3') {
             d = '03'
-        } else if (d == '4') {
+        } else if (d === '4') {
             d = '04'
-        } else if (d == '5') {
+        } else if (d === '5') {
             d = '05'
-        } else if (d == '6') {
+        } else if (d === '6') {
             d = '06'
-        } else if (d == '7') {
+        } else if (d === '7') {
             d = '07'
-        } else if (d == '8') {
+        } else if (d === '8') {
             d = '08'
-        } else if (d == '9'){
+        } else if (d === '9'){
             d = '09'
         }        
         this.setState (() => {
@@ -176,6 +176,9 @@ class Poster extends React.Component {
                 return '11'
             case 'ДЕКАБРЬ':
                 return '12'
+            default:
+                return ''
+
         }  
     }
     v2 = (a) => {
@@ -204,6 +207,8 @@ class Poster extends React.Component {
                 return '12'
             case 'ДЕКАБРЬ':
                 return '01'
+            default:
+                return ''    
         } 
     }
     v3 = (a) => {
@@ -232,6 +237,8 @@ class Poster extends React.Component {
                 return '2022';
             case 'ДЕКАБРЬ':
                 return '2022';
+            default:
+                return ''
         }
     }
     v4 = (a) => {
@@ -260,6 +267,8 @@ class Poster extends React.Component {
                 return '2023';
             case 'ДЕКАБРЬ':
                 return '2023';
+            default:
+                return ''
         } 
         
     }
@@ -289,6 +298,8 @@ class Poster extends React.Component {
                 return 'НОЯБРЬ';
             case '12':
                 return 'ДЕКАБРЬ';
+            default:
+                return ''
         } 
 }
     getWeekDay(date) {
@@ -301,7 +312,6 @@ class Poster extends React.Component {
 
     componentDidMount() {
         setTimeout(() => {
-        const nowData = new Date()
         let date = this.state.y + '-' + this.state.m + '-' + this.state.day
         let lastDate = this.state.y_next + '-' + this.state.m_next + '-' + this.state.day_next  //вернуть нормадьный вариант
         let seachEl = this.state.search

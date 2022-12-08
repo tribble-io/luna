@@ -6,7 +6,7 @@ import group2 from './img/group2.svg'
 import group3 from './img/group3.svg'
 import group4 from './img/group4.svg'
 import ruk from './img/ruk.svg'
-import prez from './img/prez.svg'
+import prez from './img/prez.svg';
 import tobAbs from './img/topAbs.svg'
 import botAbs from './img/botAbs.svg'
 import ChildrenPhoto from "../createElement/photoSlider";
@@ -126,7 +126,7 @@ class HistoryTheathre extends React.Component {
                     <div className={styles.infoBlock_2}>
                             <div className={styles.infoBlock_2_1}> 
                                 <div>
-                                    <div className={styles.infoBlock_2_1_1111}><img src={group1} /></div>
+                                    <div className={styles.infoBlock_2_1_1111}><img src={group1} alt='group1'/></div>
                                     <p>На «лунной» сцене родилось множество постановок,
                                         подаривших зрителям яркие и запоминающиеся актёрские работы:
                                     </p>
@@ -137,7 +137,7 @@ class HistoryTheathre extends React.Component {
                                     <p>— «Фауст» с незабываемым Анатолием Ромашиным и ироничным Александром Резалиным</p>
                                 </div>
                                 <div>
-                                <div className={styles.infoBlock_2_1_2222}><img src={group2} /></div>
+                                <div className={styles.infoBlock_2_1_2222}><img src={group2} alt='group2'/></div>
                                     <p>— «Путешествие дилетантов» с нежной и хрупкой Ольгой Понизовой и
                                         величественным Валентином Смирницким
                                     </p>
@@ -148,7 +148,7 @@ class HistoryTheathre extends React.Component {
                             </div>
 
                             <div className={styles.infoBlock_2_2}> 
-                                <div className={styles.infoBlock_2_2_el11}><img src={group3}/></div>
+                                <div className={styles.infoBlock_2_2_el11}><img src={group3} alt='group3'/></div>
                                 <div>
                                 На этой сцене делали первые «звездные» шаги Чулпан Хаматова («Сны маленького Робинзона»)
                                 и Евгений Стычкин («Чарли Ча…»), дебютировала ученица Сергея Проханова Анастасия Стоцкая (мюзикл «Губы»).
@@ -163,12 +163,12 @@ class HistoryTheathre extends React.Component {
                                 которой постигают основы актерского мастерства и имеют возможность выходить на
                                 сцену театра вместе с профессиональными актерами.
                                 </div>
-                                <div className={styles.infoBlock_2_3_el33}><img src={group4}/></div>
+                                <div className={styles.infoBlock_2_3_el33}><img src={group4} alt='group4'/></div>
                                 <div>Спектакль "Фанта-Инфанта"</div>
                             </div>
 
                             <div className={styles.infoBlock_2_4}>
-                                <div className={styles.infoBlock_2_4_el11}><img src={ruk}/></div>
+                                <div className={styles.infoBlock_2_4_el11}><img src={ruk} alt='ruk'/></div>
                                 <div>
                                     <div>
                                         <p>В 2004 году любимая зрителями камерная «Луна» из уютного гнезда
@@ -202,7 +202,7 @@ class HistoryTheathre extends React.Component {
                                     </div>
                                     <div className={styles.infoBlock_2_4_mob_art}>
                                         <div>
-                                            <div className={styles.infoBlock_2_4_mob_art11}><img src={ruk}/></div>
+                                            <div className={styles.infoBlock_2_4_mob_art11}><img src={ruk} alt='ruk'/></div>
                                             <p>Народный артист России</p>
                                         </div>
                                         <div className={styles.inf}>
@@ -212,7 +212,7 @@ class HistoryTheathre extends React.Component {
                                     </div>
                                 </div>
                             <div className={styles.infoBlock_2_4}>
-                            <div className={styles.infoBlock_2_44_el11}> <img src={prez}/></div>
+                            <div className={styles.infoBlock_2_44_el11}> <img src={prez} alt='prez'/></div>
                                 <div>
                                     <div>
                                         
@@ -230,7 +230,7 @@ class HistoryTheathre extends React.Component {
                                 </div>
                                 <div className={styles.infoBlock_2_4_mob_art}>
                                     <div>
-                                    <div className={styles.infoBlock_2_4_mob_art22}><img src={prez}/></div>
+                                    <div className={styles.infoBlock_2_4_mob_art22}><img src={prez} alt='prez'/></div>
                                         <p>Президент Театра</p>
                                     </div>
                                     <div className={styles.inf_1}>
@@ -242,9 +242,9 @@ class HistoryTheathre extends React.Component {
                             </div>
 
                             <div className={styles.historyQuote}>
-                                <img src={tobAbs} />
+                                <img src={tobAbs} alt='tobAbs'/>
                                 <h2>«Луна» по-прежнему каждый вечер зажигает для зрителей свой загадочный и манящий свет.</h2>
-                                <img src={botAbs} />
+                                <img src={botAbs} alt='tobAbs'/>
                             </div>
 
                             <div className={styles.infoBlock_2_5}>
