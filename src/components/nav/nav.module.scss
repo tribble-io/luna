@@ -47,14 +47,13 @@ nav {
           text-transform: lowercase;
 
           color: #f4f4f4;
-          
+
           transition: color 0.3s;
 
           &:hover {
             color: #778194;
           }
         }
-
       }
       li:not(:last-child) {
         margin-right: 10px;
