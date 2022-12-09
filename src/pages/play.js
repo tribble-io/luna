@@ -78,7 +78,7 @@ let month = [
 
 const getFullDateMonth = (date) => {
   let dates = new Date(date)
-  let fulldate = `${dates.getDay()} ${
+  let fulldate = `${dates.getDate()} ${
     month[dates.getMonth()]
   } ${dates.getFullYear()}`
   return fulldate
@@ -86,7 +86,9 @@ const getFullDateMonth = (date) => {
 
 const getFullDate = (date) => {
   let dates = new Date(date)
-  let fulldate = `${dates.getDay()}.${dates.getMonth()}.${dates.getFullYear()}`
+  let fulldate = `${dates.getDate()}.${
+    dates.getMonth() + 1
+  }.${dates.getFullYear()}`
   return fulldate
 }
 
