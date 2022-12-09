@@ -1,6 +1,5 @@
 import React from 'react'
-import Item from '../items'
-import Separator from '../separator'
+import { Item, Separator } from '../../mainPage'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
@@ -70,7 +69,7 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
   )
 }
 
-export default function Calendar({ setFirstDate, items }) {
+export function Calendar({ setFirstDate, items }) {
   const navigationPrevRef = React.useRef(null)
   const navigationNextRef = React.useRef(null)
 

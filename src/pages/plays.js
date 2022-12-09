@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { api } from '../api/index'
 
-import ShowsFilter from '../components/plays/filters'
-import ShowsCards from '../components/plays/cards'
+import { ShowsFilter, ShowsCards } from '../components/plays'
 import Loader from '../components/loader'
 
 function Plays() {

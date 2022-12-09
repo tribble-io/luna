@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Separator from '../separator'
+import { Separator } from '../../mainPage'
 
 import styles from './news.module.scss'
 
@@ -27,7 +27,7 @@ function cutToLength(s, l) {
   }
 }
 
-export default function News({ itemsNews }) {
+export function News({ itemsNews }) {
   return (
     <>
       <div className={styles.wrapper}>

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { api, API_URL } from '../api/index'
 
-import ChildrenTitle from '../components/childrensStudio/title'
 import {
+  ChildrenTitle,
   ChildrenDescription,
   ChildrenStudioTask,
   ChildrenRecording,
-} from '../components/childrensStudio/textBlock'
-import ChildrenNextShows from '../components/childrensStudio/nextShows'
-import ChildrenStudioFounder from '../components/childrensStudio/founder'
-import ChildrenScene from '../components/childrensStudio/scene'
-import ChildrenPhoto from '../components/childrensStudio/photo'
+  ChildrenNextShows,
+  ChildrenStudioFounder,
+  ChildrenScene,
+  ChildrenPhoto,
+} from '../components/childrensStudio'
 import Loader from '../components/loader'
 
 function getStudioPhoto(arr) {

@@ -3,7 +3,7 @@ import styles from './filter.module.scss'
 import CustomCheckbox from '../../createElement/customCheckbox'
 import CreateButton from '../../createElement/filterButton'
 
-export default function ShowsFilter(props) {
+export function ShowsFilter(props) {
   const [activeButton, setActiveButtons] = useState('Все сцены')
   const { setEditValue } = props
 

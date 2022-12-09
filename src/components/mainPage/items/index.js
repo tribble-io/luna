@@ -42,7 +42,7 @@ const useElementWidth = () => {
   return [ref, width]
 }
 
-export default function Item({ items }) {
+export function Item({ items }) {
   const [ref, CURRENT_WIDTH] = useElementWidth()
   const ITEM_WIDTH = 270
 

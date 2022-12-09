@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './nextShows.module.scss'
 import CreateLine from '../../createElement/playsLine'
 
-export default function ChildrenNextShows(props) {
+export function ChildrenNextShows(props) {
   const { id, items } = props
   // Check if we have shows in little moon
   const isItems = items.length > 0 ? true : false

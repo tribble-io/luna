@@ -4,7 +4,7 @@ import CreatePlaysCard from '../../createElement/playsCard'
 
 const API_URL = 'http://theatre.restomatik.ru:1337'
 
-export default function showsCards(props) {
+export function ShowsCards(props) {
   const { items } = props
 
   function playCard(item) {

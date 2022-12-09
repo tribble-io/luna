@@ -12,7 +12,7 @@ import { Pagination } from 'swiper'
 
 const API_URL = 'http://theatre.restomatik.ru:1337'
 
-export default function ChildrenScene({ id, items }) {
+export function ChildrenScene({ id, items }) {
   const screen_width = window.screen.width
   const isMobile = screen_width > 500 ? false : true
 

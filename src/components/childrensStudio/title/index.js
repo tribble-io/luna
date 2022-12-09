@@ -11,7 +11,7 @@ function CreateButton({ title }) {
     </>
   )
 }
-export default function ChildrenTitle() {
+export function ChildrenTitle() {
   const buttonArray = [
     { title: 'ближайшие постановки', name: 'nextShow' },
     { title: 'Спектакли на сцене «маленькой луны»', name: 'little_moon' },

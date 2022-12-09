@@ -3,7 +3,7 @@ import styles from './photo.module.scss'
 
 import PhotoSlider from '../../createElement/photoSlider'
 
-export default function ChildrenPhoto(props) {
+export function ChildrenPhoto(props) {
   const { id, items } = props
 
   return (
