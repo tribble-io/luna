@@ -70,15 +70,15 @@
         width: 100%;
         height: auto;
       }
-      .mobileCaption {
-        display: none;
+      .imgCaption {
+        font-size: 16px;
+        margin-top: 30px;
+        @media (max-width: 768px) {
+          margin-top: 16px;
+        }
       }
       @media (max-width: 768px) {
         margin-bottom: 80px;
-        .mobileCaption {
-          display: block;
-          margin-top: 16px;
-        }
       }
     }
 

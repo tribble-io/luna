@@ -29,7 +29,8 @@ export default function ChildrenTitle() {
               <div className={styles.childrenTitle}>
                 <h1>
                   Детская театральная студия
-                  <br className={styles.tabletHidden} /> "Маленькая Луна"
+                  <br className={styles.tabletHidden} />
+                  &#171;Маленькая Луна&#187;
                 </h1>
               </div>
               <div className={styles.linkArea}>

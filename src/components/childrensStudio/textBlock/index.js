@@ -12,8 +12,9 @@ export function ChildrenDescription() {
               <div className={`${styles.descriptionBlock} ${styles.bigBlock}`}>
                 <div className={styles.descriptionText}>
                   <p className={styles.marginParagraph}>
-                    Детская театральная студия "Маленькая Луна" работает при
-                    "Театре Луны на Малой Ордынке" с 2004 года.
+                    Детская театральная студия &quot;Маленькая Луна&quot;
+                    работает при &quot;Театре Луны на Малой Ордынке&quot; с 2004
+                    года.
                   </p>
                   <p>
                     За годы существования театральной студии его юные
@@ -29,7 +30,7 @@ export function ChildrenDescription() {
                   <a
                     data-fancybox='description-gallery'
                     href='/img/description-img1.png'
-                    data-caption='Спектакль «Фанта-Инфанта»'
+                    data-caption='Спектакль «Алые паруса»'
                     className={styles.sliderLink}
                   >
                     <img
@@ -37,9 +38,7 @@ export function ChildrenDescription() {
                       className={styles.sliderImg}
                     />
                   </a>
-                  <p className={styles.mobileCaption}>
-                    Спектакль «Фанта-Инфанта»
-                  </p>
+                  <p className={styles.imgCaption}>Спектакль «Алые паруса»</p>
                 </div>
               </div>
 
@@ -50,7 +49,7 @@ export function ChildrenDescription() {
                   <a
                     data-fancybox='description-gallery'
                     href='/img/description-img2.png'
-                    data-caption='Спектакль «Фанта-Инфанта»'
+                    data-caption='Спектакль «Оскар и Розовая Дама»'
                     className={styles.sliderLink}
                   >
                     <img
@@ -58,19 +57,19 @@ export function ChildrenDescription() {
                       className={styles.sliderImg}
                     />
                   </a>
-                  <p className={styles.mobileCaption}>
-                    Спектакль «Фанта-Инфанта»
+                  <p className={styles.imgCaption}>
+                    Спектакль «Оскар и Розовая Дама»
                   </p>
                 </div>
                 <div className={styles.descriptionText}>
                   <p>
                     Кроме того на сцене «Театра Луны» идут детские спектакли
                     «Оскар и Розовая Дама», «Ваня в сарафане», «Аничков мост»,
-                    «Фанта-инфанта», "Алые паруса", "Анфиса в Виртуале", где
-                    дети являются главными героями и исполнителями. Таким
-                    образом, уникальность ДТС «Маленькая Луна» заключена в том,
-                    что с первых шагов воспитанники студии вовлекаются в
-                    театральный процесс.
+                    «Фанта-инфанта», &quot;Алые паруса&quot;, &quot;Анфиса в
+                    Виртуале&quot;, где дети являются главными героями и
+                    исполнителями. Таким образом, уникальность ДТС «Маленькая
+                    Луна» заключена в том, что с первых шагов воспитанники
+                    студии вовлекаются в театральный процесс.
                   </p>
                 </div>
               </div>
@@ -82,7 +81,7 @@ export function ChildrenDescription() {
                   <a
                     data-fancybox='description-gallery'
                     href='/img/description-img3.png'
-                    data-caption='Спектакль «Фанта-Инфанта»'
+                    data-caption='Спектакль «Наш 9 «Б»»'
                     className={styles.sliderLink}
                   >
                     <img
@@ -90,6 +89,7 @@ export function ChildrenDescription() {
                       className={styles.sliderImg}
                     />
                   </a>
+                  <p className={styles.imgCaption}>Спектакль «Наш 9 «Б»»</p>
                 </div>
               </div>
             </Fancybox>
@@ -122,7 +122,7 @@ export function ChildrenStudioTask(props) {
                 <a
                   data-fancybox='description-gallery'
                   href='/img/description-img4.png'
-                  data-caption='Спектакль «Фанта-Инфанта»'
+                  data-caption='Спектакль "Фанта-Инфанта"'
                   className={styles.sliderLink}
                 >
                   <img
@@ -130,8 +130,8 @@ export function ChildrenStudioTask(props) {
                     className={styles.sliderImg}
                   />
                 </a>
-                <p className={styles.mobileCaption}>
-                  Спектакль «Фанта-Инфанта»
+                <p className={styles.imgCaption}>
+                  Спектакль &quot;Фанта-Инфанта&quot;
                 </p>
               </div>
             </div>
@@ -154,8 +154,8 @@ export function ChildrenRecording(props) {
             </div>
             <div className={styles.recordingBlock}>
               <p className={styles.marginParagraph}>
-                В ДТС "Маленькая Луна" принимаются дети <b>от 6 до 15 лет</b>,
-                прошедшие прослушивание.
+                В ДТС &quot;Маленькая Луна&quot; принимаются дети
+                <b>от 6 до 15 лет</b>, прошедшие прослушивание.
               </p>
               <p>Запись на прослушивание по телефонам</p>
               <p>
