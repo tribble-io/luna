@@ -9,7 +9,7 @@ import ruk from './img/ruk.svg'
 import prez from './img/prez.svg'
 import tobAbs from './img/topAbs.svg'
 import botAbs from './img/botAbs.svg'
-import ChildrenPhoto from '../createElement/photoSlider'
+import { PhotoSlider } from '../createElement'
 
 class HistoryTheathre extends React.Component {
   constructor() {
@@ -430,7 +430,7 @@ class HistoryTheathre extends React.Component {
           </div>
           <div className={styles.archivePhotoTage}>АРХИВНЫЕ ФОТОГРАФИИ</div>
           <div className={styles.infoBlock_2_9}>
-            <ChildrenPhoto items={this.state.items} />
+            <PhotoSlider items={this.state.items} />
           </div>
         </div>
       </section>

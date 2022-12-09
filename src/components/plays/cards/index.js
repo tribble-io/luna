@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './shows.module.scss'
-import CreatePlaysCard from '../../createElement/playsCard'
+import { CreatePlaysCard } from '../../createElement'
 
 const API_URL = 'http://theatre.restomatik.ru:1337'
 

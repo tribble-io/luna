@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './nextShows.module.scss'
-import CreateLine from '../../createElement/playsLine'
+import { PlaysLine } from '../../createElement'
 
 export function ChildrenNextShows(props) {
   const { id, items } = props
@@ -18,7 +18,7 @@ export function ChildrenNextShows(props) {
             {isItems ? (
               <div className={styles.nextShowsArea}>
                 {items.slice(0, 4).map((data) => (
-                  <CreateLine data={data} key={data.id} />
+                  <PlaysLine data={data} key={data.id} />
                 ))}
               </div>
             ) : (

@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './photo.module.scss'
 
-import PhotoSlider from '../../createElement/photoSlider'
+import { PhotoSlider } from '../../createElement'
 
 export function ChildrenPhoto(props) {
   const { id, items } = props

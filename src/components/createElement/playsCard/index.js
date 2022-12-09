@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './card.module.scss'
-import Ripple from '../rippleButton'
+import { Ripple } from '../../createElement'
 
-export default function CreatePlaysCard({ data }) {
+export function CreatePlaysCard({ data }) {
   return (
     <>
       <div className={styles.cardContent}>

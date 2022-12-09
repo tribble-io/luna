@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styles from './filter.module.scss'
-import CustomCheckbox from '../../createElement/customCheckbox'
-import CreateButton from '../../createElement/filterButton'
+import { CustomCheckbox, CreateButton } from '../../createElement'
 
 export function ShowsFilter(props) {
   const [activeButton, setActiveButtons] = useState('Все сцены')

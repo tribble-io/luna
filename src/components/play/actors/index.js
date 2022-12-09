@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './actors.module.scss'
-import CreateCard from '../../createElement/actorCard'
+import { CreateActorCard } from '../../createElement'
 
 export function Actors({ roles }) {
   return (
@@ -12,7 +12,7 @@ export function Actors({ roles }) {
             <div className={styles.actorsGrid}>
               {roles.map((item, key) => (
                 <div className={styles.actorsCard} key={key}>
-                  <CreateCard data={item} key={item.id} />
+                  <CreateActorCard data={item} key={item.id} />
                 </div>
               ))}
             </div>

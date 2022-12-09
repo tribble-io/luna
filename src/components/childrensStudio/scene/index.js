@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './scene.module.scss'
 
-import CreatePlaysCard from '../../createElement/playsCard'
+import { CreatePlaysCard } from '../../createElement'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'

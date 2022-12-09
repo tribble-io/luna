@@ -13,7 +13,7 @@ import { Fancybox } from '../../createElement'
 
 const screen_width = window.screen.width
 
-export default function PhotoSlider(props) {
+export function PhotoSlider(props) {
   const { items } = props
   const navigationPrevRef = useRef(null)
   const navigationNextRef = useRef(null)

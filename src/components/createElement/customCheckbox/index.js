@@ -7,7 +7,7 @@ import styles from './checkbox.module.scss'
 */
 }
 
-export default function CustomCheckbox(props) {
+export function CustomCheckbox(props) {
   const { id, name, label, checked, isActive, className } = props
   const defaultChecked = checked ? checked : false
   const [isChecked, setIsChecked] = useState(defaultChecked)

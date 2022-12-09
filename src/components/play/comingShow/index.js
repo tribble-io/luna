@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './comingShow.module.scss'
-import CreateLine from '../../createElement/playsLine'
+import { PlaysLine } from '../../createElement'
 
 const getWeekDay = (date) => {
   let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ']
@@ -38,7 +38,7 @@ export function ComingShow({ items }) {
           {isItems ? (
             <div className={styles.comingShowsArea}>
               {items.slice(0, 3).map((item) => (
-                <CreateLine data={createLine(item)} key={item.id} />
+                <PlaysLine data={createLine(item)} key={item.id} />
               ))}
               {isPushkinCard ? (
                 <div className={styles.pushkinCard}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './line.module.scss'
 
-export default function CreateLine({ data }) {
+export function PlaysLine({ data }) {
   if (data.day) {
     return (
       <div className={styles.posterContent}>
