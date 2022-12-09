@@ -10,24 +10,9 @@ import './styles.css'
 // import required modules
 import { Pagination } from 'swiper'
 
-const API_URL = 'http://theatre.restomatik.ru:1337'
-
 export function ChildrenScene({ id, items }) {
   const screen_width = window.screen.width
   const isMobile = screen_width > 500 ? false : true
-
-  function playCard(item) {
-    const playCardData = {
-      id: item.id,
-      src: API_URL + item.attributes.cover.data.attributes.url,
-      title: item.attributes.title,
-      rating: item.attributes.rating,
-      description: item.attributes.description,
-      scene: item.attributes.scene,
-      isPremiere: item.attributes.isPremiere,
-    }
-    return playCardData
-  }
 
   return (
     <>
@@ -55,17 +40,17 @@ export function ChildrenScene({ id, items }) {
                     '--swiper-pagination-bullet-inactive-opacity': '0.6',
                   }}
                 >
-                  {items.map((item, key) => (
+                  {items.map((data, key) => (
                     <SwiperSlide key={key}>
-                      <CreatePlaysCard data={playCard(item)} key={item.id} />
+                      <CreatePlaysCard data={data} key={data.id} />
                     </SwiperSlide>
                   ))}
                 </Swiper>
               </div>
             ) : (
               <div className={styles.sceneGrid}>
-                {items.map((item, key) => (
-                  <CreatePlaysCard data={playCard(item)} key={key} />
+                {items.map((data) => (
+                  <CreatePlaysCard data={data} key={data.id} />
                 ))}
               </div>
             )}

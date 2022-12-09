@@ -20,7 +20,7 @@ export default function PhotoSlider(props) {
 
   // slider parameters for mobile
   const rows = screen_width > 500 ? 2 : 1
-  const slidesPerView = screen_width > 500 ? 3 : 'auto'
+  const slidesPerView = screen_width > 500 ? 4 : 'auto'
   const navigation =
     screen_width > 500
       ? { prevEl: navigationPrevRef.current, nextEl: navigationNextRef.current }
