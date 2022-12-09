@@ -36,7 +36,7 @@ export default function LastBlock() {
             <a href='/plays'>
               <p>спектакли</p>
             </a>
-            <a href='http://www.lunatheatre.ru/pages/dtc-malenkaya-luna'>
+            <a href='/children-studio'>
               <p>маленькая луна</p>
             </a>
           </div>
@@ -53,7 +53,7 @@ export default function LastBlock() {
             <a href='/plays'>
               <p>Спектакли</p>
             </a>
-            <a href='http://www.lunatheatre.ru/pages/dtc-malenkaya-luna'>
+            <a href='/children-studio'>
               <p>маленькая луна</p>
             </a>
           </div>

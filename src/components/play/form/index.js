@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './form.module.scss'
-import CustomCheckbox from '../../createElement/customCheckbox'
+import { CustomCheckbox } from '../../createElement'
 
 import { api } from '../../../api/index'
 

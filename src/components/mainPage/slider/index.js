@@ -28,7 +28,7 @@ const MONTHS = [
   'ДЕКАБРЬ',
 ]
 
-export default function Slider({ items, firstDate }) {
+export function Slider({ items, firstDate }) {
   return (
     <>
       <Swiper

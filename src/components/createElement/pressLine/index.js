@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './line.module.scss'
 
-export default function CreatePressLine({ data }) {
+export function CreatePressLine({ data }) {
   return (
     <div className={styles.pressLine}>
       <a href={data.link} className={styles.lineContent}>

@@ -1,0 +1,6 @@
+export { ChildrenStudioFounder } from './founder'
+export { ChildrenNextShows } from './nextShows'
+export { ChildrenPhoto } from './photo'
+export { ChildrenScene } from './scene'
+export * from './textBlock'
+export { ChildrenTitle } from './title'

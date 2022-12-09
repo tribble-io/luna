@@ -9,18 +9,18 @@ import './styles.css'
 // import required modules
 import { Grid, Navigation, Pagination } from 'swiper'
 
-import { Fancybox } from '../../../assets/index'
+import { Fancybox } from '../../createElement'
 
 const screen_width = window.screen.width
 
-export default function PhotoSlider(props) {
+export function PhotoSlider(props) {
   const { items } = props
   const navigationPrevRef = useRef(null)
   const navigationNextRef = useRef(null)
 
   // slider parameters for mobile
   const rows = screen_width > 500 ? 2 : 1
-  const slidesPerView = screen_width > 500 ? 3 : 'auto'
+  const slidesPerView = screen_width > 500 ? 4 : 'auto'
   const navigation =
     screen_width > 500
       ? { prevEl: navigationPrevRef.current, nextEl: navigationNextRef.current }

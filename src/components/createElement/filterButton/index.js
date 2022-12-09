@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './button.module.scss'
 
-export default function CreateButton(props) {
+export function CreateButton(props) {
   const { updateFilter, activeButton, buttonArray } = props
 
   function buttonClass(name) {

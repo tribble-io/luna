@@ -2,10 +2,7 @@ import React from 'react'
 import { api } from '../api/index'
 import { uniqueBy } from '../assets/utils/usable-function'
 
-import Slider from '../components/mainPage/slider'
-import Calendar from '../components/mainPage/calendar'
-import News from '../components/mainPage/news'
-import Partners from '../components/mainPage/partners'
+import { Slider, Calendar, News, Partners } from '../components/mainPage'
 import Loader from '../components/loader'
 
 function Home() {

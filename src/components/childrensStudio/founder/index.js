@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './founder.module.scss'
 
-export default function ChildrenStudioFounder(props) {
+export function ChildrenStudioFounder(props) {
   const { id } = props
   return (
     <>

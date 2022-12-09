@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './press.module.scss'
-import CreatePressLIne from '../../createElement/pressLine'
+import { CreatePressLine } from '../../createElement'
 import { IsMobile } from '../../../assets'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -12,7 +12,7 @@ import { Pagination } from 'swiper'
 
 export function Press({ press }) {
   const [pressArr, setPressArr] = useState(press)
-  const pressLineaAmount = 5
+  const pressLineaAmount = 3
   const [actPage, setActPage] = useState(1)
   const [allPages, setAllPages] = useState(1)
 
@@ -59,7 +59,7 @@ export function Press({ press }) {
                 >
                   {pressArr.map((item, key) => (
                     <SwiperSlide key={item.id}>
-                      <CreatePressLIne data={item} key={key} />
+                      <CreatePressLine data={item} key={key} />
                     </SwiperSlide>
                   ))}
                 </Swiper>
@@ -67,7 +67,7 @@ export function Press({ press }) {
             ) : (
               <div className={styles.pressGrid}>
                 {pressArr.map((item, key) => (
-                  <CreatePressLIne data={item} key={key} />
+                  <CreatePressLine data={item} key={key} />
                 ))}
                 <div className={styles.pressNavigation}>
                   <img

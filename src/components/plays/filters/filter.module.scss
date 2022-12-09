@@ -6,21 +6,18 @@
   font-weight: 400;
   color: $text-color;
   background-color: $bg-color;
+}
 
+.filterContent {
   .filterTitle {
     padding-top: 13rem;
+
     @media (max-width: 500px) {
       padding-top: 4.4rem;
     }
 
     h1 {
-      font-size: 50px;
-      font-weight: 600;
-      text-transform: uppercase;
-
-      @media (max-width: 500px) {
-        font-size: 30px;
-      }
+      @include headline_first;
     }
   }
 
@@ -66,6 +63,9 @@
       padding: 21px 30px 21px 90px;
       font-size: 14px;
       color: $text-color;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      font-weight: 500;
 
       &:hover,
       &:focus {
