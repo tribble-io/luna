@@ -109,14 +109,15 @@ export function CommentForm({ showID }) {
                 <ReCAPTCHA
                   sitekey="6LeC1WQjAAAAAP8Wmgn5hs06R7hwOfsmlj8OCKfb"
                   hl="ru"
+                  theme="dark"
                 />
               </div>
               <div>
                 <div>
-                  <span className={styles.warningMes} 
-                  style={{
-                    "visibility": setCheckbox ? "hidden" : "visible",
-                  }}>
+                  <span className={styles.warningMes}
+                    style={{
+                      "visibility": setCheckbox ? "hidden" : "visible",
+                    }}>
                     Необходимо согласие на хранение и обработку данных
                   </span>
                 </div>
