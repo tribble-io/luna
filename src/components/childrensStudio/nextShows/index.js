@@ -19,6 +19,7 @@ export default function ChildrenNextShows(props) {
       id: item.id,
       date: parseInt(item.attributes.date_str.match(/\d+/)),
       time: item.attributes.time,
+      month: item.attributes.date_str.match(/[^\s\d]+/),
       day: getWeekDay(item.attributes.date),
       title: item.attributes.play.data.attributes.title,
       isPremiere: item.attributes.play.data.attributes.isPremiere,
@@ -45,7 +46,7 @@ export default function ChildrenNextShows(props) {
               </div>
             ) : (
               <div className={styles.nextShowsArea}>
-                Нет ближайших спектаклей на сцене "МАЛЕНЬКАЯ ЛУНА"
+                Нет ближайших спектаклей на сцене &quot;МАЛЕНЬКАЯ ЛУНА&quot;
               </div>
             )}
           </div>
