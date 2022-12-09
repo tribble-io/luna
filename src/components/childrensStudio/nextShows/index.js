@@ -17,15 +17,15 @@ export default function ChildrenNextShows(props) {
     const createLineData = {
       item: item,
       id: item.id,
-      date: parseInt(item.attributes.date_str.match(/\d+/)),
-      time: item.attributes.time,
-      month: item.attributes.date_str.match(/[^\s\d]+/),
-      day: getWeekDay(item.attributes.date),
-      title: item.attributes.play.data.attributes.title,
-      isPremiere: item.attributes.play.data.attributes.isPremiere,
-      place: item.attributes.place,
-      rating: item.attributes.play.data.attributes.rating,
-      buy: item.attributes.tickets_link,
+      date: parseInt(item.attributes?.date_str.match(/\d+/)),
+      time: item.attributes?.time,
+      month: item.attributes?.date_str.match(/[^\s\d]+/),
+      day: getWeekDay(item.attributes?.date),
+      title: item.attributes?.play?.data?.attributes?.title,
+      isPremiere: item.attributes?.play?.data?.attributes?.isPremiere,
+      place: item.attributes?.place,
+      rating: item.attributes?.play?.data?.attributes?.rating,
+      buy: item.attributes?.tickets_link,
     }
     return createLineData
   }

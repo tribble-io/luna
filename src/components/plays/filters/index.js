@@ -37,53 +37,51 @@ export default function ShowsFilter(props) {
     <>
       <section>
         <div className={styles.wrapper}>
-          {
-            <div className={styles.filterContent}>
-              <div className={styles.filterTitle}>
-                <h1>спектакли</h1>
+          <div className={styles.filterContent}>
+            <div className={styles.filterTitle}>
+              <h1>спектакли</h1>
+            </div>
+            <div className={styles.filterArea}>
+              <div className={styles.filterGroup}>
+                <CreateButton
+                  updateFilter={updateFilter}
+                  activeButton={activeButton}
+                  buttonArray={buttonArray}
+                />
               </div>
-              <div className={styles.filterArea}>
-                <div className={styles.filterGroup}>
-                  <CreateButton
-                    updateFilter={updateFilter}
-                    activeButton={activeButton}
-                    buttonArray={buttonArray}
+              <div className={styles.filterGroup}>
+                <div className={styles.inputFilter}>
+                  <input
+                    type='text'
+                    name='nameSearch'
+                    id='nameSearch'
+                    placeholder='поиск по названию'
+                    onChange={updateInput}
                   />
                 </div>
-                <div className={styles.filterGroup}>
-                  <div className={styles.inputFilter}>
-                    <input
-                      type='text'
-                      name='nameSearch'
-                      id='nameSearch'
-                      placeholder='поиск по названию'
-                      onChange={updateInput}
-                    />
-                  </div>
+              </div>
+              <div className={styles.filterGroup}>
+                <div className={styles.checkboxFilter}>
+                  <CustomCheckbox
+                    id='premieres'
+                    name='isPremiere'
+                    label='Премьеры'
+                    isActive={isActive}
+                    className={styles.checkbox}
+                  />
                 </div>
-                <div className={styles.filterGroup}>
-                  <div className={styles.checkboxFilter}>
-                    <CustomCheckbox
-                      id='premieres'
-                      name='isPremiere'
-                      label='Премьеры'
-                      isActive={isActive}
-                      className={styles.checkbox}
-                    />
-                  </div>
-                  <div className={styles.checkboxFilter}>
-                    <CustomCheckbox
-                      id='kids'
-                      name='rating'
-                      label='Для детей'
-                      isActive={isActive}
-                      className={styles.checkbox}
-                    />
-                  </div>
+                <div className={styles.checkboxFilter}>
+                  <CustomCheckbox
+                    id='kids'
+                    name='rating'
+                    label='Для детей'
+                    isActive={isActive}
+                    className={styles.checkbox}
+                  />
                 </div>
               </div>
             </div>
-          }
+          </div>
         </div>
       </section>
     </>

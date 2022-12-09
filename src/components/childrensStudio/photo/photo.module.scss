@@ -20,19 +20,9 @@
     @media (max-width: 500px) {
       padding-bottom: 200px;
     }
-  }
 
-  .photoContent h2 {
-    font-size: 30px;
-    font-weight: 600;
-    text-transform: uppercase;
-
-    @media (max-width: 991px) {
-      font-size: 26px;
-    }
-
-    @media (max-width: 500px) {
-      font-size: 22px;
+    h2 {
+      @include headline_second
     }
   }
 
