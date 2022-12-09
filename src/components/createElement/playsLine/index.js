@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./line.module.scss";
+import React from 'react'
+import styles from './line.module.scss'
 
-export default function CreateLine({data}) {
+export default function CreateLine({ data }) {
   if (data.day) {
     return (
       <div className={styles.posterContent}>
@@ -18,7 +18,9 @@ export default function CreateLine({data}) {
               <div className={styles.name}>
                 <div>
                   <div>{data?.title}</div>
-                  <div className={styles.premier}>{data?.isPremiere ? <span>Премьера</span> : <></>}</div>
+                  <div className={styles.premier}>
+                    {data?.isPremiere ? <span>Премьера</span> : <></>}
+                  </div>
                 </div>
                 <div className={styles.scien}>{data?.place}</div>
               </div>
@@ -32,8 +34,8 @@ export default function CreateLine({data}) {
           </div>
         </div>
       </div>
-    );
+    )
   } else {
-    return <div>По заданным фильтрам ничего не найдно</div>;
+    return <div>По заданным фильтрам ничего не найдно</div>
   }
 }

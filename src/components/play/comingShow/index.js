@@ -1,12 +1,12 @@
-import React from "react";
-import styles from "./comingShow.module.scss";
-import CreateLine from "../../createElement/playsLine";
+import React from 'react'
+import styles from './comingShow.module.scss'
+import CreateLine from '../../createElement/playsLine'
 
 const getWeekDay = (date) => {
-  let days = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
-  let dates = new Date(date);
-  return days[dates.getDay()];
-};
+  let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ']
+  let dates = new Date(date)
+  return days[dates.getDay()]
+}
 
 function createLine(item) {
   const createLineData = {
@@ -20,17 +20,18 @@ function createLine(item) {
     place: item.attributes?.place,
     rating: item.attributes?.play.data.attributes?.rating,
     buy: item.attributes?.tickets_link,
-  };
-  return createLineData;
+  }
+  return createLineData
 }
 
 export function ComingShow({ items }) {
   // Check if we have coming show
-  const isItems = items.length > 0 ? true : false;
-  const isPushkinCard = items[0]?.attributes?.play.data.attributes?.isPushkinCard;
+  const isItems = items.length > 0 ? true : false
+  const isPushkinCard =
+    items[0]?.attributes?.play.data.attributes?.isPushkinCard
 
   return (
-    <section id="comingShow">
+    <section id='comingShow'>
       <div className={styles.wrapper}>
         <div className={styles.comingShowContent}>
           <h2>ближайшие показы</h2>
@@ -42,7 +43,7 @@ export function ComingShow({ items }) {
               {isPushkinCard ? (
                 <div className={styles.pushkinCard}>
                   <div className={styles.pushkinCardImage}>
-                    <img src="/img/pushkinCard.png" alt="Пушкинская карта" />
+                    <img src='/img/pushkinCard.png' alt='Пушкинская карта' />
                   </div>
                   <div className={styles.pushkinCardText}>
                     <p>
@@ -63,5 +64,5 @@ export function ComingShow({ items }) {
         </div>
       </div>
     </section>
-  );
+  )
 }

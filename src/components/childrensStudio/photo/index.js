@@ -1,10 +1,10 @@
-import React from "react";
-import styles from "./photo.module.scss";
+import React from 'react'
+import styles from './photo.module.scss'
 
-import PhotoSlider from "../../createElement/photoSlider"
+import PhotoSlider from '../../createElement/photoSlider'
 
 export default function ChildrenPhoto(props) {
-  const { id, items } = props;
+  const { id, items } = props
 
   return (
     <>
@@ -21,5 +21,5 @@ export default function ChildrenPhoto(props) {
         </div>
       </section>
     </>
-  );
+  )
 }

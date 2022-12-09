@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import styles from "./block.module.scss";
+import styles from './block.module.scss'
 
 export default function LastBlock() {
   return (
@@ -27,33 +27,33 @@ export default function LastBlock() {
         </div>
         <div className={styles.group2}>
           <div className={styles.text1}>
-            <a href="/plays">
+            <a href='/plays'>
               <h3>репертуар</h3>
             </a>
-            <a href="http://www.lunatheatre.ru/afisha">
+            <a href='http://www.lunatheatre.ru/afisha'>
               <p>афиша</p>
             </a>
-            <a href="/plays">
+            <a href='/plays'>
               <p>спектакли</p>
             </a>
-            <a href="http://www.lunatheatre.ru/pages/dtc-malenkaya-luna">
+            <a href='http://www.lunatheatre.ru/pages/dtc-malenkaya-luna'>
               <p>маленькая луна</p>
             </a>
           </div>
           <div className={styles.text2}>
-            <a href="http://www.lunatheatre.ru/pages/o-lune">
+            <a href='http://www.lunatheatre.ru/pages/o-lune'>
               <h3>О «Луне» </h3>
             </a>
-            <a href="http://www.lunatheatre.ru/actors">
+            <a href='http://www.lunatheatre.ru/actors'>
               <p>творческий состав</p>
             </a>
-            <a href="http://www.lunatheatre.ru/afisha">
+            <a href='http://www.lunatheatre.ru/afisha'>
               <p>афиша</p>
             </a>
-            <a href="/plays">
+            <a href='/plays'>
               <p>Спектакли</p>
             </a>
-            <a href="http://www.lunatheatre.ru/pages/dtc-malenkaya-luna">
+            <a href='http://www.lunatheatre.ru/pages/dtc-malenkaya-luna'>
               <p>маленькая луна</p>
             </a>
           </div>
@@ -62,11 +62,11 @@ export default function LastBlock() {
           <p>Театр Луны © Все права защищены. 1994–2022</p>
         </div>
         <div className={styles.group4}>
-          <a href="http://www.lunatheatre.ru/pages/polzovatelskoe-soglashenie">
+          <a href='http://www.lunatheatre.ru/pages/polzovatelskoe-soglashenie'>
             Пользовательское <br className={styles.mobileVision} /> соглашение
           </a>
         </div>
       </div>
     </>
-  );
+  )
 }

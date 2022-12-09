@@ -1,13 +1,13 @@
-import React from "react";
-import styles from "./button.module.scss";
+import React from 'react'
+import styles from './button.module.scss'
 
 export default function CreateButton(props) {
-  const { updateFilter, activeButton, buttonArray } = props;
+  const { updateFilter, activeButton, buttonArray } = props
 
   function buttonClass(name) {
     return `${styles.buttonFilter} ${
-      activeButton === name ? styles.active : ""
-    }`;
+      activeButton === name ? styles.active : ''
+    }`
   }
 
   return (
@@ -23,5 +23,5 @@ export default function CreateButton(props) {
         </button>
       ))}
     </>
-  );
+  )
 }

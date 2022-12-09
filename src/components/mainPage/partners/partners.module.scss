@@ -1,5 +1,4 @@
-@import "../../../assets/main.scss";
-
+@import '../../../assets/main.scss';
 
 .frame {
   @include container;
@@ -9,7 +8,7 @@
   .header {
     color: white;
     margin-bottom: 80px;
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-weight: 500;
     font-size: 50px;
 
@@ -20,7 +19,7 @@
     @media (max-width: 576px) {
       font-size: 30px;
     }
-    
+
     .mobileVisible {
       display: none;
       @media (max-width: 576px) {
@@ -45,7 +44,7 @@
     }
 
     a {
-      font-family: "Montserrat";
+      font-family: 'Montserrat';
       font-style: normal;
       font-weight: 550;
       font-size: 16px;

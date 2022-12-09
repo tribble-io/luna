@@ -1,29 +1,29 @@
-import React from "react";
+import React from 'react'
 
-import Separator from "../separator";
+import Separator from '../separator'
 
-import styles from "./news.module.scss";
+import styles from './news.module.scss'
 
-const API_URL = "http://theatre.restomatik.ru:1337";
+const API_URL = 'http://theatre.restomatik.ru:1337'
 
 function cutToLength(s, l) {
-  const words = s.split(" ");
-  let i = 1;
+  const words = s.split(' ')
+  let i = 1
 
-  while (words.slice(0, i).join(" ").length < l) {
-    i += 1;
+  while (words.slice(0, i).join(' ').length < l) {
+    i += 1
 
     if (i > words.length) {
-      break;
+      break
     }
   }
 
-  const res = words.slice(0, i - 1).join(" ");
+  const res = words.slice(0, i - 1).join(' ')
 
   if (res.length < s.length) {
-    return res + "...";
+    return res + '...'
   } else {
-    return s;
+    return s
   }
 }
 
@@ -33,16 +33,18 @@ export default function News({ itemsNews }) {
       <div className={styles.wrapper}>
         <div className={styles.header}>
           <div className={styles.title}>
-            <p>НОВОСТИ <br className={styles.mobileVisible}/> ТЕАТРА</p>
+            <p>
+              НОВОСТИ <br className={styles.mobileVisible} /> ТЕАТРА
+            </p>
           </div>
-          <a href="http://www.lunatheatre.ru/news">
+          <a href='http://www.lunatheatre.ru/news'>
             <div className={styles.btn}>
               <p>ЧИТАТЬ ВСЕ</p>
             </div>
           </a>
         </div>
         {itemsNews.length === 0 ? (
-          "Loading.."
+          'Loading..'
         ) : (
           <div className={styles.newsContent}>
             <a
@@ -53,7 +55,7 @@ export default function News({ itemsNews }) {
                 src={
                   API_URL + itemsNews[0].attributes.cover.data.attributes.url
                 }
-                alt=""
+                alt=''
               />
             </a>
             <a
@@ -68,13 +70,13 @@ export default function News({ itemsNews }) {
               </div>
             </a>
             {[0, 1].map((i) => {
-              const item = itemsNews[i + 1];
-              const st = [styles.smallNewsItem1, styles.smallNewsItem2][i];
+              const item = itemsNews[i + 1]
+              const st = [styles.smallNewsItem1, styles.smallNewsItem2][i]
               return (
                 <a key={i} className={st} href={`${API_URL}/news/${item.id}`}>
                   <img
                     src={API_URL + item.attributes.cover.data.attributes.url}
-                    alt=""
+                    alt=''
                   />
                   <div className={styles.boxWrapper}>
                     <div className={styles.box}>
@@ -90,15 +92,15 @@ export default function News({ itemsNews }) {
                     </div>
                   </div>
                 </a>
-              );
+              )
             })}
           </div>
         )}
         <div className={styles.mobileButton}>
-          <a href="http://www.lunatheatre.ru/news">ЧИТАТЬ ВСЕ</a>
+          <a href='http://www.lunatheatre.ru/news'>ЧИТАТЬ ВСЕ</a>
         </div>
       </div>
       <Separator />
     </>
-  );
+  )
 }

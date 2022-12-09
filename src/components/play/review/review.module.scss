@@ -1,8 +1,8 @@
-@import "../../../assets/main.scss";
+@import '../../../assets/main.scss';
 
 .wrapper {
   @include container;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: #fff;
 }
@@ -24,7 +24,7 @@ h2 {
     @media (max-width: 500px) {
       padding-top: 40px;
     }
-    
+
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
@@ -58,7 +58,7 @@ h2 {
         height: 80px;
         border-radius: 50%;
         overflow: hidden;
-        background-color: #B9C7E3;
+        background-color: #b9c7e3;
 
         display: flex;
         align-items: center;
@@ -123,7 +123,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding-top: 40px;
-  
+
     img {
       max-width: 60px;
       cursor: pointer;
@@ -137,6 +137,4 @@ h2 {
       }
     }
   }
-  
 }
-

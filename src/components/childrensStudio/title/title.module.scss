@@ -1,8 +1,8 @@
-@import "../../../assets/main.scss";
+@import '../../../assets/main.scss';
 
 .wrapper {
   @include container;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: $text-color;
   background-color: $bg-color;
@@ -40,7 +40,6 @@
         display: none;
       }
     }
-    
   }
 
   .linkArea {
@@ -48,7 +47,6 @@
     @media (max-width: 500px) {
       padding-top: 2.5rem;
     }
-
   }
 
   .linkGroup {

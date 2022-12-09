@@ -29,7 +29,7 @@ footer {
 }
 
 .divider {
-  background: url("../public/img/divider.png");
+  background: url('../public/img/divider.png');
   height: 10px;
   max-width: 100%;
 
@@ -43,4 +43,3 @@ hr {
   border: none;
   background-color: #2a2a38;
 }
-

@@ -1,5 +1,4 @@
-@import "../../../assets/main.scss";
-
+@import '../../../assets/main.scss';
 
 .wrapper {
   @include container;
@@ -27,7 +26,7 @@
   }
 
   .title {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 59px;
@@ -70,7 +69,7 @@
     }
 
     p {
-      font-family: "Montserrat";
+      font-family: 'Montserrat';
       font-style: normal;
       font-weight: medium;
       font-size: 19px;
@@ -247,7 +246,7 @@
       .text {
         font-size: 16px;
         line-height: 152%;
-        font-family: "Montserrat";
+        font-family: 'Montserrat';
         font-weight: 400;
         color: white;
         margin-top: auto;
@@ -286,13 +285,13 @@
 }
 
 .title {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-weight: 600;
   text-transform: uppercase;
   color: white;
 }
 
 .date {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   color: #929fcc;
 }

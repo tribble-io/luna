@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./line.module.scss";
+import React from 'react'
+import styles from './line.module.scss'
 
 export default function CreatePressLine({ data }) {
   return (
@@ -14,9 +14,9 @@ export default function CreatePressLine({ data }) {
         </div>
         <div className={styles.arrow}>
           <span className={styles.arrowRead}>Читать</span>
-          <img src="/img/newsRarr.png" alt="Подробнее" title="Подробнее" />
+          <img src='/img/newsRarr.png' alt='Подробнее' title='Подробнее' />
         </div>
       </a>
     </div>
-  );
+  )
 }

@@ -1,8 +1,8 @@
-@import "../../../assets/main.scss";
+@import '../../../assets/main.scss';
 
 .wrapper {
   @include container;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: #fff;
 }
@@ -29,14 +29,14 @@
   .pushkinCard {
     padding-top: 80px;
     max-width: 740px;
-    
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 
     @media (max-width: 500px) {
-      padding-top: 50px;  
+      padding-top: 50px;
     }
 
     .pushkinCardImage {
@@ -64,4 +64,3 @@
     }
   }
 }
-

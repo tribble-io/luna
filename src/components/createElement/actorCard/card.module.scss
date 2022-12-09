@@ -1,4 +1,4 @@
-@import "../../../assets/main.scss";
+@import '../../../assets/main.scss';
 .cardContent {
   width: 100%;
 
@@ -20,7 +20,7 @@
     height: 0;
     overflow: hidden;
 
-    .imageLink{
+    .imageLink {
       display: block;
       position: absolute;
       top: 0;
@@ -47,7 +47,7 @@
   .actorCardText {
     font-size: 16px;
     color: $text-color;
-    
+
     padding-top: 30px;
 
     .actorName {

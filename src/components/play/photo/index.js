@@ -1,11 +1,11 @@
-import React from "react";
-import styles from "./photo.module.scss";
-import PhotoSlider from "../../createElement/photoSlider";
+import React from 'react'
+import styles from './photo.module.scss'
+import PhotoSlider from '../../createElement/photoSlider'
 
 export function ShowPhoto({ photo }) {
   return (
     <>
-      <section id="showPhoto">
+      <section id='showPhoto'>
         <div className={styles.wrapper}>
           {photo.length > 0 && (
             <div className={styles.photoContent}>
@@ -20,5 +20,5 @@ export function ShowPhoto({ photo }) {
         </div>
       </section>
     </>
-  );
+  )
 }

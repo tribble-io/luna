@@ -1,10 +1,10 @@
-import React from "react";
-import styles from "./actors.module.scss";
-import CreateCard from "../../createElement/actorCard";
+import React from 'react'
+import styles from './actors.module.scss'
+import CreateCard from '../../createElement/actorCard'
 
 export function Actors({ roles }) {
   return (
-    <section id="actors">
+    <section id='actors'>
       <div className={styles.wrapper}>
         {roles.length > 0 && (
           <div className={styles.actorsContent}>
@@ -20,5 +20,5 @@ export function Actors({ roles }) {
         )}
       </div>
     </section>
-  );
+  )
 }

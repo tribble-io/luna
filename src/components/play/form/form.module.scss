@@ -1,8 +1,8 @@
-@import "../../../assets/main.scss";
+@import '../../../assets/main.scss';
 
 .wrapper {
   @include container;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: #fff;
 }
@@ -55,7 +55,7 @@
         font-size: 14px;
         font-weight: 400;
         color: $text-color;
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Montserrat', sans-serif;
         outline: none;
 
         &:hover,
@@ -81,7 +81,7 @@
 
       padding: 30px;
       color: $text-color;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
   }
 
@@ -93,12 +93,12 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    .terms  {
-      @media (max-width:1200px) {
+    .terms {
+      @media (max-width: 1200px) {
         margin-left: auto;
         margin-top: 20px;
       }
-      @media (max-width:991px) {
+      @media (max-width: 991px) {
         margin-left: 0;
         margin-top: 20px;
       }
@@ -124,7 +124,7 @@
       label {
         font-size: 16px;
         line-height: 160%;
-      } 
+      }
     }
   }
 
@@ -139,14 +139,14 @@
     justify-content: center;
 
     button {
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       font-size: 16px;
       font-weight: 500;
       color: $compl-color;
       text-transform: uppercase;
 
       @media (max-width: 500px) {
-        width: 100%
+        width: 100%;
       }
 
       cursor: pointer;

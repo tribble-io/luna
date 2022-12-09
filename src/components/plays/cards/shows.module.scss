@@ -1,8 +1,8 @@
-@import "../../../assets/main.scss";
+@import '../../../assets/main.scss';
 
 .wrapper {
   @include container;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: #fff;
   background-color: $bg-color;
@@ -51,7 +51,7 @@
       &:nth-child(2n + 1) {
         justify-self: start;
       }
-  
+
       &:nth-child(2n + 2) {
         justify-self: end;
       }

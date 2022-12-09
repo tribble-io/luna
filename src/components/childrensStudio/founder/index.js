@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "./founder.module.scss";
+import React from 'react'
+import styles from './founder.module.scss'
 
 export default function ChildrenStudioFounder(props) {
-  const {id} = props;
+  const { id } = props
   return (
     <>
       <section id={id}>
@@ -12,12 +12,15 @@ export default function ChildrenStudioFounder(props) {
               <div className={styles.studioFounderBlock}>
                 <div className={styles.founderImg}>
                   <a
-                    data-fancybox="description-gallery"
-                    href="/img/studio-founder.png"
-                    data-caption="Сергей Борисович Проханов"
+                    data-fancybox='description-gallery'
+                    href='/img/studio-founder.png'
+                    data-caption='Сергей Борисович Проханов'
                     className={styles.sliderLink}
                   >
-                    <img src="/img/studio-founder.png" className={styles.sliderImg} />
+                    <img
+                      src='/img/studio-founder.png'
+                      className={styles.sliderImg}
+                    />
                   </a>
                 </div>
                 <p className={styles.founderText}>
@@ -40,5 +43,5 @@ export default function ChildrenStudioFounder(props) {
         </div>
       </section>
     </>
-  );
+  )
 }

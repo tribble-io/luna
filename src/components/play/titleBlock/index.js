@@ -1,10 +1,10 @@
-import React from "react";
-import styles from "./titleblock.module.scss";
-import ReactMarkdown from "react-markdown";
+import React from 'react'
+import styles from './titleblock.module.scss'
+import ReactMarkdown from 'react-markdown'
 
 export function TitleBlock({ data, ticketsLink }) {
   return (
-    <section className={styles.titleBlock} id="titleBlock">
+    <section className={styles.titleBlock} id='titleBlock'>
       <div
         className={styles.bgShows}
         style={{
@@ -28,12 +28,12 @@ export function TitleBlock({ data, ticketsLink }) {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 export function About({ data, directors }) {
   return (
-    <section className={styles.about} id="about">
+    <section className={styles.about} id='about'>
       <div className={styles.wrapper}>
         <div className={styles.aboutContent}>
           <h2>о спектакле</h2>
@@ -85,7 +85,7 @@ export function About({ data, directors }) {
                       {director.person.data.map(
                         (data, index, arr) =>
                           data.attributes.fullname +
-                          (index === arr.length - 1 ? "" : ", ")
+                          (index === arr.length - 1 ? '' : ', ')
                       )}
                     </span>
                   </div>
@@ -98,5 +98,5 @@ export function About({ data, directors }) {
         </div>
       </div>
     </section>
-  );
+  )
 }

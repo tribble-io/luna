@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { API_URL, api } from "../api/index";
-import { useMatch } from "react-router-dom";
+import React, { useState, useEffect } from 'react'
+import { API_URL, api } from '../api/index'
+import { useMatch } from 'react-router-dom'
 
 import {
   TitleBlock,
@@ -11,8 +11,8 @@ import {
   ShowPhoto,
   Review,
   CommentForm,
-} from "../components/play";
-import Loader from "../components/loader";
+} from '../components/play'
+import Loader from '../components/loader'
 
 function getShowData(item) {
   return {
@@ -24,23 +24,24 @@ function getShowData(item) {
     premiereDateStr: item.attributes?.premiereDateStr,
     scene: item.attributes?.scene,
     body: item.attributes?.body,
-  };
+  }
 }
 
 function getShowRoles(arr) {
   if (arr !== null) {
-    const roles = arr.map((item) => 
+    const roles = arr.map((item) =>
       item.actors.data.map((data) => {
         return {
-        id: data.id,
-        role: item.role,
-        name: data.attributes?.fullname,
-        src: API_URL + data.attributes.cover?.data?.attributes?.url,
-      }})
-    );
-    return roles.flat();
+          id: data.id,
+          role: item.role,
+          name: data.attributes?.fullname,
+          src: API_URL + data.attributes.cover?.data?.attributes?.url,
+        }
+      })
+    )
+    return roles.flat()
   } else {
-    return [];
+    return []
   }
 }
 
@@ -51,43 +52,43 @@ function getShowPhoto(arr) {
         id: item.id,
         href: API_URL + item.attributes?.formats.large.url,
         src: API_URL + item.attributes?.formats.small.url,
-        caption: "",
-      };
-    });
-    return photo;
+        caption: '',
+      }
+    })
+    return photo
   } else {
-    return [];
+    return []
   }
 }
 
 let month = [
-  "ЯНВАРЯ",
-  "ФЕВРАЛЯ",
-  "МАРТА",
-  "АПРЕЛЯ",
-  "МАЯ",
-  "ИЮНЯ",
-  "ИЮЛЯ",
-  "АВГУСТА",
-  "СЕНТЯБРЯ",
-  "ОКТЯБРЯ",
-  "НОЯБРЯ",
-  "ДЕКАБРЯ",
-];
+  'ЯНВАРЯ',
+  'ФЕВРАЛЯ',
+  'МАРТА',
+  'АПРЕЛЯ',
+  'МАЯ',
+  'ИЮНЯ',
+  'ИЮЛЯ',
+  'АВГУСТА',
+  'СЕНТЯБРЯ',
+  'ОКТЯБРЯ',
+  'НОЯБРЯ',
+  'ДЕКАБРЯ',
+]
 
 const getFullDateMonth = (date) => {
-  let dates = new Date(date);
+  let dates = new Date(date)
   let fulldate = `${dates.getDay()} ${
     month[dates.getMonth()]
-  } ${dates.getFullYear()}`;
-  return fulldate;
-};
+  } ${dates.getFullYear()}`
+  return fulldate
+}
 
 const getFullDate = (date) => {
-  let dates = new Date(date);
-  let fulldate = `${dates.getDay()}.${dates.getMonth()}.${dates.getFullYear()}`;
-  return fulldate;
-};
+  let dates = new Date(date)
+  let fulldate = `${dates.getDay()}.${dates.getMonth()}.${dates.getFullYear()}`
+  return fulldate
+}
 
 function getShowReview(arr) {
   if (arr !== null) {
@@ -98,11 +99,11 @@ function getShowReview(arr) {
         title: item.attributes?.title,
         text: item.attributes?.text,
         createdAt: getFullDateMonth(item.attributes?.createdAt),
-      };
-    });
-    return review;
+      }
+    })
+    return review
   } else {
-    return [];
+    return []
   }
 }
 
@@ -115,58 +116,58 @@ function getPlayPress(arr) {
         publisher: item.publisher,
         date: getFullDate(item.date),
         link: item.link,
-      };
-    });
-    return review;
+      }
+    })
+    return review
   } else {
-    return [];
+    return []
   }
 }
 
 export default function Play() {
-  const match = useMatch("/play/:id");
-  const showID = match.params.id;
-  const [isLoading, setIsLoading] = useState(true);
+  const match = useMatch('/play/:id')
+  const showID = match.params.id
+  const [isLoading, setIsLoading] = useState(true)
 
   const [showData, setShowData] = useState({
-    bgImage: "",
-    title: "",
-    description: "",
-    tickets_link: "",
-    rating: "",
-    durationStr: "",
-    premiereDateStr: "",
-    scene: "",
-    body: "",
-  });
+    bgImage: '',
+    title: '',
+    description: '',
+    tickets_link: '',
+    rating: '',
+    durationStr: '',
+    premiereDateStr: '',
+    scene: '',
+    body: '',
+  })
 
-  const [showItems, setShowItems] = useState({});
-  const [ticketsLink, setticketsLink] = useState("");
-  const [roles, setRoles] = useState({});
-  const [directors, setDirectors] = useState({});
-  const [press, setPress] = useState({});
-  const [photo, setPhoto] = useState({});
-  const [review, setReview] = useState({});
+  const [showItems, setShowItems] = useState({})
+  const [ticketsLink, setticketsLink] = useState('')
+  const [roles, setRoles] = useState({})
+  const [directors, setDirectors] = useState({})
+  const [press, setPress] = useState({})
+  const [photo, setPhoto] = useState({})
+  const [review, setReview] = useState({})
 
   useEffect(() => {
     Promise.all([api.exportComingShow(showID), api.exportShowData(showID)])
       .then((values) => {
-        setShowItems(values[0]);
-        setticketsLink(values[0]?.[0]?.attributes?.tickets_link);
+        setShowItems(values[0])
+        setticketsLink(values[0]?.[0]?.attributes?.tickets_link)
 
-        setShowData(getShowData(values[1]));
-        setDirectors(values[1].attributes?.directors);
-        setRoles(getShowRoles(values[1].attributes?.roles));
-        setPress(getPlayPress(values[1].attributes?.press));
-        setPhoto(getShowPhoto(values[1].attributes?.gallery?.data));
-        setReview(getShowReview(values[1].attributes?.comments?.data));
-        setIsLoading(false);
+        setShowData(getShowData(values[1]))
+        setDirectors(values[1].attributes?.directors)
+        setRoles(getShowRoles(values[1].attributes?.roles))
+        setPress(getPlayPress(values[1].attributes?.press))
+        setPhoto(getShowPhoto(values[1].attributes?.gallery?.data))
+        setReview(getShowReview(values[1].attributes?.comments?.data))
+        setIsLoading(false)
       })
       .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
-      });
-  }, []);
+        console.log(error)
+        setIsLoading(false)
+      })
+  }, [])
 
   return (
     <main>
@@ -183,5 +184,5 @@ export default function Play() {
       {isLoading ? <Loader /> : <Review review={review} />}
       <CommentForm showID={showID} />
     </main>
-  );
+  )
 }
