@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { api } from "../api/index";
+import { api, API_URL } from "../api/index";
 
 import ChildrenTitle from "../components/childrensStudio/title";
 import {
@@ -12,6 +12,19 @@ import ChildrenStudioFounder from "../components/childrensStudio/founder";
 import ChildrenScene from "../components/childrensStudio/scene";
 import ChildrenPhoto from "../components/childrensStudio/photo";
 import Loader from "../components/loader";
+
+function getStudioPhoto(arr) {
+  const photo = [];
+  arr.map((item) => {
+    photo.push({
+      id: item.id,
+      href: API_URL + item.media.data.attributes.formats.medium.url,
+      src: API_URL + item.media.data.attributes.formats.small.url,
+      caption: item.caption,
+    });
+  });
+  return photo;
+}
 
 function ChildrenStudio() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +41,7 @@ function ChildrenStudio() {
       .then((values) => {
         setNextShows(values[0]);
         setScene(values[1]);
-        setPhoto(values[2].attributes.gallery);
+        setPhoto(getStudioPhoto(values[2].attributes.gallery))
         setIsLoading(false);
       })
       .catch((error) => {

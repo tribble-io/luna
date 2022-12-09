@@ -69,6 +69,7 @@ export default function ShowsFilter(props) {
                       name="isPremiere"
                       label="Премьеры"
                       isActive={isActive}
+                      className={styles.checkbox}
                     />
                   </div>
                   <div className={styles.checkboxFilter}>
@@ -77,6 +78,7 @@ export default function ShowsFilter(props) {
                       name="rating"
                       label="Для детей"
                       isActive={isActive}
+                      className={styles.checkbox}
                     />
                   </div>
                 </div>

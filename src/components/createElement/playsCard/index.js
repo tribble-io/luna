@@ -8,7 +8,7 @@ export default function CreatePlaysCard({ data }) {
     <>
       <div className={styles.cardContent}>
         <div className={styles.showsImage}>
-          <a className={styles.imageLink} href={"show/" + data.id}>
+          <a className={styles.imageLink} href={"play/" + data.id}>
             <img
               src={data.src}
               alt=""
@@ -18,7 +18,7 @@ export default function CreatePlaysCard({ data }) {
         <div className={styles.showsCardText}>
           <div className={styles.titleContainer}>
             <span>
-              <a href={"show/" + data.id} className={styles.title}>
+              <a href={"play/" + data.id} className={styles.title}>
                 {data.title}
               </a>
             </span>

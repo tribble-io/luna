@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./description.module.scss";
-import Fancybox from "../../../assets/utils/fancybox";
+import {Fancybox} from "../../../assets/index";
 
 export function ChildrenDescription() {
   return (

@@ -1,0 +1,58 @@
+@import "../../../assets/main.scss";
+
+.wrapper {
+  @include container;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+h2 {
+  @include headline_second;
+}
+
+.pressContent {
+  padding-bottom: 180px;
+
+  @media (max-width: 500px) {
+    padding-bottom: 100px;
+  }
+
+  .pressGrid {
+    padding-top: 90px;
+
+    @media (max-width: 500px) {
+      padding-top: 50px;
+    }
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 20px;
+  }
+
+  .pressSlider {
+    padding-top: 50px;
+  }
+
+  .pressNavigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+
+    img {
+      max-width: 60px;
+      cursor: pointer;
+    }
+
+    .pressFraction {
+      font-size: 20px;
+
+      span:not(:last-child) {
+        margin-right: 5px;
+      }
+    }
+  }
+}
