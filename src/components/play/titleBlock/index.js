@@ -80,7 +80,9 @@ export function About({ data, directors }) {
               {directors && directors.length > 0 ? (
                 directors.map((director) => (
                   <div key={director.id}>
-                    <span>{director.position} — </span>
+                    <span className={styles.director}>
+                      {director.position} —{' '}
+                    </span>
                     <span>
                       {director.person.data.map(
                         (data, index, arr) =>
