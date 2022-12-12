@@ -2,7 +2,7 @@ import React from 'react'
 //import React, { useState, useEffect } from 'react'
 // import { api } from '../api/index'
 
-// import { ShowsFilter, ShowsCards } from '../components/plays'
+import { Title } from '../components/romaska-awards'
 // import Loader from '../components/loader'
 
 export function RomaskaAwards() {
@@ -28,5 +28,9 @@ export function RomaskaAwards() {
   //       })
   //   }, [editValue])
 
-  return <main></main>
+  return (
+    <main>
+      <Title />
+    </main>
+  )
 }
