@@ -196,7 +196,7 @@
     font-family: 'Montserrat';
     text-transform: uppercase;
     text-align: center;
-    
+
     min-width: 235px;
     font-size: 14px;
     font-weight: 500;
@@ -207,7 +207,7 @@
     &:hover {
       border-width: 2px;
     }
-    
+
     @media (max-width: 770px) {
       margin-top: auto;
       min-width: 140px;
