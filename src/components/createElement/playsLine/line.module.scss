@@ -122,9 +122,8 @@
     .posterDescription {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       @media (max-width: 770px) {
-        align-items: flex-start;
         margin-bottom: 15px;
       }
     }
@@ -147,7 +146,7 @@
 
     .premier {
       margin-left: 50px;
-      color: #fae88c;
+      color: #FCEFAE;
 
       @media (max-width: 991px) {
         margin-left: 30px;

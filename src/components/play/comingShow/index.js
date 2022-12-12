@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './comingShow.module.scss'
-import { PlaysLine } from '../../createElement'
+import { PlaysLine, TextFormatter } from '../../createElement'
 
 const getWeekDay = (date) => {
   let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ']
@@ -14,6 +14,7 @@ function createLine(item) {
     id: item.id,
     date: parseInt(item.attributes?.date_str.match(/\d+/)),
     time: item.attributes?.time,
+    month: item.attributes?.date_str.match(/[^\s\d]+/),
     day: getWeekDay(item.attributes?.date),
     title: item.attributes?.play.data.attributes?.title,
     isPremiere: item.attributes?.play.data.attributes?.isPremiere,
@@ -47,8 +48,10 @@ export function ComingShow({ items }) {
                   </div>
                   <div className={styles.pushkinCardText}>
                     <p>
-                      вы можете приобрести билет на этот спектакль по пушкинской
-                      карте
+                      <TextFormatter>
+                        вы можете приобрести билет на этот спектакль по
+                        пушкинской карте
+                      </TextFormatter>
                     </p>
                   </div>
                 </div>
