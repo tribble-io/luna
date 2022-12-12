@@ -32,9 +32,9 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
       newDateHref.getDate() < 10
         ? '0' + newDateHref.getDate()
         : newDateHref.getDate()
-    const fullDate = `${newDateHref.getFullYear()}-${
-      newDateHref.getMonth() + 1
-    }-${getDateHref}`
+    const monthHref = newDateHref.getMonth() + 1
+    const getMonthHref = monthHref < 10 ? '0' + monthHref : monthHref
+    const fullDate = `${newDateHref.getFullYear()}-${getMonthHref}-${getDateHref}`
     return `#${fullDate}`
   }
 
@@ -132,6 +132,7 @@ export function Calendar({ setFirstDate, items }) {
               },
               1024: {
                 slidesPerView: 15,
+                slidesPerGroup: 10,
               },
             }}
             onActiveIndexChange={(swiper) => moveDate(swiper.activeIndex)}

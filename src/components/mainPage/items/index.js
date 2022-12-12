@@ -102,7 +102,7 @@ export function Item({ items }) {
               }}
             >
               <a
-                href={`http://theatre.restomatik.ru:1337/play/${item.id}`}
+                href={`play/${item.attributes.play.data.id}`}
                 className={styles.imgLink}
               >
                 <img

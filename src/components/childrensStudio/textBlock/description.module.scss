@@ -61,7 +61,7 @@
       .sliderImg {
         object-fit: cover;
         backface-visibility: hidden;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.7s ease-in-out;
         &:hover {
           transform: scale(1.05);
         }

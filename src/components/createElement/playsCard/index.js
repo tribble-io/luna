@@ -8,19 +8,20 @@ export function CreatePlaysCard({ data }) {
       <div className={styles.cardContent}>
         <div className={styles.showsImage}>
           <a className={styles.imageLink} href={'play/' + data.id}>
-            <img src={data.src} alt='' />
+            <img src={data.src} alt={data.title} />
           </a>
         </div>
         <div className={styles.showsCardText}>
-          <div className={styles.titleContainer}>
-            <span>
+          <div className={styles.topBlock}>
+            <div className={styles.titleContainer}>
               <a href={'play/' + data.id} className={styles.title}>
                 {data.title}
               </a>
-            </span>
-            <span className={styles.rating}>{data.rating}+</span>
+              <p className={styles.shortDescription}>{data.description}</p>
+            </div>
+            <p className={styles.rating}>{data.rating}+</p>
           </div>
-          <div className={styles.shortDescription}>{data.description}</div>
+
           <div className={styles.place}>{data.scene}</div>
           <div className={styles.ticket}>
             <div className={styles.buy}>

@@ -1,23 +1,24 @@
 @import '../../assets/utils/mixins.scss';
 @import '../../assets/utils/fonts.scss';
 
-img:hover {
-  transition: 1s;
-  transform: scale(1.03);
-  -webkit-transform: scale(1.03);
-  -moz-transform: scale(1.03);
-  -ms-transform: scale(1.03);
-  -o-transform: scale(1.03);
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -ms-transition: 1s;
-  -o-transition: 1s;
-}
 .historyContainer {
   @include container;
   color: white;
   margin-left: auto;
   margin-right: auto;
+
+  img:hover {
+    transition: 1s;
+    transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -moz-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    -o-transform: scale(1.03);
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+  }
 }
 .promoTage {
   h1 {
