@@ -44,17 +44,20 @@
       color: inherit;
     }
 
-    .titleContainer {
+    .topBlock {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
       gap: 15px;
       margin-bottom: 10px;
 
-      span {
-        font-size: 18px;
-        text-transform: uppercase;
+      .titleContainer {
+        max-width: 328px;
+      }
+
+      p {
+        font-size: 16px;
 
         @media (max-width: 765px) {
           font-size: 14px;
@@ -63,6 +66,12 @@
 
       .title {
         line-height: 160%;
+        text-transform: uppercase;
+        font-size: 18px;
+
+        @media (max-width: 765px) {
+          font-size: 14px;
+        }
 
         &:hover {
           border-bottom: 1px solid #fff;
@@ -70,6 +79,9 @@
       }
     }
 
+    .shortDescription {
+      max-width: 328px;
+    }
     .shortDescription,
     .place {
       font-size: 16px;

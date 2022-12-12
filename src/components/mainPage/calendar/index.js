@@ -132,6 +132,7 @@ export function Calendar({ setFirstDate, items }) {
               },
               1024: {
                 slidesPerView: 15,
+                slidesPerGroup: 10,
               },
             }}
             onActiveIndexChange={(swiper) => moveDate(swiper.activeIndex)}
