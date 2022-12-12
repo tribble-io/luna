@@ -36,7 +36,7 @@
       object-fit: cover;
       object-position: center 10%;
       backface-visibility: hidden;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 0.7s ease-in-out;
 
       &:hover {
         transform: scale(1.05);
