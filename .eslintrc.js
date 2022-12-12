@@ -25,7 +25,7 @@ module.exports = {
   ],
   rules: {
     'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
-    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'prettier/prettier': ['error', {'endOfLine': 'auto'}],
     "react/prop-types": "off", // delete later
     "react/no-children-prop": "off",
   }
