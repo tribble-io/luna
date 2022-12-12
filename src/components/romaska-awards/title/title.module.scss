@@ -4,21 +4,21 @@
   @include container;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  color: #fff;
+  color: $text-color;
 }
 
 .titleContent {
   padding-top: 200px;
 
-  @media(max-width: 767px) {
+  @media (max-width: 767px) {
     padding-top: 150px;
   }
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     padding-top: 100px;
   }
   h1 {
-    @include headline_first
+    @include headline_first;
   }
 
   .titleFlex {
@@ -30,6 +30,10 @@
     gap: 37px;
 
     padding-top: 80px;
+
+    @media (max-width: 500px) {
+      padding-top: 40px;
+    }
 
     div {
       max-width: 505px;
@@ -49,7 +53,7 @@
         text-transform: uppercase;
       }
 
-      @media(max-width: 500px) {
+      @media (max-width: 500px) {
         font-size: 14px;
       }
     }

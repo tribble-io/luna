@@ -1,42 +1,34 @@
 import React from 'react'
 import styles from './laureate.module.scss'
-//import ReactMarkdown from 'react-markdown'
+import { CreateActorCard } from '../../createElement'
 
-// <ReactMarkdown children={data.body} />
-
-export function Laureate() {
+export function Laureate({ data }) {
   return (
-    <section id='about'>
+    <section id='laureate'>
       <div className={styles.wrapper}>
-        <div className={styles.titleContent}>
-          <h1>премия «Ромашка»</h1>
-          <div className={styles.titleFlex}>
-            <div>
-              <p>
-                В 2000 году в Московском &quot;Театре Луны&quot; под
-                руководством народного артиста России Сергея Проханова в память
-                о народном артисте РСФСР Анатолии Ромашине была учреждена
-                ежегодная внутритеатральная премия &quot;РОМАШКА&quot;.
-              </p>
-
-              <p>
-                В конкурсе участвуют премьерные спектакли текущего сезона.
-                Лауреаты определяются по итогам зрительского голосования.
-              </p>
-            </div>
-
-            <div>
-              <p>
-                Положением о внутритеатральной премии &quot;РОМАШКА&quot;
-                учреждены две номинации лауреатов:
-              </p>
-
-              <p className={styles.uppercase}>
-                ЛУЧШАЯ МУЖСКАЯ РОЛЬ
-                <br />
-                ЛУЧШАЯ ЖЕНСКАЯ РОЛЬ
-              </p>
-            </div>
+        <div className={styles.laureateContent}>
+          <h2>Лауреаты премии «Ромашка»</h2>
+          <div className={styles.laureateList}>
+            {data.map((item) => (
+              <div className={styles.laureateBlock} key={item.id}>
+                <div className={styles.seasons}>
+                  <p>Сезон</p>
+                  <p className={styles.yars}>{item.year}</p>
+                </div>
+                <div className={styles.playsList}>
+                  {item.plays.map((plays) => (
+                    <div className={styles.plays} key={plays.id}>
+                      <p className={styles.playName}>{plays.play}</p>
+                      <div className={styles.actorsList}>
+                        {plays.role.map((role) => (
+                          <CreateActorCard data={role} key={role.id} />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
