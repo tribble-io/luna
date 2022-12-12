@@ -50,6 +50,11 @@
 
     padding-top: 30px;
 
+    @media (max-width: 500px) {
+      font-size: 12px;
+      padding-top: 15px;
+    }
+
     .actorName {
       text-transform: uppercase;
       border-bottom: 1px solid transparent;
@@ -61,6 +66,10 @@
 
     .actorRole {
       margin-top: 15px;
+
+      @media (max-width: 500px) {
+        margin-top: 10px;
+      }
     }
   }
 }
