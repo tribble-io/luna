@@ -126,7 +126,7 @@ function getPlayPress(arr) {
   }
 }
 
-export default function Play() {
+export function Play() {
   const match = useMatch('/play/:id')
   const showID = match.params.id
   const [isLoading, setIsLoading] = useState(true)
