@@ -1,0 +1,68 @@
+@import '../../../assets/main.scss';
+
+.customSelect {
+  position: relative;
+  max-width: 115px;
+
+  button {
+    position: relative;
+    width: 100%;
+    padding: 15px 56px 15px 20px;
+
+    border: 0.5px solid #FFFFFF;
+    background: transparent;
+    
+    text-align: left;
+    cursor: pointer;
+
+    font-family: 'Montserrat', sans-serif;
+    color: $text-color;
+    font-size: 16px;
+
+    &::after {
+      position: absolute;
+      right: 15px;
+      top: 30%;
+      width: 16px;
+      height: 9px; 
+      content: url('./arrow-down.svg');
+    }
+
+    &.expanded::after {
+      content: url('./arrow-up.svg');
+    }
+  }
+
+  .options {
+    border: 1px solid #FFFFFF;
+    border-top: none;
+
+    display: none;
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    list-style: none;
+
+    color: $text-color;
+    font-size: 16px;
+
+    &.show {
+      display: block;
+    }
+
+    li {
+      padding: 6px 15px;
+      cursor: pointer;
+
+      &:active,
+      &:focus,
+      &:hover,
+      &[aria-selected='true'] {
+        background: #778194;
+      }
+    }
+  }
+}
