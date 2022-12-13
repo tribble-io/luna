@@ -27,7 +27,7 @@ function getShowData(item) {
   }
 }
 
-function getShowRoles(arr) {
+export function getShowRoles(arr) {
   if (arr !== null) {
     const roles = arr.map((item) =>
       item.actors.data.map((data) => {
@@ -180,7 +180,11 @@ export function Play() {
       )}
       {isLoading ? <Loader /> : <About data={showData} directors={directors} />}
       {isLoading ? <Loader /> : <ComingShow items={showItems} />}
-      {isLoading ? <Loader /> : <Actors roles={roles} />}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Actors roles={roles} title={'Действующие лица и исполнители'} />
+      )}
       {isLoading ? <Loader /> : <Press press={press} />}
       {isLoading ? <Loader /> : <ShowPhoto photo={photo} />}
       {isLoading ? <Loader /> : <Review review={review} />}
