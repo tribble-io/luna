@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ScrollToTop } from './assets'
 
 import './App.css'
 import Header from './components/header'
@@ -16,6 +17,7 @@ function App() {
       <Router>
         <Header />
         <Nav />
+        <ScrollToTop />
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route path='/theatre-history' element={<HistoryTheathre />} />
