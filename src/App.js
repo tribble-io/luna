@@ -17,6 +17,7 @@ import {
 } from './pages'
 import HistoryTheathre from './components/historyTheathre'
 import Poster from './components/poster/poster'
+import PageTeam from './components/PageTeam/PageTeam'
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path='/play/:id' element={<Play />} />
           <Route path='/romaska-awards' element={<RomaskaAwards />} />
           <Route path='/press' element={<Press />} />
+          <Route path='/theatre-team' element={<PageTeam />} />
         </Routes>
         <footer>
           <Block />
