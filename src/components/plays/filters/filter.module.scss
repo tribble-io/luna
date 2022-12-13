@@ -1,11 +1,11 @@
-@import "../../../assets/main.scss";
+@import '../../../assets/main.scss';
 
 .wrapper {
   @include container;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: $text-color;
-  background-color: $bg-color;
+  // background-color: $bg-color;
 
   .filterTitle {
     padding-top: 13rem;
@@ -30,7 +30,6 @@
     @media (max-width: 500px) {
       padding-top: 2.5rem;
     }
-
   }
 
   .filterGroup {
@@ -75,7 +74,7 @@
     }
 
     &:before {
-      content: "";
+      content: '';
       z-index: 2;
       user-select: none;
       position: absolute;
@@ -83,7 +82,7 @@
       left: 30px;
       width: 30px;
       height: 30px;
-      background: transparent url("./icon_search.png") no-repeat center / cover;
+      background: transparent url('./icon_search.png') no-repeat center / cover;
     }
   }
 

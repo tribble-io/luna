@@ -1,4 +1,4 @@
-@import "../../../assets/main.scss";
+@import '../../../assets/main.scss';
 .posterContent {
   color: $text-color;
   border-bottom: 1.5px solid $text-color;
@@ -41,7 +41,7 @@
   }
 }
 .dataNumber {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-size: 44px;
   font-weight: 300;
   text-align: left;
@@ -51,7 +51,7 @@
   }
 }
 .dataTime {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
@@ -88,7 +88,7 @@
   }
 
   div:nth-child(1) {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-size: 24px;
     font-weight: 400;
 
@@ -101,7 +101,7 @@
   }
 }
 .scien {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-size: 16px;
   font-weight: 400;
   margin-top: 15px;
@@ -111,7 +111,7 @@
   }
 }
 .premier {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-size: 14px;
   font-weight: 400;
   margin-left: 100px;
@@ -161,7 +161,7 @@
 }
 .buy {
   display: block;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-size: 14px;
   font-weight: 500;
   padding: 20px 60px;
@@ -179,7 +179,7 @@
   }
 }
 .restriction {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-size: 24px;
   font-weight: 400;
   padding-top: 15px;
@@ -192,7 +192,7 @@
 .antiBlock {
   color: $text-color;
   text-align: center;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-size: 23px;
   padding-bottom: 100px;
 }

@@ -1,0 +1,64 @@
+@import '../../../assets/main.scss';
+
+.wrapper {
+  @include container;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $text-color;
+}
+
+.filterContent {
+  .filterTitle {
+    padding-top: 200px;
+
+    @media (max-width: 768px) {
+      padding-top: 150px;
+    }
+
+    @media (max-width: 500px) {
+      padding-top: 100px;
+    }
+
+    h1 {
+      @include headline_first;
+    }
+  }
+
+  .filterArea {
+    padding-top: 80px;
+    padding-bottom: 350px;
+
+    @media (max-width: 768px) {
+      padding-top: 60px;
+    }
+
+    @media (max-width: 500px) {
+      padding-top: 40px;
+    }
+  }
+
+  .select {
+  }
+
+  .filterGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 765px) {
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    @media (max-width: 500px) {
+      flex-wrap: nowrap;
+      overflow: scroll;
+      justify-content: flex-start;
+    }
+  }
+}

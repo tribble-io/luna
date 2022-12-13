@@ -1,1 +1,1 @@
-export const OP_WIDTH = 1100;
+export const OP_WIDTH = 1100

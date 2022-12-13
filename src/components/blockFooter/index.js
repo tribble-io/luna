@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 
-import styles from "./block.module.scss";
+import styles from './block.module.scss'
 
-const social = ["tg_logo", "vk_logo", "rutube_logo"];
+const social = ['tg_logo', 'vk_logo', 'rutube_logo']
 const links = [
-  "https://t.me/lunatheatre",
-  "https://vk.com/teatr_luny",
-  "https://rutube.ru/channel/26047198/",
-];
+  'https://t.me/lunatheatre',
+  'https://vk.com/teatr_luny',
+  'https://rutube.ru/channel/26047198/',
+]
 
 export default function Block() {
   return (
@@ -16,7 +16,7 @@ export default function Block() {
         <div className={styles.group1}>
           <div className={styles.item1}>
             <h1>Касса</h1>
-            <a href="tel:84959531317">+7 (495) 953-13-17</a>
+            <a href='tel:84959531317'>+7 (495) 953-13-17</a>
           </div>
           <div className={styles.item2}>
             <p>
@@ -35,9 +35,9 @@ export default function Block() {
           </div>
         </div>
         <div className={styles.group3}>
-          <img src="/img/footer_logo.png" alt="" />
+          <img src='/img/footer_logo.png' alt='' />
         </div>
       </div>
     </>
-  );
+  )
 }

@@ -1,27 +1,24 @@
-import React from "react";
-import styles from "./title.module.scss";
+import React from 'react'
+import styles from './title.module.scss'
 import ScrollIntoView from 'react-scroll-into-view'
 
-function CreateButton({title}) {
+function CreateButton({ title }) {
   return (
     <>
-        <button
-          className={styles.buttonFilter}
-          title="Перейти к разделу"
-        >
-          {title}
-        </button>
+      <button className={styles.buttonFilter} title='Перейти к разделу'>
+        {title}
+      </button>
     </>
-  );
+  )
 }
 export default function ChildrenTitle() {
   const buttonArray = [
-    { title: "ближайшие постановки", name: "nextShow" },
-    { title: "Спектакли на сцене «маленькой луны»", name: "little_moon" },
-    { title: "Основатель центра-студии", name: "founder" },
-    { title: "Запись в студию", name: "recording" },
-    { title: "Фотографии со спектаклей", name: "photo" },
-  ];
+    { title: 'ближайшие постановки', name: 'nextShow' },
+    { title: 'Спектакли на сцене «маленькой луны»', name: 'little_moon' },
+    { title: 'Основатель центра-студии', name: 'founder' },
+    { title: 'Запись в студию', name: 'recording' },
+    { title: 'Фотографии со спектаклей', name: 'photo' },
+  ]
 
   return (
     <>
@@ -40,7 +37,7 @@ export default function ChildrenTitle() {
                   {buttonArray.map((button, key) => (
                     <ScrollIntoView selector={`#${button.name}`} key={key}>
                       <CreateButton title={button.title} key={key} />
-                    </ScrollIntoView >
+                    </ScrollIntoView>
                   ))}
                 </div>
               </div>
@@ -49,5 +46,5 @@ export default function ChildrenTitle() {
         </div>
       </section>
     </>
-  );
+  )
 }

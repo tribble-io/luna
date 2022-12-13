@@ -1,17 +1,17 @@
-import React from "react";
-import styles from "./nextShows.module.scss";
-import CreateLine from "../../createElement/playsLine";
+import React from 'react'
+import styles from './nextShows.module.scss'
+import CreateLine from '../../createElement/playsLine'
 
 export default function ChildrenNextShows(props) {
-  const { id, items } = props;
+  const { id, items } = props
   // Check if we have shows in little moon
-  const isItems = items.length > 0 ? true : false;
+  const isItems = items.length > 0 ? true : false
 
   const getWeekDay = (date) => {
-    let days = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
-    let dates = new Date(date);
-    return days[dates.getDay()];
-  };
+    let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ']
+    let dates = new Date(date)
+    return days[dates.getDay()]
+  }
 
   function createLine(item) {
     const createLineData = {
@@ -25,8 +25,8 @@ export default function ChildrenNextShows(props) {
       place: item.attributes.place,
       rating: item.attributes.play.data.attributes.rating,
       buy: item.attributes.tickets_link,
-    };
-    return createLineData;
+    }
+    return createLineData
   }
 
   return (
@@ -40,10 +40,7 @@ export default function ChildrenNextShows(props) {
             {isItems ? (
               <div className={styles.nextShowsArea}>
                 {items.slice(0, 4).map((item) => (
-                  <CreateLine
-                    data={createLine(item)}
-                    key={item.id}
-                  />
+                  <CreateLine data={createLine(item)} key={item.id} />
                 ))}
               </div>
             ) : (
@@ -55,5 +52,5 @@ export default function ChildrenNextShows(props) {
         </div>
       </section>
     </>
-  );
+  )
 }

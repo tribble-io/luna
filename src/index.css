@@ -5,16 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url('./background.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #08091d;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-a{
+a {
   text-decoration: none;
   cursor: pointer;
 }
-main{
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), radial-gradient(51.12% 51.21% at 62.8% 51.17%, #2D315B 53.65%, #070921 100%) ;
+main {
+  /* background: url('./background.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; */
+  background-color: rgba(0, 0, 0, 0);
 }

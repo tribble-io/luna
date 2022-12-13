@@ -1,4 +1,4 @@
-@import "../../../assets/main.scss";
+@import '../../../assets/main.scss';
 
 .customCheckbox {
   .checkboxInput {
@@ -34,12 +34,10 @@
     border: 2px #fff solid;
     margin-right: 20px;
     transition: all 0.4s;
-  
+
     &.checkboxActive {
       border-color: $compl-color;
       background: $compl-color;
     }
   }
 }
-
-

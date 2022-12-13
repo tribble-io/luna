@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./description.module.scss";
-import Fancybox from "../../../assets/utils/fancybox";
+import React from 'react'
+import styles from './description.module.scss'
+import Fancybox from '../../../assets/utils/fancybox'
 
 export function ChildrenDescription() {
   return (
@@ -27,12 +27,15 @@ export function ChildrenDescription() {
                 </div>
                 <div className={styles.descriptionImg}>
                   <a
-                    data-fancybox="description-gallery"
-                    href="/img/description-img1.png"
-                    data-caption="Спектакль «Фанта-Инфанта»"
+                    data-fancybox='description-gallery'
+                    href='/img/description-img1.png'
+                    data-caption='Спектакль «Фанта-Инфанта»'
                     className={styles.sliderLink}
                   >
-                    <img src="/img/description-img1.png" className={styles.sliderImg} />
+                    <img
+                      src='/img/description-img1.png'
+                      className={styles.sliderImg}
+                    />
                   </a>
                   <p className={styles.mobileCaption}>
                     Спектакль «Фанта-Инфанта»
@@ -45,12 +48,15 @@ export function ChildrenDescription() {
               >
                 <div className={styles.descriptionImg}>
                   <a
-                    data-fancybox="description-gallery"
-                    href="/img/description-img2.png"
-                    data-caption="Спектакль «Фанта-Инфанта»"
+                    data-fancybox='description-gallery'
+                    href='/img/description-img2.png'
+                    data-caption='Спектакль «Фанта-Инфанта»'
                     className={styles.sliderLink}
                   >
-                    <img src="/img/description-img2.png" className={styles.sliderImg} />
+                    <img
+                      src='/img/description-img2.png'
+                      className={styles.sliderImg}
+                    />
                   </a>
                   <p className={styles.mobileCaption}>
                     Спектакль «Фанта-Инфанта»
@@ -74,12 +80,15 @@ export function ChildrenDescription() {
               >
                 <div className={styles.descriptionImg}>
                   <a
-                    data-fancybox="description-gallery"
-                    href="/img/description-img3.png"
-                    data-caption="Спектакль «Фанта-Инфанта»"
+                    data-fancybox='description-gallery'
+                    href='/img/description-img3.png'
+                    data-caption='Спектакль «Фанта-Инфанта»'
                     className={styles.sliderLink}
                   >
-                    <img src="/img/description-img3.png" className={styles.sliderImg} />
+                    <img
+                      src='/img/description-img3.png'
+                      className={styles.sliderImg}
+                    />
                   </a>
                 </div>
               </div>
@@ -88,11 +97,11 @@ export function ChildrenDescription() {
         </div>
       </section>
     </>
-  );
+  )
 }
 
 export function ChildrenStudioTask(props) {
-  const {id} = props;
+  const { id } = props
   return (
     <>
       <section id={id}>
@@ -110,14 +119,17 @@ export function ChildrenStudioTask(props) {
                 </p>
               </div>
               <div className={styles.descriptionImg}>
-                  <a
-                    data-fancybox="description-gallery"
-                    href="/img/description-img4.png"
-                    data-caption="Спектакль «Фанта-Инфанта»"
-                    className={styles.sliderLink}
-                  >
-                    <img src="/img/description-img4.png" className={styles.sliderImg} />
-                  </a>
+                <a
+                  data-fancybox='description-gallery'
+                  href='/img/description-img4.png'
+                  data-caption='Спектакль «Фанта-Инфанта»'
+                  className={styles.sliderLink}
+                >
+                  <img
+                    src='/img/description-img4.png'
+                    className={styles.sliderImg}
+                  />
+                </a>
                 <p className={styles.mobileCaption}>
                   Спектакль «Фанта-Инфанта»
                 </p>
@@ -127,11 +139,11 @@ export function ChildrenStudioTask(props) {
         </div>
       </section>
     </>
-  );
+  )
 }
 
 export function ChildrenRecording(props) {
-  const { id } = props;
+  const { id } = props
   return (
     <>
       <section id={id}>
@@ -141,16 +153,41 @@ export function ChildrenRecording(props) {
               <h2>Запись в детскую студию</h2>
             </div>
             <div className={styles.recordingBlock}>
-              <p className={styles.marginParagraph}>В ДТС "Маленькая Луна" принимаются дети <b>от 6 до 15 лет</b>, прошедшие прослушивание.</p>
+              <p className={styles.marginParagraph}>
+                В ДТС "Маленькая Луна" принимаются дети <b>от 6 до 15 лет</b>,
+                прошедшие прослушивание.
+              </p>
               <p>Запись на прослушивание по телефонам</p>
-              <p><a href="tel:+74959530209" title="Позвонить по номеру">+7 (495) 953-02-09</a></p>
-              <p><a href="tel:+79096418666" title="Позвонить по номеру">+7 (909) 641-86-66</a></p>
-              <p><a href="tel:+79255170270" title="Позвонить по номеру">+7 (925) 517-02-70</a></p>
-              <p><a href="https://wa.me/79253445485" target="_blank" title="Окрыть в приложении">+7 (925) 344-54-85</a><span className={styles.watsapp}>(WhatsApp)</span></p>
-            </div>  
+              <p>
+                <a href='tel:+74959530209' title='Позвонить по номеру'>
+                  +7 (495) 953-02-09
+                </a>
+              </p>
+              <p>
+                <a href='tel:+79096418666' title='Позвонить по номеру'>
+                  +7 (909) 641-86-66
+                </a>
+              </p>
+              <p>
+                <a href='tel:+79255170270' title='Позвонить по номеру'>
+                  +7 (925) 517-02-70
+                </a>
+              </p>
+              <p>
+                <a
+                  href='https://wa.me/79253445485'
+                  target='_blank'
+                  title='Окрыть в приложении'
+                  rel='noreferrer'
+                >
+                  +7 (925) 344-54-85
+                </a>
+                <span className={styles.watsapp}>(WhatsApp)</span>
+              </p>
+            </div>
           </div>
         </div>
       </section>
     </>
-  );
+  )
 }
