@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { api, API_URL } from '../../api'
-import CreateActorCard from '../createElement/actorCard'
-import CreateButton from '../createElement/filterButton'
+import { CreateActorCard, CreateButton } from '../createElement'
 import { Actors } from '../play'
 import { content, positionsArrayFilters } from './fields'
 import collectiveImg from './img/collective.webp'
