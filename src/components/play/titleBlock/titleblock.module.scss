@@ -117,6 +117,7 @@
       min-height: 45px;
 
       border: 1px solid $text-color;
+      transition: border-width 0.5s ease;
       text-align: center;
 
       font-size: 16px;

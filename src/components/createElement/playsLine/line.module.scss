@@ -201,6 +201,7 @@
     font-weight: 500;
     padding: 15px 50px;
     border: 1px solid $compl-color;
+    transition: border-width 0.5s ease;
     color: #8cabfa;
 
     &:hover {
