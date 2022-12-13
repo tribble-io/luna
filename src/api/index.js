@@ -143,6 +143,18 @@ async function exportRomaskaData() {
   throw new Error("Can't export romaska awards data")
 }
 
+async function exportShowActors(filter) {
+  const result = await axios.get(
+    `${API_URL}/api/actors?filters[positions][category][$eq]=${filter}&populate=cover`
+  )
+
+  if (result.status === 200) {
+    return result.data.data
+  }
+
+  throw new Error("Can't export show data")
+}
+
 export const api = {
   exportShows,
   exportArticles,
@@ -154,4 +166,5 @@ export const api = {
   exportShowData,
   createNewComment,
   exportRomaskaData,
+  exportShowActors,
 }
