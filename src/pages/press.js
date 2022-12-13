@@ -1,29 +1,43 @@
 import React, { useState, useEffect } from 'react'
-import { API_URL, api } from '../api/index'
+import { api } from '../api/index'
 
-import { PressFilters } from '../components/press'
+import { PressFilters, PressCards } from '../components/press'
 import Loader from '../components/loader'
 
-function getPlayPress(arr) {
+function getPressData(arr) {
   if (arr !== null) {
-    const review = arr.map((item) => {
+    const data = arr.map((item) => {
       return {
         id: item.id,
-        title: item.title,
-        publisher: item.publisher,
-        link: item.link,
       }
     })
-    return review
+    return data
   } else {
     return []
   }
 }
 
 export function Press() {
+  const [items, setItems] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    api
+      .exportPressData()
+      .then((response) => {
+        setItems(getPressData(response))
+        setIsLoading(false)
+      })
+      .catch((error) => {
+        console.log(error)
+        setIsLoading(false)
+      })
+  }, [])
+
   return (
     <main>
       <PressFilters />
+      {isLoading ? <Loader /> : <PressCards item={items} />}
     </main>
   )
 }
