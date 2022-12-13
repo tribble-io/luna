@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import styles from './block.module.scss'
 
 export default function LastBlock() {
@@ -28,18 +28,18 @@ export default function LastBlock() {
         </div>
         <div className={styles.group2}>
           <div className={styles.text1}>
-            <a href='/plays'>
+            <Link to='/plays' reloadDocument>
               <h3>репертуар</h3>
-            </a>
-            <a href='http://www.lunatheatre.ru/afisha'>
+            </Link>
+            <Link to='/posters'>
               <p>афиша</p>
-            </a>
-            <a href='/plays'>
+            </Link>
+            <Link to='/plays' reloadDocument>
               <p>спектакли</p>
-            </a>
-            <a href='/children-studio'>
+            </Link>
+            <Link to='/children-studio' reloadDocument>
               <p>маленькая луна</p>
-            </a>
+            </Link>
           </div>
           <div className={styles.text2}>
             <a href='http://www.lunatheatre.ru/pages/o-lune'>
@@ -51,12 +51,12 @@ export default function LastBlock() {
             <a href='http://www.lunatheatre.ru/afisha'>
               <p>афиша</p>
             </a>
-            <a href='/plays'>
+            <Link to='/plays' reloadDocument>
               <p>Спектакли</p>
-            </a>
-            <a href='/children-studio'>
+            </Link>
+            <Link to='/children-studio' reloadDocument>
               <p>маленькая луна</p>
-            </a>
+            </Link>
           </div>
         </div>
         <div className={styles.group3}>

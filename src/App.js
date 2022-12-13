@@ -6,11 +6,8 @@ import Header from './components/header'
 import Nav from './components/nav'
 import Block from './components/blockFooter'
 import LastBlock from './components/blockFooterLast'
-import Plays from './pages/plays'
-import Home from './pages'
+import { Home, ChildrenStudio, Plays, Play, RomaskaAwards } from './pages'
 import HistoryTheathre from './components/historyTheathre'
-import ChildrenStudio from './pages/children-studio'
-import Play from './pages/play'
 import Poster from './components/poster/poster'
 
 function App() {
@@ -26,6 +23,7 @@ function App() {
           <Route path='/posters' element={<Poster />} />
           <Route path='/plays' element={<Plays />} />
           <Route path='/play/:id' element={<Play />} />
+          <Route path='/romaska-awards' element={<RomaskaAwards />} />
         </Routes>
         <footer>
           <Block />

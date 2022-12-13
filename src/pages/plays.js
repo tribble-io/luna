@@ -4,7 +4,7 @@ import { api } from '../api/index'
 import { ShowsFilter, ShowsCards } from '../components/plays'
 import Loader from '../components/loader'
 
-function Plays() {
+export function Plays() {
   const [items, setItems] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [editValue, setEditValue] = useState({
@@ -34,5 +34,3 @@ function Plays() {
     </main>
   )
 }
-
-export default Plays

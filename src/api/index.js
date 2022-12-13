@@ -128,7 +128,19 @@ async function createNewComment(data) {
     return result.data.data
   }
 
-  throw new Error("Can't export show data")
+  throw new Error("Can't create new comment")
+}
+
+async function exportRomaskaData() {
+  const result = await axios.get(
+    `${API_URL}/api/romaska-awards?populate=plays.role.actor.cover&sort=year:desc`
+  )
+
+  if (result.status === 200) {
+    return result.data.data
+  }
+
+  throw new Error("Can't export romaska awards data")
 }
 
 export const api = {
@@ -141,4 +153,5 @@ export const api = {
   exportComingShow,
   exportShowData,
   createNewComment,
+  exportRomaskaData,
 }

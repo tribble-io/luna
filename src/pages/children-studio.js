@@ -65,7 +65,7 @@ function getStudioPhoto(arr) {
   return photo
 }
 
-function ChildrenStudio() {
+export function ChildrenStudio() {
   const [isLoading, setIsLoading] = useState(true)
   const [nextShows, setNextShows] = useState({})
   const [scene, setScene] = useState({})
@@ -111,5 +111,3 @@ function ChildrenStudio() {
     </main>
   )
 }
-
-export default ChildrenStudio
