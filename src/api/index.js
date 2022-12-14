@@ -182,6 +182,18 @@ async function exportShowActors(filter) {
   throw new Error("Can't export show data")
 }
 
+async function exportShowPersons() {
+  const result = await axios.get(
+    `${API_URL}/api/persons?filters[isGuest][$eq]=true&populate=cover`
+  )
+
+  if (result.status === 200) {
+    return result.data.data
+  }
+
+  throw new Error("Can't export persons data")
+}
+
 export const api = {
   exportShows,
   exportArticles,
@@ -196,4 +208,5 @@ export const api = {
   exportRomaskaData,
   exportPressData,
   exportShowActors,
+  exportShowPersons,
 }
