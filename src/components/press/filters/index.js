@@ -1,14 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './filter.module.scss'
 import { CustomSelect } from '../../createElement'
 
-export function PressFilters() {
-  const optionsList = ['2022', '2021', '2020', '2019', '2018']
-
-  const updateFilter = (index) => {
-    console.log(index, 'choosen index')
-    console.log(optionsList[index], 'choose')
-  }
+export function PressFilters(props) {
+  const { updateFilter, selectedOpt } = props
+  useEffect(() => {
+    updateFilter(selectedOpt)
+  }, [])
 
   return (
     <>
@@ -20,7 +18,7 @@ export function PressFilters() {
             </div>
             <div className={styles.filterArea}>
               <div className={styles.select}>
-                <CustomSelect list={optionsList} updateFilter={updateFilter} />
+                <CustomSelect {...props} />
               </div>
             </div>
           </div>

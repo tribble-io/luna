@@ -27,7 +27,7 @@ function Nav() {
             <Link to='/news'>Новости</Link>
           </li>
           <li>
-            <a href='http://www.lunatheatre.ru/smi'>Пресса</a>
+            <Link to='/press'>Пресса</Link>
           </li>
           <li>
             <a href='http://www.lunatheatre.ru/pages/kontakty'>Контакты</a>
