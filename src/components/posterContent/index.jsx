@@ -18,12 +18,10 @@ let PosterContent = (props) => {
             date={parseInt(item.date_str.match(/\d+/))}
             time={item.time}
             day={props.getWeekDay(item.date)}
-            title={item.play..title}
-            premier={
-              item.play..isPremiere ? 'ПРЕМЬЕРА' : ''
-            }
+            title={item.play.title}
+            premier={item.play.isPremiere ? 'ПРЕМЬЕРА' : ''}
             location={item.place}
-            rating={item.play..rating}
+            rating={item.play.rating}
             buy={item.tickets_link}
           />
         ))}
