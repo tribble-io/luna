@@ -179,7 +179,7 @@ async function exportShowActors(filter) {
 
 async function exportShowPersons() {
   const result = await axios.get(
-    `${API_URL}/api/persons?api/persons?filters[isGuest][$eq]=true&populate=cover`
+    `${API_URL}/api/persons?filters[isGuest][$eq]=true&populate=cover`
   )
 
   if (result.status === 200) {
