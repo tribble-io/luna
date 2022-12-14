@@ -34,4 +34,11 @@
     border-color: $compl-color;
     color: $compl-color;
   }
+  &.activeUnderline {
+    color: $compl-color;
+    text-decoration: underline;
+  }
+  &:hover {
+    color: $compl-color;
+  }
 }

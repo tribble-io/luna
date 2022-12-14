@@ -3,6 +3,7 @@
 .containerTeam {
   color: white;
   padding-top: 200px;
+  padding-bottom: 134px
 }
 .promoTage {
   @include container;
@@ -23,32 +24,15 @@
     font-weight: 600;
     padding-bottom: 140px;
   }
-  // p {
-  //   font-family: 'Montserrat';
-  //   font-style: normal;
-  //   font-weight: 400;
-  //   font-size: 10px;
-  //   line-height: 160%;
-  //   /* or 16px */
-
-  //   color: #ffffff;
-  //   @media (max-width: 576px) {
-  //     font-size: 12px;
-  //   }
-  // }
-
-  // a {
-  //   font-family: 'Montserrat';
-  //   font-style: normal;
-  //   font-weight: 400;
-  //   font-size: 15px;
-  //   color: #ffffff;
-  // }
+  .directorCards {
+    padding-bottom: 120px;
+  }
 }
 
 @media (max-width: 414px) {
   .containerTeam {
     padding-top: 100px;
+    padding-bottom: 60px;
     h1 {
       padding-bottom: 50px;
       font-weight: 600;

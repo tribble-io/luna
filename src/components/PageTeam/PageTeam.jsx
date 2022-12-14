@@ -85,23 +85,26 @@ const PageTeam = () => {
   return (
     <section className={styles.containerTeam}>
       <div className={styles.promoTage}>
-        <h1>Коллектив</h1>
+        <h1>КОЛЛЕКТИВ</h1>
         <img
           src={collectiveImg}
           className={styles.collectiveImg}
           alt='Коллектив театра'
         />
-        {!isLoading && content?.length
-          ? content.map((data) => (
-              <DirectorCard data={data} key={`actor-card=${data.id}`} />
-            ))
-          : null}
+        <div className={styles.directorCards}>
+          {!isLoading && content?.length
+            ? content.map((data) => (
+                <DirectorCard data={data} key={`actor-card=${data.id}`} />
+              ))
+            : null}
+        </div>
         <div className={styles.filters}>
           {!isLoading && positionsArrayFilters?.length ? (
             <CreateButton
               buttonArray={positionsArrayFilters}
               updateFilter={handleUpdateFilter}
               activeButton={activeFilter}
+              activeUnderline={true}
             />
           ) : null}
         </div>

@@ -3,9 +3,9 @@
 .cardDirectorContent {
   width: 100%;
   display: flex;
-  margin-bottom: 92px;
+  margin-bottom: 80px;
   &:nth-child(2) {
-    background: #fff;
+
   }
   a {
     color: inherit;
@@ -24,7 +24,7 @@
     width: 100%;
     max-height: 500px;
     height: 100%;
-    margin-right: 36px;
+    margin-right: 41px;
 
     .imageLink {
       display: block;
@@ -52,7 +52,7 @@
   }
 
   .directorCardText {
-    font-size: 16px;
+    font-size: 18px;
     color: $text-color;
 
     padding-top: 30px;
@@ -60,6 +60,9 @@
     .actorName {
       text-transform: uppercase;
       border-bottom: 1px solid transparent;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 164.9%;
 
       &:hover {
         border-color: $text-color;
@@ -67,11 +70,17 @@
     }
 
     .actorRole {
-      margin-top: 15px;
+      margin-top: 21px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
     }
 
     .actorRank {
-      margin-top: 15px;
+      margin-top: 21px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
     }
   }
 }
@@ -85,7 +94,7 @@
     .cardDirectorImg {
       margin-right: 20px;
       .imageLink {
-        padding-top: 15px;
+        padding-top: 0;
       }
     }
   }
@@ -101,7 +110,7 @@
     line-height: 166.9%;
   }
   .directorCardText {
-    padding-top: 10px !important;
+    padding-top: 0px !important;
     .actorName {
       font-weight: 500;
       font-size: 12px;
