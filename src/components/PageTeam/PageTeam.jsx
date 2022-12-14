@@ -14,9 +14,10 @@ const PageTeam = () => {
   const [activeFilterValue, setActiveFilterValue] = useState('актёр/актриса')
 
   const getActors = () => {
-    Promise.all([api.exportShowActors(activeFilterValue)])
+    api
+      .exportShowActors(activeFilterValue)
       .then((values) => {
-        setActorsResult(values[0])
+        setActorsResult(values)
         setIsLoading(false)
       })
       .catch(() => {

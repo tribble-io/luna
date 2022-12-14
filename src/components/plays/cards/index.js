@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './shows.module.scss'
-import CreatePlaysCard from '../../createElement/playsCard'
+import { CreatePlaysCard } from '../../createElement'
 
 const API_URL = 'http://theatre.restomatik.ru:1337'
 
-export default function showsCards(props) {
+export function ShowsCards(props) {
   const { items } = props
 
   function playCard(item) {

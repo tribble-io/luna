@@ -1,26 +1,28 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './card.module.scss'
-import Ripple from '../rippleButton'
+import { Ripple } from '../../createElement'
 
-export default function CreatePlaysCard({ data }) {
+export function CreatePlaysCard({ data }) {
   return (
     <>
       <div className={styles.cardContent}>
         <div className={styles.showsImage}>
-          <a className={styles.imageLink} href={'show/' + data.id}>
-            <img src={data.src} alt='' />
-          </a>
+          <Link className={styles.imageLink} to={`/play/${data.id}`}>
+            <img src={data.src} alt={data.title} />
+          </Link>
         </div>
         <div className={styles.showsCardText}>
-          <div className={styles.titleContainer}>
-            <span>
-              <a href={'show/' + data.id} className={styles.title}>
+          <div className={styles.topBlock}>
+            <div className={styles.titleContainer}>
+              <Link className={styles.title} to={`/play/${data.id}`}>
                 {data.title}
-              </a>
-            </span>
-            <span className={styles.rating}>{data.rating}+</span>
+              </Link>
+              <p className={styles.shortDescription}>{data.description}</p>
+            </div>
+            <p className={styles.rating}>{data.rating}+</p>
           </div>
-          <div className={styles.shortDescription}>{data.description}</div>
+
           <div className={styles.place}>{data.scene}</div>
           <div className={styles.ticket}>
             <div className={styles.buy}>

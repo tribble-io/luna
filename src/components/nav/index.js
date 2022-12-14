@@ -18,7 +18,7 @@ function Nav() {
             <Link to='/plays'>Спектакли</Link>
           </li>
           <li>
-            <a href='http://www.lunatheatre.ru/actors'>труппа</a>
+            <Link to='/theatre-team'>Труппа</Link>
           </li>
           <li>
             <Link to='/theatre-history'>театр</Link>

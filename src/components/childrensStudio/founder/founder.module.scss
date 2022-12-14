@@ -5,20 +5,22 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: $text-color;
-  background-color: $bg-color;
 }
 
 .studioFounderContent {
   //padding-top needed for correct funct 'ScrollIntoView'
   padding-top: 70px;
   padding-bottom: 130px;
+
   @media (max-width: 991px) {
     padding-top: 0;
     padding-bottom: 100px;
   }
+
   @media (max-width: 500px) {
     padding-bottom: 80px;
   }
+
   .studioFounderBlock {
     display: grid;
     grid-template-columns: 405px 1fr;
@@ -54,10 +56,12 @@
     display: block;
     overflow: hidden;
   }
+
   .sliderImg {
     object-fit: cover;
     backface-visibility: hidden;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.7s ease-in-out;
+
     &:hover {
       transform: scale(1.05);
     }
@@ -65,11 +69,13 @@
 
   .founderImg {
     grid-row: span 3;
+
     img {
       max-width: 100%;
       width: 100%;
       height: auto;
     }
+
     @media (max-width: 768px) {
       grid-row: span 2;
     }

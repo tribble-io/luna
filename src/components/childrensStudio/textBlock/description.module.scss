@@ -5,13 +5,14 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: $text-color;
-  background-color: $bg-color;
 
   .descriptionContent {
     padding-bottom: 130px;
+
     @media (max-width: 768px) {
       padding-bottom: 100px;
     }
+
     @media (max-width: 500px) {
       padding-bottom: 80px;
     }
@@ -39,7 +40,8 @@
     }
 
     .descriptionText {
-      flex-basis: 32%;
+      flex-basis: 35%;
+      max-width: 470px;
       font-size: 16px;
       line-height: 174%;
 
@@ -57,28 +59,34 @@
         display: block;
         overflow: hidden;
       }
+
       .sliderImg {
         object-fit: cover;
         backface-visibility: hidden;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.7s ease-in-out;
+
         &:hover {
           transform: scale(1.05);
         }
       }
+
       img {
         max-width: 100%;
         width: 100%;
         height: auto;
       }
-      .mobileCaption {
-        display: none;
-      }
-      @media (max-width: 768px) {
-        margin-bottom: 80px;
-        .mobileCaption {
-          display: block;
+
+      .imgCaption {
+        font-size: 16px;
+        margin-top: 30px;
+
+        @media (max-width: 768px) {
           margin-top: 16px;
         }
+      }
+
+      @media (max-width: 768px) {
+        margin-bottom: 80px;
       }
     }
 
@@ -100,6 +108,7 @@
 
       @media (max-width: 768px) {
         flex-direction: column-reverse;
+
         .descriptionImg {
           margin-left: 0;
         }
@@ -110,15 +119,18 @@
       .descriptionText {
         margin-right: 60px;
       }
+
       .descriptionImg {
         margin-left: 10%;
       }
 
       @media (max-width: 1024px) {
         justify-content: space-evenly;
+
         .descriptionText {
           margin-right: 0;
         }
+
         .descriptionImg {
           margin-left: 0;
           margin-right: 30px;
@@ -136,6 +148,7 @@
       .descriptionImg {
         margin-left: 36%;
       }
+
       @media (max-width: 1024px) {
         justify-content: center;
 
@@ -143,6 +156,7 @@
           margin-left: 0;
         }
       }
+
       @media (max-width: 500px) {
         display: none;
       }
@@ -171,6 +185,7 @@
 
       @media (max-width: 768px) {
         flex-direction: column-reverse;
+
         .descriptionImg {
           margin-left: 0;
         }
@@ -192,18 +207,8 @@
       padding-bottom: 80px;
     }
 
-    .recordingTitle h2 {
-      font-size: 30px;
-      font-weight: 600;
-      text-transform: uppercase;
-
-      @media (max-width: 991px) {
-        font-size: 26px;
-      }
-
-      @media (max-width: 500px) {
-        font-size: 22px;
-      }
+    h2 {
+      @include headline_second;
     }
 
     .recordingBlock {

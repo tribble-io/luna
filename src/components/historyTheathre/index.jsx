@@ -9,7 +9,20 @@ import ruk from './img/ruk.svg'
 import prez from './img/prez.svg'
 import tobAbs from './img/topAbs.svg'
 import botAbs from './img/botAbs.svg'
-import ChildrenPhoto from '../createElement/photoSlider'
+import { PhotoSlider } from '../createElement/photoSlider'
+import { api, API_URL } from '../../api'
+
+function getSliderPhoto(arr) {
+  const photo = arr.map((item) => {
+    return {
+      id: item.id,
+      href: API_URL + item.media.data?.attributes?.formats?.medium?.url,
+      src: API_URL + item.media.data?.attributes?.formats?.small?.url,
+      caption: item.caption,
+    }
+  })
+  return photo
+}
 
 class HistoryTheathre extends React.Component {
   constructor() {
@@ -21,14 +34,15 @@ class HistoryTheathre extends React.Component {
 
   componentDidMount() {
     fetch(
-      `http://theatre.restomatik.ru:1337/api/assets/1?populate=gallery,gallery.media`
+      `http://theatre.restomatik.ru:1337/api/assets/2?populate=gallery,gallery.media`
     )
       .then((res) => res.json())
       .then((result) => {
+        // api.exportHistoryTheathrePhoto().then((result) => {
         this.setState({
           items: result.data.attributes.gallery,
         })
-        debugger
+        console.log(result.data)
       })
   }
 
@@ -47,15 +61,15 @@ class HistoryTheathre extends React.Component {
             <div className={styles.infoBlock_1}>
               <div className={styles.infoBlock_1_1}>
                 <div>
-                  История "Театра Луны" берет начало в 1992 году со
-                  спектакля-концерта "Уникальный голос" студии фантастики
+                  История «Театра Луны» берет начало в 1992 году со
+                  спектакля-концерта «Уникальный голос» студии фантастики
                   «Луна», основанной Сергеем Прохановым. Усилиями его и тех
                   людей, которых он сплотил вокруг себя, очень скоро небольшой
                   подвальчик в Большом Козихинском переулке рядом с Патриаршими
                   прудами превратился в центр притяжения для театральной
                   публики. Однако{' '}
                   <span>
-                    днем рождения "Театра Луны" считается дата — 14 февраля 1993
+                    днем рождения «Театра Луны» считается дата — 14 февраля 1993
                     года
                   </span>
                   , когда Сергей Проханов представил московской театральной
@@ -107,15 +121,15 @@ class HistoryTheathre extends React.Component {
             <div className={styles.infoBlock_1_mob}>
               <div className={styles.infoBlock_1_1_mob}>
                 <div>
-                  История "Театра Луны" берет начало в 1992 году со
-                  спектакля-концерта "Уникальный голос" студии фантастики
+                  История «Театра Луны» берет начало в 1992 году со
+                  спектакля-концерта «Уникальный голос» студии фантастики
                   «Луна», основанной Сергеем Прохановым. Усилиями его и тех
                   людей, которых он сплотил вокруг себя, очень скоро небольшой
                   подвальчик в Большом Козихинском переулке рядом с Патриаршими
                   прудами превратился в центр притяжения для театральной
                   публики. Однако{' '}
                   <span>
-                    днем рождения "Театра Луны" считается дата — 14 февраля 1993
+                    днем рождения «Театра Луны» считается дата — 14 февраля 1993
                     года
                   </span>
                   , когда Сергей Проханов представил московской театральной
@@ -226,7 +240,7 @@ class HistoryTheathre extends React.Component {
                 <div className={styles.infoBlock_2_3_el33}>
                   <img src={group4} alt='group4' />
                 </div>
-                <div>Спектакль "Фанта-Инфанта"</div>
+                <div>Спектакль «Фанта-Инфанта»</div>
               </div>
 
               <div className={styles.infoBlock_2_4}>
@@ -337,8 +351,8 @@ class HistoryTheathre extends React.Component {
                 <p className={styles.infoBlock_2_5_inf}>
                   Здание в стиле модерн было спроектировано архитектором И.И.
                   Кондаковым и заложено в 1910 году. Открытие состоялось в 1912
-                  году и в нем располагался "Дом Товарищества Учительского
-                  института".
+                  году и в нем располагался «Дом Товарищества Учительского
+                  института».
                 </p>
                 <p className={styles.infoBlock_2_5_infName}>
                   Архитектор И. И. Кондаков
@@ -358,8 +372,8 @@ class HistoryTheathre extends React.Component {
               <p className={styles.infoBlock_2_5_inf}>
                 Здание в стиле модерн было спроектировано архитектором И.И.
                 Кондаковым и заложено в 1910 году. Открытие состоялось в 1912
-                году и в нем располагался "Дом Товарищества Учительского
-                института".
+                году и в нем располагался «Дом Товарищества Учительского
+                института».
               </p>
               <div className={styles.infoBlock_2_5_img}></div>
               <p className={styles.infoBlock_2_5_infName}>
@@ -412,7 +426,7 @@ class HistoryTheathre extends React.Component {
                   <div>1990-e</div>
                   <div>
                     в здании было училище №28, где готовили электромонтажников,
-                    а также клуб завода "Гознак" и "Театр Комедии"
+                    а также клуб завода «Гознак» и «Театр Комедии»
                   </div>
                 </div>
               </div>
@@ -441,7 +455,7 @@ class HistoryTheathre extends React.Component {
             </div>
             <div className={styles.archivePhotoTage}>АРХИВНЫЕ ФОТОГРАФИИ</div>
             <div className={styles.infoBlock_2_9}>
-              <ChildrenPhoto items={this.state.items} />
+              <PhotoSlider items={getSliderPhoto(this.state.items)} />
             </div>
           </div>
         </main>

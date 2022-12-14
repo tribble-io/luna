@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import styles from './rippleButton.module.scss'
 
-export default function Ripple({ duration, color }) {
+export function Ripple({ duration, color }) {
   const [rippleArray, setRippleArray] = React.useState([])
 
   const ref = useRef()

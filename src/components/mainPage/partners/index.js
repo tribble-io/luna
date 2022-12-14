@@ -27,7 +27,7 @@ const SPONSORS = [
   { href: '', img: '' },
 ]
 
-export default function Partners() {
+export function Partners() {
   return (
     <div className={styles.frame}>
       <div className={styles.header}>

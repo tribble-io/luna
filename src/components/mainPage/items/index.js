@@ -42,7 +42,7 @@ const useElementWidth = () => {
   return [ref, width]
 }
 
-export default function Item({ items }) {
+export function Item({ items }) {
   const [ref, CURRENT_WIDTH] = useElementWidth()
   const ITEM_WIDTH = 270
 
@@ -102,7 +102,7 @@ export default function Item({ items }) {
               }}
             >
               <a
-                href={`http://theatre.restomatik.ru:1337/play/${item.id}`}
+                href={`play/${item.attributes.play.data.id}`}
                 className={styles.imgLink}
               >
                 <img

@@ -4,16 +4,6 @@
   box-sizing: border-box;
 }
 
-main {
-  /* background: url('./background.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    height: 100%; */
-  background-color: #00000000;
-}
-
 header {
   background: #000000;
 }
@@ -22,10 +12,6 @@ header {
   header {
     background: #15141e;
   }
-}
-
-section {
-  background: rgba(0, 0, 0, 0);
 }
 
 footer {

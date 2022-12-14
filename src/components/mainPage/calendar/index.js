@@ -1,6 +1,5 @@
 import React from 'react'
-import Item from '../items'
-import Separator from '../separator'
+import { Item, Separator } from '../../mainPage'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
@@ -33,9 +32,9 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
       newDateHref.getDate() < 10
         ? '0' + newDateHref.getDate()
         : newDateHref.getDate()
-    const fullDate = `${newDateHref.getFullYear()}-${
-      newDateHref.getMonth() + 1
-    }-${getDateHref}`
+    const monthHref = newDateHref.getMonth() + 1
+    const getMonthHref = monthHref < 10 ? '0' + monthHref : monthHref
+    const fullDate = `${newDateHref.getFullYear()}-${getMonthHref}-${getDateHref}`
     return `#${fullDate}`
   }
 
@@ -70,7 +69,7 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
   )
 }
 
-export default function Calendar({ setFirstDate, items }) {
+export function Calendar({ setFirstDate, items }) {
   const navigationPrevRef = React.useRef(null)
   const navigationNextRef = React.useRef(null)
 
@@ -133,6 +132,7 @@ export default function Calendar({ setFirstDate, items }) {
               },
               1024: {
                 slidesPerView: 15,
+                slidesPerGroup: 10,
               },
             }}
             onActiveIndexChange={(swiper) => moveDate(swiper.activeIndex)}

@@ -2,7 +2,7 @@
   .photoSwiper > .swiper-wrapper {
     flex-wrap: wrap;
     flex-direction: row;
-    row-gap: 5px;
+    row-gap: 20px;
   }
   .photoSwiper .swiper-slide {
     margin-top: 0 !important;

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import styles from './block.module.scss'
 
 export default function LastBlock() {
@@ -9,13 +9,14 @@ export default function LastBlock() {
         <div className={styles.group1}>
           <p>
             Государственное бюджетное учреждение культуры города
-            <br /> Москвы "Московский театр "Театр Луны" (ГБУК г. Москвы
-            <br /> "Московский театр "Театр Луны")
+            <br /> Москвы &quot;Московский театр &quot;Театр Луны&quot; (ГБУК г.
+            Москвы
+            <br /> &quot;Московский театр &quot;Театр Луны&quot;)
             <br />
             <br />
             115184 г. Москва, ул. Малая Ордынка, д. 31, стр. 1<br />
             <br />
-            Детская театральная студия "Маленькая Луна":
+            Детская театральная студия &quot;Маленькая Луна&quot;:
             <br />
             115184 г. Москва, ул. Малая Ордынка, д. 33, стр. 1<br />
             <br />
@@ -27,18 +28,18 @@ export default function LastBlock() {
         </div>
         <div className={styles.group2}>
           <div className={styles.text1}>
-            <a href='/plays'>
+            <Link to='/plays'>
               <h3>репертуар</h3>
-            </a>
-            <a href='http://www.lunatheatre.ru/afisha'>
+            </Link>
+            <Link to='/posters'>
               <p>афиша</p>
-            </a>
-            <a href='/plays'>
+            </Link>
+            <Link to='/plays'>
               <p>спектакли</p>
-            </a>
-            <a href='http://www.lunatheatre.ru/pages/dtc-malenkaya-luna'>
+            </Link>
+            <Link to='/children-studio'>
               <p>маленькая луна</p>
-            </a>
+            </Link>
           </div>
           <div className={styles.text2}>
             <a href='http://www.lunatheatre.ru/pages/o-lune'>
@@ -47,15 +48,15 @@ export default function LastBlock() {
             <a href='http://www.lunatheatre.ru/actors'>
               <p>творческий состав</p>
             </a>
-            <a href='http://www.lunatheatre.ru/afisha'>
+            <a href='/posters'>
               <p>афиша</p>
             </a>
-            <a href='/plays'>
+            <Link to='/plays'>
               <p>Спектакли</p>
-            </a>
-            <a href='http://www.lunatheatre.ru/pages/dtc-malenkaya-luna'>
+            </Link>
+            <Link to='/children-studio'>
               <p>маленькая луна</p>
-            </a>
+            </Link>
           </div>
         </div>
         <div className={styles.group3}>

@@ -47,12 +47,15 @@ nav {
           text-transform: lowercase;
 
           color: #f4f4f4;
-        }
 
-        a:hover {
-          color: #778194;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #778194;
+          }
         }
       }
+
       li:not(:last-child) {
         margin-right: 10px;
       }
@@ -73,6 +76,7 @@ nav {
         width: auto;
         height: 90%;
         transition: all 0.3s linear;
+
         @media (max-width: 1200px) {
           opacity: 1 !important;
         }

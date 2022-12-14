@@ -3,12 +3,12 @@ import styles from './checkbox.module.scss'
 
 {
   /* Пример чекбокса
-<CustomCheckbox id="kids" name="kids" label="Для детей" checked={true} /> 
+<CustomCheckbox id="kids" name="kids" label="Для детей" checked={true} isActive={isActive} className={checkbox} /> 
 */
 }
 
-export default function CustomCheckbox(props) {
-  const { id, name, label, checked, isActive } = props
+export function CustomCheckbox(props) {
+  const { id, name, label, checked, isActive, className } = props
   const defaultChecked = checked ? checked : false
   const [isChecked, setIsChecked] = useState(defaultChecked)
   function spanClass() {
@@ -18,13 +18,13 @@ export default function CustomCheckbox(props) {
   }
 
   return (
-    <div className={styles.customCheckbox}>
+    <div className={`${styles.customCheckbox} ${className}`}>
       <input
         type='checkbox'
         id={id}
         name={name}
         onChange={() => {
-          isActive(!isChecked, name)
+          isActive?.(!isChecked, name)
           setIsChecked(!isChecked)
         }}
         className={styles.checkboxInput}
