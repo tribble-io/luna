@@ -22,13 +22,28 @@ const PageTeam = () => {
         setIsLoading(false)
       })
       .catch(() => {
-        // console.log(error)
+        setIsLoading(false)
+      })
+  }
+
+  const getPersons = () => {
+    api
+      .exportShowPersons()
+      .then((values) => {
+        setActorsResult(values)
+        setIsLoading(false)
+      })
+      .catch(() => {
         setIsLoading(false)
       })
   }
 
   useEffect(() => {
-    if (activeFilterValue) getActors()
+    if (activeFilterValue !== 'isGuest') {
+      getActors()
+    } else {
+      getPersons()
+    }
   }, [activeFilterValue])
 
   useEffect(() => {
@@ -105,6 +120,7 @@ const PageTeam = () => {
               updateFilter={handleUpdateFilter}
               activeButton={activeFilter}
               activeUnderline={true}
+              className={styles.nameButtonFilter}
             />
           ) : null}
         </div>

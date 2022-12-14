@@ -166,13 +166,8 @@ async function exportPressData() {
 }
 
 async function exportShowActors(filter) {
-  const filterActors =
-    filter === 'isGuest'
-      ? `filters[isGuest][$eq]=true`
-      : `[positions][category][$eq]=${filter}`
-
   const result = await axios.get(
-    `${API_URL}/api/persons?filters${filterActors}&populate=cover`
+    `${API_URL}/api/persons?filters[positions][category][$eq]=${filter}&populate=cover`
   )
 
   if (result.status === 200) {
@@ -180,6 +175,18 @@ async function exportShowActors(filter) {
   }
 
   throw new Error("Can't export show data")
+}
+
+async function exportShowPersons() {
+  const result = await axios.get(
+    `${API_URL}/api/persons?api/persons?filters[isGuest][$eq]=true&populate=cover`
+  )
+
+  if (result.status === 200) {
+    return result.data.data
+  }
+
+  throw new Error("Can't export persons data")
 }
 
 export const api = {
@@ -196,4 +203,5 @@ export const api = {
   exportRomaskaData,
   exportPressData,
   exportShowActors,
+  exportShowPersons,
 }

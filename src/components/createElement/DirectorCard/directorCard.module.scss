@@ -4,9 +4,7 @@
   width: 100%;
   display: flex;
   margin-bottom: 80px;
-  &:nth-child(2) {
 
-  }
   a {
     color: inherit;
     text-decoration: none;
@@ -44,10 +42,6 @@
       object-position: center 10%;
       backface-visibility: hidden;
       transition: transform 0.5s ease-in-out;
-
-      &:hover {
-        transform: scale(1.05);
-      }
     }
   }
 
@@ -80,7 +74,8 @@
       margin-top: 21px;
       font-weight: 400;
       font-size: 16px;
-      line-height: 20px;
+      line-height: 166.9%;
+      max-width: 65%;
     }
   }
 }
@@ -111,15 +106,15 @@
   }
   .directorCardText {
     padding-top: 0px !important;
+    width: 100%;
     .actorName {
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 160%;
+      font-size: 12px !important;
     }
     .actorRole {
       font-weight: 500;
-      font-size: 12px;
-      line-height: 160%;
+      font-size: 12px !important;
+      line-height: 15px !important;
+      margin-top: 10px !important;
     }
   }
 }

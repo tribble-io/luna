@@ -7,6 +7,7 @@ export function CreateButton(props) {
     activeButton,
     buttonArray,
     activeUnderline = false,
+    className,
   } = props
 
   function buttonClass(name) {
@@ -16,7 +17,7 @@ export function CreateButton(props) {
           ? styles.activeUnderline
           : styles.active
         : ''
-    }`
+    } ${className ? className : ''}`
   }
 
   return (

@@ -22,7 +22,7 @@ export function CreateActorCard({ data }) {
           >
             {data?.name}
           </a>
-          <p className={styles.actorRole}>{data?.role}</p>
+          {data?.role ? <p className={styles.actorRole}>{data?.role}</p> : null}
         </div>
       </div>
     </>

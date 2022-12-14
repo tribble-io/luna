@@ -3,7 +3,7 @@
 .containerTeam {
   color: white;
   padding-top: 200px;
-  padding-bottom: 134px
+  padding-bottom: 134px;
 }
 .promoTage {
   @include container;
@@ -27,6 +27,9 @@
   .directorCards {
     padding-bottom: 120px;
   }
+  .nameButtonFilter {
+    font-weight: 500px;
+  }
 }
 
 @media (max-width: 414px) {
@@ -48,6 +51,10 @@
       overflow: scroll;
     }
     .promoTage {
+      .nameButtonFilter {
+        font-size: 12px !important;
+        line-height: 15px !important;
+      }
       section {
         div {
           div {
