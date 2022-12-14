@@ -7,15 +7,13 @@ import Loader from '../components/loader'
 function getLaureatesData(arr) {
   if (arr !== null) {
     const review = arr.map((item) => {
-      const plays = item.attributes?.plays.map((plays) => {
+      const plays = item?.plays.map((plays) => {
         const role = plays?.role.map((role) => {
           return {
-            id: role?.actor?.data.id,
+            id: role?.actor?.id,
             role: role.role,
-            name: role?.actor?.data?.attributes?.fullname,
-            src:
-              API_URL +
-              role?.actor?.data?.attributes?.cover?.data?.attributes.url,
+            name: role?.actor?.fullname,
+            src: API_URL + role?.actor?.cover?.url,
           }
         })
         return {
@@ -26,7 +24,7 @@ function getLaureatesData(arr) {
       })
       return {
         id: item.id,
-        year: item.attributes?.year,
+        year: item?.year,
         plays: plays,
       }
     })

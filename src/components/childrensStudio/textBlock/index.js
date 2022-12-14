@@ -161,7 +161,7 @@ export function ChildrenRecording(props) {
             <div className={styles.recordingBlock}>
               <p className={styles.marginParagraph}>
                 В ДТС &quot;Маленькая Луна&quot; принимаются дети
-                <b>от 6 до 15 лет</b>, прошедшие прослушивание.
+                <b> от 6 до 15 лет</b>, прошедшие прослушивание.
               </p>
               <p>Запись на прослушивание по телефонам</p>
               <p>

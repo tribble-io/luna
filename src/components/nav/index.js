@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useWindowScrollPositions } from '../../assets/utils/usable-function'
 import styles from './nav.module.scss'
 
@@ -15,18 +15,16 @@ function Nav() {
             <Link to='/posters'>Афиша</Link>
           </li>
           <li>
-            <Link to='/plays' reloadDocument>
-              Спектакли
-            </Link>
+            <Link to='/plays'>Спектакли</Link>
           </li>
           <li>
-            <a href='http://www.lunatheatre.ru/actors'>труппа</a>
+            <Link to='/theatre-team'>Труппа</Link>
           </li>
           <li>
             <Link to='/theatre-history'>театр</Link>
           </li>
           <li>
-            <a href='http://www.lunatheatre.ru/news'>Новости</a>
+            <Link to='/news'>Новости</Link>
           </li>
           <li>
             <a href='http://www.lunatheatre.ru/smi'>Пресса</a>
@@ -34,7 +32,6 @@ function Nav() {
           <li>
             <a href='http://www.lunatheatre.ru/pages/kontakty'>Контакты</a>
           </li>
-          <Outlet />
         </ul>
         <div className={styles.logoContainer}>
           <img

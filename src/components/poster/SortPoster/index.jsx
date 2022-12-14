@@ -36,11 +36,13 @@ for (let i = 0; i < 5; i++) {
 //
 const SortPoster = (props) => {
   const [open, openClosedCalendar] = React.useState(false)
+  const [clickDay, changeDay] = React.useState(false)
 
   // Получаем количество дней в текущем месяце и делаем из них массив
   let daysInMonth = (month, year) => {
     return new Date(year, month, 0).getDate()
   }
+
   let month
 
   if (props.m === '01') {
@@ -67,6 +69,28 @@ const SortPoster = (props) => {
     month = '10'
   } else if (props.m === '12') {
     month = '11'
+  }
+
+  let d = props.d
+
+  if (props.d === '01') {
+    d = 1
+  } else if (props.d === '02') {
+    d = 2
+  } else if (props.d === '03') {
+    d = 3
+  } else if (props.d === '04') {
+    d = 4
+  } else if (props.d === '05') {
+    d = 5
+  } else if (props.d === '06') {
+    d = 6
+  } else if (props.d === '07') {
+    d = 7
+  } else if (props.d === '08') {
+    d = 8
+  } else if (props.d === '09') {
+    d = 9
   }
 
   let days_for_month = daysInMonth(props.m, props.y)
@@ -99,6 +123,8 @@ const SortPoster = (props) => {
       key={item}
       onClick={() => {
         props.filterStateUpdate(item)
+        props.calendarDefault()
+        openClosedCalendar(false)
       }}
     >
       {item}
@@ -143,12 +169,9 @@ const SortPoster = (props) => {
           key={i}
           onClick={() => {
             props.calendar(daysAll[i])
-            openClosedCalendar(!open)
           }}
           className={
-            props.dayKal === daysAll[i]
-              ? styles.calendarItemAct
-              : styles.calendarItem
+            d === daysAll[i] ? styles.calendarItemAct : styles.calendarItem
           }
         >
           {daysAll[i]}

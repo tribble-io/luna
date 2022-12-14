@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './card.module.scss'
 import { Ripple } from '../../createElement'
 
@@ -7,16 +8,16 @@ export function CreatePlaysCard({ data }) {
     <>
       <div className={styles.cardContent}>
         <div className={styles.showsImage}>
-          <a className={styles.imageLink} href={'play/' + data.id}>
+          <Link className={styles.imageLink} to={`/play/${data.id}`}>
             <img src={data.src} alt={data.title} />
-          </a>
+          </Link>
         </div>
         <div className={styles.showsCardText}>
           <div className={styles.topBlock}>
             <div className={styles.titleContainer}>
-              <a href={'play/' + data.id} className={styles.title}>
+              <Link className={styles.title} to={`/play/${data.id}`}>
                 {data.title}
-              </a>
+              </Link>
               <p className={styles.shortDescription}>{data.description}</p>
             </div>
             <p className={styles.rating}>{data.rating}+</p>

@@ -5,7 +5,6 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: $text-color;
-  background-color: $bg-color;
 
   .nextShowsContent {
     //padding-top needed for correct funct 'ScrollIntoView'
@@ -16,6 +15,7 @@
       padding-top: 0;
       padding-bottom: 150px;
     }
+
     @media (max-width: 500px) {
       padding-bottom: 80px;
     }
@@ -27,6 +27,7 @@
 
   .nextShowsArea {
     padding-top: 5.8rem;
+
     @media (max-width: 500px) {
       padding-top: 2.5rem;
     }
@@ -65,6 +66,7 @@
           line-height: 160%;
           text-transform: uppercase;
         }
+
         .description {
           font-size: 16px;
         }

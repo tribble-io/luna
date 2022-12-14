@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-main {
-  background: #15141e;
-  height: 100%;
-}
-
 header {
   background: #000000;
 }
@@ -19,12 +14,8 @@ header {
   }
 }
 
-section {
-  background: #15141e;
-}
-
 footer {
-  background-color: #101017;
+  background-color: #08091d;
   height: 100%;
 }
 

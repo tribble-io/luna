@@ -15,16 +15,16 @@ let PosterContent = (props) => {
         {props.filterState.items.map((item) => (
           <PosterEl
             key={item.id}
-            date={parseInt(item.attributes.date_str.match(/\d+/))}
-            time={item.attributes.time}
-            day={props.getWeekDay(item.attributes.date)}
-            title={item.attributes.play.data.attributes.title}
+            date={parseInt(item.date_str.match(/\d+/))}
+            time={item.time}
+            day={props.getWeekDay(item.date)}
+            title={item.play..title}
             premier={
-              item.attributes.play.data.attributes.isPremiere ? 'ПРЕМЬЕРА' : ''
+              item.play..isPremiere ? 'ПРЕМЬЕРА' : ''
             }
-            location={item.attributes.place}
-            rating={item.attributes.play.data.attributes.rating}
-            buy={item.attributes.tickets_link}
+            location={item.place}
+            rating={item.play..rating}
+            buy={item.tickets_link}
           />
         ))}
       </section>

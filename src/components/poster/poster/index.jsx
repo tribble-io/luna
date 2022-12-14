@@ -53,7 +53,7 @@ class Poster extends React.Component {
       m_str: todayDataM,
       m_next: MONTHS_num[((todayDataM + 1) % 12) + 1],
       y: todayData.getFullYear(),
-      y_next: '2023',
+      y_next: todayData.getFullYear() + 1,
       isLoaded: true,
       items: [],
       itemsNew: [],
@@ -61,6 +61,8 @@ class Poster extends React.Component {
       day: '01',
       days_for_month: days_for_month,
       day_next: '01',
+      itemsCal: [],
+      checkFilter: 0,
     }
   }
 
@@ -68,28 +70,29 @@ class Poster extends React.Component {
     return new Date(year, month, 0).getDate()
   }
   calendar = (d) => {
-    if (d === '1') {
+    if (d === 1) {
       d = '01'
-    } else if (d === '2') {
+    } else if (d === 2) {
       d = '02'
-    } else if (d === '3') {
+    } else if (d === 3) {
       d = '03'
-    } else if (d === '4') {
+    } else if (d === 4) {
       d = '04'
-    } else if (d === '5') {
+    } else if (d === 5) {
       d = '05'
-    } else if (d === '6') {
+    } else if (d === 6) {
       d = '06'
-    } else if (d === '7') {
+    } else if (d === 7) {
       d = '07'
-    } else if (d === '8') {
+    } else if (d === 8) {
       d = '08'
-    } else if (d === '9') {
+    } else if (d === 9) {
       d = '09'
     }
     this.setState(() => {
       return {
         day: d,
+        checkFilter: 1,
       }
     })
     this.componentDidMount()
@@ -100,6 +103,7 @@ class Poster extends React.Component {
       return {
         day: '01',
         day_next: '01',
+        checkFilter: 0,
       }
     })
     this.componentDidMount()
@@ -113,12 +117,7 @@ class Poster extends React.Component {
   }
   filterLocation = (b) => {
     this.setState(() => {
-      return {
-        filerLocation: b,
-        day: '01',
-        day_next: '01',
-        y: this.state.y_next,
-      }
+      return { filerLocation: b, day: '01', day_next: '01', y: this.state.y }
     })
     this.componentDidMount()
   }
@@ -303,6 +302,13 @@ class Poster extends React.Component {
         this.state.y_next + '-' + this.state.m_next + '-' + this.state.day_next //вернуть нормадьный вариант
       let seachEl = this.state.search
       let filters = this.state.filerLocation
+
+      this.setState(() => {
+        return {
+          date: this.state.y + '-' + this.state.m + '-' + this.state.day,
+        }
+      })
+
       let filtPathc
 
       if (filters === 'БОЛЬШАЯ СЦЕНА') {
@@ -331,6 +337,75 @@ class Poster extends React.Component {
             })
           }
         })
+      if (this.state.checkFilter) {
+        let newDay = Number(this.state.day)
+        let lastDay = newDay + 1
+
+        let daysInMonth = (month, year) => {
+          return new Date(year, month, 0).getDate()
+        }
+
+        if (lastDay === 1) {
+          lastDay = '01'
+        } else if (lastDay === 2) {
+          lastDay = '02'
+        } else if (lastDay === 3) {
+          lastDay = '03'
+        } else if (lastDay === 4) {
+          lastDay = '04'
+        } else if (lastDay === 5) {
+          lastDay = '05'
+        } else if (lastDay === 6) {
+          lastDay = '06'
+        } else if (lastDay === 7) {
+          lastDay = '07'
+        } else if (lastDay === 8) {
+          lastDay = '08'
+        } else if (lastDay === 9) {
+          lastDay = '09'
+        }
+
+        let lastDayForMoth = daysInMonth(
+          this.state.m,
+          this.state.m === '12' ? this.state.y : this.state.y_next
+        )
+        lastDayForMoth.toString()
+
+        if (lastDay === lastDayForMoth + 1) {
+          lastDay = '01'
+        }
+
+        lastDay.toString()
+
+        let calDate = this.state.y + '-' + this.state.m + '-' + this.state.day
+        let calLastDate =
+          this.state.y +
+          '-' +
+          (lastDay === '01' && this.state.m === '12'
+            ? this.state.m_next
+            : this.state.m) +
+          '-' +
+          lastDay
+        debugger
+
+        fetch(
+          `http://theatre.restomatik.ru:1337/api/shows?filters[date][$gte]=${calDate}&filters[date][$lt]=${calLastDate}&sort[0]=date&${filtPathc}populate=play&filters[play][title][$containsi]=${seachEl}`
+        )
+          .then((res) => res.json())
+          .then((result) => {
+            if (this.state.itemsCal) {
+              this.setState({
+                isLoaded: true,
+                itemsCal: result.data,
+              })
+            } else {
+              this.setState({
+                isLoaded: true,
+                itemsCal: 'notItem',
+              })
+            }
+          })
+      }
     }, 100)
   }
   render() {
@@ -338,6 +413,7 @@ class Poster extends React.Component {
       <section>
         <main>
           <SortPoster
+            d={this.state.day}
             m={this.state.m}
             y={this.state.y}
             calendarDefault={this.calendarDefault}

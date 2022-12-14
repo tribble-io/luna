@@ -12,15 +12,15 @@ function createLine(item) {
   const createLineData = {
     item: item,
     id: item.id,
-    date: parseInt(item.attributes?.date_str.match(/\d+/)),
-    time: item.attributes?.time,
-    month: item.attributes?.date_str.match(/[^\s\d]+/),
-    day: getWeekDay(item.attributes?.date),
-    title: item.attributes?.play.data.attributes?.title,
-    isPremiere: item.attributes?.play.data.attributes?.isPremiere,
-    place: item.attributes?.place,
-    rating: item.attributes?.play.data.attributes?.rating,
-    buy: item.attributes?.tickets_link,
+    date: parseInt(item?.date_str.match(/\d+/)),
+    time: item?.time,
+    month: item?.date_str.match(/[^\s\d]+/),
+    day: getWeekDay(item?.date),
+    title: item?.play?.title,
+    isPremiere: item?.play?.isPremiere,
+    place: item?.place,
+    rating: item?.play?.rating,
+    buy: item?.tickets_link,
   }
   return createLineData
 }
@@ -28,8 +28,7 @@ function createLine(item) {
 export function ComingShow({ items }) {
   // Check if we have coming show
   const isItems = items.length > 0 ? true : false
-  const isPushkinCard =
-    items[0]?.attributes?.play.data.attributes?.isPushkinCard
+  const isPushkinCard = items[0]?.play?.isPushkinCard
 
   return (
     <section id='comingShow'>

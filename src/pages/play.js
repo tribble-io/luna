@@ -16,30 +16,27 @@ import Loader from '../components/loader'
 
 function getShowData(item) {
   return {
-    bgImage: API_URL + item.attributes?.cover?.data.attributes.url,
-    title: item.attributes?.title,
-    description: item.attributes?.description,
-    rating: item.attributes?.rating,
-    durationStr: item.attributes?.durationStr,
-    premiereDateStr: item.attributes?.premiereDateStr,
-    scene: item.attributes?.scene,
-    body: item.attributes?.body,
+    bgImage: API_URL + item?.cover?.url,
+    title: item?.title,
+    description: item?.description,
+    rating: item?.rating,
+    durationStr: item?.durationStr,
+    premiereDateStr: item?.premiereDateStr,
+    scene: item?.scene,
+    body: item?.body,
   }
 }
 
-function getShowRoles(arr) {
+export function getShowRoles(arr) {
   if (arr !== null) {
-    const roles = arr.map((item) =>
-      item.actors.data.map((data) => {
-        return {
-          id: data.id,
-          role: item.role,
-          name: data.attributes?.fullname,
-          src: API_URL + data.attributes.cover?.data?.attributes?.url,
-        }
-      })
-    )
-    return roles.flat()
+    return arr.map((role) => {
+      return {
+        id: role.actor?.id,
+        role: role.roleTitle,
+        name: role.actor?.fullname,
+        src: API_URL + role.actor?.cover?.url,
+      }
+    })
   } else {
     return []
   }
@@ -50,8 +47,8 @@ function getShowPhoto(arr) {
     const photo = arr.map((item) => {
       return {
         id: item.id,
-        href: API_URL + item.attributes?.formats.large.url,
-        src: API_URL + item.attributes?.formats.small.url,
+        href: API_URL + item?.formats.large.url,
+        src: API_URL + item?.formats.small.url,
         caption: '',
       }
     })
@@ -97,10 +94,10 @@ function getShowReview(arr) {
     const review = arr.map((item) => {
       return {
         id: item.id,
-        name: item.attributes?.name,
-        title: item.attributes?.title,
-        text: item.attributes?.text,
-        createdAt: getFullDateMonth(item.attributes?.createdAt),
+        name: item?.name,
+        title: item?.title,
+        text: item?.text,
+        createdAt: getFullDateMonth(item?.createdAt),
       }
     })
     return review
@@ -155,14 +152,14 @@ export function Play() {
     Promise.all([api.exportComingShow(showID), api.exportShowData(showID)])
       .then((values) => {
         setShowItems(values[0])
-        setticketsLink(values[0]?.[0]?.attributes?.tickets_link)
+        setticketsLink(values[0]?.tickets_link)
 
         setShowData(getShowData(values[1]))
-        setDirectors(values[1].attributes?.directors)
-        setRoles(getShowRoles(values[1].attributes?.roles))
-        setPress(getPlayPress(values[1].attributes?.press))
-        setPhoto(getShowPhoto(values[1].attributes?.gallery?.data))
-        setReview(getShowReview(values[1].attributes?.comments?.data))
+        setDirectors(values[1]?.directors)
+        setRoles(getShowRoles(values[1]?.roles))
+        setPress(getPlayPress(values[1]?.pressItems))
+        setPhoto(getShowPhoto(values[1]?.gallery))
+        setReview(getShowReview(values[1]?.comments))
         setIsLoading(false)
       })
       .catch((error) => {
@@ -180,7 +177,11 @@ export function Play() {
       )}
       {isLoading ? <Loader /> : <About data={showData} directors={directors} />}
       {isLoading ? <Loader /> : <ComingShow items={showItems} />}
-      {isLoading ? <Loader /> : <Actors roles={roles} />}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Actors roles={roles} title={'Действующие лица и исполнители'} />
+      )}
       {isLoading ? <Loader /> : <Press press={press} />}
       {isLoading ? <Loader /> : <ShowPhoto photo={photo} />}
       {isLoading ? <Loader /> : <Review review={review} />}

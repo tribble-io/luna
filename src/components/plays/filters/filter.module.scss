@@ -5,7 +5,6 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: $text-color;
-  background-color: $bg-color;
 }
 
 .filterContent {
@@ -24,6 +23,7 @@
   .filterArea {
     padding-top: 5rem;
     overflow: hidden;
+
     @media (max-width: 500px) {
       padding-top: 2.5rem;
     }

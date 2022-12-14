@@ -24,15 +24,15 @@ function getNextShow(arr) {
     return {
       item: item,
       id: item.id,
-      date: parseInt(item.attributes?.date_str.match(/\d+/)),
-      time: item.attributes?.time,
-      month: item.attributes?.date_str.match(/[^\s\d]+/),
-      day: getWeekDay(item.attributes?.date),
-      title: item.attributes?.play?.data?.attributes?.title,
-      isPremiere: item.attributes?.play?.data?.attributes?.isPremiere,
-      place: item.attributes?.place,
-      rating: item.attributes?.play?.data?.attributes?.rating,
-      buy: item.attributes?.tickets_link,
+      date: parseInt(item?.date_str.match(/\d+/)),
+      time: item?.time,
+      month: item?.date_str.match(/[^\s\d]+/),
+      day: getWeekDay(item?.date),
+      title: item?.play?.title,
+      isPremiere: item?.play?.isPremiere,
+      place: item?.place,
+      rating: item?.play?.rating,
+      buy: item?.tickets_link,
     }
   })
   return nextShowData
@@ -42,12 +42,12 @@ function getStudioScene(arr) {
   const scenedData = arr.map((item) => {
     return {
       id: item.id,
-      src: API_URL + item.attributes?.cover?.data?.attributes?.url,
-      title: item.attributes?.title,
-      rating: item.attributes?.rating,
-      description: item.attributes?.description,
-      scene: item.attributes?.scene,
-      isPremiere: item.attributes?.isPremiere,
+      src: API_URL + item?.cover?.url,
+      title: item?.title,
+      rating: item?.rating,
+      description: item?.description,
+      scene: item?.scene,
+      isPremiere: item?.isPremiere,
     }
   })
   return scenedData
@@ -57,8 +57,8 @@ function getStudioPhoto(arr) {
   const photo = arr.map((item) => {
     return {
       id: item.id,
-      href: API_URL + item.media.data?.attributes?.formats?.medium?.url,
-      src: API_URL + item.media.data?.attributes?.formats?.small?.url,
+      href: API_URL + item.media?.formats?.medium?.url,
+      src: API_URL + item.media?.formats?.small?.url,
       caption: item.caption,
     }
   })
@@ -80,7 +80,7 @@ export function ChildrenStudio() {
       .then((values) => {
         setNextShows(getNextShow(values[0]))
         setScene(getStudioScene(values[1]))
-        setPhoto(getStudioPhoto(values[2].attributes.gallery))
+        setPhoto(getStudioPhoto(values[2].gallery))
         setIsLoading(false)
       })
       .catch((error) => {

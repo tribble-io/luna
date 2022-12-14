@@ -97,6 +97,18 @@ async function exportChildrenStudioPhoto() {
   throw new Error("Can't export studio photos")
 }
 
+async function exportHistoryTheathrePhoto() {
+  const result = await axios.get(
+    `${API_URL}/api/assets/2?populate=gallery,gallery.media`
+  )
+
+  if (result.status === 200) {
+    return result.data.data
+  }
+
+  throw new Error("Can't export studio photos")
+}
+
 async function exportComingShow(showID) {
   const result = await axios.get(
     `${API_URL}/api/shows?filters[date][$gte]=${TODAY_DAY}&sort[0]=date&filters[play][id][$eq]=${showID}&populate=play.cover`
@@ -111,7 +123,7 @@ async function exportComingShow(showID) {
 
 async function exportShowData(showID) {
   const result = await axios.get(
-    `${API_URL}/api/plays/${showID}?populate=cover,roles.actors.cover,gallery,press,directors.person,comments`
+    `${API_URL}/api/plays/${showID}?populate=cover,roles.actor.cover,gallery,pressItems,directors.person,comments`
   )
 
   if (result.status === 200) {
@@ -143,6 +155,28 @@ async function exportRomaskaData() {
   throw new Error("Can't export romaska awards data")
 }
 
+async function exportPressData() {
+  const result = await axios.get(`${API_URL}/api/press-items`)
+
+  if (result.status === 200) {
+    return result.data
+  }
+
+  throw new Error("Can't export press data")
+}
+
+async function exportShowActors(filter) {
+  const result = await axios.get(
+    `${API_URL}/api/persons?filters[positions][category][$eq]=${filter}&populate=cover`
+  )
+
+  if (result.status === 200) {
+    return result.data.data
+  }
+
+  throw new Error("Can't export show data")
+}
+
 export const api = {
   exportShows,
   exportArticles,
@@ -150,8 +184,11 @@ export const api = {
   exportChildrenStudioNextShow,
   exportChildrenStudioScene,
   exportChildrenStudioPhoto,
+  exportHistoryTheathrePhoto,
   exportComingShow,
   exportShowData,
   createNewComment,
   exportRomaskaData,
+  exportPressData,
+  exportShowActors,
 }

@@ -16,11 +16,7 @@ export function Home() {
       .then((values) => {
         setItems(values[0])
         setItemsSlider(
-          uniqueBy(
-            values[0],
-            (o1, o2) =>
-              o1.attributes.play.data.id === o2.attributes.play.data.id
-          )
+          uniqueBy(values[0], (o1, o2) => o1.play.id === o2.play.id)
         )
         setItemsNews(values[1])
         setIsLoading(false)
