@@ -51,43 +51,31 @@ export function News({ itemsNews }) {
               className={styles.bigNewsImage}
               href={`${API_URL}/news/${itemsNews[0].id}`}
             >
-              <img
-                src={
-                  API_URL + itemsNews[0].attributes.cover.data.attributes.url
-                }
-                alt=''
-              />
+              <img src={API_URL + itemsNews[0].cover.url} alt='' />
             </a>
             <a
               className={styles.bigNewsText}
               href={`${API_URL}/news/${itemsNews[0].id}`}
             >
               <div className={styles.title}>
-                {cutToLength(itemsNews[0].attributes.title, 70)}
+                {cutToLength(itemsNews[0].title, 70)}
               </div>
-              <div className={styles.date}>
-                {itemsNews[0].attributes.date_str}
-              </div>
+              <div className={styles.date}>{itemsNews[0].date_str}</div>
             </a>
             {[0, 1].map((i) => {
               const item = itemsNews[i + 1]
               const st = [styles.smallNewsItem1, styles.smallNewsItem2][i]
               return (
                 <a key={i} className={st} href={`${API_URL}/news/${item.id}`}>
-                  <img
-                    src={API_URL + item.attributes.cover.data.attributes.url}
-                    alt=''
-                  />
+                  <img src={API_URL + item.cover.url} alt='' />
                   <div className={styles.boxWrapper}>
                     <div className={styles.box}>
                       <div className={styles.title}>
-                        {cutToLength(item.attributes.title, 70)}
+                        {cutToLength(item.title, 70)}
                       </div>
-                      <div className={styles.date}>
-                        {item.attributes.date_str}
-                      </div>
+                      <div className={styles.date}>{item.date_str}</div>
                       <div className={styles.text}>
-                        {cutToLength(item.attributes.text, 150)}
+                        {cutToLength(item.text, 150)}
                       </div>
                     </div>
                   </div>

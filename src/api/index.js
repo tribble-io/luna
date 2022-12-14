@@ -123,7 +123,7 @@ async function exportComingShow(showID) {
 
 async function exportShowData(showID) {
   const result = await axios.get(
-    `${API_URL}/api/plays/${showID}?populate=cover,roles.actors.cover,gallery,press,directors.person,comments`
+    `${API_URL}/api/plays/${showID}?populate=cover,roles.actor.cover,gallery,pressItems,directors.person,comments`
   )
 
   if (result.status === 200) {
@@ -159,7 +159,7 @@ async function exportPressData() {
   const result = await axios.get(`${API_URL}/api/press-items`)
 
   if (result.status === 200) {
-    return result.data.data
+    return result.data
   }
 
   throw new Error("Can't export press data")
@@ -167,7 +167,7 @@ async function exportPressData() {
 
 async function exportShowActors(filter) {
   const result = await axios.get(
-    `${API_URL}/api/actors?filters[positions][category][$eq]=${filter}&populate=cover`
+    `${API_URL}/api/persons?filters[positions][category][$eq]=${filter}&populate=cover`
   )
 
   if (result.status === 200) {

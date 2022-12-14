@@ -10,12 +10,12 @@ export function ShowsCards(props) {
   function playCard(item) {
     const playCardData = {
       id: item.id,
-      src: API_URL + item.attributes.cover.data.attributes.url,
-      title: item.attributes.title,
-      rating: item.attributes.rating,
-      description: item.attributes.description,
-      scene: item.attributes.scene,
-      isPremiere: item.attributes.isPremiere,
+      src: API_URL + item.cover.url,
+      title: item.title,
+      rating: item.rating,
+      description: item.description,
+      scene: item.scene,
+      isPremiere: item.isPremiere,
     }
     return playCardData
   }

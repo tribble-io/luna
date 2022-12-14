@@ -86,8 +86,7 @@ export function About({ data, directors }) {
                     <span>
                       {director.person.data.map(
                         (data, index, arr) =>
-                          data.attributes.fullname +
-                          (index === arr.length - 1 ? '' : ', ')
+                          data.fullname + (index === arr.length - 1 ? '' : ', ')
                       )}
                     </span>
                   </div>

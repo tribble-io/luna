@@ -57,8 +57,8 @@ export function Item({ items }) {
       checkMargin >= 25
         ? slidesAmount
         : slidesAmount > 1
-        ? slidesAmount - 1
-        : slidesAmount
+          ? slidesAmount - 1
+          : slidesAmount
     // Return amount of slides and margint for each slide
     return {
       slidesPerView: window.screen.width > 992 ? resultSlidesAmount : 'auto',
@@ -69,15 +69,15 @@ export function Item({ items }) {
   const { slidesPerView, spaceBetween, centeredSlides } = checkSlides()
 
   function itemCheckDate(item) {
-    return new Date(item.attributes.date)
+    return new Date(item.date)
   }
 
   function itemCheckPlace(item) {
-    return PLACES[item.attributes.place]
+    return PLACES[item.place]
   }
 
   function assignDataHash(item) {
-    return `${item.attributes.date}`
+    return `${item.date}`
   }
 
   return (
@@ -101,13 +101,10 @@ export function Item({ items }) {
                 '--place-text-color': itemCheckPlace(item).text_color,
               }}
             >
-              <a
-                href={`play/${item.attributes.play.data.id}`}
-                className={styles.imgLink}
-              >
+              <a href={`play/${item.play.id}`} className={styles.imgLink}>
                 <img
                   className={styles.cardImg}
-                  src={`http://theatre.restomatik.ru:1337${item.attributes.play.data.attributes.cover.data.attributes.formats.small.url}`}
+                  src={`http://theatre.restomatik.ru:1337${item.play.cover.formats.small.url}`}
                   alt=''
                 />
               </a>
@@ -128,13 +125,9 @@ export function Item({ items }) {
                         className={styles.moonPoster}
                       />
                     </div>
-                    <div className={styles.time}>
-                      {item.attributes.time.slice(0, 5)}
-                    </div>
+                    <div className={styles.time}>{item.time.slice(0, 5)}</div>
                   </div>
-                  <div className={styles.title}>
-                    {item.attributes.play.data.attributes.title}
-                  </div>
+                  <div className={styles.title}>{item.play.title}</div>
                 </div>
                 <div className={styles.bottom}>
                   <div
@@ -146,10 +139,7 @@ export function Item({ items }) {
                     {itemCheckPlace(item).name}
                   </div>
                   <div className={styles.buy}>
-                    <a
-                      className={styles.link}
-                      href={item.attributes.tickets_link}
-                    >
+                    <a className={styles.link} href={item.tickets_link}>
                       БИЛЕТЫ
                     </a>
                   </div>

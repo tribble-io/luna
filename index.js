@@ -30,7 +30,7 @@ const MONTHS = [
 
 export default function Slider({ items, firstDate }) {
   function isPremiere(offer) {
-    if (offer.attributes.play.data.attributes.isPremiere) {
+    if (offer.play.isPremiere) {
       return (
         <div className={styles.premiere}>
           <a href={offer.webSite}>Премьера</a>
@@ -54,7 +54,7 @@ export default function Slider({ items, firstDate }) {
           <SwiperSlide
             key={offer.id}
             style={{
-              background: `url('http://theatre.restomatik.ru:1337${offer.attributes.play.data.attributes.cover.data.attributes.url}')no-repeat center`,
+              background: `url('http://theatre.restomatik.ru:1337${offer.play.cover.url}')no-repeat center`,
               backgroundColor: "#000000",
             }}
           >
@@ -63,24 +63,24 @@ export default function Slider({ items, firstDate }) {
                 <div className={styles.block1}>
                   <p className={styles.author}>
                     {
-                      offer.attributes.play.data.attributes.director.data
-                        .attributes.fullname
+                      offer.play..director.data
+                        .fullname
                     }
                   </p>
                   <p className={styles.title}>
-                    {offer.attributes.play.data.attributes.title}
+                    {offer.play..title}
                   </p>
                   {isPremiere(offer)}
                 </div>
                 <div className={styles.block2}>
                   <p className={styles.date}>
-                    {offer.attributes.date_str.split(" ")[0]}
+                    {offer.date_str.split(" ")[0]}
                   </p>
                   <p className={styles.month}>
-                    {offer.attributes.date_str.split(" ")[1]}
+                    {offer.date_str.split(" ")[1]}
                   </p>
                   <div className={styles.buy}>
-                    <a href={`${offer.attributes.tickets_link}`} className={styles.buyLink}>
+                    <a href={`${offer.tickets_link}`} className={styles.buyLink}>
                       КУПИТЬ БИЛЕТ
                     </a>
                   </div>
@@ -90,7 +90,7 @@ export default function Slider({ items, firstDate }) {
                 <div
                   className={styles.startCalendar}
                   style={{
-                    background: `url('http://theatre.restomatik.ru:1337${offer.attributes.play.data.attributes.cover.data.attributes.url}')no-repeat center `,
+                    background: `url('http://theatre.restomatik.ru:1337${offer.play..cover..url}')no-repeat center `,
                     backgroundSize: "cover",
                   }}
                 >

@@ -66,8 +66,8 @@ const PageTeam = () => {
       const roles = arr.map((item) => {
         return {
           id: item.id,
-          name: item.attributes?.fullname,
-          src: API_URL + item.attributes.cover?.data?.attributes?.url,
+          name: item?.fullname,
+          src: API_URL + item.cover?.url,
         }
       })
       return roles.flat()

@@ -12,7 +12,7 @@ let MiniMews = (props) => {
     >
       <div className={styles.miniMewsEl}>
         <div className={styles.data}>{props.data_str}</div>
-        <div className={styles.name}>{props.tittle}</div>
+        <div className={styles.name}>{props.title}</div>
       </div>
     </Link>
   )

@@ -74,7 +74,7 @@ export function Calendar({ setFirstDate, items }) {
   const navigationNextRef = React.useRef(null)
 
   const [selected, setSelected] = React.useState(() => {
-    const date = new Date(items[0].attributes.date)
+    const date = new Date(items[0].date)
     return date
   })
 
@@ -86,7 +86,7 @@ export function Calendar({ setFirstDate, items }) {
       return {
         date: date,
         free: !items.some((item) => {
-          const itemdate = new Date(item.attributes.date)
+          const itemdate = new Date(item.date)
           return itemdate.getTime() === date.getTime()
         }),
       }

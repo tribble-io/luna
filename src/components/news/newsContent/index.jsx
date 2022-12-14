@@ -11,12 +11,12 @@ import NewsEl from './newsEl'
 //                     {props.filterState.items.map(item => (
 //                         <NewsEl
 //                         key={item.id}
-//                         date={item.attributes.date_str}
-//                         title={item.attributes.title}
-//                         cover={item.attributes.cover.data.attributes.url}
+//                         date={item.date_str}
+//                         title={item.title}
+//                         cover={item.cover.data.url}
 //                         items={item}
 //                         location={'/news/' + item.id}
-//                         shows={item.attributes.shows.data}
+//                         shows={item.shows.data}
 //                         itemsMiniNews={props.itemsMiniNews}
 //                         />
 //                     ))}
@@ -52,12 +52,12 @@ let NewsContent = (props) => {
         {props.filterState.items.map((item) => (
           <NewsEl
             key={item.id}
-            date={item.attributes.date_str}
-            title={item.attributes.title}
-            cover={item.attributes.cover.data.attributes.url}
+            date={item.date_str}
+            title={item.title}
+            cover={item.cover.url}
             items={item}
             location={'/news/' + item.id}
-            shows={item.attributes.shows.data}
+            shows={item.shows.data}
             itemsMiniNews={props.itemsMiniNews}
           />
         ))}
@@ -72,12 +72,12 @@ let NewsContent = (props) => {
         {props.filterState.itemsCal.map((item) => (
           <NewsEl
             key={item.id}
-            date={item.attributes.date_str}
-            title={item.attributes.title}
-            cover={item.attributes.cover.data.attributes.url}
+            date={item.date_str}
+            title={item.title}
+            cover={item.cover.url}
             items={item}
             location={'/news/' + item.id}
-            shows={item.attributes.shows.data}
+            shows={item.shows.data}
             itemsMiniNews={props.itemsMiniNews}
           />
         ))}
@@ -89,12 +89,12 @@ let NewsContent = (props) => {
         {props.filterState.items.map((item) => (
           <NewsEl
             key={item.id}
-            date={item.attributes.date_str}
-            title={item.attributes.title}
-            cover={item.attributes.cover.data.attributes.url}
+            date={item.date_str}
+            title={item.title}
+            cover={item.cover.url}
             items={item}
             location={'/news/' + item.id}
-            shows={item.attributes.shows.data}
+            shows={item.shows.data}
             itemsMiniNews={props.itemsMiniNews}
           />
         ))}

@@ -10,14 +10,14 @@ import prez from './img/prez.svg'
 import tobAbs from './img/topAbs.svg'
 import botAbs from './img/botAbs.svg'
 import { PhotoSlider } from '../createElement/photoSlider'
-import { api, API_URL } from '../../api'
+import { API_URL } from '../../api'
 
 function getSliderPhoto(arr) {
   const photo = arr.map((item) => {
     return {
       id: item.id,
-      href: API_URL + item.media.data?.attributes?.formats?.medium?.url,
-      src: API_URL + item.media.data?.attributes?.formats?.small?.url,
+      href: API_URL + item.media?.formats?.medium?.url,
+      src: API_URL + item.media?.formats?.small?.url,
       caption: item.caption,
     }
   })
@@ -33,16 +33,13 @@ class HistoryTheathre extends React.Component {
   }
 
   componentDidMount() {
-    fetch(
-      `http://theatre.restomatik.ru:1337/api/assets/2?populate=gallery,gallery.media`
-    )
+    fetch(`http://theatre.restomatik.ru:1337/api/assets/2?populate=gallery,gallery.media`)
       .then((res) => res.json())
       .then((result) => {
         // api.exportHistoryTheathrePhoto().then((result) => {
         this.setState({
-          items: result.data.attributes.gallery,
+          items: result.data.gallery,
         })
-        console.log(result.data)
       })
   }
 

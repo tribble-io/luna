@@ -18,12 +18,12 @@ let OneOageNews = () => {
   let stateM = {
     miniBlItems: [],
   }
-  let text = state.attributes.text.toString()
+  let text = state.text.toString()
 
   const itemsNews = itemsMiniNews.map((item) => (
     <MiniMews
-      tittle={item.attributes.title}
-      data_str={item.attributes.date_str}
+      tittle={item.title}
+      data_str={item.date_str}
       key={item.id}
       locationNew={'' + item.id}
       items={itemsMiniNews}
@@ -44,13 +44,11 @@ let OneOageNews = () => {
             <div className={styles.mainBlockNewsConst}>
               <div className={styles.newsElHeader}>
                 <div className={styles.blockTageName}>
-                  <div className={styles.tageName}>
-                    {state.attributes.title}
-                  </div>
-                  <div className={styles.data}>{state.attributes.date_str}</div>
+                  <div className={styles.tageName}>{state.title}</div>
+                  <div className={styles.data}>{state.date_str}</div>
                 </div>
                 <div className={styles.imgHeader}>
-                  <img src={URL + state.attributes.cover.data.attributes.url} />
+                  <img src={URL + state.cover.url} />
                 </div>
               </div>
 
@@ -67,22 +65,22 @@ let OneOageNews = () => {
               </div>
             </div>
           </section>
-          {state.attributes.shows.data[0] ? (
+          {state.shows[0] ? (
             <div className={styles.spectakles}>
               <div className={styles.mainBlockNewsConst}>
                 <h1>ПОСТАНОВКИ</h1>
               </div>
               <section className={styles.posterBlock}>
-                {state.attributes.shows.data.map((item) => (
+                {state.shows.map((item) => (
                   <PosterEl
-                    day={item.attributes.date_str.match(/[^\d]+/g)}
+                    day={item.date_str.match(/[^\d]+/g)}
                     key={item.id}
-                    date={parseInt(item.attributes.date_str.match(/\d+/))}
-                    time={item.attributes.time}
-                    title={item.attributes.play.data.attributes.title}
-                    location={item.attributes.play.data.attributes.scene}
-                    rating={item.attributes.play.data.attributes.rating}
-                    buy={item.attributes.tickets_link}
+                    date={parseInt(item.date_str.match(/\d+/))}
+                    time={item.time}
+                    title={item.play.title}
+                    location={item.play.scene}
+                    rating={item.play.rating}
+                    buy={item.tickets_link}
                   />
                 ))}
               </section>
