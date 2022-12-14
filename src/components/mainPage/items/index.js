@@ -57,8 +57,8 @@ export function Item({ items }) {
       checkMargin >= 25
         ? slidesAmount
         : slidesAmount > 1
-          ? slidesAmount - 1
-          : slidesAmount
+        ? slidesAmount - 1
+        : slidesAmount
     // Return amount of slides and margint for each slide
     return {
       slidesPerView: window.screen.width > 992 ? resultSlidesAmount : 'auto',

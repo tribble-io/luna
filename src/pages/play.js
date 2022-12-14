@@ -152,14 +152,14 @@ export function Play() {
     Promise.all([api.exportComingShow(showID), api.exportShowData(showID)])
       .then((values) => {
         setShowItems(values[0])
-        setticketsLink(values[0]?.data[0]?.tickets_link)
+        setticketsLink(values[0]?.tickets_link)
 
         setShowData(getShowData(values[1]))
         setDirectors(values[1]?.directors)
         setRoles(getShowRoles(values[1]?.roles))
-        setPress(getPlayPress(values[1]?.press))
-        setPhoto(getShowPhoto(values[1]?.gallery?.data))
-        setReview(getShowReview(values[1]?.comments?.data))
+        setPress(getPlayPress(values[1]?.pressItems))
+        setPhoto(getShowPhoto(values[1]?.gallery))
+        setReview(getShowReview(values[1]?.comments))
         setIsLoading(false)
       })
       .catch((error) => {

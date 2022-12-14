@@ -22,7 +22,7 @@ let OneOageNews = () => {
 
   const itemsNews = itemsMiniNews.map((item) => (
     <MiniMews
-      tittle={item.title}
+      title={item.title}
       data_str={item.date_str}
       key={item.id}
       locationNew={'' + item.id}

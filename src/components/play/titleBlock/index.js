@@ -84,7 +84,7 @@ export function About({ data, directors }) {
                       {director.position} —{' '}
                     </span>
                     <span>
-                      {director.person.data.map(
+                      {director.person.map(
                         (data, index, arr) =>
                           data.fullname + (index === arr.length - 1 ? '' : ', ')
                       )}
