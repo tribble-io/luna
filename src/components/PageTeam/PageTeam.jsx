@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { api, API_URL } from '../../api'
-import { CreateActorCard, CreateButton } from '../createElement'
+import { CreateButton } from '../createElement'
+import DirectorCard from '../createElement/DirectorCard'
 import { Actors } from '../play'
 import { content, positionsArrayFilters } from './fields'
 import collectiveImg from './img/collective.webp'
@@ -36,7 +37,7 @@ const PageTeam = () => {
         setActiveFilterValue('актёр/актриса')
         break
       case 'приглашенные артисты':
-        setActiveFilterValue('приглашенные артисты')
+        setActiveFilterValue('isGuest')
         break
       case 'режиссеры':
         setActiveFilterValue('режиссёр')
@@ -92,11 +93,7 @@ const PageTeam = () => {
         />
         {!isLoading && content?.length
           ? content.map((data) => (
-              <CreateActorCard
-                data={data}
-                key={`actor-card=${data.id}`}
-                directors={true}
-              />
+              <DirectorCard data={data} key={`actor-card=${data.id}`} />
             ))
           : null}
         <div className={styles.filters}>

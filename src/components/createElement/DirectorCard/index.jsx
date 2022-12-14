@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from './card.module.scss'
+import styles from './directorCard.module.scss'
 
-export function CreateActorCard({ data }) {
+const DirectorCard = ({ data }) => {
   return (
     <>
-      <div className={styles.cardContent}>
-        <div className={styles.cardImg}>
+      <div className={styles.cardDirectorContent}>
+        <div className={styles.cardDirectorImg}>
           <a
             className={styles.imageLink}
             href={'actor/' + data?.id}
@@ -14,7 +14,7 @@ export function CreateActorCard({ data }) {
             <img src={data?.src} alt={data?.name} />
           </a>
         </div>
-        <div className={styles.actorCardText}>
+        <div className={styles.directorCardText}>
           <a
             className={styles.actorName}
             href={'actor/' + data?.id}
@@ -23,8 +23,12 @@ export function CreateActorCard({ data }) {
             {data?.name}
           </a>
           <p className={styles.actorRole}>{data?.role}</p>
+          <p className={styles.actorRank}>{data?.rank}</p>
         </div>
       </div>
+      <p className={styles.actorRankMobile}>{data?.rank}</p>
     </>
   )
 }
+
+export default DirectorCard

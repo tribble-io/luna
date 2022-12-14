@@ -166,8 +166,13 @@ async function exportPressData() {
 }
 
 async function exportShowActors(filter) {
+  const filterActors =
+    filter === 'isGuest'
+      ? `filters[isGuest][$eq]=true`
+      : `[positions][category][$eq]=${filter}`
+
   const result = await axios.get(
-    `${API_URL}/api/persons?filters[positions][category][$eq]=${filter}&populate=cover`
+    `${API_URL}/api/persons?filters${filterActors}&populate=cover`
   )
 
   if (result.status === 200) {
