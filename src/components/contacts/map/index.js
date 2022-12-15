@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './map.module.scss'
 
-export function ContactMap() {
+export function ContactsMap() {
   return (
     <section>
       <div className={styles.wrapper}>
