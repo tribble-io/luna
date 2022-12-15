@@ -14,6 +14,7 @@ import {
   Play,
   RomaskaAwards,
   Press,
+  Contact,
 } from './pages'
 import HistoryTheathre from './components/historyTheathre'
 import Poster from './components/poster/poster'
@@ -40,6 +41,7 @@ function App() {
           <Route path='/theatre-team' element={<PageTeam />} />
           <Route path='/news' element={<News />} />
           <Route exact path='/news/*' element={<OneOageNews />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
         <footer>
           <Block />

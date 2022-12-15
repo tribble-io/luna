@@ -30,7 +30,7 @@ function Nav() {
             <Link to='/press'>Пресса</Link>
           </li>
           <li>
-            <a href='http://www.lunatheatre.ru/pages/kontakty'>Контакты</a>
+            <Link to='contact'>Контакты</Link>
           </li>
         </ul>
         <div className={styles.logoContainer}>
