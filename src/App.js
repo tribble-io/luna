@@ -31,17 +31,17 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route exact path='/' element={<Home />} />
-          <Route path='/theatre-history' element={<HistoryTheathre />} />
+          <Route path='/history' element={<HistoryTheathre />} />
           <Route path='/children-studio' element={<ChildrenStudio />} />
-          <Route path='/posters' element={<Poster />} />
+          <Route path='/playbill' element={<Poster />} />
           <Route path='/plays' element={<Plays />} />
           <Route path='/play/:id' element={<Play />} />
           <Route path='/romaska-awards' element={<RomaskaAwards />} />
           <Route path='/press' element={<Press />} />
-          <Route path='/theatre-team' element={<PageTeam />} />
+          <Route path='/troupe' element={<PageTeam />} />
           <Route path='/news' element={<News />} />
           <Route exact path='/news/*' element={<OneOageNews />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route path='/contacts' element={<Contact />} />
         </Routes>
         <footer>
           <Block />

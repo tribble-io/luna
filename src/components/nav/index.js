@@ -12,16 +12,16 @@ function Nav() {
       <div className={styles.wrapper}>
         <ul>
           <li>
-            <Link to='/posters'>Афиша</Link>
+            <Link to='/playbill'>Афиша</Link>
           </li>
           <li>
             <Link to='/plays'>Спектакли</Link>
           </li>
           <li>
-            <Link to='/theatre-team'>Труппа</Link>
+            <Link to='/troupe'>Труппа</Link>
           </li>
           <li>
-            <Link to='/theatre-history'>театр</Link>
+            <Link to='/history'>театр</Link>
           </li>
           <li>
             <Link to='/news'>Новости</Link>
@@ -30,7 +30,7 @@ function Nav() {
             <Link to='/press'>Пресса</Link>
           </li>
           <li>
-            <Link to='contact'>Контакты</Link>
+            <Link to='/contacts'>Контакты</Link>
           </li>
         </ul>
         <div className={styles.logoContainer}>

@@ -31,7 +31,7 @@ export default function LastBlock() {
             <Link to='/plays'>
               <h3>репертуар</h3>
             </Link>
-            <Link to='/posters'>
+            <Link to='/playbill'>
               <p>афиша</p>
             </Link>
             <Link to='/plays'>
@@ -48,7 +48,7 @@ export default function LastBlock() {
             <a href='http://www.lunatheatre.ru/actors'>
               <p>творческий состав</p>
             </a>
-            <a href='/posters'>
+            <a href='/playbill'>
               <p>афиша</p>
             </a>
             <Link to='/plays'>

@@ -57,25 +57,25 @@ function Header() {
           >
             <ul className={styles.mobileMenuList}>
               <li>
-                <Link to='/posters'>Афиша</Link>
+                <Link to='/playbill'>Афиша</Link>
               </li>
               <li>
                 <Link to='/plays'>Спектакли</Link>
               </li>
               <li>
-                <Link to='/theatre-team'>Труппа</Link>
+                <Link to='/troupe'>Труппа</Link>
               </li>
               <li>
-                <Link to='/theatre-history'>театр</Link>
+                <Link to='/history'>Театр</Link>
               </li>
               <li>
                 <Link to='/news'>Новости</Link>
               </li>
               <li>
-                <Link to='/news'>Пресса</Link>
+                <Link to='/press'>Пресса</Link>
               </li>
               <li>
-                <a href='http://www.lunatheatre.ru/pages/kontakty'>Контакты</a>
+                <Link to='/contacts'>Контакты</Link>
               </li>
             </ul>
           </div>
