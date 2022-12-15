@@ -87,13 +87,13 @@ $wk-font-size: 23px;
   }
 }
 
-.dateBtnContainerHover:hover > img,
-.dateBtnContainerSelected > img {
+.dateBtnContainerHover:hover>img,
+.dateBtnContainerSelected>img {
   scale: 1;
 }
 
-.dateBtnContainerHover:hover > img,
-.dateBtnContainerSelected:hover > img {
+.dateBtnContainerHover:hover>img,
+.dateBtnContainerSelected:hover>img {
   filter: drop-shadow(0px 0px 5px #d5d5d5);
 }
 
@@ -113,8 +113,8 @@ $wk-font-size: 23px;
     box-shadow 0.1s;
 }
 
-.dateBtnContainerHover:hover > .dateContainer,
-.dateBtnContainerSelected > .dateContainer {
+.dateBtnContainerHover:hover>.dateContainer,
+.dateBtnContainerSelected>.dateContainer {
   position: absolute;
   z-index: 2;
 
@@ -147,12 +147,12 @@ $wk-font-size: 23px;
   }
 }
 
-.dateBtnContainer > .dateContainer > .dateNum {
+.dateBtnContainer>.dateContainer>.dateNum {
   color: #926363;
 }
 
-.dateBtnContainerHover > .dateContainer > .dateNum,
-.dateBtnContainerSelected > .dateContainer > .dateNum {
+.dateBtnContainerHover>.dateContainer>.dateNum,
+.dateBtnContainerSelected>.dateContainer>.dateNum {
   color: #eeeeee;
 
   a {
@@ -160,13 +160,13 @@ $wk-font-size: 23px;
   }
 }
 
-.dateBtnContainer > .dateContainer,
-.dateBtnContainerSelected > .dateContainer {
+.dateBtnContainer>.dateContainer,
+.dateBtnContainerSelected>.dateContainer {
   cursor: var(--cursor);
 }
 
-.dateBtnContainerHover:hover > .dateContainer > .dateNum,
-.dateBtnContainerSelected > .dateContainer > .dateNum {
+.dateBtnContainerHover:hover>.dateContainer>.dateNum,
+.dateBtnContainerSelected>.dateContainer>.dateNum {
   font-weight: 450;
   font-size: $sel-font-size;
   width: $date-width;
@@ -199,7 +199,6 @@ $wk-font-size: 23px;
   .mobileButton {
     display: block;
     width: 100%;
-    background-color: #08091d;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
