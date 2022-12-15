@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useWindowScrollPositions } from '../../assets/utils/usable-function'
 import styles from './header.module.scss'
 
@@ -56,22 +57,22 @@ function Header() {
           >
             <ul className={styles.mobileMenuList}>
               <li>
-                <a href='http://www.lunatheatre.ru/afisha'>Афиша</a>
+                <Link to='/posters'>Афиша</Link>
               </li>
               <li>
-                <a href='/plays'>Спектакли</a>
+                <Link to='/plays'>Спектакли</Link>
               </li>
               <li>
-                <a href='http://www.lunatheatre.ru/actors'>труппа</a>
+                <Link to='/theatre-team'>Труппа</Link>
               </li>
               <li>
-                <a href='http://www.lunatheatre.ru/pages/o-lune'>театр</a>
+                <Link to='/theatre-history'>театр</Link>
               </li>
               <li>
-                <a href='http://www.lunatheatre.ru/news'>Новости</a>
+                <Link to='/news'>Новости</Link>
               </li>
               <li>
-                <a href='http://www.lunatheatre.ru/smi'>Пресса</a>
+                <Link to='/news'>Пресса</Link>
               </li>
               <li>
                 <a href='http://www.lunatheatre.ru/pages/kontakty'>Контакты</a>

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // Import Swiper styles
@@ -89,11 +89,9 @@ export function Slider({ items, firstDate }) {
                 <div className={styles.startCalendarText}>
                   <h1>{MONTHS[firstDate.getMonth()]}</h1>
                   <div className={styles.buttons}>
-                    <a href='http://www.lunatheatre.ru/shows'>
-                      <div className={styles.allPost}>
-                        <p>Все спектакли</p>
-                      </div>
-                    </a>
+                    <Link to='/plays' className={styles.allPost}>
+                      <p>Все спектакли</p>
+                    </Link>
                   </div>
                 </div>
               </div>
