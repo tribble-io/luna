@@ -38,9 +38,10 @@
   width: 100%;
   height: 500px;
   background-blend-mode: exclusion, hard-light;
-  background-image: linear-gradient(#000000, #000000),
-    linear-gradient(#f1fdcd, #fcfcc7);
-
+  // background-image: linear-gradient(#000000, #000000),
+  //   linear-gradient(#f1fdcd, #fcfcc7);
+  background-image: linear-gradient(#2a2b4c, #272a49),
+    linear-gradient(#ffffff, #ffffff);
   iframe {
     mix-blend-mode: exclusion;
   }
