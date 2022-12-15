@@ -46,7 +46,7 @@ export function Slider({ items, firstDate }) {
             key={offer.id}
             style={{
               background: `url('http://theatre.restomatik.ru:1337${offer.play.cover.url}') no-repeat top / cover`,
-              backgroundColor: '#15141e',
+              backgroundColor: '#08091D',
             }}
           >
             <div className={styles.slide}>

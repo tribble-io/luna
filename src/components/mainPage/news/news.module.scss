@@ -49,6 +49,7 @@
 
     .mobileVisible {
       display: none;
+
       @media (max-width: 576px) {
         display: block;
       }
@@ -154,9 +155,11 @@
       font-weight: 600;
       font-size: 25px;
       line-height: 148%;
+
       @media (max-width: 1200px) {
         font-size: 20px;
       }
+
       @media (max-width: 576px) {
         font-size: 12px;
       }
@@ -164,6 +167,7 @@
 
     .date {
       font-size: 16px;
+
       @media (max-width: 576px) {
         font-size: 12px;
       }
@@ -193,6 +197,7 @@
     grid-row-end: 7;
 
     @extend .smallNewsItem;
+
     @media (max-width: 1200px) {
       grid-column-start: 1;
       grid-column-end: 3;
@@ -219,6 +224,7 @@
     display: flex;
     flex-direction: column;
     padding: 25px;
+
     @media (max-width: 576px) {
       padding: 25 20px;
     }
@@ -234,6 +240,7 @@
         line-height: 148%;
         font-weight: 600;
         margin-bottom: 10px;
+
         @media (max-width: 576px) {
           font-size: 12px;
         }
@@ -250,9 +257,11 @@
         font-weight: 400;
         color: white;
         margin-top: auto;
+
         @media (max-width: 1200px) {
           font-size: 14px;
         }
+
         @media (max-width: 576px) {
           display: none;
         }
@@ -264,7 +273,7 @@
 .mobileButton {
   display: block;
   width: 100%;
-  background-color: #15141e;
+  background-color: #08091D;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
@@ -272,6 +281,7 @@
   @media (min-width: 576px) {
     display: none;
   }
+
   a {
     display: block;
     width: 100%;
