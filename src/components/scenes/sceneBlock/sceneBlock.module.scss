@@ -1,0 +1,102 @@
+@import '../../../assets/main.scss';
+
+.wrapper {
+  @include container;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $text-color;
+}
+
+.sceneContent {
+  padding-top: 200px;
+  padding-bottom: 350px;
+  @media (max-width: 768px) {
+    padding-top: 150px;
+    padding-bottom: 200px;
+  }
+
+  @media (max-width: 500px) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  h1 {
+    @include headline_first;
+  }
+
+  .sceneList {
+    padding-top: 100px;
+
+    .sceneBlock {
+      h2 {
+        @include headline_second;
+        margin-bottom: 100px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 200px;
+      }
+    }
+
+    .scenePhotoList {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: repeat(2, 1fr);
+      column-gap: 20px;
+      row-gap: 16px;
+
+      margin-bottom: 100px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+
+      .scenePhotoBig {
+        grid-row: span 2;
+
+        img {
+          width: auto;
+          height: 100%;
+        }
+      }
+
+      .photoLink {
+        display: block;
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .photo {
+        object-fit: cover;
+        backface-visibility: hidden;
+        transition: transform 0.7s ease-in-out;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .sceneScheme {
+      p:not(:last-child) {
+        margin-bottom: 20px;
+      } 
+
+      a {
+        border-bottom: 1px solid $text-color;
+
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 160%;
+        text-transform: uppercase;
+        color: $text-color;
+      }
+    }
+  }
+}
