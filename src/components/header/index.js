@@ -32,14 +32,14 @@ function Header() {
             Версия для <br /> слабовидящих
           </a>
         </div>
-        <div className={styles.mobileLogo}>
+        <Link to='/' className={styles.mobileLogo}>
           <img
             className={styles.mobileLogoImg}
             id={'href'}
             src='/img/logo.png'
             alt=''
           />
-        </div>
+        </Link>
         <div className={styles.mobileMenu}>
           <div className={styles.mobileMenuIcon} onClick={() => setOpen(!open)}>
             <div
@@ -80,7 +80,8 @@ function Header() {
             </ul>
           </div>
         </div>
-        <div
+        <Link
+          to='/'
           className={styles.logoContainer}
           style={{
             transition: 'all 0.3s linear',
@@ -95,7 +96,7 @@ function Header() {
             src='/img/text_logo.png'
             alt=''
           />
-        </div>
+        </Link>
       </div>
     </header>
   )

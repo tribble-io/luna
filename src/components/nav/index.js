@@ -33,7 +33,7 @@ function Nav() {
             <Link to='/contacts'>Контакты</Link>
           </li>
         </ul>
-        <div className={styles.logoContainer}>
+        <Link className={styles.logoContainer} to='/'>
           <img
             style={{
               opacity: opacityEl,
@@ -43,7 +43,7 @@ function Nav() {
             src='/img/logo.png'
             alt=''
           />
-        </div>
+        </Link>
       </div>
     </nav>
   )
