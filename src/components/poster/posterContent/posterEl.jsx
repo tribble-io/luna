@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './postercontent.module.scss'
 
 let PosterEl = (props) => {
@@ -17,7 +18,11 @@ let PosterEl = (props) => {
               </div>
               <div className={styles.name}>
                 <div>
-                  <div>{props.title}</div>
+                  <div>
+                    <Link style={{ color: 'white' }} to={props.playLink}>
+                      {props.title}
+                    </Link>
+                  </div>
                   <div className={styles.premier}>{props.premier}</div>
                 </div>
                 <div className={styles.scien}>{props.location}</div>
