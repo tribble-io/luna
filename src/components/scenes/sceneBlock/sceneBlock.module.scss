@@ -31,10 +31,18 @@
       h2 {
         @include headline_second;
         margin-bottom: 100px;
+
+        @media (max-width: 500px) {
+          margin-bottom: 50px;
+        }
       }
 
       &:not(:last-child) {
         margin-bottom: 200px;
+
+        @media (max-width: 500px) {
+          margin-bottom: 100px;
+        }
       }
     }
 
@@ -47,8 +55,9 @@
 
       margin-bottom: 100px;
 
-      @media (max-width: 768px) {
-        grid-template-columns: 1fr;
+      @media (max-width: 500px) {
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 50px;
       }
 
       .scenePhotoBig {
