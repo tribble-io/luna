@@ -2,20 +2,20 @@ import React from 'react'
 import PosterContent from '../posterContent'
 import SortPoster from '../SortPoster'
 
-const MONTHS = [
+let MONTHS = [
   '',
-  'ЯНВАРЬ',
-  'ФЕВРАЛЬ',
-  'МАРТ',
-  'АПРЕЛЬ',
-  'МАЙ',
-  'ИЮНЬ',
-  'ИЮЛЬ',
-  'АВГУСТ',
-  'СЕНТЯБРЬ',
-  'ОКТЯБРЬ',
-  'НОЯБРЬ',
-  'ДЕКАБРЬ',
+  'январь',
+  'февраль',
+  'март',
+  'апрель',
+  'май',
+  'июнь',
+  'июль',
+  'август',
+  'сентябрь',
+  'октябрь',
+  'ноябрь',
+  'декабрь',
 ]
 
 class Poster extends React.Component {

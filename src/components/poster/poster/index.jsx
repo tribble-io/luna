@@ -4,24 +4,167 @@ import SortPoster from '../SortPoster'
 
 const MONTHS = [
   '',
-  'ЯНВАРЬ',
-  'ФЕВРАЛЬ',
-  'МАРТ',
-  'АПРЕЛЬ',
-  'МАЙ',
-  'ИЮНЬ',
-  'ИЮЛЬ',
-  'АВГУСТ',
-  'СЕНТЯБРЬ',
-  'ОКТЯБРЬ',
-  'НОЯБРЬ',
-  'ДЕКАБРЬ',
+  'январь',
+  'февраль',
+  'март',
+  'апрель',
+  'май',
+  'июнь',
+  'июль',
+  'август',
+  'сентябрь',
+  'октябрь',
+  'ноябрь',
+  'декабрь',
 ]
 
 class Poster extends React.Component {
   constructor() {
     super()
 
+    let actualDate = new Date()
+    let actualMoth = actualDate.getMonth()
+    let actualYear = actualDate.getFullYear()
+    let month = Number(actualMoth)
+    let formatMoth
+    let nextMonth = month + 1 === 12 ? 1 : month + 1
+    let actualDateFormate = [
+      month + 1,
+      '01',
+      actualYear,
+      nextMonth,
+      '01',
+      month === 11 ? actualYear + 1 : actualYear,
+    ]
+    const go = 5
+
+    let monthName = [
+      '',
+      'январь',
+      'февраль',
+      'март',
+      'апрель',
+      'май',
+      'июнь',
+      'июль',
+      'август',
+      'сентябрь',
+      'октябрь',
+      'ноябрь',
+      'декабрь',
+    ]
+
+    let actualMoth_str = monthName[actualDateFormate[0]]
+    let nextMoth_str =
+      monthName[actualDateFormate[0] === 12 ? 1 : actualDateFormate[0] + 1]
+
+    const dateList = {}
+
+    for (let i = 0; i < go; i++) {
+      if (actualDateFormate[0] === 13) {
+        actualDateFormate[0] = 1
+        actualDateFormate[2] += 1
+        actualDateFormate[3] = 1
+        actualDateFormate[3] += 1
+      }
+      if (actualDateFormate[3] === 13) {
+        actualDateFormate[3] = 0
+        actualDateFormate[3] += 1
+        actualDateFormate[5] += 1
+      }
+      switch (actualDateFormate[0]) {
+        case 1:
+          formatMoth = '01'
+          break
+        case 2:
+          formatMoth = '02'
+          break
+        case 3:
+          formatMoth = '03'
+          break
+        case 4:
+          formatMoth = '04'
+          break
+        case 5:
+          formatMoth = '05'
+          break
+        case 6:
+          formatMoth = '06'
+          break
+        case 7:
+          formatMoth = '07'
+          break
+        case 8:
+          formatMoth = '08'
+          break
+        case 9:
+          formatMoth = '09'
+          break
+        case 10:
+          formatMoth = '10'
+          break
+        case 11:
+          formatMoth = '11'
+          break
+        case 12:
+          formatMoth = '12'
+          break
+        default:
+          formatMoth = ''
+      }
+      switch (actualDateFormate[3]) {
+        case 1:
+          nextMonth = '01'
+          break
+        case 2:
+          nextMonth = '02'
+          break
+        case 3:
+          nextMonth = '03'
+          break
+        case 4:
+          nextMonth = '04'
+          break
+        case 5:
+          nextMonth = '05'
+          break
+        case 6:
+          nextMonth = '06'
+          break
+        case 7:
+          nextMonth = '07'
+          break
+        case 8:
+          nextMonth = '08'
+          break
+        case 9:
+          nextMonth = '09'
+          break
+        case 10:
+          nextMonth = '10'
+          break
+        case 11:
+          nextMonth = '11'
+          break
+        case 12:
+          nextMonth = '12'
+          break
+        default:
+          nextMonth = ''
+      }
+
+      dateList[monthName[actualDateFormate[0]]] = [
+        formatMoth,
+        actualDateFormate[1],
+        actualDateFormate[2],
+        nextMonth,
+        actualDateFormate[4],
+        actualDateFormate[5],
+      ]
+      actualDateFormate[0] += 1
+      actualDateFormate[3] += 1
+      month += 1
+    }
     const MONTHS_num = [
       '',
       '01',
@@ -50,10 +193,10 @@ class Poster extends React.Component {
       filterState: MONTHS[(todayDataM % 12) + 1],
       filerLocation: 'ВСЕ СЦЕНЫ',
       m: MONTHS_num[(todayDataM % 12) + 1],
-      m_str: todayDataM,
-      m_next: MONTHS_num[((todayDataM + 1) % 12) + 1],
-      y: todayData.getFullYear(),
-      y_next: todayData.getFullYear() + 1,
+      m_str: dateList[actualMoth_str][0],
+      m_next: dateList[actualMoth_str][3],
+      y: dateList[actualMoth_str][2],
+      y_next: dateList[actualMoth_str][5],
       isLoaded: true,
       items: [],
       itemsNew: [],
@@ -63,9 +206,15 @@ class Poster extends React.Component {
       day_next: '01',
       itemsCal: [],
       checkFilter: 0,
+      dataList: dateList,
+      monthName: monthName,
+      actualMoth_str: actualMoth_str,
+      nextMoth_str: nextMoth_str,
+      dataArr: dateList[actualMoth_str],
+      nextDate: dateList[nextMoth_str],
     }
+    console.log(this.state.actualData)
   }
-
   daysInMonth = (month, year) => {
     return new Date(year, month, 0).getDate()
   }
@@ -111,183 +260,29 @@ class Poster extends React.Component {
 
   search = (c) => {
     this.setState(() => {
-      return { search: c, day: '01', day_next: '01', y: this.state.y_next }
+      return { search: c }
     })
     this.componentDidMount()
   }
   filterLocation = (b) => {
     this.setState(() => {
-      return { filerLocation: b, day: '01', day_next: '01', y: this.state.y }
+      return { filerLocation: b }
     })
     this.componentDidMount()
   }
+
   filterStateUpdate = (a) => {
     this.setState(() => {
       return {
         filterState: a,
-        m_str: a,
-        m: this.v1(a),
-        m_next: this.v2(a),
-        y: this.v3(a),
-        y_next: this.v4(a),
         day_next: '01',
         day: '01',
+        dataArr: this.state.dataList[a],
       }
     })
-
     this.componentDidMount()
   }
 
-  v1 = (a) => {
-    switch (a) {
-      case 'ЯНВАРЬ':
-        return '01'
-      case 'ФЕВРАЛЬ':
-        return '02'
-      case 'МАРТ':
-        return '03'
-      case 'АПРЕЛЬ':
-        return '04'
-      case 'МАЙ':
-        return '05'
-      case 'ИЮНЬ':
-        return '06'
-      case 'ИЮЛЬ':
-        return '07'
-      case 'АВГУСТ':
-        return '08'
-      case 'СЕНТЯБРЬ':
-        return '09'
-      case 'ОКТЯБРЬ':
-        return '10'
-      case 'НОЯБРЬ':
-        return '11'
-      case 'ДЕКАБРЬ':
-        return '12'
-      default:
-        return ''
-    }
-  }
-  v2 = (a) => {
-    switch (a) {
-      case 'ЯНВАРЬ':
-        return '02'
-      case 'ФЕВРАЛЬ':
-        return '03'
-      case 'МАРТ':
-        return '04'
-      case 'АПРЕЛЬ':
-        return '05'
-      case 'МАЙ':
-        return '06'
-      case 'ИЮНЬ':
-        return '07'
-      case 'ИЮЛЬ':
-        return '08'
-      case 'АВГУСТ':
-        return '09'
-      case 'СЕНТЯБРЬ':
-        return '10'
-      case 'ОКТЯБРЬ':
-        return '11'
-      case 'НОЯБРЬ':
-        return '12'
-      case 'ДЕКАБРЬ':
-        return '01'
-      default:
-        return ''
-    }
-  }
-  v3 = (a) => {
-    switch (a) {
-      case 'ЯНВАРЬ':
-        return '2023'
-      case 'ФЕВРАЛЬ':
-        return '2023'
-      case 'МАРТ':
-        return '2023'
-      case 'АПРЕЛЬ':
-        return '2023'
-      case 'МАЙ':
-        return '2023'
-      case 'ИЮНЬ':
-        return '2023'
-      case 'ИЮЛЬ':
-        return '2023'
-      case 'АВГУСТ':
-        return '2023'
-      case 'СЕНТЯБРЬ':
-        return '2023'
-      case 'ОКТЯБРЬ':
-        return '2023'
-      case 'НОЯБРЬ':
-        return '2022'
-      case 'ДЕКАБРЬ':
-        return '2022'
-      default:
-        return ''
-    }
-  }
-  v4 = (a) => {
-    switch (a) {
-      case 'ЯНВАРЬ':
-        return '2023'
-      case 'ФЕВРАЛЬ':
-        return '2023'
-      case 'МАРТ':
-        return '2023'
-      case 'АПРЕЛЬ':
-        return '2023'
-      case 'МАЙ':
-        return '2023'
-      case 'ИЮНЬ':
-        return '2023'
-      case 'ИЮЛЬ':
-        return '2023'
-      case 'АВГУСТ':
-        return '2023'
-      case 'СЕНТЯБРЬ':
-        return '2023'
-      case 'ОКТЯБРЬ':
-        return '2023'
-      case 'НОЯБРЬ':
-        return '2023'
-      case 'ДЕКАБРЬ':
-        return '2023'
-      default:
-        return ''
-    }
-  }
-  v5 = (a) => {
-    switch (a) {
-      case '01':
-        return 'ЯНВАРЬ'
-      case '02':
-        return 'ФЕВРАЛЬ'
-      case '03':
-        return 'МАРТ'
-      case '04':
-        return 'АПРЕЛЬ'
-      case '05':
-        return 'МАЙ'
-      case '06':
-        return 'ИЮНЬ'
-      case '07':
-        return 'ИЮЛЬ'
-      case '08':
-        return 'АВГУСТ'
-      case '09':
-        return 'СЕНТЯБРЬ'
-      case '10':
-        return 'ОКТЯБРЬ'
-      case '11':
-        return 'НОЯБРЬ'
-      case '12':
-        return 'ДЕКАБРЬ'
-      default:
-        return ''
-    }
-  }
   getWeekDay(date) {
     let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ']
     let dates = new Date(date)
@@ -297,17 +292,20 @@ class Poster extends React.Component {
 
   componentDidMount() {
     setTimeout(() => {
-      let date = this.state.y + '-' + this.state.m + '-' + this.state.day
+      let date =
+        this.state.dataArr[2] +
+        '-' +
+        this.state.dataArr[0] +
+        '-' +
+        this.state.day
       let lastDate =
-        this.state.y_next + '-' + this.state.m_next + '-' + this.state.day_next //вернуть нормадьный вариант
+        this.state.dataArr[5] +
+        '-' +
+        this.state.dataArr[3] +
+        '-' +
+        this.state.dataArr[4]
       let seachEl = this.state.search
       let filters = this.state.filerLocation
-
-      this.setState(() => {
-        return {
-          date: this.state.y + '-' + this.state.m + '-' + this.state.day,
-        }
-      })
 
       let filtPathc
 
@@ -365,10 +363,7 @@ class Poster extends React.Component {
           lastDay = '09'
         }
 
-        let lastDayForMoth = daysInMonth(
-          this.state.m,
-          this.state.m === '12' ? this.state.y : this.state.y_next
-        )
+        let lastDayForMoth = daysInMonth(this.state.m, this.state.dataArr[2])
         lastDayForMoth.toString()
 
         if (lastDay === lastDayForMoth + 1) {
@@ -377,16 +372,14 @@ class Poster extends React.Component {
 
         lastDay.toString()
 
-        let calDate = this.state.y + '-' + this.state.m + '-' + this.state.day
+        let calDate =
+          this.state.dataArr[2] +
+          '-' +
+          this.state.dataArr[0] +
+          '-' +
+          this.state.day
         let calLastDate =
-          this.state.y +
-          '-' +
-          (lastDay === '01' && this.state.m === '12'
-            ? this.state.m_next
-            : this.state.m) +
-          '-' +
-          lastDay
-        debugger
+          this.state.dataArr[2] + '-' + this.state.dataArr[0] + '-' + lastDay
 
         fetch(
           `http://theatre.restomatik.ru:1337/api/shows?filters[date][$gte]=${calDate}&filters[date][$lt]=${calLastDate}&sort[0]=date&${filtPathc}populate=play&filters[play][title][$containsi]=${seachEl}`

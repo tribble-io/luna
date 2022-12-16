@@ -3,27 +3,26 @@ import styles from './sortposter.module.scss'
 import searchImg from './img/search.svg'
 import calendarImg from './img/calendar.svg'
 
-const MONTHS = [
+let MONTHS = [
   '',
-  'ЯНВАРЬ',
-  'ФЕВРАЛЬ',
-  'МАРТ',
-  'АПРЕЛЬ',
-  'МАЙ',
-  'ИЮНЬ',
-  'ИЮЛЬ',
-  'АВГУСТ',
-  'СЕНТЯБРЬ',
-  'ОКТЯБРЬ',
-  'НОЯБРЬ',
-  'ДЕКАБРЬ',
+  'январь',
+  'февраль',
+  'март',
+  'апрель',
+  'май',
+  'июнь',
+  'июль',
+  'август',
+  'сентябрь',
+  'октябрь',
+  'ноябрь',
+  'декабрь',
 ]
-
 const BUTTONS = [
   'ВСЕ СЦЕНЫ',
   'БОЛЬШАЯ СЦЕНА',
   'МАЛАЯ СЦЕНА',
-  'ЗАЛ "МАЛЕНЬКАЯ ЛУНА"',
+  'ЗАЛ «МАЛЕНЬКАЯ ЛУНА»',
 ]
 
 // Строим кнопки на этот и 4 месяца вперёд
@@ -36,7 +35,6 @@ for (let i = 0; i < 5; i++) {
 //
 const SortPoster = (props) => {
   const [open, openClosedCalendar] = React.useState(false)
-  const [clickDay, changeDay] = React.useState(false)
 
   // Получаем количество дней в текущем месяце и делаем из них массив
   let daysInMonth = (month, year) => {
