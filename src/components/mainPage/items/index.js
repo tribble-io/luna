@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
-
+import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { API_URL } from '../../../api'
 // Import Swiper styles
 import 'swiper/css'
 import './styles.css'
@@ -101,13 +103,13 @@ export function Item({ items }) {
                 '--place-text-color': itemCheckPlace(item).text_color,
               }}
             >
-              <a href={`play/${item.play.id}`} className={styles.imgLink}>
+              <Link to={`play/${item.play.id}`} className={styles.imgLink}>
                 <img
                   className={styles.cardImg}
-                  src={`http://theatre.restomatik.ru:1337${item.play.cover.formats.small.url}`}
+                  src={API_URL + item.play.cover.formats.small.url}
                   alt=''
                 />
-              </a>
+              </Link>
               <div className={styles.meta}>
                 <img
                   src='/img/item_curtain.png'

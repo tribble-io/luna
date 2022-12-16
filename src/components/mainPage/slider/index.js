@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+import { API_URL } from '../../../api'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/effect-fade'
@@ -45,7 +46,9 @@ export function Slider({ items, firstDate }) {
           <SwiperSlide
             key={offer.id}
             style={{
-              background: `url('http://theatre.restomatik.ru:1337${offer.play.cover.url}') no-repeat top / cover`,
+              background: `url(${
+                API_URL + offer.play.cover.url
+              }) no-repeat top / cover`,
               backgroundColor: '#08091D',
             }}
           >
@@ -55,7 +58,9 @@ export function Slider({ items, firstDate }) {
                   <p className={styles.author}>
                     {offer.play.director.fullname}
                   </p>
-                  <p className={styles.title}>{offer.play.title}</p>
+                  <Link className={styles.title} to={`/play/${offer.play.id}`}>
+                    {offer.play.title}
+                  </Link>
                   {offer.play.isPremiere ? (
                     <div className={styles.premiere}>
                       <a href={offer.webSite}>Премьера</a>
@@ -80,7 +85,9 @@ export function Slider({ items, firstDate }) {
                   <div
                     className={styles.startCalendar}
                     style={{
-                      background: `url('http://theatre.restomatik.ru:1337${offer.play.cover.url}')no-repeat bottom / cover`,
+                      background: `url('${
+                        API_URL + offer.play.cover.url
+                      }')no-repeat bottom / cover`,
                     }}
                   >
                     <div className={styles.overlay}></div>
