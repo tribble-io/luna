@@ -4,6 +4,13 @@ import styles from './postercontent.module.scss'
 
 let PosterEl = (props) => {
   if (props.day) {
+    let location
+
+    if (props.location === 'Зал "Маленькая Луна"') {
+      location = 'Зал «Маленькая Луна»'
+    } else {
+      location = props.location
+    }
     return (
       <div className={styles.posterContent}>
         <div className={styles.posterContent_el}>
@@ -25,7 +32,7 @@ let PosterEl = (props) => {
                   </div>
                   <div className={styles.premier}>{props.premier}</div>
                 </div>
-                <div className={styles.scien}>{props.location}</div>
+                <div className={styles.scien}>{location}</div>
               </div>
             </div>
             <div className={styles.restrictionBlock}>
