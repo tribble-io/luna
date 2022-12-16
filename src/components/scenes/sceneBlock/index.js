@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './sceneBlock.module.scss'
 import { Fancybox } from '../../createElement'
 
-export function SceneBlock() {
+export function SceneBlock({ docs }) {
   return (
     <section>
       <div className={styles.wrapper}>
@@ -86,13 +86,31 @@ export function SceneBlock() {
               </Fancybox>
               <div className={styles.sceneScheme}>
                 <p>
-                  <a href=''>Технический план большой сцены</a>
+                  <a
+                    href={docs.big.techn_plan}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Технический план большой сцены
+                  </a>
                 </p>
                 <p>
-                  <a href=''>Схема светового оборудования</a>
+                  <a
+                    href={docs.big.light_scheme}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Схема светового оборудования
+                  </a>
                 </p>
                 <p>
-                  <a href=''>Схема звукового оборудования</a>
+                  <a
+                    href={docs.big.sound_scheme}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Схема звукового оборудования
+                  </a>
                 </p>
               </div>
             </div>
@@ -172,13 +190,31 @@ export function SceneBlock() {
               </Fancybox>
               <div className={styles.sceneScheme}>
                 <p>
-                  <a href=''>ТЕХНИЧЕСКИЙ ПЛАН малой СЦЕНЫ</a>
+                  <a
+                    href={docs.small.techn_plan}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Технический план малой сцены
+                  </a>
                 </p>
                 <p>
-                  <a href=''>Схема светового оборудования</a>
+                  <a
+                    href={docs.small.light_scheme}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Схема светового оборудования
+                  </a>
                 </p>
                 <p>
-                  <a href=''>Схема звукового оборудования</a>
+                  <a
+                    href={docs.small.sound_scheme}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Схема звукового оборудования
+                  </a>
                 </p>
               </div>
             </div>
@@ -187,10 +223,22 @@ export function SceneBlock() {
               <h2>сцена «маленькая луна»</h2>
               <div className={styles.sceneScheme}>
                 <p>
-                  <a href=''>СХЕМА ЗРИТЕЛЬНОГО ЗАЛА</a>
+                  <a
+                    href={docs.luna.techn_plan}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    СХЕМА ЗРИТЕЛЬНОГО ЗАЛА
+                  </a>
                 </p>
                 <p>
-                  <a href=''>Схема звукового оборудования</a>
+                  <a
+                    href={docs.luna.sound_scheme}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Схема звукового оборудования
+                  </a>
                 </p>
               </div>
             </div>
