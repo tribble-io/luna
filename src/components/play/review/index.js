@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from './review.module.scss'
 import ReactMarkdown from 'react-markdown'
+import { IsMobile } from '../../../assets'
 
 function cutToLength(text, length) {
   if (text.length > length) {
@@ -12,7 +13,7 @@ function cutToLength(text, length) {
 
 export function Review({ review }) {
   const [reviewArr, setReviewArr] = useState(review)
-  const reviewLineaAmount = 2
+  const reviewLineaAmount = IsMobile ? 1 : 2
   const [actPage, setActPage] = useState(1)
   const [allPages, setAllPages] = useState(1)
 
@@ -77,14 +78,12 @@ export function Review({ review }) {
                   {data.theaterAnswer ? (
                     <div className={styles.adminBlock}>
                       <div className={styles.avatar}>{data.name[0]}</div>
+                      <div className={styles.vector}>
+                        <img src='/img/vector.png' alt='' />
+                      </div>
                       <div className={styles.authorName}>
                         <div className={styles.name}>
-                          <img
-                            src='/img/vector.png'
-                            alt=''
-                            className={styles.vector}
-                          />
-                          Администрация &#171;Театра Луны&#187;
+                          Администрация &#171;Театра&#160;Луны&#187;
                         </div>
                       </div>
                       <div className={styles.date}>{data.createdAt}</div>
