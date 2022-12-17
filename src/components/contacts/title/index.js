@@ -150,7 +150,6 @@ export function ContactsList() {
 
             <div className={styles.contactsBlock}>
               <h2>Заведующий труппой</h2>
-              <p className={styles.text}>???</p>
               <p className={styles.subTitle}>телефон</p>
               <a className={styles.contactsLink} href='tel:84959515544'>
                 +7 (495) 951-55-44
@@ -162,11 +161,25 @@ export function ContactsList() {
               >
                 zt-moon@yandex.ru
               </a>
+              <div className={styles.proffActors}>
+                <p className={styles.text}>
+                  Профессиональным актёрам, желающим принять участие в показе
+                  (дата и время будут сообщены в индивидуальном порядке),
+                  необходимо выслать:
+                </p>
+                <ol className={styles.proffActorsList}>
+                  <li>2 фото (крупный и общий план)</li>
+                  <li>
+                    резюме (полное название учебного заведения, возраст, рост,
+                    уровень владения вокалом)
+                  </li>
+                  <li>контактный телефон.</li>
+                </ol>
+              </div>
             </div>
 
             <div className={styles.contactsBlock}>
               <h2>Руководитель PR-отдела</h2>
-              <p className={styles.text}>???</p>
               <p className={styles.subTitle}>телефон</p>
               <a className={styles.contactsLink} href='tel:84959530847'>
                 +7 (495) 953-08-47
@@ -174,23 +187,6 @@ export function ContactsList() {
             </div>
           </div>
 
-          <div className={styles.proffActors}>
-            <div className={styles.contactsBlock}>
-              <p className={styles.text}>
-                Профессиональным актёрам, желающим принять участие в показе
-                (дата и время будут сообщены в индивидуальном порядке),
-                необходимо выслать:
-              </p>
-              <ol className={styles.proffActorsList}>
-                <li>2 фото (крупный и общий план)</li>
-                <li>
-                  резюме (полное название учебного заведения, возраст, рост,
-                  уровень владения вокалом)
-                </li>
-                <li>контактный телефон.</li>
-              </ol>
-            </div>
-          </div>
           <div className={styles.generalInfo}>
             <div className={styles.generalBlock}>
               <p className={styles.generalSubTitle}>Полное наименование</p>
