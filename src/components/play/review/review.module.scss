@@ -13,6 +13,7 @@ h2 {
 
 .reviewContent {
   padding-bottom: 200px;
+  cursor: default;
 
   @media (max-width: 500px) {
     padding-bottom: 100px;
@@ -73,6 +74,7 @@ h2 {
         font-weight: 600;
 
         @media (max-width: 768px) {
+          font-size: 25px;
           width: 60px;
           height: 60px;
         }
@@ -185,6 +187,13 @@ h2 {
       .avatar {
         grid-row: span 2;
         margin-right: 60px;
+        background-color: transparent;
+
+        img {
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+        }
 
         @media (max-width: 768px) {
           margin-right: 10px;

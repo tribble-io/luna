@@ -77,7 +77,9 @@ export function Review({ review }) {
                   </div>
                   {data.theaterAnswer ? (
                     <div className={styles.adminBlock}>
-                      <div className={styles.avatar}>{data.name[0]}</div>
+                      <div className={styles.avatar}>
+                        <img src='/img/admin-review.png' alt='' />
+                      </div>
                       <div className={styles.vector}>
                         <img src='/img/vector.png' alt='' />
                       </div>
