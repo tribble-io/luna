@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './card.module.scss'
-import { Ripple } from '../../createElement'
+import { Ripple, TextFormatter } from '../../createElement'
 
 export function CreatePlaysCard({ data }) {
   return (
@@ -18,7 +18,9 @@ export function CreatePlaysCard({ data }) {
               <Link className={styles.title} to={`/play/${data.id}`}>
                 {data.title}
               </Link>
-              <p className={styles.shortDescription}>{data.description}</p>
+              <p className={styles.shortDescription}>
+                <TextFormatter>{data.description}</TextFormatter>
+              </p>
             </div>
             <p className={styles.rating}>{data.rating}+</p>
           </div>
