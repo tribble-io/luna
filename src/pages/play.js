@@ -98,6 +98,7 @@ function getShowReview(arr) {
         title: item?.title,
         text: item?.text,
         createdAt: getFullDateMonth(item?.createdAt),
+        theaterAnswer: item?.theaterAnswer,
       }
     })
     return review

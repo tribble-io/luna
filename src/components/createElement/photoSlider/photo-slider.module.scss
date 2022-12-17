@@ -19,7 +19,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center 10%;
     backface-visibility: hidden;
     transition: transform 0.7s ease-in-out;
 
@@ -43,5 +43,15 @@
 
   @media (max-width: 500px) {
     display: none;
+  }
+}
+
+.slidePhoto {
+  .smallPhoto {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 16px;
   }
 }
