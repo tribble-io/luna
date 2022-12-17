@@ -13,7 +13,10 @@ function getLaureatesData(arr) {
             id: role?.actor?.id,
             role: role.role,
             name: role?.actor?.fullname,
-            src: API_URL + role?.actor?.cover?.url,
+            src:
+              role.actor.cover !== null
+                ? API_URL + role?.actor?.cover?.url
+                : '/img/romaska-laureate.png',
           }
         })
         return {

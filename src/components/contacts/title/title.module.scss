@@ -62,7 +62,7 @@
       margin-bottom: 30px;
       line-height: 160%;
 
-      @media(min-width: 992px) {
+      @media (min-width: 992px) {
         line-height: 160%;
       }
     }
@@ -113,18 +113,18 @@
 
     .proffActors {
       margin-top: 60px;
-  
+
       .text {
         margin-bottom: 20px;
-  
+
         @media (max-width: 500px) {
           margin-bottom: 30px;
         }
       }
-  
+
       .proffActorsList {
         padding-left: 1rem;
-  
+
         li {
           font-weight: 400;
           font-size: 16px;
@@ -133,7 +133,7 @@
           &:not(:last-child) {
             margin-bottom: 0.6rem;
           }
-  
+
           @media (max-width: 500px) {
             font-size: 14px;
           }
