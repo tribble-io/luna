@@ -28,9 +28,9 @@ h2 {
     }
 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     column-gap: 20px;
-    row-gap: 63px;
+    row-gap: 55px;
 
     @media (max-width: 500px) {
       overflow: scroll;
@@ -41,7 +41,7 @@ h2 {
   }
 
   .actorsCard {
-    max-width: 295px;
+    max-width: 190px;
     @media (max-width: 500px) {
       min-width: 130px;
     }
