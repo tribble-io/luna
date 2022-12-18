@@ -125,7 +125,7 @@ h2 {
           font-size: 14px;
         }
 
-        p {
+        p:last-of-type {
           display: inline;
 
           @media (max-width: 768px) {
