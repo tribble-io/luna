@@ -2,12 +2,22 @@ import React from 'react'
 import styles from './button.module.scss'
 
 export function CreateButton(props) {
-  const { updateFilter, activeButton, buttonArray } = props
+  const {
+    updateFilter,
+    activeButton,
+    buttonArray,
+    activeUnderline = false,
+    className,
+  } = props
 
   function buttonClass(name) {
     return `${styles.buttonFilter} ${
-      activeButton === name ? styles.active : ''
-    }`
+      activeButton === name
+        ? activeUnderline
+          ? styles.activeUnderline
+          : styles.active
+        : ''
+    } ${className ? className : ''}`
   }
 
   return (

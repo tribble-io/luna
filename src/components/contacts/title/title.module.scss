@@ -1,0 +1,171 @@
+@import '../../../assets/main.scss';
+
+.wrapper {
+  @include container;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $text-color;
+}
+
+.contactsContent {
+  .contactsTitle {
+    padding-top: 200px;
+
+    @media (max-width: 768px) {
+      padding-top: 150px;
+    }
+
+    @media (max-width: 500px) {
+      padding-top: 100px;
+    }
+
+    h1 {
+      @include headline_first;
+    }
+  }
+}
+
+.contactsInfo {
+  padding-top: 200px;
+  padding-bottom: 350px;
+
+  @media (max-width: 768px) {
+    padding-top: 150px;
+    padding-bottom: 270px;
+  }
+
+  @media (max-width: 500px) {
+    padding-top: 100px;
+    padding-bottom: 200px;
+  }
+
+  .contactsList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 100px;
+    row-gap: 200px;
+
+    margin-bottom: 200px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      row-gap: 100px;
+    }
+
+    @media (max-width: 500px) {
+      margin-bottom: 100px;
+      row-gap: 80px;
+    }
+
+    h2 {
+      @include headline_second;
+      margin-bottom: 30px;
+      line-height: 160%;
+
+      @media (min-width: 992px) {
+        line-height: 160%;
+      }
+    }
+
+    .contactsBlock {
+      max-width: 500px;
+    }
+
+    .subTitle {
+      color: #797894;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 160%;
+      margin-top: 30px;
+
+      @media (max-width: 500px) {
+        font-size: 12px;
+      }
+    }
+
+    .contactsLink {
+      display: block;
+      text-transform: uppercase;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 160%;
+      margin-top: 20px;
+
+      @media (max-width: 500px) {
+        font-size: 14px;
+        margin-top: 10px;
+      }
+    }
+
+    .text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      color: #ffffff;
+      margin-top: 10px;
+
+      @media (max-width: 500px) {
+        font-size: 14px;
+      }
+    }
+
+    .proffActors {
+      margin-top: 60px;
+
+      .text {
+        margin-bottom: 20px;
+
+        @media (max-width: 500px) {
+          margin-bottom: 30px;
+        }
+      }
+
+      .proffActorsList {
+        padding-left: 1rem;
+
+        li {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 160%;
+
+          &:not(:last-child) {
+            margin-bottom: 0.6rem;
+          }
+
+          @media (max-width: 500px) {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .generalInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 240px;
+    row-gap: 50px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    p {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 160%;
+
+      &.generalSubTitle {
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 0.6rem;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 14px;
+      }
+    }
+  }
+}

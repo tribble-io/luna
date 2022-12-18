@@ -1,10 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { API_URL } from '../../../api'
 
 import { Separator } from '../../mainPage'
 
 import styles from './news.module.scss'
-
-const API_URL = 'http://theatre.restomatik.ru:1337'
 
 function cutToLength(s, l) {
   const words = s.split(' ')
@@ -37,36 +37,36 @@ export function News({ itemsNews }) {
               НОВОСТИ <br className={styles.mobileVisible} /> ТЕАТРА
             </p>
           </div>
-          <a href='http://www.lunatheatre.ru/news'>
+          <Link to='/news'>
             <div className={styles.btn}>
               <p>ЧИТАТЬ ВСЕ</p>
             </div>
-          </a>
+          </Link>
         </div>
         {itemsNews.length === 0 ? (
           'Loading..'
         ) : (
           <div className={styles.newsContent}>
-            <a
+            <Link
               className={styles.bigNewsImage}
-              href={`${API_URL}/news/${itemsNews[0].id}`}
+              to={`/news/${itemsNews[0].id}`}
             >
               <img src={API_URL + itemsNews[0].cover.url} alt='' />
-            </a>
-            <a
+            </Link>
+            <Link
               className={styles.bigNewsText}
-              href={`${API_URL}/news/${itemsNews[0].id}`}
+              to={`/news/${itemsNews[0].id}`}
             >
               <div className={styles.title}>
                 {cutToLength(itemsNews[0].title, 70)}
               </div>
               <div className={styles.date}>{itemsNews[0].date_str}</div>
-            </a>
+            </Link>
             {[0, 1].map((i) => {
               const item = itemsNews[i + 1]
               const st = [styles.smallNewsItem1, styles.smallNewsItem2][i]
               return (
-                <a key={i} className={st} href={`${API_URL}/news/${item.id}`}>
+                <Link key={i} className={st} to={`/news/${item.id}`}>
                   <img src={API_URL + item.cover.url} alt='' />
                   <div className={styles.boxWrapper}>
                     <div className={styles.box}>
@@ -79,13 +79,13 @@ export function News({ itemsNews }) {
                       </div>
                     </div>
                   </div>
-                </a>
+                </Link>
               )
             })}
           </div>
         )}
         <div className={styles.mobileButton}>
-          <a href='http://www.lunatheatre.ru/news'>ЧИТАТЬ ВСЕ</a>
+          <Link to='/news'>ЧИТАТЬ ВСЕ</Link>
         </div>
       </div>
       <Separator />

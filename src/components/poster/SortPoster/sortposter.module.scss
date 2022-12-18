@@ -32,6 +32,7 @@
     margin-left: auto;
     margin-top: 60px;
     position: relative;
+    cursor: default;
 
     @media (max-width: 1200px) {
       margin-left: 0;
@@ -71,12 +72,13 @@
     line-height: 17px;
     letter-spacing: 0em;
     text-align: left;
-    padding: 10px 20px;
-    border: 0.1px solid #ffffff00;
+    padding: 10px 10px;
+    border-bottom: 0.1px solid #ffffff00;
+    text-transform: uppercase;
 
     @media (max-width: 1200px) {
       font-size: 12px;
-      padding: 8px 15px;
+      padding: 8px 10px;
     }
     @media (max-width: 1200px) {
       font-size: 13px;
@@ -84,6 +86,7 @@
     }
     &:hover {
       color: #8cabfa;
+      cursor: default;
     }
   }
   .moth_el_active {
@@ -94,13 +97,15 @@
     line-height: 17px;
     letter-spacing: 0em;
     text-align: left;
-    padding: 10px 20px;
-    border: 0.1px solid #8cabfa;
+    padding: 10px 10px;
+    border-bottom: 0.1px solid #8cabfa;
     color: #8cabfa;
+    cursor: default;
+    text-transform: uppercase;
 
     @media (max-width: 1200px) {
       font-size: 13px;
-      padding: 8px 15px;
+      padding: 8px 10px;
     }
     @media (max-width: 1200px) {
       font-size: 13px;
@@ -146,15 +151,16 @@
     line-height: 17px;
     letter-spacing: 0em;
     text-align: left;
-    padding: 10px 20px;
-    border: 0.1px solid #ffffff00;
+    padding: 10px 10px;
+    border-bottom: 0.1px solid #ffffff00;
 
     @media (max-width: 1200px) {
       font-size: 13px;
-      padding: 8px 15px;
+      padding: 8px 10px;
     }
     &:hover {
       color: #8cabfa;
+      cursor: default;
     }
     @media (max-width: 1200px) {
       font-size: 13px;
@@ -169,13 +175,14 @@
     line-height: 17px;
     letter-spacing: 0em;
     text-align: left;
-    padding: 10px 20px;
+    padding: 10px 10px;
     color: #8cabfa;
-    border: 0.1px solid #8cabfa;
+    border-bottom: 0.1px solid #8cabfa;
+    cursor: default;
 
     @media (max-width: 1200px) {
       font-size: 13px;
-      padding: 8px 15px;
+      padding: 8px 10px;
     }
     @media (max-width: 1200px) {
       font-size: 13px;
@@ -219,6 +226,11 @@
       position: absolute;
       right: 0;
       height: 100%;
+      font-family: 'Montserrat';
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 17px;
+      letter-spacing: 0em;
     }
   }
 }
@@ -227,12 +239,12 @@
   display: none;
 }
 .calendarComp {
-  width: 350px;
-  max-height: 420px;
+  width: 410px;
+  max-height: 460px;
   background: #08091d;
   position: absolute;
   right: 100%;
-  padding: 20px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   font-family: 'Montserrat';
@@ -284,18 +296,16 @@
   color: white;
   font-size: 14px;
   width: 23px;
-  height: 23px;
   text-align: center;
   border-radius: 50px;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
+  padding: 1px;
   @media (max-width: 500px) {
-    width: 16px;
-    height: 16px;
-    font-size: 15px;
-    margin: 10px;
+    width: 17px;
+    font-size: 13px;
   }
 
   &:hover {
@@ -312,7 +322,6 @@
 
 .calendarItemAct {
   width: 23px;
-  height: 23px;
   margin: 10px;
   color: white;
   font-size: 14px;
@@ -324,11 +333,10 @@
   -o-border-radius: 50px;
   background-color: #8cabfa;
   color: black;
-  padding: 3px;
+  padding: 1px;
 
   @media (max-width: 500px) {
-    width: 16px;
-    height: 16px;
-    font-size: 12px;
+    width: 17px;
+    font-size: 13px;
   }
 }

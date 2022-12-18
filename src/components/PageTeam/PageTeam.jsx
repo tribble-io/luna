@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { api, API_URL } from '../../api'
-import { CreateActorCard, CreateButton } from '../createElement'
+import { CreateButton } from '../createElement'
+import DirectorCard from '../createElement/DirectorCard'
 import { Actors } from '../play'
 import { content, positionsArrayFilters } from './fields'
 import collectiveImg from './img/collective.webp'
@@ -21,13 +22,28 @@ const PageTeam = () => {
         setIsLoading(false)
       })
       .catch(() => {
-        // console.log(error)
+        setIsLoading(false)
+      })
+  }
+
+  const getPersons = () => {
+    api
+      .exportShowPersons()
+      .then((values) => {
+        setActorsResult(values)
+        setIsLoading(false)
+      })
+      .catch(() => {
         setIsLoading(false)
       })
   }
 
   useEffect(() => {
-    if (activeFilterValue) getActors()
+    if (activeFilterValue !== 'isGuest') {
+      getActors()
+    } else {
+      getPersons()
+    }
   }, [activeFilterValue])
 
   useEffect(() => {
@@ -36,7 +52,7 @@ const PageTeam = () => {
         setActiveFilterValue('актёр/актриса')
         break
       case 'приглашенные артисты':
-        setActiveFilterValue('приглашенные артисты')
+        setActiveFilterValue('isGuest')
         break
       case 'режиссеры':
         setActiveFilterValue('режиссёр')
@@ -84,27 +100,27 @@ const PageTeam = () => {
   return (
     <section className={styles.containerTeam}>
       <div className={styles.promoTage}>
-        <h1>Коллектив</h1>
+        <h1>КОЛЛЕКТИВ</h1>
         <img
           src={collectiveImg}
           className={styles.collectiveImg}
           alt='Коллектив театра'
         />
-        {!isLoading && content?.length
-          ? content.map((data) => (
-              <CreateActorCard
-                data={data}
-                key={`actor-card=${data.id}`}
-                directors={true}
-              />
-            ))
-          : null}
+        <div className={styles.directorCards}>
+          {!isLoading && content?.length
+            ? content.map((data) => (
+                <DirectorCard data={data} key={`actor-card=${data.id}`} />
+              ))
+            : null}
+        </div>
         <div className={styles.filters}>
           {!isLoading && positionsArrayFilters?.length ? (
             <CreateButton
               buttonArray={positionsArrayFilters}
               updateFilter={handleUpdateFilter}
               activeButton={activeFilter}
+              activeUnderline={true}
+              className={styles.nameButtonFilter}
             />
           ) : null}
         </div>

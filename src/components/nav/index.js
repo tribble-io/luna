@@ -12,28 +12,28 @@ function Nav() {
       <div className={styles.wrapper}>
         <ul>
           <li>
-            <Link to='/posters'>Афиша</Link>
+            <Link to='/playbill'>Афиша</Link>
           </li>
           <li>
             <Link to='/plays'>Спектакли</Link>
           </li>
           <li>
-            <Link to='/theatre-team'>Труппа</Link>
+            <Link to='/troupe'>Труппа</Link>
           </li>
           <li>
-            <Link to='/theatre-history'>театр</Link>
+            <Link to='/history'>театр</Link>
           </li>
           <li>
             <Link to='/news'>Новости</Link>
           </li>
           <li>
-            <a href='http://www.lunatheatre.ru/smi'>Пресса</a>
+            <Link to='/press'>Пресса</Link>
           </li>
           <li>
-            <a href='http://www.lunatheatre.ru/pages/kontakty'>Контакты</a>
+            <Link to='/contacts'>Контакты</Link>
           </li>
         </ul>
-        <div className={styles.logoContainer}>
+        <Link className={styles.logoContainer} to='/'>
           <img
             style={{
               opacity: opacityEl,
@@ -43,7 +43,7 @@ function Nav() {
             src='/img/logo.png'
             alt=''
           />
-        </div>
+        </Link>
       </div>
     </nav>
   )

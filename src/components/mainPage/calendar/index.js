@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Item, Separator } from '../../mainPage'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -162,7 +163,7 @@ export function Calendar({ setFirstDate, items }) {
       <div className={styles.cardsWindowContainer}>
         <Item items={items} />
         <div className={styles.mobileButton}>
-          <a href={'http://www.lunatheatre.ru/shows'}>все спектакли</a>
+          <Link to={'/shows'}>все спектакли</Link>
         </div>
       </div>
       <Separator />

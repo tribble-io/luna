@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useWindowScrollPositions } from '../../assets/utils/usable-function'
 import styles from './header.module.scss'
 
@@ -31,14 +32,14 @@ function Header() {
             Версия для <br /> слабовидящих
           </a>
         </div>
-        <div className={styles.mobileLogo}>
+        <Link to='/' className={styles.mobileLogo}>
           <img
             className={styles.mobileLogoImg}
             id={'href'}
             src='/img/logo.png'
             alt=''
           />
-        </div>
+        </Link>
         <div className={styles.mobileMenu}>
           <div className={styles.mobileMenuIcon} onClick={() => setOpen(!open)}>
             <div
@@ -56,30 +57,31 @@ function Header() {
           >
             <ul className={styles.mobileMenuList}>
               <li>
-                <a href='http://www.lunatheatre.ru/afisha'>Афиша</a>
+                <Link to='/playbill'>Афиша</Link>
               </li>
               <li>
-                <a href='/plays'>Спектакли</a>
+                <Link to='/plays'>Спектакли</Link>
               </li>
               <li>
-                <a href='http://www.lunatheatre.ru/actors'>труппа</a>
+                <Link to='/troupe'>Труппа</Link>
               </li>
               <li>
-                <a href='http://www.lunatheatre.ru/pages/o-lune'>театр</a>
+                <Link to='/history'>Театр</Link>
               </li>
               <li>
-                <a href='http://www.lunatheatre.ru/news'>Новости</a>
+                <Link to='/news'>Новости</Link>
               </li>
               <li>
-                <a href='http://www.lunatheatre.ru/smi'>Пресса</a>
+                <Link to='/press'>Пресса</Link>
               </li>
               <li>
-                <a href='http://www.lunatheatre.ru/pages/kontakty'>Контакты</a>
+                <Link to='/contacts'>Контакты</Link>
               </li>
             </ul>
           </div>
         </div>
-        <div
+        <Link
+          to='/'
           className={styles.logoContainer}
           style={{
             transition: 'all 0.3s linear',
@@ -94,7 +96,7 @@ function Header() {
             src='/img/text_logo.png'
             alt=''
           />
-        </div>
+        </Link>
       </div>
     </header>
   )

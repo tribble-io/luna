@@ -4,14 +4,45 @@ import { api } from '../api/index'
 import { PressFilters, PressCards } from '../components/press'
 import Loader from '../components/loader'
 
+function getListYear(arr) {
+  if (arr !== null) {
+    const data = arr
+      .map((item) => {
+        // Get only value of the years
+        const year = new Date(item.date).getFullYear()
+        return year
+      })
+      .filter((number, index, numbers) => {
+        // Remove duplicates from the array
+        return numbers.indexOf(number) == index
+      })
+      .sort((a, b) => b - a)
+    return data
+  } else {
+    return []
+  }
+}
+
+const getFullDate = (date) => {
+  let dates = new Date(date)
+  let fulldate = `${dates.getDate()}.${
+    dates.getMonth() + 1
+  }.${dates.getFullYear()}`
+  return fulldate
+}
+
 function getPressData(arr) {
   if (arr !== null) {
-    const data = arr.map((item) => {
+    const review = arr.map((item) => {
       return {
         id: item.id,
+        title: item.title,
+        publisher: item.publisher,
+        date: getFullDate(item.date),
+        link: item.link,
       }
     })
-    return data
+    return review
   } else {
     return []
   }
@@ -20,13 +51,13 @@ function getPressData(arr) {
 export function Press() {
   const [items, setItems] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [yearsList, setyearsList] = useState([])
 
   useEffect(() => {
     api
       .exportPressData()
       .then((response) => {
-        setItems(getPressData(response))
-        setIsLoading(false)
+        setyearsList(getListYear(response.data))
       })
       .catch((error) => {
         console.log(error)
@@ -34,10 +65,32 @@ export function Press() {
       })
   }, [])
 
+  const updateFilter = (index) => {
+    api
+      .exportPressData(yearsList[index])
+      .then((response) => {
+        setItems(getPressData(response.data))
+        setIsLoading(false)
+      })
+      .catch((error) => {
+        console.log(error)
+        setIsLoading(false)
+      })
+  }
+
   return (
     <main>
-      <PressFilters />
-      {isLoading ? <Loader /> : <PressCards item={items} />}
+      {yearsList.length === 0 ? (
+        <Loader />
+      ) : (
+        <PressFilters
+          updateFilter={updateFilter}
+          selectedOpt='0'
+          list={yearsList}
+        />
+      )}
+
+      {isLoading ? <Loader /> : <PressCards items={items} />}
     </main>
   )
 }

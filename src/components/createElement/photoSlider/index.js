@@ -10,8 +10,7 @@ import './styles.css'
 import { Grid, Navigation, Pagination } from 'swiper'
 
 import { Fancybox } from '../../createElement'
-
-const screen_width = window.screen.width
+import { IsMobile } from '../../../assets'
 
 export function PhotoSlider(props) {
   const { items } = props
@@ -19,26 +18,25 @@ export function PhotoSlider(props) {
   const navigationNextRef = useRef(null)
 
   // slider parameters for mobile
-  const rows = screen_width > 500 ? 2 : 1
-  const slidesPerView = screen_width > 500 ? 4 : 'auto'
-  const navigation =
-    screen_width > 500
-      ? { prevEl: navigationPrevRef.current, nextEl: navigationNextRef.current }
-      : false
-  const pagination =
-    screen_width > 500 ? false : { clickable: true, dynamicBullets: true }
-  const centeredSlides = screen_width > 500 ? false : true
+  const slidesPerView = IsMobile ? 'auto' : 2
+  const navigation = IsMobile
+    ? false
+    : { prevEl: navigationPrevRef.current, nextEl: navigationNextRef.current }
+  const pagination = IsMobile
+    ? { clickable: true, dynamicBullets: true }
+    : false
+  const centeredSlides = IsMobile ? true : false
+
+  const bigSlides = items.filter((item, index) => index % 5 === 0)
+
   return (
     <>
       <Swiper
         slidesPerView={slidesPerView}
-        centeredSlides={centeredSlides}
-        grid={{
-          rows: rows,
-        }}
         spaceBetween={20}
         navigation={navigation}
         pagination={pagination}
+        centeredSlides={centeredSlides}
         modules={[Grid, Navigation, Pagination]}
         className='photoSwiper'
         style={{
@@ -48,20 +46,67 @@ export function PhotoSlider(props) {
         }}
       >
         <Fancybox>
-          {items.map((item) => (
-            <SwiperSlide key={item.id}>
-              <div className={styles.cardImg}>
-                <a
-                  data-fancybox='gallery'
-                  href={item.href}
-                  data-caption={item.caption}
-                  className={styles.sliderLink}
-                >
-                  <img className={styles.sliderImg} alt='' src={item.src} />
-                </a>
-              </div>
-            </SwiperSlide>
-          ))}
+          {IsMobile
+            ? items.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <div className={styles.cardImg}>
+                    <a
+                      data-fancybox='gallery'
+                      href={item.href}
+                      data-caption={item.caption}
+                      className={styles.sliderLink}
+                    >
+                      <img className={styles.sliderImg} alt='' src={item.src} />
+                    </a>
+                  </div>
+                </SwiperSlide>
+              ))
+            : bigSlides.map((bigSlide, index) => (
+                <div key={index}>
+                  <SwiperSlide key={bigSlide.id}>
+                    <div className={styles.slidePhoto}>
+                      <div className={styles.cardImg}>
+                        <a
+                          data-fancybox='gallery'
+                          href={bigSlide.href}
+                          data-caption={bigSlide.caption}
+                          className={styles.sliderLink}
+                        >
+                          <img
+                            className={styles.sliderImg}
+                            alt=''
+                            src={bigSlide.src}
+                          />
+                        </a>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide key={bigSlide.id + 500}>
+                    <div className={styles.slidePhoto}>
+                      <div className={styles.smallPhoto}>
+                        {items
+                          .slice(5 * index + 1, 5 * (index + 1))
+                          .map((item) => (
+                            <div className={styles.cardImg} key={item.id}>
+                              <a
+                                data-fancybox='gallery'
+                                href={item.href}
+                                data-caption={item.caption}
+                                className={styles.sliderLink}
+                              >
+                                <img
+                                  className={styles.sliderImg}
+                                  alt=''
+                                  src={item.src}
+                                />
+                              </a>
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                </div>
+              ))}
         </Fancybox>
         <div className={styles.sliderNavigation}>
           <img

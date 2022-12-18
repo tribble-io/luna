@@ -2,6 +2,7 @@
 
 header {
   position: relative;
+
   .logoContainer {
     display: none;
     position: absolute;
@@ -81,6 +82,7 @@ header {
     }
   }
 }
+
 .header_top {
   width: 100%;
   margin-right: auto;
@@ -175,6 +177,7 @@ header {
   position: absolute;
   top: 121px;
   left: 20px;
+
   @media (max-width: 991px) {
     display: none;
   }
@@ -189,6 +192,7 @@ header {
   text-decoration: none;
   margin-left: 21px;
   color: #ececec;
+
   @media (max-width: 991px) {
     display: none;
   }
@@ -206,6 +210,7 @@ header {
     z-index: 6;
     width: 50px;
     height: 50px;
+
     @media (max-width: 500px) {
       width: 30px;
       height: 25px;
@@ -261,12 +266,14 @@ header {
         cursor: pointer;
       }
     }
+
     .mobileMenuIconOpen {
       transition-duration: 0.5s;
       background: transparent;
 
       &:before {
         transform: rotateZ(45deg) scaleX(1.25) translate(10px, 10px);
+
         @media (max-width: 500px) {
           transform: rotateZ(45deg) scaleX(1.25) translate(5px, 5px);
         }
@@ -274,6 +281,7 @@ header {
 
       &:after {
         transform: rotateZ(-45deg) scaleX(1.25) translate(9px, -9px);
+
         @media (max-width: 500px) {
           transform: rotateZ(-45deg) scaleX(1.25) translate(7px, -7px);
         }
@@ -287,7 +295,7 @@ header {
     top: 90px;
     right: 0;
     left: 0;
-    background-color: #15141e;
+    background-color: #08091d;
     z-index: 5;
     padding: 40px 50px;
   }
@@ -303,6 +311,7 @@ header {
     transform: translateY(0);
     opacity: 1;
   }
+
   .mobileMenuList {
     display: flex;
     flex-direction: column;
@@ -324,6 +333,7 @@ header {
         color: #778194;
       }
     }
+
     li:not(:last-child) {
       margin-bottom: 25px;
     }

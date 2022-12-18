@@ -27,7 +27,7 @@ async function exportArticles() {
   throw new Error("Can't export articles")
 }
 
-function getUrl(editValue) {
+function getPlaysFilter(editValue) {
   let filters = ''
 
   if (editValue.title.length > 0) {
@@ -51,7 +51,7 @@ function getUrl(editValue) {
 }
 
 async function exportPlayShows(editValue) {
-  const url = getUrl(editValue)
+  const url = getPlaysFilter(editValue)
   const result = await axios.get(url)
 
   if (result.status === 200) {
@@ -155,8 +155,13 @@ async function exportRomaskaData() {
   throw new Error("Can't export romaska awards data")
 }
 
-async function exportPressData() {
-  const result = await axios.get(`${API_URL}/api/press-items`)
+async function exportPressData(year) {
+  const pressFilter = year
+    ? `filters[date][$gte]=${year}-01-01&filters[date][$lt]=${year + 1}-01-01&`
+    : ''
+  const result = await axios.get(
+    `${API_URL}/api/press-items?${pressFilter}sort[0]=date:desc`
+  )
 
   if (result.status === 200) {
     return result.data
@@ -177,6 +182,18 @@ async function exportShowActors(filter) {
   throw new Error("Can't export show data")
 }
 
+async function exportShowPersons() {
+  const result = await axios.get(
+    `${API_URL}/api/persons?filters[isGuest][$eq]=true&populate=cover`
+  )
+
+  if (result.status === 200) {
+    return result.data.data
+  }
+
+  throw new Error("Can't export persons data")
+}
+
 export const api = {
   exportShows,
   exportArticles,
@@ -191,4 +208,5 @@ export const api = {
   exportRomaskaData,
   exportPressData,
   exportShowActors,
+  exportShowPersons,
 }

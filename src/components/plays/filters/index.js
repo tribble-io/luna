@@ -27,9 +27,9 @@ export function ShowsFilter(props) {
 
   const buttonArray = [
     'Все сцены',
-    'Большой зал',
-    'Малый зал',
-    'Зал "Маленькая Луна"',
+    'большая сцена',
+    'малая сцена',
+    'Зал \u00ABМаленькая Луна\u00BB',
   ]
 
   return (
@@ -41,7 +41,7 @@ export function ShowsFilter(props) {
               <h1>спектакли</h1>
             </div>
             <div className={styles.filterArea}>
-              <div className={styles.filterGroup}>
+              <div className={`${styles.filterGroup} ${styles.buttonGroup}`}>
                 <CreateButton
                   updateFilter={updateFilter}
                   activeButton={activeButton}
