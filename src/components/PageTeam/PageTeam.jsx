@@ -12,7 +12,7 @@ const PageTeam = () => {
   const [actorsResult, setActorsResult] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [activeFilter, setActiveFilter] = useState('труппа')
-  const [activeFilterValue, setActiveFilterValue] = useState('актёр/актриса')
+  const [activeFilterValue, setActiveFilterValue] = useState('труппа')
 
   const getActors = () => {
     api
@@ -49,13 +49,13 @@ const PageTeam = () => {
   useEffect(() => {
     switch (activeFilter) {
       case 'труппа':
-        setActiveFilterValue('актёр/актриса')
+        setActiveFilterValue('труппа')
         break
       case 'приглашенные артисты':
         setActiveFilterValue('isGuest')
         break
       case 'режиссеры':
-        setActiveFilterValue('режиссёр')
+        setActiveFilterValue('режиссёры')
         break
       case 'режиссеры-ассистенты':
         setActiveFilterValue('')

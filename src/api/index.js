@@ -194,6 +194,18 @@ async function exportShowPersons() {
   throw new Error("Can't export persons data")
 }
 
+async function exportGetDetailInfoActor(id) {
+  const result = await axios.get(
+    `${API_URL}/api/persons/${id}?populate=cover,play_roles.play.shows,play_roles.play.cover,movies,press_items,gallery.media,romashka_awards.season`
+  )
+
+  if (result.status === 200) {
+    return result.data.data
+  }
+
+  throw new Error("Can't export actor data")
+}
+
 export const api = {
   exportShows,
   exportArticles,
@@ -209,4 +221,5 @@ export const api = {
   exportPressData,
   exportShowActors,
   exportShowPersons,
+  exportGetDetailInfoActor,
 }

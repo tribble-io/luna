@@ -10,9 +10,7 @@
 h2 {
   @include headline_second;
 }
-.pressContentActor {
-  padding-bottom: 80px !important;
-}
+
 .pressContent {
   padding-bottom: 180px;
 
@@ -29,13 +27,8 @@ h2 {
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     row-gap: 20px;
-  }
-
-  .pressGridActor {
-    grid-template-columns: none !important;
-    grid-template-rows: none !important;
   }
 
   .pressSlider {
@@ -61,5 +54,18 @@ h2 {
         margin-right: 5px;
       }
     }
+  }
+}
+
+
+
+@media (max-width: 500px) {
+  .pressSwiper.swiper {
+    padding-bottom: 40px;
+  }
+
+  .pressSwiper .swiper-slide {
+    max-width: 300px;
+    height: auto;
   }
 }
