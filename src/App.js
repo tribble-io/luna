@@ -21,6 +21,7 @@ import Poster from './components/poster/poster'
 import PageTeam from './components/PageTeam/PageTeam'
 import News from './components/news/news'
 import OneOageNews from './components/news/oneNewsPage'
+import PageDetailActor from './components/PageDetailActor/PageDetailActor'
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path='/news' element={<News />} />
           <Route exact path='/news/*' element={<OneOageNews />} />
           <Route path='/contacts' element={<Contacts />} />
+          <Route path='/actor/:id' element={<PageDetailActor />} />
         </Routes>
         <footer>
           <Block />

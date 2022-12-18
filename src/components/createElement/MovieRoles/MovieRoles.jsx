@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import styles from './press.module.scss'
-import { CreatePressLine } from '../../createElement'
+import styles from './MovieRoles.module.scss'
+// import { CreatePressLine } from '../../createElement'
 import { IsMobile } from '../../../assets'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
-import './style.css'
+
 // import required modules
 import { Pagination } from 'swiper'
+import ListMovies from './ListMovies'
 
-export function Press({ press, actor = false }) {
-  const [pressArr, setPressArr] = useState(press)
-  const pressLineaAmount = 3
+const MovieRoles = ({ movies }) => {
+  const [moviesArr, setMoviesArr] = useState(movies)
+  const pressLineaAmount = 7
   const [actPage, setActPage] = useState(1)
   const [allPages, setAllPages] = useState(1)
 
@@ -27,27 +28,23 @@ export function Press({ press, actor = false }) {
   }
 
   useEffect(() => {
-    setPressArr(
-      press.slice(
+    setMoviesArr(
+      movies.slice(
         pressLineaAmount * actPage - pressLineaAmount,
         pressLineaAmount * actPage
       )
     )
-    setAllPages(Math.ceil(press.length / pressLineaAmount))
+    setAllPages(Math.ceil(movies.length / pressLineaAmount))
   }, [actPage])
+
+  const pagesSlides = Array(allPages).fill(0)
 
   return (
     <section id='press'>
       <div className={styles.wrapper}>
-        {press.length > 0 && (
-          <div
-            className={
-              actor
-                ? `${styles.pressContent} ${styles.pressContentActor}`
-                : styles.pressContent
-            }
-          >
-            <h2>упоминания в прессе</h2>
+        {movies.length > 0 && (
+          <div className={styles.pressContent}>
+            <h2>Роли в кино</h2>
             {IsMobile ? (
               <div className={styles.pressSlider}>
                 <Swiper
@@ -63,23 +60,27 @@ export function Press({ press, actor = false }) {
                     '--swiper-pagination-bullet-inactive-opacity': '0.6',
                   }}
                 >
-                  {pressArr.map((item, key) => (
-                    <SwiperSlide key={item.id}>
-                      <CreatePressLine data={item} key={key} />
+                  {pagesSlides.map((index) => (
+                    <SwiperSlide key={index}>
+                      {moviesArr.map((item, key) => (
+                        <ListMovies
+                          data={item}
+                          key={item.id}
+                          lastItem={key + 1 === moviesArr.length}
+                        />
+                      ))}
                     </SwiperSlide>
                   ))}
                 </Swiper>
               </div>
             ) : (
-              <div
-                className={
-                  actor
-                    ? `${styles.pressGrid} ${styles.pressGridActor}`
-                    : styles.pressGrid
-                }
-              >
-                {pressArr.map((item, key) => (
-                  <CreatePressLine data={item} key={key} />
+              <div className={styles.pressGrid}>
+                {moviesArr.map((item, key) => (
+                  <ListMovies
+                    data={item}
+                    key={key}
+                    lastItem={key + 1 === moviesArr.length}
+                  />
                 ))}
                 <div className={styles.pressNavigation}>
                   <img
@@ -112,3 +113,5 @@ export function Press({ press, actor = false }) {
     </section>
   )
 }
+
+export default MovieRoles
