@@ -57,11 +57,13 @@ export function Review({ review }) {
                   <div className={styles.text}>
                     {data.text.length > 690 ? (
                       <>
-                        <ReactMarkdown>
-                          {data.id === openReviewId
-                            ? data.text
-                            : cutToLength(data.text, 690)}
-                        </ReactMarkdown>
+                        <ReactMarkdown
+                          children={
+                            data.id === openReviewId
+                              ? data.text
+                              : cutToLength(data.text, 690)
+                          }
+                        />
                         <span
                           className={`${styles.fullReview} ${
                             data.id === openReviewId ? styles.hidden : ''
