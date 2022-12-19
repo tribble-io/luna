@@ -63,7 +63,7 @@ async function exportPlayShows(editValue) {
 
 async function exportChildrenStudioNextShow() {
   const result = await axios.get(
-    `${API_URL}/api/shows?filters[date][$gte]=${TODAY_DAY}&filters[place][$eq]=Зал "Маленькая Луна"&populate=play`
+    `${API_URL}/api/shows?filters[date][$gte]=${TODAY_DAY}&filters[place][$eq]=Зал "Маленькая Луна"&populate=play.scene`
   )
 
   if (result.status === 200) {
@@ -75,7 +75,7 @@ async function exportChildrenStudioNextShow() {
 
 async function exportChildrenStudioScene() {
   const result = await axios.get(
-    `${API_URL}/api/plays?filters[scene][$eq]=Зал "Маленькая Луна"&populate=cover`
+    `${API_URL}/api/plays?filters[scene][name][$eq]=Зал "Маленькая Луна"&populate=cover`
   )
 
   if (result.status === 200) {
