@@ -172,7 +172,7 @@ async function exportPressData(year) {
 
 async function exportShowActors(filter) {
   const result = await axios.get(
-    `${API_URL}/api/persons?filters[positions][category][$eq]=${filter}&populate=cover`
+    `${API_URL}/api/persons?filters[positions][category][$eq]=${filter}&filters[isGuest][$eq]=false&populate=cover`
   )
 
   if (result.status === 200) {
