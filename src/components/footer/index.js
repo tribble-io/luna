@@ -16,7 +16,7 @@ export default function Footer() {
       <footer>
         <div className={styles.wrapper}>
           <div className={styles.footerInfo}>
-            <div className={styles.group1}>
+            <div className={styles.cahBox}>
               <h2>Касса</h2>
               <a className={styles.cashBoxPhone} href='tel:84959531317'>
                 +7 (495) 953-13-17
@@ -24,8 +24,11 @@ export default function Footer() {
               <p className={styles.schedule}>
                 Понедельник–Воскресенье 12:00– 19:30 <br /> Перерыв 15:00–16.00
               </p>
+              <p className={styles.scheduleMob}>
+                Пн–Вс 12:00– 19:30 <br /> Перерыв 15:00–16.00
+              </p>
             </div>
-            <div className={styles.group2}>
+            <div className={styles.socialLinksList}>
               <h2>Мы в соцсетях</h2>
               {social.map((filename, i) => (
                 <a key={i} href={links[i]} className={styles.socialLink}>
@@ -33,7 +36,7 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            <div className={styles.group3}>
+            <div className={styles.footerLogoBlock}>
               <img
                 src='/img/logo_footer_1.png'
                 alt='Театр Луны'
