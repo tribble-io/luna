@@ -6,12 +6,11 @@ nav {
   z-index: 5;
 
   width: 100vw;
-  height: 88px;
 
-  // border-top: 3px solid #201e2d;
   background-color: #08091d;
-
   box-shadow: 0px 1px 0px #000000;
+
+  cursor: default;
 
   @media (max-width: 991px) {
     display: none;
@@ -23,63 +22,132 @@ nav {
 
     display: flex;
     flex-direction: row;
-    position: relative;
     gap: 10px;
 
     padding-left: 30px;
     box-sizing: border-box;
+  }
 
-    ul {
-      flex: 1;
-      display: flex;
-      justify-content: space-between;
-      list-style: none;
+  ul {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    align-items: center;
 
-      align-items: center;
+    .menuItem {
+      color: #f4f4f4;
+      font-family: 'Montserrat';
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 22px;
+      text-transform: lowercase;
+      transition: color 0.3s;
 
-      li {
-        a {
-          font-family: 'Montserrat';
-          font-style: normal;
-          font-weight: 550;
-          font-size: 16px;
-          line-height: 24px;
-          text-transform: lowercase;
+      padding: 33px 0;
 
-          color: #f4f4f4;
-
-          transition: color 0.3s;
-
-          &:hover {
-            color: #778194;
-          }
-        }
+      &:not(:last-child) {
+        padding-right: 30px;
       }
 
-      li:not(:last-child) {
-        margin-right: 10px;
+      &:not(:first-child) {
+        padding-left: 30px;
+      }
+
+      &:hover {
+        color: $compl-color;
+      }
+
+      a {
+        cursor: default;
+
+        color: #f4f4f4;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $compl-color;
+        }
       }
     }
+  }
 
-    .logoContainer {
-      width: 25%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  .dropdownMenu {
+    position: absolute;
+    top: 100%;
+    width: 100vw;
+    right: 0;
+    left: 0;
 
-      @media (max-width: 1200px) {
-        width: 150px;
+    background: #08091d;
+    border-top: 1px solid #111129;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+
+    display: flex;
+    padding: 60px 0;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .subMenuBlock {
+    max-width: 200px;
+    &:first-of-type {
+      margin-left: 18%;
+
+      @media (max-width: 1600px) {
+        margin-left: 20%;
       }
 
-      img {
-        max-width: 100%;
-        width: auto;
-        height: 90%;
-        transition: all 0.3s linear;
+      @media (max-width: 1400px) {
+        margin-left: 24%;
+      }
 
-        @media (max-width: 1200px) {
-          opacity: 1 !important;
-        }
+      @media (max-width: 1200px) {
+        margin-left: 28%;
+      } 
+    }
+
+    &:not(:last-of-type) {
+      margin-right: 60px;
+    }
+
+    a {
+      display: block;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      color: $text-color;
+      text-transform: initial;
+
+      &:not(:last-of-type) {
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+
+  .logoContainer {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 1200px) {
+      width: 150px;
+    }
+
+    img {
+      max-width: 100%;
+      width: auto;
+      height: 90%;
+      transition: all 0.3s linear;
+
+      @media (max-width: 1200px) {
+        opacity: 1 !important;
       }
     }
   }
