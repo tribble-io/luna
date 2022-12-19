@@ -35,7 +35,7 @@ function getPlaysFilter(editValue) {
   }
 
   if (editValue.scene.length > 0) {
-    filters += `filters[scene][$eq]=${editValue.scene}&`
+    filters += `filters[scene][name][$eq]=${editValue.scene}&`
   }
 
   if (editValue.rating === true) {
@@ -145,7 +145,7 @@ async function createNewComment(data) {
 
 async function exportRomaskaData() {
   const result = await axios.get(
-    `${API_URL}/api/romaska-awards?populate=plays.role.actor.cover&sort=year:desc`
+    `${API_URL}/api/seasons?populate=awards.artist.cover&sort[0]=year:desc`
   )
 
   if (result.status === 200) {
@@ -172,7 +172,7 @@ async function exportPressData(year) {
 
 async function exportShowActors(filter) {
   const result = await axios.get(
-    `${API_URL}/api/persons?filters[positions][category][$eq]=${filter}&populate=cover`
+    `${API_URL}/api/persons?filters[positions][category][$eq]=${filter}&filters[isGuest][$eq]=false&populate=cover`
   )
 
   if (result.status === 200) {
@@ -204,6 +204,18 @@ async function exportSceneDocs() {
   throw new Error("Can't export scene docs")
 }
 
+async function exportGetDetailInfoActor(id) {
+  const result = await axios.get(
+    `${API_URL}/api/persons/${id}?populate=cover,play_roles.play.shows,play_roles.play.cover,movies,press_items,gallery.media,romashka_awards.season`
+  )
+
+  if (result.status === 200) {
+    return result.data.data
+  }
+
+  throw new Error("Can't export actor data")
+}
+
 export const api = {
   exportShows,
   exportArticles,
@@ -220,4 +232,5 @@ export const api = {
   exportShowActors,
   exportShowPersons,
   exportSceneDocs,
+  exportGetDetailInfoActor,
 }

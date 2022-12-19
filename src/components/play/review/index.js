@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import styles from './review.module.scss'
 import ReactMarkdown from 'react-markdown'
+import { IsMobile } from '../../../assets'
+
+function cutToLength(text, length) {
+  if (text.length > length) {
+    return text.slice(0, length) + '...'
+  } else {
+    return text
+  }
+}
 
 export function Review({ review }) {
   const [reviewArr, setReviewArr] = useState(review)
-  const reviewLineaAmount = 2
+  const reviewLineaAmount = IsMobile ? 1 : 2
   const [actPage, setActPage] = useState(1)
   const [allPages, setAllPages] = useState(1)
+
+  const [openReviewId, setOpenReviewId] = useState(null)
 
   const navigation = (e) => {
     const type = e.target.name
@@ -42,10 +53,51 @@ export function Review({ review }) {
                     <div className={styles.name}>{data.name}</div>
                     <div className={styles.title}>{data.title}</div>
                   </div>
-                  <div className={styles.text}>
-                    <ReactMarkdown children={data.text} />
-                  </div>
                   <div className={styles.date}>{data.createdAt}</div>
+                  <div className={styles.text}>
+                    {data.text.length > 690 ? (
+                      <>
+                        <ReactMarkdown
+                          children={
+                            data.id === openReviewId
+                              ? data.text
+                              : cutToLength(data.text, 690)
+                          }
+                        />
+                        <span
+                          className={`${styles.fullReview} ${
+                            data.id === openReviewId ? styles.hidden : ''
+                          }`}
+                          onClick={() => setOpenReviewId(data.id)}
+                        >
+                          Развернуть полностью
+                        </span>
+                      </>
+                    ) : (
+                      <ReactMarkdown>{data.text}</ReactMarkdown>
+                    )}
+                  </div>
+                  {data.theaterAnswer ? (
+                    <div className={styles.adminBlock}>
+                      <div className={styles.avatar}>
+                        <img src='/img/admin-review.png' alt='' />
+                      </div>
+                      <div className={styles.vector}>
+                        <img src='/img/vector.png' alt='' />
+                      </div>
+                      <div className={styles.authorName}>
+                        <div className={styles.name}>
+                          Администрация &#171;Театра&#160;Луны&#187;
+                        </div>
+                      </div>
+                      <div className={styles.date}>{data.createdAt}</div>
+                      <div className={styles.adminText}>
+                        <ReactMarkdown children={data.theaterAnswer} />
+                      </div>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               ))}
             </div>

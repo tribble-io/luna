@@ -1,0 +1,59 @@
+.movie {
+  padding: 20px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #ffffff;
+  .movieText {
+    width: 100%;
+    margin-right: 10px;
+    display: flex;
+    .movieName {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      width: 100%;
+      max-width: 600px;
+      text-transform: uppercase;
+    }
+    .movieRole {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+    }
+  }
+  .movieYear {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.movieLast {
+  border-bottom: 1px solid #ffffff;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 428px) {
+  .movie {
+    padding: 20px 0px;
+    .movieText {
+      width: 100%;
+      margin-right: 10px;
+      display: flex;
+      flex-direction: column;
+      .movieName {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 160%;
+      }
+      .movieRole {
+        font-size: 14px;
+      }
+    }
+    .movieYear {
+      font-size: 14px;
+    }
+  }
+}

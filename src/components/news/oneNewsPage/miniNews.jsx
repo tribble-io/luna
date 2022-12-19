@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import styles from './newsEl.module.scss'
 
 let MiniMews = (props) => {
-  debugger
-  console.log(props.newState)
   return (
     <Link
       to={props.locationNew}
@@ -17,5 +15,4 @@ let MiniMews = (props) => {
     </Link>
   )
 }
-
 export default MiniMews

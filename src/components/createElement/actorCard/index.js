@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styles from './card.module.scss'
 
 export function CreateActorCard({ data }) {
@@ -6,22 +7,22 @@ export function CreateActorCard({ data }) {
     <>
       <div className={styles.cardContent}>
         <div className={styles.cardImg}>
-          <a
+          <Link
             className={styles.imageLink}
-            href={'actor/' + data?.id}
+            to={'/actor/' + data?.id}
             title='Перейти в профиль актера'
           >
             <img src={data?.src} alt={data?.name} />
-          </a>
+          </Link>
         </div>
         <div className={styles.actorCardText}>
-          <a
+          <Link
             className={styles.actorName}
-            href={'actor/' + data?.id}
+            to={'/actor/' + data?.id}
             title='Перейти в профиль актера'
           >
             {data?.name}
-          </a>
+          </Link>
           {data?.role ? <p className={styles.actorRole}>{data?.role}</p> : null}
         </div>
       </div>

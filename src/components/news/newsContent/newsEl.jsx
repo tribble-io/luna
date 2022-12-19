@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './sort_news.module.scss'
-import zaglushka from './zaglushka.svg'
 
 let NewsEl = (props) => {
   let URL = 'http://theatre.restomatik.ru:1337'

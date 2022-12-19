@@ -34,7 +34,10 @@ export function getShowRoles(arr) {
         id: role.actor?.id,
         role: role.roleTitle,
         name: role.actor?.fullname,
-        src: API_URL + role.actor?.cover?.url,
+        src:
+          role.actor.cover !== null
+            ? API_URL + role.actor?.cover?.url
+            : '/img/actor-photo.png',
       }
     })
   } else {
@@ -47,8 +50,8 @@ function getShowPhoto(arr) {
     const photo = arr.map((item) => {
       return {
         id: item.id,
-        href: API_URL + item?.formats.large.url,
-        src: API_URL + item?.formats.small.url,
+        href: API_URL + item?.formats?.large?.url,
+        src: API_URL + item?.formats?.small?.url,
         caption: '',
       }
     })
@@ -98,6 +101,7 @@ function getShowReview(arr) {
         title: item?.title,
         text: item?.text,
         createdAt: getFullDateMonth(item?.createdAt),
+        theaterAnswer: item?.theaterAnswer,
       }
     })
     return review
