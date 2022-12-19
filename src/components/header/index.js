@@ -69,6 +69,11 @@ function Header() {
                 <Link to='/history'>Театр</Link>
               </li>
               <li>
+                <Link to='/children-studio'>
+                  Детская театральная студия &#171;Маленькая Луна&#187;
+                </Link>
+              </li>
+              <li>
                 <Link to='/news'>Новости</Link>
               </li>
               <li>

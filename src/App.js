@@ -5,8 +5,7 @@ import { ScrollToTop } from './assets'
 import './App.css'
 import Header from './components/header'
 import Nav from './components/nav'
-import Block from './components/blockFooter'
-import LastBlock from './components/blockFooterLast'
+import Footer from './components/footer'
 import {
   Home,
   ChildrenStudio,
@@ -47,10 +46,7 @@ function App() {
           <Route path='/scenes' element={<Scenes />} />
           <Route path='/actor/:id' element={<PageDetailActor />} />
         </Routes>
-        <footer>
-          <Block />
-          <LastBlock />
-        </footer>
+        <Footer />
       </Router>
     </div>
   )

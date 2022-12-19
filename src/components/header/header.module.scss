@@ -3,6 +3,12 @@
 header {
   position: relative;
 
+  @media (max-width: 991px) {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+
   .logoContainer {
     display: none;
     position: absolute;

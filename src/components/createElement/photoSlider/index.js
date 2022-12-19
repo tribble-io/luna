@@ -4,10 +4,9 @@ import styles from './photo-slider.module.scss'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
-import 'swiper/css/grid'
 import './styles.css'
 // import required modules
-import { Grid, Navigation, Pagination } from 'swiper'
+import { Navigation, Pagination } from 'swiper'
 
 import { Fancybox } from '../../createElement'
 import { IsMobile } from '../../../assets'
@@ -37,7 +36,7 @@ export function PhotoSlider(props) {
         navigation={navigation}
         pagination={pagination}
         centeredSlides={centeredSlides}
-        modules={[Grid, Navigation, Pagination]}
+        modules={[Navigation, Pagination]}
         className='photoSwiper'
         style={{
           '--swiper-pagination-bullet-inactive-color': '#fff',
