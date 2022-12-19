@@ -20,20 +20,20 @@ export function FooterLinks() {
           </div>
           <div className={styles.linkBlock}>
             <p className={styles.linkTitle}>О &#171;Луне&#187; </p>
-            <Link to='/'>о театре</Link>
-            <Link to='/'>творческий состав</Link>
-            <Link to='/'>
+            <Link to='/history'>о театре</Link>
+            <Link to='/troupe'>творческий состав</Link>
+            <Link to='/children-studio'>
               детская театральная студия &#171;Маленькая Луна&#187;
             </Link>
-            <Link to='/'>премия &#171;Ромашка&#187;</Link>
+            <Link to='/romaska-awards'>премия &#171;Ромашка&#187;</Link>
             <Link to='/'>сцены</Link>
           </div>
           <div className={styles.linkBlock}>
             <p className={styles.linkTitle}></p>
             <Link to='/'>вакансии</Link>
-            <Link to='/'>новости</Link>
-            <Link to='/'>пресса</Link>
-            <Link to='/'>контакты</Link>
+            <Link to='/news'>новости</Link>
+            <Link to='/press'>пресса</Link>
+            <Link to='/contacts'>контакты</Link>
             <Link to='/'>сцены</Link>
           </div>
         </div>
