@@ -17,7 +17,7 @@ const TheatricalPerformance = ({ content }) => {
     ...options
   } = {}) => new Intl.DateTimeFormat(locale, options).format(date)
 
-  const handelClick = (link) => {
+  const handleClick = (link) => {
     location.href = link
   }
 
@@ -64,7 +64,7 @@ const TheatricalPerformance = ({ content }) => {
                 <span className={styles.performanceAgeLimit}>{rating}+</span>
                 <button
                   className={styles.performanceButton}
-                  onClick={() => handelClick(tickets_link)}
+                  onClick={() => handleClick(tickets_link)}
                 >
                   Купить билет
                 </button>

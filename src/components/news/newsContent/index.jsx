@@ -41,14 +41,6 @@ let NewsContent = (props) => {
   ) {
     return (
       <section className={styles.newsList}>
-        <div className={styles.antibBlockBlock}>
-          <div className={styles.antiBlock}>В выбранный день новостей нет.</div>
-        </div>
-        <div className={styles.antibBlockBlock_2}>
-          <div className={styles.antiBlock_2}>
-            Ближайшие к вашей дате новости
-          </div>
-        </div>
         {props.filterState.items.map((item) => (
           <NewsEl
             key={item.id}
