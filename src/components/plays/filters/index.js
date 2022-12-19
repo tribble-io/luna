@@ -27,8 +27,8 @@ export function ShowsFilter(props) {
 
   const buttonArray = [
     'Все сцены',
-    'большая сцена',
-    'малая сцена',
+    'Большая сцена',
+    'Малая сцена',
     'Зал \u00ABМаленькая Луна\u00BB',
   ]
 

@@ -35,7 +35,7 @@ function getPlaysFilter(editValue) {
   }
 
   if (editValue.scene.length > 0) {
-    filters += `filters[scene][$eq]=${editValue.scene}&`
+    filters += `filters[scene][name][$eq]=${editValue.scene}&`
   }
 
   if (editValue.rating === true) {
@@ -145,7 +145,7 @@ async function createNewComment(data) {
 
 async function exportRomaskaData() {
   const result = await axios.get(
-    `${API_URL}/api/romaska-awards?populate=plays.role.actor.cover&sort=year:desc`
+    `${API_URL}/api/seasons?populate=awards.artist.cover&sort[0]=year:desc`
   )
 
   if (result.status === 200) {
