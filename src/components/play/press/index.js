@@ -90,9 +90,7 @@ export function Press({ press, actor = false }) {
                     />
                   </div>
                 ) : (
-                  <div className={styles.pressNavigation}>
-                    <div className={styles.pressFraction}>1 / 1</div>
-                  </div>
+                  <></>
                 )}
               </Swiper>
             </div>
