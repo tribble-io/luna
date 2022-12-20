@@ -145,7 +145,6 @@ export function Play() {
   })
 
   const [showItems, setShowItems] = useState({})
-  const [ticketsLink, setticketsLink] = useState('')
   const [roles, setRoles] = useState({})
   const [directors, setDirectors] = useState({})
   const [press, setPress] = useState({})
@@ -156,7 +155,6 @@ export function Play() {
     Promise.all([api.exportComingShow(showID), api.exportShowData(showID)])
       .then((values) => {
         setShowItems(values[0])
-        setticketsLink(values[0]?.tickets_link)
 
         setShowData(getShowData(values[1]))
         setDirectors(values[1]?.directors)
@@ -174,11 +172,7 @@ export function Play() {
 
   return (
     <main>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <TitleBlock data={showData} ticketsLink={ticketsLink} />
-      )}
+      {isLoading ? <Loader /> : <TitleBlock data={showData} />}
       {isLoading ? <Loader /> : <About data={showData} directors={directors} />}
       {isLoading ? <Loader /> : <ComingShow items={showItems} />}
       {isLoading ? (

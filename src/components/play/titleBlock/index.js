@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './titleblock.module.scss'
 import ReactMarkdown from 'react-markdown'
+import ScrollIntoView from 'react-scroll-into-view'
 
-export function TitleBlock({ data, ticketsLink }) {
+export function TitleBlock({ data }) {
   return (
     <section className={styles.titleBlock} id='titleBlock'>
       <div
@@ -17,11 +18,11 @@ export function TitleBlock({ data, ticketsLink }) {
             <p className={styles.title}>{data.title}</p>
             <p className={styles.description}>{data.description}</p>
             <div className={styles.ticket}>
-              <div className={styles.buy}>
-                <a className={styles.link} href={ticketsLink}>
+              <ScrollIntoView selector={`#comingShow`} className={styles.buy}>
+                <button type='button' className={styles.link}>
                   БИЛЕТЫ
-                </a>
-              </div>
+                </button>
+              </ScrollIntoView>
               <div className={styles.rating}>{data.rating}+</div>
             </div>
           </div>
