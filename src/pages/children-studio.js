@@ -46,7 +46,7 @@ function getStudioScene(arr) {
       title: item?.title,
       rating: item?.rating,
       description: item?.description,
-      scene: item?.scene,
+      scene: item?.scene?.name,
       isPremiere: item?.isPremiere,
     }
   })

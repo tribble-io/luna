@@ -4,35 +4,63 @@ import searchImg from './img/search.svg'
 import calendarImg from './img/calendar.svg'
 import arrow from './img/arrow.svg'
 
-const MONTHS = [
+let MONTHS = [
   '',
-  'ЯНВАРЬ',
-  'ФЕВРАЛЬ',
-  'МАРТ',
-  'АПРЕЛЬ',
-  'МАЙ',
-  'ИЮНЬ',
-  'ИЮЛЬ',
-  'АВГУСТ',
-  'СЕНТЯБРЬ',
-  'ОКТЯБРЬ',
-  'НОЯБРЬ',
-  'ДЕКАБРЬ',
+  'январь',
+  'февраль',
+  'март',
+  'апрель',
+  'май',
+  'июнь',
+  'июль',
+  'август',
+  'сентябрь',
+  'октябрь',
+  'ноябрь',
+  'декабрь',
 ]
 
 // Строим кнопки на этот и 4 месяца вперёд
 let a = new Date()
 let rez = []
 
-for (let i = 4; i >= 0; i--) {
+for (let i = 0; i < 5; i++) {
   rez.push(MONTHS[((a.getMonth() - i) % 12) + 1])
 }
 //
 const SortNews = (props) => {
   const [open, openClosedCalendar] = React.useState(false)
   const [openSel, openClosedCalendarSel] = React.useState(false)
-  const [nameSel, cahngeNameSel] = React.useState(props.filterState)
 
+  let c = props.dataArr[0]
+
+  if (c === '01') {
+    c = '1'
+  } else if (c === '02') {
+    c = '2'
+  } else if (c === '03') {
+    c = '3'
+  } else if (c === '04') {
+    c = '4'
+  } else if (c === '05') {
+    c = '5'
+  } else if (c === '06') {
+    c = '6'
+  } else if (c === '07') {
+    c = '7'
+  } else if (c === '08') {
+    c = '8'
+  } else if (c === '09') {
+    c = '9'
+  } else if (c === '10') {
+    c = '10'
+  } else if (c === '11') {
+    c = '11'
+  } else if (c === '12') {
+    c = '12'
+  }
+
+  let b = MONTHS[c]
   // Получаем количество дней в текущем месяце и делаем из них массив
   let daysInMonth = (month, year) => {
     return new Date(year, month, 0).getDate()
@@ -86,6 +114,19 @@ const SortNews = (props) => {
   } else if (props.d === '09') {
     d = 9
   }
+  let monthNameForCal = Object.keys(props.dataList)
+  const monthDataListCal = monthNameForCal.map((item) => (
+    <div
+      key={item}
+      className={styles.selEl}
+      onClick={() => {
+        props.calendar(item), openClosedCalendarSel(!open)
+      }}
+    >
+      <p>{item}</p>
+      <span>{props.dataList[item][2]}г</span>
+    </div>
+  ))
 
   let days_for_month = daysInMonth(props.m, props.y)
   let daysAll = []
@@ -193,7 +234,10 @@ const SortNews = (props) => {
                     openClosedCalendarSel(!openSel)
                   }}
                 >
-                  НОЯБРЬ
+                  <div className={styles.selEl}>
+                    {b}
+                    <span>{props.dataArr[2]}г</span>
+                  </div>
                   <span>
                     <img src={arrow} alt='' />
                   </span>
@@ -203,21 +247,10 @@ const SortNews = (props) => {
                     openSel ? styles.selectMoth : styles.selectMothNoActive
                   }
                 >
-                  <p>ЯНВАРЬ</p>
-                  <p>ФЕВРАЛЬ</p>
-                  <p>МАРТ</p>
-                  <p>АПРЕЛЬ</p>
-                  <p>МАЙ</p>
-                  <p>ИЮНЬ</p>
-                  <p>ИЮЛЬ</p>
-                  <p>АВГУСТ</p>
-                  <p>СЕНТЯБРЬ</p>
-                  <p>ОКТЯБРЬ</p>
-                  <p>НОЯБРЬ</p>
-                  <p>ДЕКАБРЬ</p>
+                  {monthDataListCal}
                 </div>
               </div>
-              <div className={styles.calendarBody}>
+              {/* <div className={styles.calendarBody}>
                 <p>ПН</p>
                 <p>ВТ</p>
                 <p>СР</p>
@@ -226,7 +259,7 @@ const SortNews = (props) => {
                 <p>СБ</p>
                 <p>ВС</p>
                 {daysButton}
-              </div>
+              </div> */}
               <div
                 className={styles.defaultCalendar}
                 onClick={() => {

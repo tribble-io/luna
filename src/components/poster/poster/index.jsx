@@ -28,6 +28,12 @@ class Poster extends React.Component {
     let month = Number(actualMoth)
     let formatMoth
     let nextMonth = month + 1 === 12 ? 1 : month + 1
+    let actualDay_this_month = actualDate.getDate()
+
+    if (actualDay_this_month.length === 1) {
+      actualDay_this_month = '0' + actualDay_this_month
+    }
+
     let actualDateFormate = [
       month + 1,
       '01',
@@ -155,7 +161,7 @@ class Poster extends React.Component {
 
       dateList[monthName[actualDateFormate[0]]] = [
         formatMoth,
-        actualDateFormate[1],
+        actualDay_this_month,
         actualDateFormate[2],
         nextMonth,
         actualDateFormate[4],
@@ -164,6 +170,7 @@ class Poster extends React.Component {
       actualDateFormate[0] += 1
       actualDateFormate[3] += 1
       month += 1
+      actualDay_this_month = '01'
     }
     const MONTHS_num = [
       '',
@@ -208,6 +215,7 @@ class Poster extends React.Component {
       checkFilter: 0,
       dataList: dateList,
       monthName: monthName,
+      actualDay_this_month: actualDay_this_month,
       actualMoth_str: actualMoth_str,
       nextMoth_str: nextMoth_str,
       dataArr: dateList[actualMoth_str],
@@ -297,7 +305,7 @@ class Poster extends React.Component {
         '-' +
         this.state.dataArr[0] +
         '-' +
-        this.state.day
+        this.state.dataArr[1]
       let lastDate =
         this.state.dataArr[5] +
         '-' +
@@ -377,7 +385,7 @@ class Poster extends React.Component {
           '-' +
           this.state.dataArr[0] +
           '-' +
-          this.state.day
+          this.state.dataArr[1]
         let calLastDate =
           this.state.dataArr[2] + '-' + this.state.dataArr[0] + '-' + lastDay
 

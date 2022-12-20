@@ -10,7 +10,7 @@ import './style.css'
 // import required modules
 import { Pagination } from 'swiper'
 
-export function Press({ press }) {
+export function Press({ press, actor = false }) {
   const [pressArr, setPressArr] = useState(press)
   const pressLineaAmount = 3
   const [actPage, setActPage] = useState(1)
@@ -40,7 +40,13 @@ export function Press({ press }) {
     <section id='press'>
       <div className={styles.wrapper}>
         {press.length > 0 && (
-          <div className={styles.pressContent}>
+          <div
+            className={
+              actor
+                ? `${styles.pressContent} ${styles.pressContentActor}`
+                : styles.pressContent
+            }
+          >
             <h2>упоминания в прессе</h2>
             {IsMobile ? (
               <div className={styles.pressSlider}>
@@ -65,7 +71,13 @@ export function Press({ press }) {
                 </Swiper>
               </div>
             ) : (
-              <div className={styles.pressGrid}>
+              <div
+                className={
+                  actor
+                    ? `${styles.pressGrid} ${styles.pressGridActor}`
+                    : styles.pressGrid
+                }
+              >
                 {pressArr.map((item, key) => (
                   <CreatePressLine data={item} key={key} />
                 ))}
