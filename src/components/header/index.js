@@ -11,14 +11,21 @@ function Header() {
     <header>
       <div className={styles.header_top}>
         <div className={styles.header_info_gov}>
-          <img
-            className={styles.header_info_icon}
-            src='/img/header-gov.png'
-            alt=''
-          ></img>
-          <div className={styles.header_info_text}>
+          <a href='http://kultura.mos.ru/' target='_blank' rel='noreferrer'>
+            <img
+              className={styles.header_info_icon}
+              src='/img/header-gov.png'
+              alt=''
+            ></img>
+          </a>
+          <a
+            href='http://kultura.mos.ru/'
+            target='_blank'
+            rel='noreferrer'
+            className={styles.header_info_text}
+          >
             Департамент культуры <br /> города Москвы
-          </div>
+          </a>
         </div>
         <div className={styles.header_info_blind}>
           <img
