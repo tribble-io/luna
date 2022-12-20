@@ -66,7 +66,7 @@ export function Press({ press, actor = false }) {
                     <CreatePressLine data={item} key={key} />
                   </SwiperSlide>
                 ))}
-                {press.length > 1 ? (
+                {press.length > 3 ? (
                   <div className={styles.pressNavigation}>
                     <img
                       src='/img/newsLarr.png'
