@@ -30,7 +30,7 @@ function getNextShow(arr) {
       day: getWeekDay(item?.date),
       title: item?.play?.title,
       isPremiere: item?.play?.isPremiere,
-      place: item?.place,
+      place: item?.play.scene.name,
       rating: item?.play?.rating,
       buy: item?.tickets_link,
     }
