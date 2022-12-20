@@ -291,13 +291,6 @@ class Poster extends React.Component {
     this.componentDidMount()
   }
 
-  getWeekDay(date) {
-    let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ']
-    let dates = new Date(date)
-
-    return days[dates.getDay()]
-  }
-
   componentDidMount() {
     setTimeout(() => {
       let date =
@@ -425,10 +418,7 @@ class Poster extends React.Component {
             search={this.search}
             calendar={this.calendar}
           />
-          <PosterContent
-            filterState={this.state}
-            getWeekDay={this.getWeekDay}
-          />
+          <PosterContent filterState={this.state} />
         </main>
       </section>
     )

@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Swiper, SwiperSlide } from 'swiper/react'
-
 import { API_URL } from '../../../api'
+import { getDateStr } from '../../../assets'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/effect-fade'
@@ -13,21 +14,6 @@ import './styles.css'
 
 // import required modules
 import { Autoplay, EffectFade } from 'swiper'
-
-const MONTHS = [
-  'ЯНВАРЬ',
-  'ФЕВРАЛЬ',
-  'МАРТ',
-  'АПРЕЛЬ',
-  'МАЙ',
-  'ИЮНЬ',
-  'ИЮЛЬ',
-  'АВГУСТ',
-  'СЕНТЯБРЬ',
-  'ОКТЯБРЬ',
-  'НОЯБРЬ',
-  'ДЕКАБРЬ',
-]
 
 export function Slider({ items, firstDate }) {
   return (
@@ -70,8 +56,10 @@ export function Slider({ items, firstDate }) {
                   )}
                 </div>
                 <div className={styles.block2}>
-                  <p className={styles.date}>{offer.date_str.split(' ')[0]}</p>
-                  <p className={styles.month}>{offer.date_str.split(' ')[1]}</p>
+                  <p className={styles.date}>{getDateStr(offer.date).date}</p>
+                  <p className={styles.month}>
+                    {getDateStr(offer.date).month_name_case}
+                  </p>
                   <div className={styles.buy}>
                     <a href={`${offer.tickets_link}`}>КУПИТЬ БИЛЕТ</a>
                   </div>
@@ -94,7 +82,7 @@ export function Slider({ items, firstDate }) {
                   </div>
                 </div>
                 <div className={styles.startCalendarText}>
-                  <h1>{MONTHS[firstDate.getMonth()]}</h1>
+                  <h1>{getDateStr(firstDate).month_name}</h1>
                   <div className={styles.buttons}>
                     <Link to='/plays' className={styles.allPost}>
                       <p>Все спектакли</p>

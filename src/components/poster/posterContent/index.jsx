@@ -1,6 +1,7 @@
 import React from 'react'
 import PosterEl from './posterEl'
 import styles from './postercontent.module.scss'
+import { getDateStr } from '../../../assets'
 
 let PosterContent = (props) => {
   if (props.filterState.items.length === 0) {
@@ -30,9 +31,9 @@ let PosterContent = (props) => {
         {props.filterState.items.map((item) => (
           <PosterEl
             key={item.id}
-            date={parseInt(item.date_str.match(/\d+/))}
+            date={getDateStr(item.date).date}
             time={item.time}
-            day={props.getWeekDay(item.date)}
+            day={getDateStr(item.date).day_of_week}
             title={item.play.title}
             premier={item.play.isPremiere ? 'ПРЕМЬЕРА' : ''}
             location={item.place}
@@ -51,9 +52,9 @@ let PosterContent = (props) => {
         {props.filterState.itemsCal.map((item) => (
           <PosterEl
             key={item.id}
-            date={parseInt(item.date_str.match(/\d+/))}
+            date={getDateStr(item.date).date}
             time={item.time}
-            day={props.getWeekDay(item.date)}
+            day={getDateStr(item.date).day_of_week}
             title={item.play.title}
             premier={item.play.isPremiere ? 'ПРЕМЬЕРА' : ''}
             location={item.place}
@@ -69,9 +70,9 @@ let PosterContent = (props) => {
         {props.filterState.items.map((item) => (
           <PosterEl
             key={item.id}
-            date={parseInt(item.date_str.match(/\d+/))}
+            date={getDateStr(item.date).date}
             time={item.time}
-            day={props.getWeekDay(item.date)}
+            day={getDateStr(item.date).day_of_week}
             title={item.play.title}
             premier={item.play.isPremiere ? 'ПРЕМЬЕРА' : ''}
             location={item.place}

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { API_URL } from '../../../api'
-
 import { Separator } from '../../mainPage'
+import { getDateStr } from '../../../assets'
 
 import styles from './news.module.scss'
 
@@ -60,7 +60,10 @@ export function News({ itemsNews }) {
               <div className={styles.title}>
                 {cutToLength(itemsNews[0].title, 70)}
               </div>
-              <div className={styles.date}>{itemsNews[0].date_str}</div>
+              <div className={styles.date}>
+                {getDateStr(itemsNews[0].createdAt).date}{' '}
+                {getDateStr(itemsNews[0].createdAt).month_name_case}
+              </div>
             </Link>
             {[0, 1].map((i) => {
               const item = itemsNews[i + 1]
@@ -73,7 +76,10 @@ export function News({ itemsNews }) {
                       <div className={styles.title}>
                         {cutToLength(item.title, 70)}
                       </div>
-                      <div className={styles.date}>{item.date_str}</div>
+                      <div className={styles.date}>
+                        {getDateStr(item.createdAt).date}{' '}
+                        {getDateStr(item.createdAt).month_name_case}
+                      </div>
                       <div className={styles.text}>
                         {cutToLength(item.text, 150)}
                       </div>
