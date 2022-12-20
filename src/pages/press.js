@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { api } from '../api/index'
+import { getDateStr } from '../assets'
 
 import { PressFilters, PressCards } from '../components/press'
 import Loader from '../components/loader'
@@ -9,7 +10,7 @@ function getListYear(arr) {
     const data = arr
       .map((item) => {
         // Get only value of the years
-        const year = new Date(item.date).getFullYear()
+        const year = getDateStr(item.date).year
         return year
       })
       .filter((number, index, numbers) => {
@@ -24,11 +25,9 @@ function getListYear(arr) {
 }
 
 const getFullDate = (date) => {
-  let dates = new Date(date)
-  let fulldate = `${dates.getDate()}.${
-    dates.getMonth() + 1
-  }.${dates.getFullYear()}`
-  return fulldate
+  return `${getDateStr(date).date}.${getDateStr(date).month}.${
+    getDateStr(date).year
+  }`
 }
 
 function getPressData(arr) {

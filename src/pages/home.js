@@ -27,9 +27,7 @@ export function Home() {
       })
   }, [])
 
-  const [firstDate, setFirstDate] = React.useState(
-    new Date(new Date().toISOString().slice(0, 10))
-  )
+  const [firstDate, setFirstDate] = React.useState(new Date())
 
   return (
     <div>

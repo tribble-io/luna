@@ -4,6 +4,7 @@ import styles from './oneNewsPage.module.scss'
 import ReactMarkdown from 'react-markdown'
 import PosterEl from '../../poster/posterContent/posterEl'
 import MiniMews from './miniNews'
+import { getDateStr } from '../../../assets'
 
 import tg from './img/telegram.svg'
 import vk from './img/vk.svg'
@@ -83,7 +84,8 @@ class OneOageNews extends React.Component {
       const itemsNews = this.state.itemsMiniNews.map((item) => (
         <MiniMews
           title={item.title}
-          data_str={item.date_str}
+          date={getDateStr(item.createdAt).date}
+          month={getDateStr(item.createdAt).month_name_case}
           key={item.id}
           locationNew={'' + item.id}
           items={this.state.itemsMiniNews}
@@ -102,7 +104,8 @@ class OneOageNews extends React.Component {
                       {this.state.items.title}
                     </div>
                     <div className={styles.data}>
-                      {this.state.items.date_str}
+                      {getDateStr(this.state.items.createdAt).date}{' '}
+                      {getDateStr(this.state.items.createdAt).month_name_case}
                     </div>
                   </div>
                   <div className={styles.imgHeader}>
@@ -131,9 +134,9 @@ class OneOageNews extends React.Component {
                 <section className={styles.posterBlock}>
                   {this.state.items.shows.map((item) => (
                     <PosterEl
-                      day={item.date_str.match(/[^\d]+/g)}
+                      day={getDateStr(item.date).month_name_case}
                       key={item.id}
-                      date={parseInt(item.date_str.match(/\d+/))}
+                      date={getDateStr(item.date).date}
                       time={item.time}
                       title={item.play.title}
                       location={item.play.scene}

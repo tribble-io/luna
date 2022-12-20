@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { API_URL, api } from '../api/index'
 import { useMatch } from 'react-router-dom'
+import { getDateStr } from '../assets'
 
 import {
   TitleBlock,
@@ -61,35 +62,16 @@ function getShowPhoto(arr) {
   }
 }
 
-let month = [
-  'ЯНВАРЯ',
-  'ФЕВРАЛЯ',
-  'МАРТА',
-  'АПРЕЛЯ',
-  'МАЯ',
-  'ИЮНЯ',
-  'ИЮЛЯ',
-  'АВГУСТА',
-  'СЕНТЯБРЯ',
-  'ОКТЯБРЯ',
-  'НОЯБРЯ',
-  'ДЕКАБРЯ',
-]
-
 const getFullDateMonth = (date) => {
-  let dates = new Date(date)
-  let fulldate = `${dates.getDate()} ${
-    month[dates.getMonth()]
-  } ${dates.getFullYear()}`
-  return fulldate
+  return `${getDateStr(date).date}.${getDateStr(date).month_name_case}.${
+    getDateStr(date).year
+  }`
 }
 
 const getFullDate = (date) => {
-  let dates = new Date(date)
-  let fulldate = `${dates.getDate()}.${
-    dates.getMonth() + 1
-  }.${dates.getFullYear()}`
-  return fulldate
+  return `${getDateStr(date).date}.${getDateStr(date).month}.${
+    getDateStr(date).year
+  }`
 }
 
 function getShowReview(arr) {

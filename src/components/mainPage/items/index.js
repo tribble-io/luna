@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { getDateStr } from '../../../assets'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { API_URL } from '../../../api'
@@ -70,10 +71,6 @@ export function Item({ items }) {
   }
   const { slidesPerView, spaceBetween, centeredSlides } = checkSlides()
 
-  function itemCheckDate(item) {
-    return new Date(item.date)
-  }
-
   function itemCheckPlace(item) {
     return PLACES[item.place]
   }
@@ -119,8 +116,9 @@ export function Item({ items }) {
                 <div className={styles.mid}>
                   <div className={styles.dateTimeContainer}>
                     <div className={styles.date}>
-                      {itemCheckDate(item).getDate()}.
-                      {itemCheckDate(item).getMonth() + 1}
+                      {getDateStr(item.date).date}
+                      {'.'}
+                      {getDateStr(item.date).month}
                       <img
                         src='/img/moon_poster.png'
                         alt=''

@@ -80,7 +80,7 @@ export function Calendar({ setFirstDate, items }) {
   })
 
   const dates = React.useMemo(() => {
-    const today = new Date(new Date().toISOString().slice(0, 10))
+    const today = new Date()
     return Array.from({ length: DATE_LOAD_LENGTH }, (_, i) => {
       const date = new Date()
       date.setTime(today.getTime() + (i - ARR_OFFSET) * DAY)

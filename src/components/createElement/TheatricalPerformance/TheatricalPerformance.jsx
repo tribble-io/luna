@@ -2,21 +2,9 @@ import React from 'react'
 
 import styles from './TheatricalPerformance.module.scss'
 
+import { getDateStr } from '../../../assets'
+
 const TheatricalPerformance = ({ content }) => {
-  const formatDate = (text, number) => {
-    if (number) {
-      return parseInt(text)
-    } else {
-      return text.replace(/[^А-Яа-яЁё]/g, '')
-    }
-  }
-
-  const formatDateTime = ({
-    locale = [],
-    date = Date.now(),
-    ...options
-  } = {}) => new Intl.DateTimeFormat(locale, options).format(date)
-
   const handleClick = (link) => {
     location.href = link
   }
@@ -25,10 +13,7 @@ const TheatricalPerformance = ({ content }) => {
     <section className={styles.boxTheatricalPerformance}>
       <p className={styles.theatricalPerformanceTitle}>БЛИЖАЙШИЕ ПОСТАНОВКИ</p>
       {content?.map(
-        (
-          { id, date_str, date, time, place, tickets_link, title, rating },
-          index
-        ) => (
+        ({ id, date, time, place, tickets_link, title, rating }, index) => (
           <div className={styles.performance} key={`performance-${id}`}>
             <div
               className={
@@ -39,18 +24,13 @@ const TheatricalPerformance = ({ content }) => {
             >
               <div className={styles.contentPerformanceInfo}>
                 <div className={styles.boxPerformanceDate}>
-                  <p className={styles.dateDay}>
-                    {formatDate(date_str, true)} /
-                  </p>
+                  <p className={styles.dateDay}>{getDateStr(date).date} /</p>
                   <div className={styles.performanceDate}>
                     <p className={styles.dateMonth}>
-                      {formatDate(date_str, false)}
+                      {getDateStr(date).month_name_case}
                     </p>
                     <p className={styles.time}>
-                      {formatDateTime({
-                        date: new Date(date),
-                        weekday: 'short',
-                      })}{' '}
+                      {getDateStr(date).day_of_week}{' '}
                       {time.split(':', 2).join(':')}
                     </p>
                   </div>

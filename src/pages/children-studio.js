@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { api, API_URL } from '../api/index'
+import { getDateStr } from '../assets'
 
 import {
   ChildrenTitle,
@@ -13,21 +14,15 @@ import {
 } from '../components/childrensStudio'
 import Loader from '../components/loader'
 
-const getWeekDay = (date) => {
-  let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ']
-  let dates = new Date(date)
-  return days[dates.getDay()]
-}
-
 function getNextShow(arr) {
   const nextShowData = arr.map((item) => {
     return {
       item: item,
       id: item.id,
-      date: parseInt(item?.date_str.match(/\d+/)),
+      date: getDateStr(item?.date).date,
       time: item?.time,
-      month: item?.date_str.match(/[^\s\d]+/),
-      day: getWeekDay(item?.date),
+      month: getDateStr(item?.date).month_name_case,
+      day: getDateStr(item?.date).day_of_week,
       title: item?.play?.title,
       isPremiere: item?.play?.isPremiere,
       place: item?.play.scene.name,

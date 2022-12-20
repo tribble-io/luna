@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './sort_news.module.scss'
 import NewsEl from './newsEl'
+import { getDateStr } from '../../../assets'
 
 // let NewsContent = (props) => {
 //             if(props.filterState.items.length === 0) {
@@ -11,7 +12,8 @@ import NewsEl from './newsEl'
 //                     {props.filterState.items.map(item => (
 //                         <NewsEl
 //                         key={item.id}
-//                         date={item.date_str}
+//                         date={getDateStr(item.createdAt).date}
+//                         month={getDateStr(item.createdAt).month_name_case}
 //                         title={item.title}
 //                         cover={item.cover.data.url}
 //                         items={item}
@@ -25,7 +27,6 @@ import NewsEl from './newsEl'
 //                 )
 //         }
 //     }
-
 let NewsContent = (props) => {
   if (props.filterState.items.length === 0) {
     return (
@@ -44,7 +45,8 @@ let NewsContent = (props) => {
         {props.filterState.items.map((item) => (
           <NewsEl
             key={item.id}
-            date={item.date_str}
+            date={getDateStr(item.createdAt).date}
+            month={getDateStr(item.createdAt).month_name_case}
             title={item.title}
             cover={item.cover.url}
             items={item}
@@ -64,7 +66,8 @@ let NewsContent = (props) => {
         {props.filterState.itemsCal.map((item) => (
           <NewsEl
             key={item.id}
-            date={item.date_str}
+            date={getDateStr(item.createdAt).date}
+            month={getDateStr(item.createdAt).month_name_case}
             title={item.title}
             cover={item.cover.url}
             items={item}
@@ -81,7 +84,8 @@ let NewsContent = (props) => {
         {props.filterState.items.map((item) => (
           <NewsEl
             key={item.id}
-            date={item.date_str}
+            date={getDateStr(item.createdAt).date}
+            month={getDateStr(item.createdAt).month_name_case}
             title={item.title}
             cover={item.cover.url}
             items={item}
