@@ -8,10 +8,12 @@
 }
 
 .comingShowContent {
+  padding-top: 150px;
   padding-bottom: 200px;
   cursor: default;
 
   @media (max-width: 500px) {
+    padding-top: 50px;
     padding-bottom: 100px;
   }
 
