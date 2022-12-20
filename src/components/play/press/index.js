@@ -18,7 +18,7 @@ export function Press({ press, actor = false }) {
   const customFraction = useRef(null)
   const slidesPerView = IsMobile ? 'auto' : 1
   const centeredSlides = IsMobile ? true : false
-  const grid = IsMobile ? false : { rows: 2, fill: 'row' }
+  const grid = IsMobile ? false : { rows: 3, fill: 'row' }
   const pagination = IsMobile
     ? { clickable: true, dynamicBullets: true }
     : {
@@ -32,8 +32,6 @@ export function Press({ press, actor = false }) {
   const navigation = IsMobile
     ? false
     : { prevEl: navigationPrevRef.current, nextEl: navigationNextRef.current }
-
-  console.log(press.length <= 1, 'press')
 
   return (
     <section id='press'>

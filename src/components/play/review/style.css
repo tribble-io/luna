@@ -1,0 +1,5 @@
+@media (max-width: 500px) {
+  .reviewSwiper.swiper {
+    padding-bottom: 40px;
+  }
+}
