@@ -63,13 +63,15 @@ function getShowPhoto(arr) {
 }
 
 const getFullDateMonth = (date) => {
-  return `${getDateStr(date).date}.${getDateStr(date).month_name_case}.${getDateStr(date).year
-    }`
+  return `${getDateStr(date).date} ${getDateStr(date).month_name_case} ${
+    getDateStr(date).year
+  }`
 }
 
 const getFullDate = (date) => {
-  return `${getDateStr(date).date}.${getDateStr(date).month}.${getDateStr(date).year
-    }`
+  return `${getDateStr(date).date}.${getDateStr(date).month}.${
+    getDateStr(date).year
+  }`
 }
 
 function getShowReview(arr) {
@@ -81,6 +83,7 @@ function getShowReview(arr) {
         title: item?.title,
         text: item?.text,
         createdAt: getFullDateMonth(item?.createdAt),
+        updatedAt: getFullDateMonth(item?.updatedAt),
         theaterAnswer: item?.theaterAnswer,
       }
     })

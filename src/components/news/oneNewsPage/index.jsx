@@ -43,8 +43,9 @@ class OneOageNews extends React.Component {
     if (!location.state) {
       let state = { item: [], itemsMiniNews: [] }
       fetch(
-        `  http://theatre.restomatik.ru:1337/api/articles${'/' + this.state.id_article
-        }?sort[0]=createdAt:desc&populate=cover,shows.play
+        `  http://theatre.restomatik.ru:1337/api/articles${
+          '/' + this.state.id_article
+        }?sort[0]=publishedAt:desc&populate=cover,shows.play
           `
       )
         .then((res) => res.json())
@@ -56,7 +57,7 @@ class OneOageNews extends React.Component {
         )
       console.log(state['item'])
       fetch(
-        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=createdAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
+        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=publishedAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
       )
         .then((res) => res.json())
         .then((result) =>
@@ -83,8 +84,8 @@ class OneOageNews extends React.Component {
       const itemsNews = this.state.itemsMiniNews.map((item) => (
         <MiniMews
           title={item.title}
-          date={getDateStr(item.createdAt).date}
-          month={getDateStr(item.createdAt).month_name_case}
+          date={getDateStr(item.publishedAt).date}
+          month={getDateStr(item.publishedAt).month_name_case}
           key={item.id}
           locationNew={'' + item.id}
           items={this.state.itemsMiniNews}
@@ -103,8 +104,8 @@ class OneOageNews extends React.Component {
                       {this.state.items.title}
                     </div>
                     <div className={styles.data}>
-                      {getDateStr(this.state.items.createdAt).date}{' '}
-                      {getDateStr(this.state.items.createdAt).month_name_case}
+                      {getDateStr(this.state.items.publishedAt).date}{' '}
+                      {getDateStr(this.state.items.publishedAt).month_name_case}
                     </div>
                   </div>
                   <div className={styles.imgHeader}>

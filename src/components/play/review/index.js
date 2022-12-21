@@ -114,7 +114,7 @@ export function Review({ review }) {
                                 Администрация &#171;Театра&#160;Луны&#187;
                               </div>
                             </div>
-                            <div className={styles.date}>{data.createdAt}</div>
+                            <div className={styles.date}>{data.updatedAt}</div>
                             <div className={styles.adminText}>
                               <ReactMarkdown children={data.theaterAnswer} />
                             </div>
@@ -173,7 +173,7 @@ export function Review({ review }) {
                             Администрация &#171;Театра&#160;Луны&#187;
                           </div>
                         </div>
-                        <div className={styles.date}>{data.createdAt}</div>
+                        <div className={styles.date}>{data.updatedAt}</div>
                         <div className={styles.adminText}>
                           <ReactMarkdown children={data.theaterAnswer} />
                         </div>
