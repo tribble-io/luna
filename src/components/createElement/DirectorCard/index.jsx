@@ -8,7 +8,7 @@ const DirectorCard = ({ data }) => {
         <div className={styles.cardDirectorImg}>
           <a
             className={styles.imageLink}
-            href={'actor/' + data?.id}
+            href={'person/' + data?.id}
             title='Перейти в профиль актера'
           >
             <img src={data?.src} alt={data?.name} />
@@ -17,7 +17,7 @@ const DirectorCard = ({ data }) => {
         <div className={styles.directorCardText}>
           <a
             className={styles.actorName}
-            href={'actor/' + data?.id}
+            href={'person/' + data?.id}
             title='Перейти в профиль актера'
           >
             {data?.name}

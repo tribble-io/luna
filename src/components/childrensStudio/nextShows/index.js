@@ -3,9 +3,9 @@ import styles from './nextShows.module.scss'
 import { PlaysLine } from '../../createElement'
 
 export function ChildrenNextShows(props) {
-  const { id, items } = props
+  const { id, items, actor = false } = props
   // Check if we have shows in little moon
-  const isItems = items.length > 0 ? true : false
+  const isItems = items?.length > 0 ? true : false
 
   return (
     <>
@@ -17,9 +17,23 @@ export function ChildrenNextShows(props) {
             </div>
             {isItems ? (
               <div className={styles.nextShowsArea}>
-                {items.slice(0, 4).map((data) => (
-                  <PlaysLine data={data} key={data.id} />
-                ))}
+                {typeof items === 'string'
+                  ? items
+                      .slice(0, 4)
+                      .map((data, index) => (
+                        <PlaysLine
+                          data={data}
+                          key={`lays-line-${data.id}-${index}`}
+                          actor={actor}
+                        />
+                      ))
+                  : items?.map((data, index) => (
+                      <PlaysLine
+                        data={data}
+                        key={`lays-line-${data.id}-${index}`}
+                        actor={actor}
+                      />
+                    ))}
               </div>
             ) : (
               <div className={styles.nextShowsArea}>
