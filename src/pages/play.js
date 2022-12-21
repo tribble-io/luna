@@ -27,20 +27,22 @@ function getShowData(item) {
     body: item?.body,
   }
 }
-
-export function getShowRoles(arr) {
+function getShowRoles(arr) {
   if (arr !== null) {
-    return arr.map((role) => {
-      return {
-        id: role.actor?.id,
-        role: role.roleTitle,
-        name: role.actor?.fullname,
-        src:
-          role.actor.cover !== null
-            ? API_URL + role.actor?.cover?.url
-            : '/img/actor-photo.png',
-      }
-    })
+    const roles = arr.map((role) =>
+      role.actors.map((actor) => {
+        return {
+          id: actor.id,
+          role: role.roleTitle,
+          name: actor.fullname,
+          src:
+            actor.cover !== null
+              ? API_URL + actor.cover?.url
+              : '/img/actor-photo.png',
+        }
+      })
+    )
+    return roles.flat()
   } else {
     return []
   }
