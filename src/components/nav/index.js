@@ -39,7 +39,7 @@ function Nav() {
                 </div>
                 <div className={styles.subMenuBlock}>
                   <Link to='/romaska-awards'>Премия &#171;Ромашка&#187;</Link>
-                  <Link to='/'>Сцены</Link>
+                  <Link to='/scenes'>Сцены</Link>
                   <Link to='/'>Вакансии</Link>
                   <Link to='/press'>Пресса о театре</Link>
                 </div>

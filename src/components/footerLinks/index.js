@@ -26,7 +26,7 @@ export function FooterLinks() {
               детская театральная студия &#171;Маленькая Луна&#187;
             </Link>
             <Link to='/romaska-awards'>премия &#171;Ромашка&#187;</Link>
-            <Link to='/'>сцены</Link>
+            <Link to='/scenes'>сцены</Link>
           </div>
           <div className={styles.linkBlock}>
             <p className={styles.linkTitle}></p>
@@ -34,7 +34,7 @@ export function FooterLinks() {
             <Link to='/news'>новости</Link>
             <Link to='/press'>пресса</Link>
             <Link to='/contacts'>контакты</Link>
-            <Link to='/'>сцены</Link>
+            <Link to='/scenes'>сцены</Link>
           </div>
         </div>
       </div>
