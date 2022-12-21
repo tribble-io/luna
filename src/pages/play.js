@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { API_URL, api } from '../api/index'
 import { useMatch } from 'react-router-dom'
+import { getDateStr } from '../assets'
 
 import {
   TitleBlock,
@@ -22,24 +23,26 @@ function getShowData(item) {
     rating: item?.rating,
     durationStr: item?.durationStr,
     premiereDateStr: item?.premiereDateStr,
-    scene: item?.scene,
+    scene: item?.scene.name,
     body: item?.body,
   }
 }
-
-export function getShowRoles(arr) {
+function getShowRoles(arr) {
   if (arr !== null) {
-    return arr.map((role) => {
-      return {
-        id: role.actor?.id,
-        role: role.roleTitle,
-        name: role.actor?.fullname,
-        src:
-          role.actor.cover !== null
-            ? API_URL + role.actor?.cover?.url
-            : '/img/actor-photo.png',
-      }
-    })
+    const roles = arr.map((role) =>
+      role.actors.map((actor) => {
+        return {
+          id: actor.id,
+          role: role.roleTitle,
+          name: actor.fullname,
+          src:
+            actor.cover !== null
+              ? API_URL + actor.cover?.url
+              : '/img/actor-photo.png',
+        }
+      })
+    )
+    return roles.flat()
   } else {
     return []
   }
@@ -61,35 +64,16 @@ function getShowPhoto(arr) {
   }
 }
 
-let month = [
-  'ЯНВАРЯ',
-  'ФЕВРАЛЯ',
-  'МАРТА',
-  'АПРЕЛЯ',
-  'МАЯ',
-  'ИЮНЯ',
-  'ИЮЛЯ',
-  'АВГУСТА',
-  'СЕНТЯБРЯ',
-  'ОКТЯБРЯ',
-  'НОЯБРЯ',
-  'ДЕКАБРЯ',
-]
-
 const getFullDateMonth = (date) => {
-  let dates = new Date(date)
-  let fulldate = `${dates.getDate()} ${
-    month[dates.getMonth()]
-  } ${dates.getFullYear()}`
-  return fulldate
+  return `${getDateStr(date).date} ${getDateStr(date).month_name_case} ${
+    getDateStr(date).year
+  }`
 }
 
 const getFullDate = (date) => {
-  let dates = new Date(date)
-  let fulldate = `${dates.getDate()}.${
-    dates.getMonth() + 1
-  }.${dates.getFullYear()}`
-  return fulldate
+  return `${getDateStr(date).date}.${getDateStr(date).month}.${
+    getDateStr(date).year
+  }`
 }
 
 function getShowReview(arr) {
@@ -101,6 +85,7 @@ function getShowReview(arr) {
         title: item?.title,
         text: item?.text,
         createdAt: getFullDateMonth(item?.createdAt),
+        updatedAt: getFullDateMonth(item?.updatedAt),
         theaterAnswer: item?.theaterAnswer,
       }
     })
@@ -145,7 +130,6 @@ export function Play() {
   })
 
   const [showItems, setShowItems] = useState({})
-  const [ticketsLink, setticketsLink] = useState('')
   const [roles, setRoles] = useState({})
   const [directors, setDirectors] = useState({})
   const [press, setPress] = useState({})
@@ -156,7 +140,6 @@ export function Play() {
     Promise.all([api.exportComingShow(showID), api.exportShowData(showID)])
       .then((values) => {
         setShowItems(values[0])
-        setticketsLink(values[0]?.tickets_link)
 
         setShowData(getShowData(values[1]))
         setDirectors(values[1]?.directors)
@@ -174,11 +157,7 @@ export function Play() {
 
   return (
     <main>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <TitleBlock data={showData} ticketsLink={ticketsLink} />
-      )}
+      {isLoading ? <Loader /> : <TitleBlock data={showData} />}
       {isLoading ? <Loader /> : <About data={showData} directors={directors} />}
       {isLoading ? <Loader /> : <ComingShow items={showItems} />}
       {isLoading ? (

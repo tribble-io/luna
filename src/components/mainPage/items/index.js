@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { getDateStr } from '../../../assets'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { API_URL } from '../../../api'
@@ -12,15 +13,15 @@ import { HashNavigation } from 'swiper'
 import styles from './item.module.scss'
 
 const PLACES = {
-  'Малый зал': {
+  'Малая сцена': {
     name: 'малый зал',
     text_color: '#FEFFBB',
   },
-  'Большой зал': {
+  'Большая сцена': {
     name: 'большой зал',
     text_color: '#C5C5C5',
   },
-  'Зал "Маленькая Луна"': {
+  'Зал «Маленькая Луна»': {
     name: 'маленькая луна',
     text_color: '#9FDDFF',
   },
@@ -70,12 +71,8 @@ export function Item({ items }) {
   }
   const { slidesPerView, spaceBetween, centeredSlides } = checkSlides()
 
-  function itemCheckDate(item) {
-    return new Date(item.date)
-  }
-
   function itemCheckPlace(item) {
-    return PLACES[item.place]
+    return PLACES[item.play.scene.name]
   }
 
   function assignDataHash(item) {
@@ -119,8 +116,9 @@ export function Item({ items }) {
                 <div className={styles.mid}>
                   <div className={styles.dateTimeContainer}>
                     <div className={styles.date}>
-                      {itemCheckDate(item).getDate()}.
-                      {itemCheckDate(item).getMonth() + 1}
+                      {getDateStr(item.date).date}
+                      {'.'}
+                      {getDateStr(item.date).month}
                       <img
                         src='/img/moon_poster.png'
                         alt=''

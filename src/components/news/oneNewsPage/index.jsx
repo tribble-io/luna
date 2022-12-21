@@ -4,6 +4,7 @@ import styles from './oneNewsPage.module.scss'
 import ReactMarkdown from 'react-markdown'
 import PosterEl from '../../poster/posterContent/posterEl'
 import MiniMews from './miniNews'
+import { getDateStr } from '../../../assets'
 
 import tg from './img/telegram.svg'
 import vk from './img/vk.svg'
@@ -44,7 +45,7 @@ class OneOageNews extends React.Component {
       fetch(
         `  http://theatre.restomatik.ru:1337/api/articles${
           '/' + this.state.id_article
-        }?sort[0]=createdAt:desc&populate=cover,shows.play
+        }?sort[0]=publishedAt:desc&populate=cover,shows.play
           `
       )
         .then((res) => res.json())
@@ -56,7 +57,7 @@ class OneOageNews extends React.Component {
         )
       console.log(state['item'])
       fetch(
-        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=createdAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
+        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=publishedAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
       )
         .then((res) => res.json())
         .then((result) =>
@@ -83,7 +84,8 @@ class OneOageNews extends React.Component {
       const itemsNews = this.state.itemsMiniNews.map((item) => (
         <MiniMews
           title={item.title}
-          data_str={item.date_str}
+          date={getDateStr(item.publishedAt).date}
+          month={getDateStr(item.publishedAt).month_name_case}
           key={item.id}
           locationNew={'' + item.id}
           items={this.state.itemsMiniNews}
@@ -102,7 +104,8 @@ class OneOageNews extends React.Component {
                       {this.state.items.title}
                     </div>
                     <div className={styles.data}>
-                      {this.state.items.date_str}
+                      {getDateStr(this.state.items.publishedAt).date}{' '}
+                      {getDateStr(this.state.items.publishedAt).month_name_case}
                     </div>
                   </div>
                   <div className={styles.imgHeader}>
@@ -131,12 +134,12 @@ class OneOageNews extends React.Component {
                 <section className={styles.posterBlock}>
                   {this.state.items.shows.map((item) => (
                     <PosterEl
-                      day={item.date_str.match(/[^\d]+/g)}
+                      day={getDateStr(item.date).month_name_case}
                       key={item.id}
-                      date={parseInt(item.date_str.match(/\d+/))}
+                      date={getDateStr(item.date).date}
                       time={item.time}
                       title={item.play.title}
-                      location={item.play.scene}
+                      location={item.play.scene.name}
                       rating={item.play.rating}
                       buy={item.tickets_link}
                     />

@@ -9,7 +9,9 @@ let MiniMews = (props) => {
       state={{ items: props.newState, temsMiniNews: props.items }}
     >
       <div className={styles.miniMewsEl}>
-        <div className={styles.data}>{props.data_str}</div>
+        <div className={styles.data}>
+          {props.date} {props.month}
+        </div>
         <div className={styles.name}>{props.title}</div>
       </div>
     </Link>

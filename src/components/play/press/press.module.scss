@@ -47,7 +47,11 @@ h2 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-top: 20px;
+    padding-top: 60px;
+
+    @media (max-width: 500px) {
+      display: none;
+    }
 
     img {
       max-width: 60px;
@@ -56,10 +60,9 @@ h2 {
 
     .pressFraction {
       font-size: 20px;
-
-      span:not(:last-child) {
-        margin-right: 5px;
-      }
+      text-align: center;
+      letter-spacing: 2px;
+      flex: 1;
     }
   }
 }

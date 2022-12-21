@@ -56,7 +56,9 @@
     }
 
     .actorName {
+      display: table-caption;
       text-transform: uppercase;
+      line-height: 160%;
       border-bottom: 1px solid transparent;
 
       &:hover {

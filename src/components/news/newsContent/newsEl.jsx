@@ -25,7 +25,9 @@ let NewsEl = (props) => {
                   <div>
                     <div>{props.title}</div>
                   </div>
-                  <div className={styles.scien}>{props.date}</div>
+                  <div className={styles.scien}>
+                    {props.date} {props.month}
+                  </div>
                 </div>
               </div>
               <div className={styles.restrictionBlock}>

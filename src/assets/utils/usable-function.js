@@ -41,3 +41,47 @@ export function ScrollToTop() {
 
   return null
 }
+
+const WEEK_DAY = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
+const MONTH_NAMES = [
+  'январь',
+  'февраль',
+  'март',
+  'апрель',
+  'май',
+  'июнь',
+  'июль',
+  'август',
+  'сентябрь',
+  'октябрь',
+  'ноябрь',
+  'декабрь',
+]
+
+let MONTH_NAMES_CASE = [
+  'января',
+  'февраля',
+  'марта',
+  'апреля',
+  'мая',
+  'июня',
+  'июля',
+  'августа',
+  'сентября',
+  'октября',
+  'ноября',
+  'декабря',
+]
+
+export function getDateStr(date) {
+  const newDate = new Date(date)
+
+  return {
+    date: newDate.getDate(),
+    month: newDate.getMonth() + 1,
+    year: newDate.getFullYear(),
+    day_of_week: WEEK_DAY[newDate.getDay()],
+    month_name: MONTH_NAMES[newDate.getMonth()],
+    month_name_case: MONTH_NAMES_CASE[newDate.getMonth()],
+  }
+}

@@ -1,24 +1,19 @@
 import React from 'react'
 import styles from './comingShow.module.scss'
 import { PlaysLine, TextFormatter } from '../../createElement'
-
-const getWeekDay = (date) => {
-  let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ']
-  let dates = new Date(date)
-  return days[dates.getDay()]
-}
+import { getDateStr } from '../../../assets'
 
 function createLine(item) {
   const createLineData = {
     item: item,
     id: item.id,
-    date: parseInt(item?.date_str.match(/\d+/)),
+    date: getDateStr(item?.date).date,
     time: item?.time,
-    month: item?.date_str.match(/[^\s\d]+/),
-    day: getWeekDay(item?.date),
+    month: getDateStr(item?.date).month_name,
+    day: getDateStr(item?.date).day_of_week,
     title: item?.play?.title,
     isPremiere: item?.play?.isPremiere,
-    place: item?.place,
+    place: item?.play?.scene.name,
     rating: item?.play?.rating,
     buy: item?.tickets_link,
   }
