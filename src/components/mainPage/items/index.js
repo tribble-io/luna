@@ -13,15 +13,15 @@ import { HashNavigation } from 'swiper'
 import styles from './item.module.scss'
 
 const PLACES = {
-  'Малый зал': {
+  'Малая сцена': {
     name: 'малый зал',
     text_color: '#FEFFBB',
   },
-  'Большой зал': {
+  'Большая сцена': {
     name: 'большой зал',
     text_color: '#C5C5C5',
   },
-  'Зал "Маленькая Луна"': {
+  'Зал «Маленькая Луна»': {
     name: 'маленькая луна',
     text_color: '#9FDDFF',
   },
@@ -72,7 +72,7 @@ export function Item({ items }) {
   const { slidesPerView, spaceBetween, centeredSlides } = checkSlides()
 
   function itemCheckPlace(item) {
-    return PLACES[item.place]
+    return PLACES[item.play.scene.name]
   }
 
   function assignDataHash(item) {

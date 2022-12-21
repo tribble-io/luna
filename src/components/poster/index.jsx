@@ -300,16 +300,16 @@ class Poster extends React.Component {
       let filtPathc
 
       if (filters === 'БОЛЬШАЯ СЦЕНА') {
-        filtPathc = 'filters[place][$eq]=Большой зал&'
+        filtPathc = 'filters[play][scene][name][$eq]=Большая сцена&'
       } else if (filters === 'МАЛАЯ СЦЕНА') {
-        filtPathc = 'filters[place][$eq]=Малый зал&'
+        filtPathc = 'filters[play][scene][name][$eq]=Малая сцена&'
       } else if (filters === 'ЗАЛ "МАЛЕНЬКАЯ ЛУНА"') {
-        filtPathc = 'filters[place][$eq]=Зал "Маленькая Луна"&'
+        filtPathc = 'filters[play][scene][name][$eq]=Зал «Маленькая Луна»&'
       } else {
         filtPathc = ''
       }
       fetch(
-        `http://theatre.restomatik.ru:1337/api/shows?filters[date][$gte]=${date}&filters[date][$lt]=${lastDate}&sort[0]=date&${filtPathc}populate=play&filters[play][title][$containsi]=${seachEl}`
+        `http://theatre.restomatik.ru:1337/api/shows?filters[date][$gte]=${date}&filters[date][$lt]=${lastDate}&sort[0]=date&${filtPathc}populate=play.scene&filters[play][title][$containsi]=${seachEl}`
       )
         .then((res) => res.json())
         .then((result) => {

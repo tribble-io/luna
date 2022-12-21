@@ -43,8 +43,7 @@ class OneOageNews extends React.Component {
     if (!location.state) {
       let state = { item: [], itemsMiniNews: [] }
       fetch(
-        `  http://theatre.restomatik.ru:1337/api/articles${
-          '/' + this.state.id_article
+        `  http://theatre.restomatik.ru:1337/api/articles${'/' + this.state.id_article
         }?sort[0]=createdAt:desc&populate=cover,shows.play
           `
       )
@@ -139,7 +138,7 @@ class OneOageNews extends React.Component {
                       date={getDateStr(item.date).date}
                       time={item.time}
                       title={item.play.title}
-                      location={item.play.scene}
+                      location={item.play.scene.name}
                       rating={item.play.rating}
                       buy={item.tickets_link}
                     />

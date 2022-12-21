@@ -13,7 +13,7 @@ function createLine(item) {
     day: getDateStr(item?.date).day_of_week,
     title: item?.play?.title,
     isPremiere: item?.play?.isPremiere,
-    place: item?.place,
+    place: item?.play?.scene.name,
     rating: item?.play?.rating,
     buy: item?.tickets_link,
   }

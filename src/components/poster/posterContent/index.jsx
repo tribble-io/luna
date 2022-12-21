@@ -36,7 +36,7 @@ let PosterContent = (props) => {
             day={getDateStr(item.date).day_of_week}
             title={item.play.title}
             premier={item.play.isPremiere ? 'ПРЕМЬЕРА' : ''}
-            location={item.place}
+            location={item.play.scene.name}
             rating={item.play.rating}
             buy={item.tickets_link}
           />
@@ -57,7 +57,7 @@ let PosterContent = (props) => {
             day={getDateStr(item.date).day_of_week}
             title={item.play.title}
             premier={item.play.isPremiere ? 'ПРЕМЬЕРА' : ''}
-            location={item.place}
+            location={item.play.scene.name}
             rating={item.play.rating}
             buy={item.tickets_link}
           />
@@ -75,7 +75,7 @@ let PosterContent = (props) => {
             day={getDateStr(item.date).day_of_week}
             title={item.play.title}
             premier={item.play.isPremiere ? 'ПРЕМЬЕРА' : ''}
-            location={item.place}
+            location={item.play.scene.name}
             rating={item.play.rating}
             buy={item.tickets_link}
           />

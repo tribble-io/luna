@@ -5,7 +5,7 @@ const TODAY_DAY = new Date().toISOString().slice(0, 10)
 
 async function exportShows() {
   const result = await axios.get(
-    `${API_URL}/api/shows?filters[date][$gt]=${TODAY_DAY}&sort[0]=date&populate=play.cover,play.director`
+    `${API_URL}/api/shows?filters[date][$gt]=${TODAY_DAY}&sort[0]=date&populate=play.cover,play.director,play.scene`
   )
 
   if (result.status === 200) {
@@ -111,7 +111,7 @@ async function exportHistoryTheathrePhoto() {
 
 async function exportComingShow(showID) {
   const result = await axios.get(
-    `${API_URL}/api/shows?filters[date][$gte]=${TODAY_DAY}&sort[0]=date&filters[play][id][$eq]=${showID}&populate=play.cover`
+    `${API_URL}/api/shows?filters[date][$gte]=${TODAY_DAY}&sort[0]=date&filters[play][id][$eq]=${showID}&populate=play.cover,play.scene`
   )
 
   if (result.status === 200) {
@@ -123,7 +123,7 @@ async function exportComingShow(showID) {
 
 async function exportShowData(showID) {
   const result = await axios.get(
-    `${API_URL}/api/plays/${showID}?populate=cover,roles.actor.cover,gallery,pressItems,directors.person,comments`
+    `${API_URL}/api/plays/${showID}?populate=cover,roles.actor.cover,gallery,pressItems,directors.person,comments,scene`
   )
 
   if (result.status === 200) {
