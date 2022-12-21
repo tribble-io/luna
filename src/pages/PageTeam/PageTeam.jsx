@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { api, API_URL } from '../../api'
-import { CreateButton } from '../createElement'
-import DirectorCard from '../createElement/DirectorCard'
-import { Actors } from '../play'
+import { CreateButton } from '../../components/createElement'
+import DirectorCard from '../../components/createElement/DirectorCard'
+import { Actors } from '../../components/play'
 import { content, positionsArrayFilters } from './fields'
 import collectiveImg from './img/collective.webp'
 
@@ -81,9 +81,10 @@ const PageTeam = () => {
     if (arr !== null) {
       const roles = arr.map((item) => {
         return {
-          id: item.id,
+          id: item?.id,
           name: item?.fullname,
-          src: API_URL + item.cover?.url,
+          src: API_URL + item?.cover?.url,
+          role: item?.title,
         }
       })
       return roles.flat()

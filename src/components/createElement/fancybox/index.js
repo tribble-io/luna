@@ -8,7 +8,6 @@ export function Fancybox(props) {
 
   useEffect(() => {
     const opts = props.options || {}
-
     NativeFancybox.bind(delegate, opts)
 
     return () => {

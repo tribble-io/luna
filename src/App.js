@@ -18,10 +18,10 @@ import {
 } from './pages'
 import HistoryTheathre from './components/historyTheathre'
 import Poster from './components/poster/poster'
-import PageTeam from './components/PageTeam/PageTeam'
+import PageTeam from './pages/PageTeam/PageTeam'
 import News from './components/news/news'
 import OneOageNews from './components/news/oneNewsPage'
-import PageDetailActor from './components/PageDetailActor/PageDetailActor'
+import PageDetailActor from './pages/PageDetailActor/PageDetailActor'
 
 function App() {
   return (

@@ -1,15 +1,19 @@
 .boxTheaterRoles {
-  margin-bottom: 69px;
+  margin-bottom: 200px;
   .theatricalRolesTitle {
     font-weight: 600;
     font-size: 30px;
     line-height: 37px;
-    margin: 200px 0px 80px 0px;
+    margin: 0px 0px 80px 0px;
   }
   .roleCards {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    .skeletonCards {
+      width: 100%;
+      display: flex;
+    }
   }
   .roleCard {
     display: flex;
