@@ -8,6 +8,10 @@
   margin-left: 0;
   margin-right: auto;
   padding: 0 !important;
+
+  &:hover {
+    color: #757575;
+  }
 }
 
 .data {

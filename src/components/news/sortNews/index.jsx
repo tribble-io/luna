@@ -250,16 +250,6 @@ const SortNews = (props) => {
                   {monthDataListCal}
                 </div>
               </div>
-              {/* <div className={styles.calendarBody}>
-                <p>ПН</p>
-                <p>ВТ</p>
-                <p>СР</p>
-                <p>ЧТ</p>
-                <p>ПТ</p>
-                <p>СБ</p>
-                <p>ВС</p>
-                {daysButton}
-              </div> */}
               <div
                 className={styles.defaultCalendar}
                 onClick={() => {
