@@ -263,7 +263,6 @@ class News extends React.Component {
         dataArr: this.state.dataList[a],
       }
     })
-    /* eslint-disable */
     this.componentDidMount()
   }
 
@@ -290,7 +289,7 @@ class News extends React.Component {
         this.state.dataArr[4]
       let seachEl = this.state.search
       fetch(
-        `http://theatre.restomatik.ru:1337/api/articles?filters[publishedAt][$gte]=${date}&filters[publishedAt][$lt]=${lastDate}&sort[0]=publishedAt:desc&filters[title][$containsi]=${seachEl}&desc&populate=cover,shows.play`
+        `http://theatre.restomatik.ru:1337/api/articles?filters[publishedAt][$gte]=${date}&filters[publishedAt][$lt]=${lastDate}&sort[0]=publishedAt:desc&filters[title][$containsi]=${seachEl}&desc&populate=cover,shows.play.scene`
       )
         .then((res) => res.json())
         .then((result) => {
