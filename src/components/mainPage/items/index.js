@@ -83,6 +83,7 @@ export function Item({ items, selected }) {
           },
           1400: {
             slidesPerView: 4,
+            centeredSlides: false,
           },
         }}
       >
