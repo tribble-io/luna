@@ -8,13 +8,15 @@
 }
 
 .filterContent {
+  padding-top: 13rem;
+  padding-bottom: 7.5rem;
+
+  @media (max-width: 500px) {
+    padding-top: 4.4rem;
+    padding-bottom: 3.8rem;
+  }
+
   .filterTitle {
-    padding-top: 13rem;
-
-    @media (max-width: 500px) {
-      padding-top: 4.4rem;
-    }
-
     h1 {
       @include headline_first;
     }
@@ -70,6 +72,7 @@
       font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
       font-weight: 500;
+      outline: none;
 
       &:hover,
       &:focus {

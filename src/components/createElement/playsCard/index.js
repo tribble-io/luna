@@ -15,9 +15,11 @@ export function CreatePlaysCard({ data, role = false }) {
         <div className={styles.showsCardText}>
           <div className={styles.topBlock}>
             <div className={styles.titleContainer}>
-              <Link className={styles.title} to={`/play/${data?.id}`}>
-                {data?.title}
-              </Link>
+              <p className={styles.title}>
+                <Link className={styles.titleLink} to={`/play/${data?.id}`}>
+                  {data?.title}
+                </Link>
+              </p>
               {role ? (
                 <span>{`роль:${' '}${data?.role}`}</span>
               ) : (
@@ -29,7 +31,7 @@ export function CreatePlaysCard({ data, role = false }) {
             <p className={styles.rating}>{data?.rating}+</p>
           </div>
 
-          <div className={styles.place}>{data?.scene}</div>
+          <div className={styles.place}>{data?.scene?.name}</div>
           <div className={styles.ticket}>
             <div className={styles.buy}>
               <a className={styles.link}>

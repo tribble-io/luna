@@ -12,10 +12,9 @@
 
   .showsContent {
     display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 400px));
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
     column-gap: 20px;
     row-gap: 100px;
-    padding-top: 7.5rem;
     padding-bottom: 21.9rem;
 
     @media (max-width: 992px) {
@@ -24,7 +23,6 @@
 
     @media (max-width: 500px) {
       grid-template-columns: 1fr;
-      padding-top: 3.8rem;
       row-gap: 70px;
       padding-bottom: 12.5rem;
     }

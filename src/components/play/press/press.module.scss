@@ -6,10 +6,6 @@
   font-weight: 400;
   color: #fff;
 }
-
-h2 {
-  @include headline_second;
-}
 .pressContentActor {
   padding-bottom: 80px !important;
 }
@@ -20,17 +16,8 @@ h2 {
     padding-bottom: 100px;
   }
 
-  .pressGrid {
-    padding-top: 90px;
-
-    @media (max-width: 500px) {
-      padding-top: 50px;
-    }
-
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    row-gap: 20px;
+  h2 {
+    @include headline_second;
   }
 
   .pressGridActor {
@@ -40,29 +27,5 @@ h2 {
 
   .pressSlider {
     padding-top: 50px;
-  }
-
-  .pressNavigation {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 60px;
-
-    @media (max-width: 500px) {
-      display: none;
-    }
-
-    img {
-      max-width: 60px;
-      cursor: pointer;
-    }
-
-    .pressFraction {
-      font-size: 20px;
-      text-align: center;
-      letter-spacing: 2px;
-      flex: 1;
-    }
   }
 }
