@@ -23,6 +23,14 @@
   height: 11px;
 }
 
+.photoSwiper .swiper-button-next {
+  right: 0;
+}
+
+.photoSwiper .swiper-button-prev {
+  left: 0;
+}
+
 .pressSwiper .swiper-button-next:after,
 .pressSwiper .swiper-button-prev:after {
   content: '';
