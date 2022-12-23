@@ -6,7 +6,29 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: #fff;
-
+  .boxPerformanceDate {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    .dateDay {
+      font-weight: 300;
+      font-size: 44px;
+      line-height: 54px;
+    }
+    .dateMonth {
+      margin-left: 18px;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .time {
+      margin-left: 18px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
   &:first-child {
     border-top: 1.5px solid $text-color;
   }
@@ -45,6 +67,7 @@
     column-gap: 18px;
 
     @media (max-width: 770px) {
+      column-gap: 4px;
       order: 1;
     }
   }
@@ -213,7 +236,7 @@
       margin-top: auto;
       min-width: 140px;
       font-size: 12px;
-      padding: 12px 20px;
+      padding: 12px 10px;
     }
   }
 }

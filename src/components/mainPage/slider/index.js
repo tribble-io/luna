@@ -73,9 +73,9 @@ export function Slider({ items, firstDate }) {
                   <div
                     className={styles.startCalendar}
                     style={{
-                      background: `url('${
+                      backgroundImage: `url('${
                         API_URL + offer.play.cover.url
-                      }')no-repeat bottom / cover`,
+                      }')`,
                     }}
                   >
                     <div className={styles.overlay}></div>

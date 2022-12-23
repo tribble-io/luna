@@ -4,10 +4,7 @@ import styles from './newsEl.module.scss'
 
 let MiniMews = (props) => {
   return (
-    <Link
-      to={props.locationNew}
-      state={{ items: props.newState, temsMiniNews: props.items }}
-    >
+    <Link to={props.locationNew} state={props.newState}>
       <div className={styles.miniMewsEl}>
         <div className={styles.data}>
           {props.date} {props.month}

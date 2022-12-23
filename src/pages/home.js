@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { api } from '../api/index'
 import { uniqueBy } from '../assets/utils/usable-function'
 
@@ -6,12 +6,12 @@ import { Slider, Calendar, News, Partners } from '../components/mainPage'
 import Loader from '../components/loader'
 
 export function Home() {
-  const [itemsSlider, setItemsSlider] = React.useState([])
-  const [items, setItems] = React.useState([])
-  const [itemsNews, setItemsNews] = React.useState([])
-  const [isLoading, setIsLoading] = React.useState(true)
+  const [itemsSlider, setItemsSlider] = useState([])
+  const [items, setItems] = useState([])
+  const [itemsNews, setItemsNews] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
-  React.useEffect(() => {
+  useEffect(() => {
     Promise.all([api.exportShows(), api.exportArticles()])
       .then((values) => {
         setItems(values[0])
@@ -27,7 +27,9 @@ export function Home() {
       })
   }, [])
 
-  const [firstDate, setFirstDate] = React.useState(new Date())
+  const [firstDate, setFirstDate] = useState(
+    new Date(new Date().toISOString().slice(0, 10))
+  )
 
   return (
     <div>

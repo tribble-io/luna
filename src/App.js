@@ -18,10 +18,11 @@ import {
 } from './pages'
 import HistoryTheathre from './components/historyTheathre'
 import Poster from './components/poster/poster'
-import PageTeam from './components/PageTeam/PageTeam'
+import PageTeam from './pages/PageTeam/PageTeam'
 import News from './components/news/news'
-import OneOageNews from './components/news/oneNewsPage'
-import PageDetailActor from './components/PageDetailActor/PageDetailActor'
+import PageDetailActor from './pages/PageDetailActor/PageDetailActor'
+import NewsConroller from './components/news/oneNewsPage/newsController'
+import Documets from './components/documents'
 
 function App() {
   return (
@@ -41,10 +42,11 @@ function App() {
           <Route path='/press' element={<Press />} />
           <Route path='/troupe' element={<PageTeam />} />
           <Route path='/news' element={<News />} />
-          <Route exact path='/news/*' element={<OneOageNews />} />
+          <Route exact path='/news/*' element={<NewsConroller />} />
           <Route path='/contacts' element={<Contacts />} />
           <Route path='/scenes' element={<Scenes />} />
           <Route path='/actor/:id' element={<PageDetailActor />} />
+          <Route path='/documets' element={<Documets />} />
         </Routes>
         <Footer />
       </Router>

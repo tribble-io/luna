@@ -189,7 +189,7 @@
   margin: auto 0;
   margin-right: 0;
   margin-left: auto;
-  height: 60px;
+  height: 50px;
   width: 170px;
 
   @media (max-width: 1000px) {
@@ -212,13 +212,16 @@
   font-family: 'Montserrat';
   font-size: 14px;
   font-weight: 500;
-  padding: 20px 60px;
+  padding: 15px 55px;
+  height: 55px;
   border: 0.1px solid #ffffff;
   color: #ffffff;
+  text-transform: uppercase;
+  height: 100%;
 
   &:hover {
     border: 2px solid #ffffff;
-    padding: 19px 59px;
+    padding: 14px 54px;
   }
 
   @media (max-width: 1000px) {

@@ -1,0 +1,8 @@
+@media (max-width: 500px) {
+  .theaterSceneSwiper.swiper {
+    padding-bottom: 30px;
+  }
+  .theaterSceneSwiper .swiper-slide {
+    max-width: 300px;
+  }
+}

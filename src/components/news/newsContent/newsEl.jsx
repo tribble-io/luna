@@ -6,10 +6,7 @@ let NewsEl = (props) => {
   let URL = 'http://theatre.restomatik.ru:1337'
   if (props.date) {
     return (
-      <Link
-        to={props.location}
-        state={{ items: props.items, temsMiniNews: props.itemsMiniNews }}
-      >
+      <Link to={props.location} state={props.items}>
         <div className={styles.posterContent}>
           <div className={styles.posterContent_el}>
             <div className={styles.posterContent_el_content}>

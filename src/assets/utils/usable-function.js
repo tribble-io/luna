@@ -24,7 +24,10 @@ export function uniqueBy(a, cond) {
 }
 
 // check screen width
-export const IsMobile = window.screen.width > 500 ? false : true
+export const WINDOW_SCREEN = window.screen.width
+
+// check if the screen width fits mobile
+export const IsMobile = WINDOW_SCREEN > 500 ? false : true
 
 // function for scroll page to top on every transition
 export function ScrollToTop() {

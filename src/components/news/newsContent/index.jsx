@@ -3,30 +3,6 @@ import styles from './sort_news.module.scss'
 import NewsEl from './newsEl'
 import { getDateStr } from '../../../assets'
 
-// let NewsContent = (props) => {
-//             if(props.filterState.items.length === 0) {
-//                return <div className={styles.antiBlock}>По указанным фильтрам ничего не найдено</div>
-//             }  else {
-//                 return (
-//                 <section>
-//                     {props.filterState.items.map(item => (
-//                         <NewsEl
-//                         key={item.id}
-//                         date={getDateStr(item.createdAt).date}
-//                         month={getDateStr(item.createdAt).month_name_case}
-//                         title={item.title}
-//                         cover={item.cover.data.url}
-//                         items={item}
-//                         location={'/news/' + item.id}
-//                         shows={item.shows.data}
-//                         itemsMiniNews={props.itemsMiniNews}
-//                         />
-//                     ))}
-//                 </section>
-
-//                 )
-//         }
-//     }
 let NewsContent = (props) => {
   if (props.filterState.items.length === 0) {
     return (

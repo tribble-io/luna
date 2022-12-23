@@ -29,23 +29,6 @@
   }
 }
 
-.sliderNavigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 40px;
-
-  img {
-    max-width: 60px;
-    cursor: pointer;
-  }
-
-  @media (max-width: 500px) {
-    display: none;
-  }
-}
-
 .slidePhoto .smallPhoto {
   display: grid;
   grid-template-columns: 1fr 1fr;

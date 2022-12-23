@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import styles from './photo-slider.module.scss'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -13,30 +13,29 @@ import { IsMobile } from '../../../assets'
 
 export function PhotoSlider(props) {
   const { items } = props
-  const navigationPrevRef = useRef(null)
-  const navigationNextRef = useRef(null)
-
+  // Find every fifth slider, these will be 'big'sliders
+  const bigSlides = items.filter((item, index) => index % 5 === 0)
   // slider parameters for mobile
-  const slidesPerView = IsMobile ? 'auto' : 2
-  const navigation = IsMobile
-    ? false
-    : { prevEl: navigationPrevRef.current, nextEl: navigationNextRef.current }
+  const navigation = IsMobile ? false : bigSlides.length > 1 ? true : false
   const pagination = IsMobile
     ? { clickable: true, dynamicBullets: true }
     : false
-  const centeredSlides = IsMobile ? true : false
-
-  const bigSlides = items.filter((item, index) => index % 5 === 0)
 
   return (
     <>
       <Swiper
-        slidesPerView={slidesPerView}
+        slidesPerView='auto'
         spaceBetween={20}
         navigation={navigation}
         pagination={pagination}
-        centeredSlides={centeredSlides}
+        centeredSlides={true}
         modules={[Navigation, Pagination]}
+        breakpoints={{
+          500: {
+            slidesPerView: 2,
+            centeredSlides: false,
+          },
+        }}
         className='photoSwiper'
         style={{
           '--swiper-pagination-bullet-inactive-color': '#fff',
@@ -107,21 +106,6 @@ export function PhotoSlider(props) {
                 </div>
               ))}
         </Fancybox>
-        <div className={styles.sliderNavigation}>
-          <img
-            src='/img/newsLarr.png'
-            alt='<'
-            className={styles.prev}
-            ref={navigationPrevRef}
-          />
-
-          <img
-            src='/img/newsRarr.png'
-            alt='>'
-            className={styles.next}
-            ref={navigationNextRef}
-          />
-        </div>
       </Swiper>
     </>
   )

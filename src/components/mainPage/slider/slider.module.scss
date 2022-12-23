@@ -245,6 +245,9 @@
   height: 200px;
   filter: blur(20px);
   transform: matrix(1, 0, 0, -1, 0, 0);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
 
   @media (max-width: 770px) {
     height: 150px;

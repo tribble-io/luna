@@ -104,18 +104,8 @@ export function CommentForm({ showID }) {
                 {error && !text && (
                   <span className={styles.warningMes}>Заполните поле</span>
                 )}
-              </div>
-              <div className={styles.recaptcha}>
-                <ReCAPTCHA
-                  sitekey='6LeC1WQjAAAAAP8Wmgn5hs06R7hwOfsmlj8OCKfb'
-                  hl='ru'
-                  theme='dark'
-                />
-              </div>
-              <div>
-                <div>
+                <div className={styles.warningMes}>
                   <span
-                    className={styles.warningMes}
                     style={{
                       visibility: setCheckbox ? 'hidden' : 'visible',
                     }}
@@ -138,9 +128,16 @@ export function CommentForm({ showID }) {
                     </a>
                   </div>
                 </div>
-                <div className={styles.buttonSubmit}>
-                  <button type='submit'>отправить</button>
-                </div>
+              </div>
+              <div className={styles.recaptcha}>
+                <ReCAPTCHA
+                  sitekey='6LeC1WQjAAAAAP8Wmgn5hs06R7hwOfsmlj8OCKfb'
+                  hl='ru'
+                  theme='dark'
+                />
+              </div>
+              <div className={styles.buttonSubmit}>
+                <button type='submit'>отправить</button>
               </div>
             </div>
           </form>

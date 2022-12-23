@@ -3,6 +3,9 @@
   gap: 125px;
   width: 100%;
   flex-wrap: wrap;
+  @media (max-width: 428px) {
+    margin-bottom: 100px;
+  }
   .actorNameMobile {
     font-weight: 600;
     font-size: 22px;
@@ -15,7 +18,7 @@
     height: 100%;
     max-width: 505px;
     max-height: 672px;
-    object-fit: contain;
+    object-fit: cover;
   }
 
   .infoActor {

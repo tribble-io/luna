@@ -1,12 +1,11 @@
 @import '../../assets/main.scss';
 
-.containerDetailInfo {
+.containerTeam {
   color: white;
   padding-top: 200px;
   padding-bottom: 134px;
-  font-family: 'Montserrat';
 }
-.detailInfo {
+.promoTage {
   @include container;
 
   margin-left: auto;
@@ -15,6 +14,13 @@
     width: 100%;
     margin-bottom: 158px;
     max-height: 671px;
+  }
+  .filters {
+    display: flex;
+    overflow: scroll;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 40px;
   }
   .collectiveImg:hover {
     transform: none;
@@ -34,7 +40,7 @@
 }
 
 @media (max-width: 414px) {
-  .containerDetailInfo {
+  .containerTeam {
     padding-top: 100px;
     padding-bottom: 60px;
     h1 {
@@ -44,17 +50,46 @@
       line-height: 36px;
     }
     .collectiveImg {
-      opacity: 20%;
+      opacity: 100%;
       margin-bottom: 120px;
     }
     .filters {
       display: flex;
       overflow: scroll;
+      flex-wrap: nowrap;
     }
-    .detailInfo {
+    .promoTage {
       .nameButtonFilter {
         font-size: 12px !important;
         line-height: 15px !important;
+      }
+      section {
+        div {
+          div {
+            div {
+              flex: none;
+              flex-wrap: wrap;
+              row-gap: 50px;
+              div {
+                flex-wrap: nowrap;
+                flex: 0 1 46%;
+                div {
+                  div {
+                    padding-top: 15px;
+                    a {
+                      font-weight: 500;
+                      font-size: 12px;
+                      line-height: 150%;
+                    }
+                  }
+                }
+                p {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
