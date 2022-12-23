@@ -3,7 +3,8 @@
 
 .mainBlock {
   height: 472px;
-  width: var(--item-width);
+  max-width: 295px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background: linear-gradient(180deg, #191823 0%, #333643 6.25%, #161520 100%);
@@ -26,7 +27,7 @@
 
 .cardImg {
   height: 100%;
-  width: var(--item-width);
+  width: 100%;
   object-fit: cover;
 }
 
@@ -39,7 +40,7 @@
 
   .curtain {
     position: absolute;
-    width: calc(var(--item-width) / 2);
+    width: calc(100% / 2);
 
     @media (max-width: 576px) {
       display: none;

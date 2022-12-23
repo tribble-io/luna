@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Item, Separator } from '../../mainPage'
+import { getDateStr } from '../../../assets'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
@@ -11,33 +12,14 @@ import { Navigation } from 'swiper'
 
 import styles from './calendar.module.scss'
 const CALENDAR_WIDTH = window.screen.width
-
 const ARR_OFFSET = 3
 const DAY = 1000 * 60 * 60 * 24
-
-const DATE_WIDTH = 43 // 3
 const DATE_NUMBER = CALENDAR_WIDTH > 573 ? 15 : 8
-
-// const WINDOW_OFFSET = 5.3;
-
 const DATE_LOAD_LENGTH = DATE_NUMBER + 20 * ARR_OFFSET
-
 const SLIDER_HEIGHT = CALENDAR_WIDTH > 573 ? 33 : 40
 
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
-  const week = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
-
-  function assignDateHref(date) {
-    const newDateHref = new Date(date)
-    const getDateHref =
-      newDateHref.getDate() < 10
-        ? '0' + newDateHref.getDate()
-        : newDateHref.getDate()
-    const monthHref = newDateHref.getMonth() + 1
-    const getMonthHref = monthHref < 10 ? '0' + monthHref : monthHref
-    const fullDate = `${newDateHref.getFullYear()}-${getMonthHref}-${getDateHref}`
-    return `#${fullDate}`
-  }
+  const getDate = getDateStr(date)
 
   return (
     <>
@@ -49,9 +31,6 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
             ? styles.dateBtnContainer
             : styles.dateBtnContainerHover
         }
-        style={{
-          '--date-width': `${DATE_WIDTH}px`,
-        }}
       >
         <img src='/img/calendar_luna.png' alt='' />
         <div
@@ -61,9 +40,9 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
           }}
         >
           <div className={styles.dateNum}>
-            <a href={assignDateHref(date)}> {date.getDate()}</a>
+            <span> {getDate.date}</span>
           </div>
-          <div className={styles.weekDay}>{week[date.getDay()]}</div>
+          <div className={styles.weekDay}>{getDate.day_of_week}</div>
         </div>
       </div>
     </>
@@ -80,7 +59,7 @@ export function Calendar({ setFirstDate, items }) {
   })
 
   const dates = React.useMemo(() => {
-    const today = new Date()
+    const today = new Date(new Date().toISOString().slice(0, 10))
     return Array.from({ length: DATE_LOAD_LENGTH }, (_, i) => {
       const date = new Date()
       date.setTime(today.getTime() + (i - ARR_OFFSET) * DAY)
@@ -117,9 +96,11 @@ export function Calendar({ setFirstDate, items }) {
         <div className={styles.dateWindow}>
           <Swiper
             slidesPerView={5}
-            slidesPerGroup={3}
+            slidesPerGroup={5}
             spaceBetween={10}
             grabCursor={true}
+            longSwipesRatio={0.4}
+            shortSwipes={false}
             navigation={{
               prevEl: navigationPrevRef.current,
               nextEl: navigationNextRef.current,
@@ -133,7 +114,6 @@ export function Calendar({ setFirstDate, items }) {
               },
               1024: {
                 slidesPerView: 15,
-                slidesPerGroup: 10,
               },
             }}
             onActiveIndexChange={(swiper) => moveDate(swiper.activeIndex)}
@@ -161,9 +141,9 @@ export function Calendar({ setFirstDate, items }) {
         />
       </div>
       <div className={styles.cardsWindowContainer}>
-        <Item items={items} />
+        <Item items={items} selected={selected} />
         <div className={styles.mobileButton}>
-          <Link to={'/shows'}>все спектакли</Link>
+          <Link to={'/plays'}>все спектакли</Link>
         </div>
       </div>
       <Separator />

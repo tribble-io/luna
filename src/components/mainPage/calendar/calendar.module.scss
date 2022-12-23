@@ -2,7 +2,7 @@
 
 $strip-height: var(--strip-height);
 
-$date-width: var(--date-width);
+$date-width: 43px;
 // $date-margin: 0.9vw;
 
 $ndate-width: 3.2vw;
@@ -31,8 +31,6 @@ $wk-font-size: 23px;
 
 .dateWindow {
   padding-top: 20px;
-  padding-right: 10px;
-  padding-left: 15px;
   margin-top: -20px;
   height: 100px;
   overflow: hidden;

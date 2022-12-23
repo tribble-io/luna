@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { getDateStr } from '../../../assets'
+import { getDateStr, WINDOW_SCREEN } from '../../../assets'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { API_URL } from '../../../api'
 // Import Swiper styles
 import 'swiper/css'
 import './styles.css'
-// import required modules
-import { HashNavigation } from 'swiper'
 
 import styles from './item.module.scss'
 
@@ -27,83 +25,79 @@ const PLACES = {
   },
 }
 
-const useElementWidth = () => {
-  const ref = useRef()
-  const [width, setWidth] = useState(null)
+export function Item({ items, selected }) {
+  const [swiper, setSwiper] = useState(null)
+  const [addSliders, setAddSliders] = useState([])
+  function getSelectedDate(element, index) {
+    const selectedDate = getDateStr(selected)
+    const getDateHref =
+      selectedDate.date < 10 ? '0' + selectedDate.date : selectedDate.date
+    const getMonthHref =
+      selectedDate.month < 10 ? '0' + selectedDate.month : selectedDate.month
+    const selecteDate = `${selectedDate.year}-${getMonthHref}-${getDateHref}`
 
-  const observer = useRef(
-    new ResizeObserver((entries) => {
-      const { width } = entries[0].contentRect
-      setWidth(width)
-    })
-  )
+    if (element.date !== selecteDate) {
+      return false
+    }
+
+    return index
+  }
 
   useEffect(() => {
-    observer.current.observe(ref.current)
-  }, [ref, observer])
-
-  return [ref, width]
-}
-
-export function Item({ items }) {
-  const [ref, CURRENT_WIDTH] = useElementWidth()
-  const ITEM_WIDTH = 270
-
-  const checkSlides = () => {
-    // find the maximum amount of slides
-    const slidesAmount = Math.floor(CURRENT_WIDTH / ITEM_WIDTH)
-    // find free pixels
-    const freePixels = CURRENT_WIDTH - slidesAmount * ITEM_WIDTH
-    // Check if we have enough margint for each slide
-    const checkMargin = freePixels / slidesAmount
-    const resultSlidesAmount =
-      checkMargin >= 25
-        ? slidesAmount
-        : slidesAmount > 1
-        ? slidesAmount - 1
-        : slidesAmount
-    // Return amount of slides and margint for each slide
-    return {
-      slidesPerView: window.screen.width > 992 ? resultSlidesAmount : 'auto',
-      spaceBetween: resultSlidesAmount > 3 ? checkMargin : 25,
-      centeredSlides: window.screen.width > 576 ? false : true,
+    if (WINDOW_SCREEN > 1440) {
+      setAddSliders([{}, {}, {}])
+    } else if (WINDOW_SCREEN > 992) {
+      setAddSliders([{}, {}])
+    } else if (WINDOW_SCREEN > 500) {
+      setAddSliders([{}])
     }
-  }
-  const { slidesPerView, spaceBetween, centeredSlides } = checkSlides()
+  }, [])
+
+  useEffect(() => {
+    //Find the index of the first needed slide when we get new selected date
+    const selectedSlideIndex = items.findIndex(getSelectedDate)
+    //Use API method to swipe
+    swiper && swiper.slideTo(selectedSlideIndex)
+  }, [selected])
 
   function itemCheckPlace(item) {
     return PLACES[item.play.scene.name]
   }
 
-  function assignDataHash(item) {
-    return `${item.date}`
-  }
-
   return (
     <>
       <Swiper
-        slidesPerView={slidesPerView}
-        centeredSlides={centeredSlides}
-        spaceBetween={spaceBetween}
-        modules={[HashNavigation]}
-        hashNavigation={{ watchState: true }}
+        onSwiper={setSwiper}
+        slidesPerView='auto'
+        centeredSlides={true}
+        spaceBetween={25}
         className='posterSlider'
-        ref={ref}
+        breakpoints={{
+          500: {
+            slidesPerView: 2,
+            centeredSlides: false,
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          1400: {
+            slidesPerView: 4,
+          },
+        }}
       >
         {items.map((item) => (
-          <SwiperSlide key={item.id} data-hash={assignDataHash(item)}>
+          <SwiperSlide key={item?.id}>
             <div
               className={styles.mainBlock}
               style={{
-                '--item-width': `${ITEM_WIDTH}px`,
-                '--place-color': itemCheckPlace(item).color,
-                '--place-text-color': itemCheckPlace(item).text_color,
+                '--text-color': itemCheckPlace(item)?.text_color,
               }}
             >
-              <Link to={`play/${item.play.id}`} className={styles.imgLink}>
+              <Link to={`play/${item?.play?.id}`} className={styles.imgLink}>
                 <img
                   className={styles.cardImg}
-                  src={API_URL + item.play.cover.formats.small.url}
+                  src={API_URL + item?.play?.cover?.formats?.small?.url}
                   alt=''
                 />
               </Link>
@@ -116,30 +110,25 @@ export function Item({ items }) {
                 <div className={styles.mid}>
                   <div className={styles.dateTimeContainer}>
                     <div className={styles.date}>
-                      {getDateStr(item.date).date}
+                      {getDateStr(item?.date).date}
                       {'.'}
-                      {getDateStr(item.date).month}
+                      {getDateStr(item?.date).month}
                       <img
                         src='/img/moon_poster.png'
                         alt=''
                         className={styles.moonPoster}
                       />
                     </div>
-                    <div className={styles.time}>{item.time.slice(0, 5)}</div>
+                    <div className={styles.time}>{item?.time.slice(0, 5)}</div>
                   </div>
-                  <div className={styles.title}>{item.play.title}</div>
+                  <div className={styles.title}>{item?.play?.title}</div>
                 </div>
                 <div className={styles.bottom}>
-                  <div
-                    className={styles.place}
-                    style={{
-                      '--text-color': itemCheckPlace(item).text_color,
-                    }}
-                  >
+                  <div className={styles.place}>
                     {itemCheckPlace(item).name}
                   </div>
                   <div className={styles.buy}>
-                    <a className={styles.link} href={item.tickets_link}>
+                    <a className={styles.link} href={item?.tickets_link}>
                       БИЛЕТЫ
                     </a>
                   </div>
@@ -147,6 +136,9 @@ export function Item({ items }) {
               </div>
             </div>
           </SwiperSlide>
+        ))}
+        {addSliders.map((slider, key) => (
+          <SwiperSlide key={key}></SwiperSlide>
         ))}
       </Swiper>
     </>
