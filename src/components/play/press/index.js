@@ -66,32 +66,33 @@ export function Press({ press, actor = false }) {
                     <CreatePressLine data={item} key={key} />
                   </SwiperSlide>
                 ))}
-                {press.length > 3 ? (
-                  <div className={styles.pressNavigation}>
-                    <img
-                      src='/img/newsLarr.png'
-                      alt='<'
-                      className={styles.prev}
-                      name='prev'
-                      ref={navigationPrevRef}
-                    />
+                <div
+                  className={styles.pressNavigation}
+                  style={{
+                    display: press.length <= 3 ? 'none' : 'flex',
+                  }}
+                >
+                  <img
+                    src='/img/newsLarr.png'
+                    alt='<'
+                    className={styles.prev}
+                    name='prev'
+                    ref={navigationPrevRef}
+                  />
 
-                    <div
-                      className={styles.pressFraction}
-                      ref={customFraction}
-                    ></div>
+                  <div
+                    className={styles.pressFraction}
+                    ref={customFraction}
+                  ></div>
 
-                    <img
-                      src='/img/newsRarr.png'
-                      alt='>'
-                      className={styles.next}
-                      name='next'
-                      ref={navigationNextRef}
-                    />
-                  </div>
-                ) : (
-                  <></>
-                )}
+                  <img
+                    src='/img/newsRarr.png'
+                    alt='>'
+                    className={styles.next}
+                    name='next'
+                    ref={navigationNextRef}
+                  />
+                </div>
               </Swiper>
             </div>
           </div>
