@@ -86,21 +86,23 @@ const MovieRoles = ({ movies }) => {
                   <img
                     src='/img/newsLarr.png'
                     alt='<'
-                    className={styles.prev}
+                    className={
+                      actPage === 1 ? styles.arrowDisable : styles.prev
+                    }
                     name='prev'
                     onClick={navigation}
                   />
-
                   <div className={styles.pressFraction}>
                     <span>{actPage}</span>
                     <span>/</span>
                     <span>{allPages}</span>
                   </div>
-
                   <img
                     src='/img/newsRarr.png'
                     alt='>'
-                    className={styles.next}
+                    className={
+                      actPage === allPages ? styles.arrowDisable : styles.next
+                    }
                     name='next'
                     onClick={navigation}
                   />

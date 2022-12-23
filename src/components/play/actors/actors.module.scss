@@ -40,6 +40,32 @@ h2 {
     }
   }
 
+  .actorsGridTroupe {
+    padding-top: 100px;
+
+    @media (max-width: 500px) {
+      padding-top: 50px;
+    }
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 55px;
+
+    @media (max-width: 500px) {
+      overflow: scroll;
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 30px;
+    }
+    .actorsCard {
+      max-width: 295px !important;
+      @media (max-width: 500px) {
+        min-width: 130px;
+      }
+    }
+  }
+
   .actorsCard {
     max-width: 190px;
     @media (max-width: 500px) {
