@@ -15,9 +15,11 @@ export function CreatePlaysCard({ data, role = false }) {
         <div className={styles.showsCardText}>
           <div className={styles.topBlock}>
             <div className={styles.titleContainer}>
-              <Link className={styles.title} to={`/play/${data?.id}`}>
-                {data?.title}
-              </Link>
+              <p className={styles.title}>
+                <Link className={styles.titleLink} to={`/play/${data?.id}`}>
+                  {data?.title}
+                </Link>
+              </p>
               {role ? (
                 <span>{`роль:${' '}${data?.role}`}</span>
               ) : (
