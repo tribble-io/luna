@@ -85,18 +85,25 @@
     }
 
     .contactsLink {
-      display: block;
-      text-transform: uppercase;
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 160%;
-      margin-top: 20px;
+      margin-top: 1rem;
+      a {
+        display: inline-block;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 160%;
 
-      @media (max-width: 500px) {
-        font-size: 14px;
-        margin-top: 10px;
+        @media (max-width: 500px) {
+          font-size: 14px;
+          margin-top: 10px;
+        }
       }
+    }
+
+    .linkText {
+      font-size: 18px;
+      margin-left: 10px;
     }
 
     .text {

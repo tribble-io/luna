@@ -421,7 +421,7 @@ export function SceneBlock({ docs }) {
             </div>
 
             <div className={styles.sceneBlock}>
-              <h2>сцена «маленькая луна»</h2>
+              <h2 className={styles.sceneLunaSmall}>сцена «маленькая луна»</h2>
               <div className={styles.sceneScheme}>
                 <p>
                   <a

@@ -40,8 +40,16 @@
         @include headline_second;
         margin-bottom: 100px;
 
+        &.sceneLunaSmall {
+          margin-bottom: 60px;
+        }
+
         @media (max-width: 500px) {
           margin-bottom: 40px;
+
+          &.sceneLunaSmall {
+            margin-bottom: 40px;
+          }
         }
       }
 
