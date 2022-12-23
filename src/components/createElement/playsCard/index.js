@@ -31,7 +31,7 @@ export function CreatePlaysCard({ data, role = false }) {
             <p className={styles.rating}>{data?.rating}+</p>
           </div>
 
-          <div className={styles.place}>{data?.scene}</div>
+          <div className={styles.place}>{data?.scene?.name}</div>
           <div className={styles.ticket}>
             <div className={styles.buy}>
               <a className={styles.link}>

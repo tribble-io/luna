@@ -47,7 +47,7 @@ function getPlaysFilter(editValue) {
   }
 
   filters += filters[filters.length - 1] !== '&' ? '&' : ''
-  return `${API_URL}/api/plays?${filters}populate=cover`
+  return `${API_URL}/api/plays?${filters}populate=cover,scene`
 }
 
 async function exportPlayShows(editValue) {
