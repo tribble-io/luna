@@ -107,21 +107,25 @@ export function PhotoSlider(props) {
                 </div>
               ))}
         </Fancybox>
-        <div className={styles.sliderNavigation}>
-          <img
-            src='/img/newsLarr.png'
-            alt='<'
-            className={styles.prev}
-            ref={navigationPrevRef}
-          />
+        {bigSlides.length > 1 ? (
+          <div className={styles.sliderNavigation}>
+            <img
+              src='/img/newsLarr.png'
+              alt='<'
+              className={styles.prev}
+              ref={navigationPrevRef}
+            />
 
-          <img
-            src='/img/newsRarr.png'
-            alt='>'
-            className={styles.next}
-            ref={navigationNextRef}
-          />
-        </div>
+            <img
+              src='/img/newsRarr.png'
+              alt='>'
+              className={styles.next}
+              ref={navigationNextRef}
+            />
+          </div>
+        ) : (
+          <></>
+        )}
       </Swiper>
     </>
   )
