@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import styles from './press.module.scss'
 import { CreatePressLine } from '../../createElement'
 import { IsMobile } from '../../../assets'
@@ -7,32 +7,33 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/grid'
+import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 import './style.css'
 import { Grid, Navigation, Pagination } from 'swiper'
 
 export function Press({ press, actor = false }) {
-  const navigationPrevRef = useRef(null)
-  const navigationNextRef = useRef(null)
-  const customFraction = useRef(null)
+  //const navigationPrevRef = useRef(null)
+  //const navigationNextRef = useRef(null)
+  //const customFraction = useRef(null)
   const slidesPerView = IsMobile ? 'auto' : 1
   const centeredSlides = IsMobile ? true : false
   const grid = IsMobile ? false : { rows: 3, fill: 'row' }
-  const pagination = IsMobile
-    ? { clickable: true, dynamicBullets: true }
-    : {
-        el: customFraction.current,
-        type: 'fraction',
-        formatFractionCurrent: function (number) {
-          console.log(number, 'number')
-          return number
-        },
-      }
+  // const pagination = IsMobile
+  //   ? { clickable: true, dynamicBullets: true }
+  //   : {
+  //       el: customFraction.current,
+  //       type: 'fraction',
+  //       formatFractionCurrent: function (number) {
+  //         console.log(number, 'number')
+  //         return number
+  //       },
+  //     }
 
-  const navigation = IsMobile
-    ? false
-    : { prevEl: navigationPrevRef.current, nextEl: navigationNextRef.current }
+  // const navigation = IsMobile
+  //   ? false
+  //   : { prevEl: navigationPrevRef.current, nextEl: navigationNextRef.current }
 
   return (
     <section id='press'>
@@ -52,14 +53,11 @@ export function Press({ press, actor = false }) {
                 centeredSlides={centeredSlides}
                 grid={grid}
                 spaceBetween={20}
-                pagination={pagination}
-                navigation={navigation}
-                modules={[Navigation, Grid, Pagination]}
-                onInit={(swiper) => {
-                  swiper.params.navigation.prevEl = navigationPrevRef.current
-                  swiper.params.navigation.nextEl = navigationNextRef.current
-                  swiper.navigation.update()
+                pagination={{
+                  type: 'fraction',
                 }}
+                navigation={true}
+                modules={[Navigation, Grid, Pagination]}
                 className='pressSwiper'
                 style={{
                   '--swiper-pagination-bullet-inactive-color': '#fff',
@@ -72,7 +70,7 @@ export function Press({ press, actor = false }) {
                     <CreatePressLine data={item} key={key} />
                   </SwiperSlide>
                 ))}
-                <div className={styles.pressNavigation}>
+                {/* <div className={styles.pressNavigation}>
                   <img
                     src='/img/newsLarr.png'
                     alt='<'
@@ -93,7 +91,7 @@ export function Press({ press, actor = false }) {
                     name='next'
                     ref={navigationNextRef}
                   />
-                </div>
+                </div> */}
               </Swiper>
             </div>
           </div>
