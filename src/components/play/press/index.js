@@ -25,6 +25,7 @@ export function Press({ press, actor = false }) {
         el: customFraction.current,
         type: 'fraction',
         formatFractionCurrent: function (number) {
+          console.log(number, 'number')
           return number
         },
       }
@@ -54,6 +55,11 @@ export function Press({ press, actor = false }) {
                 pagination={pagination}
                 navigation={navigation}
                 modules={[Navigation, Grid, Pagination]}
+                onInit={(swiper) => {
+                  swiper.params.navigation.prevEl = navigationPrevRef.current
+                  swiper.params.navigation.nextEl = navigationNextRef.current
+                  swiper.navigation.update()
+                }}
                 className='pressSwiper'
                 style={{
                   '--swiper-pagination-bullet-inactive-color': '#fff',
@@ -66,12 +72,7 @@ export function Press({ press, actor = false }) {
                     <CreatePressLine data={item} key={key} />
                   </SwiperSlide>
                 ))}
-                <div
-                  className={styles.pressNavigation}
-                  style={{
-                    display: press.length <= 3 ? 'none' : 'flex',
-                  }}
-                >
+                <div className={styles.pressNavigation}>
                   <img
                     src='/img/newsLarr.png'
                     alt='<'
