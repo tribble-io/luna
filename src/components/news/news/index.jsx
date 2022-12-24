@@ -289,7 +289,7 @@ class News extends React.Component {
         this.state.dataArr[4]
       let seachEl = this.state.search
       fetch(
-        `http://theatre.restomatik.ru:1337/api/articles?filters[publishedAt][$gte]=${date}&filters[publishedAt][$lt]=${lastDate}&sort[0]=publishedAt:desc&filters[title][$containsi]=${seachEl}&desc&populate=cover,shows.play.scene`
+        `http://theatre.restomatik.ru:1337/api/articles?filters[createdAt][$gte]=${date}&filters[createdAt][$lt]=${lastDate}&sort[0]=createdAt&filters[title][$containsi]=${seachEl}&desc&populate=cover,shows.play`
       )
         .then((res) => res.json())
         .then((result) => {
@@ -306,7 +306,7 @@ class News extends React.Component {
           }
         })
       fetch(
-        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=publishedAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
+        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=createdAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
       )
         .then((res) => res.json())
         .then((result) => {
@@ -365,7 +365,7 @@ class News extends React.Component {
           this.state.dataArr[2] + '-' + this.state.dataArr[0] + '-' + lastDay
 
         fetch(
-          `http://theatre.restomatik.ru:1337/api/articles?filters[publishedAt][$gte]=${calDate}&filters[publishedAt][$lt]=${calLastDate}&sort[0]=publishedAt:desc&populate=cover,shows.play`
+          `http://theatre.restomatik.ru:1337/api/articles?filters[createdAt][$gte]=${calDate}&filters[createdAt][$lt]=${calLastDate}&sort[0]=createdAt:desc&populate=cover,shows.play`
         )
           .then((res) => res.json())
           .then((result) => {

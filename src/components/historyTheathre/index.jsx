@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './historyTheathre.module.scss'
 
-import group1 from './img/group1.svg'
-import group2 from './img/group2.svg'
-import group3 from './img/group3.svg'
-import group4 from './img/group4.svg'
-import ruk from './img/ruk.svg'
-import prez from './img/prez.svg'
+import group1 from './img/im15.webp'
+import group2 from './img/im2.webp'
+import group3 from './img/im1.webp'
+import group4 from './img/im12.webp'
+import ruk from './img/im13.webp'
+import prez from './img/im14.webp'
 import tobAbs from './img/topAbs.svg'
 import botAbs from './img/botAbs.svg'
 import { PhotoSlider } from '../createElement/photoSlider'
@@ -188,10 +188,11 @@ class HistoryTheathre extends React.Component {
                     На «лунной» сцене родилось множество постановок, подаривших
                     зрителям яркие и запоминающиеся актёрские работы:
                   </p>
+                  <p>—«Византия» с прекрасной Ириной Метлицкой</p>
                   <p>
-                    — «Византия» с прекрасной Ириной Метлицкой, «Ночь нежна»,
-                    где блистали Анатолий Ромашин, Сергей Виноградов, Дмитрий
-                    Певцов, Марина Блэйк и будущая звезда театра Елена Захарова
+                    —«Ночь нежна», где блистали Анатолий Ромашин, Сергей
+                    Виноградов, Дмитрий Певцов, Марина Блэйк и будущая звезда
+                    театра Елена Захарова
                   </p>
                   <p>
                     — «Фауст» с незабываемым Анатолием Ромашиным и ироничным
@@ -332,16 +333,16 @@ class HistoryTheathre extends React.Component {
                 </div>
               </div>
             </div>
-
-            <div className={styles.historyQuote}>
-              <img src={tobAbs} alt='tobAbs' />
-              <h2>
-                «Луна» по-прежнему каждый вечер зажигает для зрителей свой
-                загадочный и манящий свет.
-              </h2>
-              <img src={botAbs} alt='tobAbs' />
-            </div>
-
+          </div>
+          <div className={styles.historyQuote}>
+            <img src={tobAbs} alt='tobAbs' />
+            <h2 className={styles.h2_Luna_Vecher}>
+              «Луна» по-прежнему каждый вечер зажигает для зрителей свой
+              загадочный и манящий свет.
+            </h2>
+            <img src={botAbs} alt='tobAbs' />
+          </div>
+          <div className={styles.historyContainer}>
             <div className={styles.infoBlock_2_5}>
               <div>
                 <h2 className={styles.infoBlock_2_5_tage}>

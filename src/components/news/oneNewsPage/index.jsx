@@ -36,7 +36,7 @@ class OneOageNews extends React.Component {
         items: this.props.stateNew,
       })
       fetch(
-        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=publishedAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
+        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=createdAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
       )
         .then((res) => res.json())
         .then((result) =>
@@ -52,7 +52,7 @@ class OneOageNews extends React.Component {
       fetch(
         `  http://theatre.restomatik.ru:1337/api/articles${
           '/' + this.state.id_article
-        }?sort[0]=publishedAt:desc&populate=cover,shows.play.scene
+        }?sort[0]=createdAt:desc&populate=cover,shows.play
           `
       )
         .then((res) => res.json())
@@ -63,7 +63,7 @@ class OneOageNews extends React.Component {
           })
         )
       fetch(
-        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=publishedAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
+        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=createdAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
       )
         .then((res) => res.json())
         .then((result) =>
@@ -76,7 +76,7 @@ class OneOageNews extends React.Component {
         items: this.props.stateNew,
       })
       fetch(
-        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=publishedAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
+        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=createdAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
       )
         .then((res) => res.json())
         .then((result) =>
@@ -203,12 +203,12 @@ class OneOageNews extends React.Component {
                   <section className={styles.posterBlock}>
                     {this.state.items.shows.map((item) => (
                       <PosterEl
-                        day={getDateStr(item.date).month_name_case}
+                        day={item.date_str.match(/[^\d]+/g)}
                         key={item.id}
-                        date={getDateStr(item.date).date}
+                        date={parseInt(item.date_str.match(/\d+/))}
                         time={item.time}
                         title={item.play.title}
-                        location={item.play.scene.name}
+                        location={item.play.scene}
                         rating={item.play.rating}
                         buy={item.tickets_link}
                       />

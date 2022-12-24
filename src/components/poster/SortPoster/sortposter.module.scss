@@ -61,11 +61,12 @@
     margin-top: 60px;
 
     @media (max-width: 1000px) {
-      width: 900px;
+      width: 450px;
     }
   }
 
   .moth_el {
+    height: 32px;
     margin-right: 60px;
     font-family: 'Montserrat';
     font-size: 14px;
@@ -73,14 +74,11 @@
     line-height: 17px;
     letter-spacing: 0em;
     text-align: left;
-    padding: 10px 10px;
+    padding: 10px 0px;
+    padding-bottom: 0;
     border-bottom: 0.1px solid #ffffff00;
     text-transform: uppercase;
 
-    @media (max-width: 1200px) {
-      font-size: 12px;
-      padding: 8px 10px;
-    }
     @media (max-width: 1200px) {
       font-size: 13px;
       margin-right: 20px;
@@ -91,6 +89,7 @@
     }
   }
   .moth_el_active {
+    height: 32px;
     margin-right: 60px;
     font-family: 'Montserrat';
     font-size: 14px;
@@ -98,7 +97,8 @@
     line-height: 17px;
     letter-spacing: 0em;
     text-align: left;
-    padding: 10px 10px;
+    padding: 10px 0;
+    padding-bottom: 0;
     border-bottom: 0.1px solid #8cabfa;
     color: #8cabfa;
     cursor: default;
@@ -106,22 +106,15 @@
 
     @media (max-width: 1200px) {
       font-size: 13px;
-      padding: 8px 10px;
-    }
-    @media (max-width: 1200px) {
-      font-size: 13px;
       margin-right: 20px;
     }
   }
   .sortBlock {
-    // @media (max-width: 1000px) {
-    //     width: 400px;
-    //     overflow-x: auto;
-    // }
     @media (max-width: 770px) {
       width: 400px;
       overflow-x: auto;
       margin-left: 50px;
+      height: 180px;
     }
     @media (max-width: 500px) {
       width: 300px;
@@ -141,10 +134,11 @@
     margin-top: 30px;
 
     @media (max-width: 1000px) {
-      width: 900px;
+      width: 600px;
     }
   }
   .position_el {
+    height: 32px;
     margin-right: 60px;
     font-family: 'Montserrat';
     font-size: 14px;
@@ -152,13 +146,10 @@
     line-height: 17px;
     letter-spacing: 0em;
     text-align: left;
-    padding: 10px 10px;
+    padding: 10px 0;
+    padding-bottom: 0;
     border-bottom: 0.1px solid #ffffff00;
 
-    @media (max-width: 1200px) {
-      font-size: 13px;
-      padding: 8px 10px;
-    }
     &:hover {
       color: #8cabfa;
       cursor: default;
@@ -169,6 +160,7 @@
     }
   }
   .position_el_active {
+    height: 32px;
     margin-right: 60px;
     font-family: 'Montserrat';
     font-size: 14px;
@@ -176,15 +168,12 @@
     line-height: 17px;
     letter-spacing: 0em;
     text-align: left;
-    padding: 10px 10px;
+    padding: 10px 0;
+    padding-bottom: 0;
     color: #8cabfa;
     border-bottom: 0.1px solid #8cabfa;
     cursor: default;
 
-    @media (max-width: 1200px) {
-      font-size: 13px;
-      padding: 8px 10px;
-    }
     @media (max-width: 1200px) {
       font-size: 13px;
       margin-right: 20px;
@@ -202,6 +191,10 @@
     display: flex;
     border: 1px solid rgb(255, 255, 255);
     position: relative;
+
+    @media (max-width: 770px) {
+      margin-top: 70px;
+    }
 
     @media (max-width: 500px) {
       width: 100%;
