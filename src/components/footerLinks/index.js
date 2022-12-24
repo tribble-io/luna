@@ -16,7 +16,7 @@ export function FooterLinks() {
             <p className={styles.linkTitle}>зрителям</p>
             <Link to='/'>пользовательское соглашение</Link>
             <Link to='/'>политика конфиденциальности</Link>
-            <Link to='/'>документы</Link>
+            <Link to='/documents'>документы</Link>
           </div>
           <div className={styles.linkBlock}>
             <p className={styles.linkTitle}>О &#171;Луне&#187; </p>

@@ -46,7 +46,7 @@ function App() {
           <Route path='/contacts' element={<Contacts />} />
           <Route path='/scenes' element={<Scenes />} />
           <Route path='/actor/:id' element={<PageDetailActor />} />
-          <Route path='/documets' element={<Documets />} />
+          <Route path='/documents' element={<Documets />} />
         </Routes>
         <Footer />
       </Router>

@@ -1,6 +1,17 @@
 @import '../../../assets/utils/mixins.scss';
 @import '../../../assets/utils/fonts.scss';
 
+@keyframes button {
+  0% {
+    border: 1px solid #8cabfa;
+    padding: 15px 60px;
+  }
+  100% {
+    border: 2px solid #7396ea;
+    padding: 14px 59px;
+  }
+}
+
 .posterContent {
   @include container;
   color: white;
@@ -94,6 +105,15 @@
   position: relative;
   text-transform: uppercase;
   cursor: default;
+
+  div {
+    a {
+      color: white;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 
   @media (max-width: 1200px) {
     margin-left: 10px;
@@ -204,8 +224,8 @@
   height: 100%;
 
   &:hover {
-    border: 2px solid #8cabfa;
     padding: 14px 59px;
+    border: 2px solid #7396ea;
   }
 
   @media (max-width: 1000px) {

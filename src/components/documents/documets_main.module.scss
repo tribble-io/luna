@@ -1,0 +1,110 @@
+@import '../../assets/utils/mixins.scss';
+@import '../../assets/utils/fonts.scss';
+
+.mainDocumntsBlock {
+  margin-top: 200px;
+  @include container;
+
+  @media (max-width: 770px) {
+    margin-top: 100px;
+  }
+
+  h1 {
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 80px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    @media (max-width: 770px) {
+      font-size: 22px;
+    }
+  }
+
+  .contentBlock {
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 350px;
+
+    @media (max-width: 1200px) {
+      flex-direction: column;
+    }
+
+    @media (max-width: 770px) {
+      margin-bottom: 200px;
+      margin-top: 40px;
+    }
+  }
+
+  .itemsActive {
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #8cabfa;
+    margin-bottom: 40px;
+    max-width: 295px;
+    text-decoration: underline;
+    cursor: pointer;
+
+    @media (max-width: 1200px) {
+      max-width: 1000px;
+      margin-bottom: 0px;
+      margin-right: 40px;
+    }
+  }
+
+  .items {
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: white;
+    margin-bottom: 40px;
+    max-width: 295px;
+    cursor: pointer;
+
+    @media (max-width: 1200px) {
+      max-width: 1000px;
+      margin-bottom: 0px;
+      margin-right: 40px;
+    }
+
+    &:hover {
+      color: #8cabfa;
+    }
+  }
+
+  .contentInfo {
+    margin-left: auto;
+    margin-right: 0;
+
+    @media (max-width: 1200px) {
+      margin: auto;
+    }
+  }
+  .filters {
+    @media (max-width: 1200px) {
+      display: flex;
+      width: 1800px;
+      height: 40px;
+    }
+  }
+
+  .filtersBlock {
+    @media (max-width: 1200px) {
+      overflow-x: auto;
+      @include container;
+      margin-bottom: 75px;
+      padding-left: 0 !important;
+    }
+  }
+}

@@ -286,6 +286,8 @@ class Poster extends React.Component {
         day_next: '01',
         day: '01',
         dataArr: this.state.dataList[a],
+        m: this.state.dataArr[0],
+        y: this.state.dataArr[2],
       }
     })
     this.componentDidMount()
@@ -293,49 +295,51 @@ class Poster extends React.Component {
 
   componentDidMount() {
     setTimeout(() => {
-      let date =
-        this.state.dataArr[2] +
-        '-' +
-        this.state.dataArr[0] +
-        '-' +
-        this.state.dataArr[1]
-      let lastDate =
-        this.state.dataArr[5] +
-        '-' +
-        this.state.dataArr[3] +
-        '-' +
-        this.state.dataArr[4]
       let seachEl = this.state.search
       let filters = this.state.filerLocation
-
       let filtPathc
 
       if (filters === 'БОЛЬШАЯ СЦЕНА') {
         filtPathc = 'filters[play][scene][name][$eq]=Большая сцена&'
       } else if (filters === 'МАЛАЯ СЦЕНА') {
         filtPathc = 'filters[play][scene][name][$eq]=Малая сцена&'
-      } else if (filters === 'ЗАЛ "МАЛЕНЬКАЯ ЛУНА"') {
+      } else if (filters === 'ЗАЛ «МАЛЕНЬКАЯ ЛУНА»') {
         filtPathc = 'filters[play][scene][name][$eq]=Зал «Маленькая Луна»&'
       } else {
         filtPathc = ''
       }
-      fetch(
-        `http://theatre.restomatik.ru:1337/api/shows?filters[date][$gte]=${date}&filters[date][$lt]=${lastDate}&sort[0]=date&${filtPathc}populate=play.scene&filters[play][title][$containsi]=${seachEl}`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          if (this.state.items) {
-            this.setState({
-              isLoaded: true,
-              items: result.data,
-            })
-          } else {
-            this.setState({
-              isLoaded: true,
-              items: 'notItem',
-            })
-          }
-        })
+
+      if (!this.state.checkFilter) {
+        let date =
+          this.state.dataArr[2] +
+          '-' +
+          this.state.dataArr[0] +
+          '-' +
+          this.state.dataArr[1]
+        let lastDate =
+          this.state.dataArr[5] +
+          '-' +
+          this.state.dataArr[3] +
+          '-' +
+          this.state.dataArr[4]
+        fetch(
+          `http://theatre.restomatik.ru:1337/api/shows?filters[date][$gte]=${date}&filters[date][$lt]=${lastDate}&sort[0]=date&${filtPathc}populate=play.scene&filters[play][title][$containsi]=${seachEl}`
+        )
+          .then((res) => res.json())
+          .then((result) => {
+            if (this.state.items) {
+              this.setState({
+                isLoaded: true,
+                items: result.data,
+              })
+            } else {
+              this.setState({
+                isLoaded: true,
+                items: 'notItem',
+              })
+            }
+          })
+      }
       if (this.state.checkFilter) {
         let newDay = Number(this.state.day)
         let lastDay = newDay + 1
@@ -378,7 +382,7 @@ class Poster extends React.Component {
           '-' +
           this.state.dataArr[0] +
           '-' +
-          this.state.dataArr[1]
+          this.state.day
         let calLastDate =
           this.state.dataArr[2] + '-' + this.state.dataArr[0] + '-' + lastDay
 
@@ -396,6 +400,35 @@ class Poster extends React.Component {
               this.setState({
                 isLoaded: true,
                 itemsCal: 'notItem',
+              })
+            }
+          })
+        let date =
+          this.state.dataArr[2] +
+          '-' +
+          this.state.dataArr[0] +
+          '-' +
+          this.state.day
+        let lastDate =
+          this.state.dataArr[5] +
+          '-' +
+          this.state.dataArr[3] +
+          '-' +
+          this.state.dataArr[4]
+        fetch(
+          `http://theatre.restomatik.ru:1337/api/shows?filters[date][$gte]=${date}&filters[date][$lt]=${lastDate}&sort[0]=date&${filtPathc}populate=play.scene&filters[play][title][$containsi]=${seachEl}`
+        )
+          .then((res) => res.json())
+          .then((result) => {
+            if (this.state.items) {
+              this.setState({
+                isLoaded: true,
+                items: result.data,
+              })
+            } else {
+              this.setState({
+                isLoaded: true,
+                items: 'notItem',
               })
             }
           })

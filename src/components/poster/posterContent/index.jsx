@@ -39,6 +39,7 @@ let PosterContent = (props) => {
             location={item.play.scene.name}
             rating={item.play.rating}
             buy={item.tickets_link}
+            id={item.play.id}
           />
         ))}
       </section>
@@ -60,6 +61,7 @@ let PosterContent = (props) => {
             location={item.play.scene.name}
             rating={item.play.rating}
             buy={item.tickets_link}
+            id={item.play.id}
           />
         ))}
       </section>
@@ -78,6 +80,7 @@ let PosterContent = (props) => {
             location={item.play.scene.name}
             rating={item.play.rating}
             buy={item.tickets_link}
+            id={item.play.id}
           />
         ))}
       </section>
