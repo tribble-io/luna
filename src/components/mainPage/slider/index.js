@@ -2,98 +2,98 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { API_URL } from '../../../api'
 import { getDateStr } from '../../../assets'
+import ScrollIntoView from 'react-scroll-into-view'
+import styles from './slider.module.scss'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
+import 'swiper/css/pagination'
 import 'swiper/css/effect-fade'
-
-import styles from './slider.module.scss'
-
 import './styles.css'
-
 // import required modules
-import { Autoplay, EffectFade } from 'swiper'
+import { Pagination, Autoplay, EffectFade } from 'swiper'
 
 export function Slider({ items, firstDate }) {
   return (
     <>
-      <Swiper
-        effect={'fade'}
-        centeredSlides={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        modules={[EffectFade, Autoplay]}
-        className='mySwiper'
-      >
-        {items.map((offer) => (
-          <SwiperSlide
-            key={offer.id}
-            style={{
-              background: `url(${
-                API_URL + offer.play.cover.url
-              }) no-repeat top / cover`,
-              backgroundColor: '#08091D',
-            }}
-          >
-            <div className={styles.slide}>
-              <div className={styles.wrapper}>
-                <div className={styles.block1}>
-                  <p className={styles.author}>
-                    {offer.play.director.fullname}
-                  </p>
-                  <Link className={styles.title} to={`/play/${offer.play.id}`}>
-                    {offer.play.title}
-                  </Link>
-                  {offer.play.isPremiere ? (
-                    <div className={styles.premiere}>
-                      <a href={offer.webSite}>Премьера</a>
+      <section id='mainSlider'>
+        <Swiper
+          effect={'fade'}
+          centeredSlides={true}
+          autoplay={false}
+          pagination={{ clickable: true }}
+          modules={[Pagination, EffectFade, Autoplay]}
+          className='mySwiper'
+          style={{
+            '--swiper-pagination-bullet-inactive-color': '#fff',
+            '--swiper-pagination-color': '#7A97F8',
+            '--swiper-pagination-bullet-inactive-opacity': '0.8',
+          }}
+        >
+          {items.map((offer) => (
+            <SwiperSlide
+              key={offer.id}
+              style={{
+                background: `url(${
+                  API_URL + offer?.cover?.url
+                }) no-repeat top / cover`,
+                backgroundColor: '#08091D',
+              }}
+            >
+              <div className={styles.slide}>
+                <div className={styles.wrapper}>
+                  <div className={styles.sliderContent}>
+                    <div className={styles.sliderTopCont}>
+                      <p className={styles.typeShow}>спектакль</p>
+                      {offer?.isPremiere ? (
+                        <p className={styles.premiere}>Премьера</p>
+                      ) : (
+                        <></>
+                      )}
                     </div>
-                  ) : (
-                    <></>
-                  )}
-                </div>
-                <div className={styles.block2}>
-                  <p className={styles.date}>{getDateStr(offer.date).date}</p>
-                  <p className={styles.month}>
-                    {getDateStr(offer.date).month_name_case}
-                  </p>
-                  <div className={styles.buy}>
-                    <a href={`${offer.tickets_link}`}>КУПИТЬ БИЛЕТ</a>
+                    <p className={styles.title}>{offer?.title}</p>
+                    <p className={styles.description}>{offer?.description}</p>
+                    <div className={styles.ticket}>
+                      <ScrollIntoView
+                        selector={`#comingShow`}
+                        className={styles.buy}
+                      >
+                        <button type='button' className={styles.link}>
+                          БИЛЕТЫ
+                        </button>
+                      </ScrollIntoView>
+                      <div className={styles.rating}>{offer?.rating}+</div>
+                    </div>
                   </div>
                 </div>
-                <div className={styles.mobileButton}>
-                  <a href={`${offer.tickets_link}`}>КУПИТЬ БИЛЕТ</a>
+                <div className={styles.bottomBlock}>
+                  <div className={styles.blurContainer}>
+                    <div
+                      className={styles.startCalendar}
+                      style={{
+                        backgroundImage: `url('${
+                          API_URL + offer?.cover?.url
+                        }')`,
+                      }}
+                    >
+                      <div className={styles.overlay}></div>
+                    </div>
+                  </div>
+                  <div className={styles.startCalendarText}>
+                    <h1>{getDateStr(firstDate).month_name}</h1>
+                    <div className={styles.buttons}>
+                      <Link to='/plays' className={styles.allPost}>
+                        <p>Все спектакли</p>
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className={styles.bottomBlock}>
-                <div className={styles.blurContainer}>
-                  <div
-                    className={styles.startCalendar}
-                    style={{
-                      backgroundImage: `url('${
-                        API_URL + offer.play.cover.url
-                      }')`,
-                    }}
-                  >
-                    <div className={styles.overlay}></div>
-                  </div>
-                </div>
-                <div className={styles.startCalendarText}>
-                  <h1>{getDateStr(firstDate).month_name}</h1>
-                  <div className={styles.buttons}>
-                    <Link to='/plays' className={styles.allPost}>
-                      <p>Все спектакли</p>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
     </>
   )
 }

@@ -2,23 +2,40 @@ import React, { useState, useEffect } from 'react'
 import { api } from '../api/index'
 import { uniqueBy } from '../assets/utils/usable-function'
 
-import { Slider, Calendar, News, Partners } from '../components/mainPage'
+import {
+  Slider,
+  Calendar,
+  VideoBlock,
+  News,
+  Partners,
+} from '../components/mainPage'
 import Loader from '../components/loader'
+
+// We create a link of a /embed/ format for the correct display of the video by API
+function getVideoLink(link) {
+  const linkSplit = link.split(['/watch?v='])
+  const newLink = linkSplit[0] + '/embed/' + linkSplit[1]
+
+  return newLink
+}
 
 export function Home() {
   const [itemsSlider, setItemsSlider] = useState([])
-  const [items, setItems] = useState([])
+  const [itemsAffiche, setItemsAffiche] = useState([])
+  const [videoLink, setvideoLink] = useState('')
   const [itemsNews, setItemsNews] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [firstDate, setFirstDate] = useState()
 
   useEffect(() => {
-    Promise.all([api.exportShows(), api.exportArticles()])
+    Promise.all([api.exportMainPage(), api.exportShows(), api.exportArticles()])
       .then((values) => {
-        setItems(values[0])
-        setItemsSlider(
-          uniqueBy(values[0], (o1, o2) => o1.play.id === o2.play.id)
+        setItemsSlider(values[0].plays)
+        setvideoLink(getVideoLink(values[0].youtubeLink))
+        setItemsAffiche(
+          uniqueBy(values[1], (o1, o2) => o1.play.id === o2.play.id)
         )
-        setItemsNews(values[1])
+        setItemsNews(values[2])
         setIsLoading(false)
       })
       .catch((error) => {
@@ -27,32 +44,21 @@ export function Home() {
       })
   }, [])
 
-  const [firstDate, setFirstDate] = useState(
-    new Date(new Date().toISOString().slice(0, 10))
-  )
-
   return (
-    <div>
-      <section>
-        <Slider
-          firstDate={firstDate}
-          items={itemsSlider}
-          setItemsSlider={setItemsSlider}
-        />
-      </section>
+    <>
+      <Slider firstDate={firstDate} items={itemsSlider} />
       <main>
-        <section>
-          {isLoading ? (
-            <Loader />
-          ) : (
-            <Calendar setFirstDate={setFirstDate} items={items} />
-          )}
-        </section>
-        <section>
-          <News itemsNews={itemsNews} setItemsNews={setItemsNews} />
-        </section>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <Calendar setFirstDate={setFirstDate} items={itemsAffiche} />
+            <VideoBlock link={videoLink} />
+            <News itemsNews={itemsNews} setItemsNews={setItemsNews} />
+          </>
+        )}
         <Partners />
       </main>
-    </div>
+    </>
   )
 }

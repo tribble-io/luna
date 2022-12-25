@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Item, Separator } from '../../mainPage'
+import { Item } from '../../mainPage'
 import { getDateStr } from '../../../assets'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -75,78 +75,77 @@ export function Calendar({ setFirstDate, items }) {
 
   const initialSlide = dates.map((date) => date.free).indexOf(false)
 
-  function moveDate(index) {
-    setFirstDate(dates[index].date)
-  }
-
   return (
     <>
-      <div
-        className={styles.datesStrip}
-        style={{
-          '--strip-height': `${SLIDER_HEIGHT}px`,
-        }}
-      >
-        <img
-          src='/img/larr.png'
-          alt='<'
-          className={styles.larr}
-          ref={navigationPrevRef}
-        />
-        <div className={styles.dateWindow}>
-          <Swiper
-            slidesPerView={5}
-            slidesPerGroup={5}
-            spaceBetween={10}
-            grabCursor={true}
-            longSwipesRatio={0.4}
-            shortSwipes={false}
-            navigation={{
-              prevEl: navigationPrevRef.current,
-              nextEl: navigationNextRef.current,
-            }}
-            initialSlide={initialSlide}
-            modules={[Navigation]}
-            breakpoints={{
-              640: {
-                slidesPerView: 10,
-                spaceBetween: 20,
-              },
-              1024: {
-                slidesPerView: 15,
-              },
-            }}
-            onActiveIndexChange={(swiper) => moveDate(swiper.activeIndex)}
-            className='calendarSlider'
-          >
-            {dates.map((date, i) => (
-              <SwiperSlide key={i}>
-                {
-                  <DateBtn
-                    key={i}
-                    date={date}
-                    isselected={date.date.getTime() === selected.getTime()}
-                    setSelected={setSelected}
-                  />
-                }
-              </SwiperSlide>
-            ))}
-          </Swiper>
+      <section id='affiche'>
+        <div
+          className={styles.datesStrip}
+          style={{
+            '--strip-height': `${SLIDER_HEIGHT}px`,
+          }}
+        >
+          <img
+            src='/img/larr.png'
+            alt='<'
+            className={styles.larr}
+            ref={navigationPrevRef}
+          />
+          <div className={styles.dateWindow}>
+            <Swiper
+              slidesPerView={5}
+              slidesPerGroup={5}
+              spaceBetween={10}
+              grabCursor={true}
+              longSwipesRatio={0.4}
+              shortSwipes={false}
+              navigation={{
+                prevEl: navigationPrevRef.current,
+                nextEl: navigationNextRef.current,
+              }}
+              initialSlide={initialSlide}
+              modules={[Navigation]}
+              breakpoints={{
+                640: {
+                  slidesPerView: 10,
+                  spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 15,
+                },
+              }}
+              onActiveIndexChange={(swiper) =>
+                setFirstDate(dates[swiper.activeIndex].date)
+              }
+              className='calendarSlider'
+            >
+              {dates.map((date, i) => (
+                <SwiperSlide key={i}>
+                  {
+                    <DateBtn
+                      key={i}
+                      date={date}
+                      isselected={date.date.getTime() === selected.getTime()}
+                      setSelected={setSelected}
+                    />
+                  }
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <img
+            src='/img/rarr.png'
+            alt='>'
+            className={styles.rarr}
+            ref={navigationNextRef}
+          />
         </div>
-        <img
-          src='/img/rarr.png'
-          alt='>'
-          className={styles.rarr}
-          ref={navigationNextRef}
-        />
-      </div>
-      <div className={styles.cardsWindowContainer}>
-        <Item items={items} selected={selected} />
-        <div className={styles.mobileButton}>
-          <Link to={'/plays'}>все спектакли</Link>
+        <div className={styles.cardsWindowContainer}>
+          <Item items={items} selected={selected} />
+          <div className={styles.mobileButton}>
+            <Link to={'/plays'}>все спектакли</Link>
+          </div>
         </div>
-      </div>
-      <Separator />
+      </section>
     </>
   )
 }
