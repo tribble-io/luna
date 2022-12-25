@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { API_URL as URL } from '../../../api'
 import styles from './sort_news.module.scss'
 
 let NewsEl = (props) => {
-  let URL = 'http://theatre.restomatik.ru:1337'
   if (props.date) {
     return (
       <Link to={props.location} state={props.items}>
