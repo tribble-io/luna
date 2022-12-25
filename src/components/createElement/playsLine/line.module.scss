@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     gap: 0px;
+    width: 198px;
     .dateDay {
       font-weight: 300;
       font-size: 44px;
@@ -123,7 +124,7 @@
   .name {
     display: flex;
     align-items: baseline;
-    margin-left: 170px;
+    margin-left: 120px;
     position: relative;
 
     text-transform: uppercase;

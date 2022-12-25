@@ -58,7 +58,7 @@ const PageDetailActor = () => {
             isPremiere: play?.isPremiere,
             buy: item?.tickets_link,
             day: formatDate?.day_of_week,
-            place: play?.roleTitle,
+            place: play?.scene.name,
             month: formatDate?.month_name_case,
             date: formatDate?.date,
             time: item?.time,
