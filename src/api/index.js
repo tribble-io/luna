@@ -206,7 +206,7 @@ async function exportSceneDocs() {
 
 async function exportGetDetailInfoActor(id) {
   const result = await axios.get(
-    `${API_URL}/api/persons/${id}?populate=cover,play_roles.play.shows,play_roles.play.cover,movies,press_items,gallery.media,romashka_awards.season`
+    `${API_URL}/api/persons/${id}?populate=cover,play_roles.play.shows,play_roles.play.cover,movies,press_items,gallery.media,romashka_awards.season,play_roles.play.scene`
   )
 
   if (result.status === 200) {

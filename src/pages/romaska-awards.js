@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { API_URL, api } from '../api/index'
 
 import { Title, Laureate } from '../components/romaska-awards'
+import noPhoto from '../assets/img/no-photo-actor.jpg'
 import Loader from '../components/loader'
 
 function getLaureatesData(arr) {
@@ -16,7 +17,7 @@ function getLaureatesData(arr) {
             src:
               role.actor.cover !== null
                 ? API_URL + role?.actor?.cover?.url
-                : '/img/romaska-laureate.png',
+                : noPhoto,
           }
         })
         return {
