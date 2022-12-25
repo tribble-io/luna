@@ -469,27 +469,7 @@
 }
 
 .zagl {
-  h1 {
-    color: white;
-    font-family: 'Montserrat';
-    font-size: 25px;
-    text-align: center;
-    margin: auto;
-    height: 50px;
-    margin-top: 20%;
-    margin-bottom: 20%;
-
-    @media (max-width: 1200px) {
-      font-size: 20px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    @media (max-width: 770px) {
-      font-size: 16px;
-      width: 70%;
-    }
-  }
+  height: 100%;
 }
 
 .subsWarn {

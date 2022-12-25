@@ -216,6 +216,68 @@ async function exportGetDetailInfoActor(id) {
   throw new Error("Can't export actor data")
 }
 
+async function searchPosters(date, lastDate, filtPathc, seachEl) {
+  const result = await axios.get(
+    `${API_URL}/api/shows?filters[date][$gte]=${date}&filters[date][$lt]=${lastDate}&sort[0]=date&${filtPathc}populate=play.scene&filters[play][title][$containsi]=${seachEl}`
+  )
+
+  if (result.status === 200) {
+    return result.data
+  }
+
+  throw new Error("Can't export studio photos")
+}
+
+async function searchNews(date, lastDate, seachEl) {
+  const result = await axios.get(
+    `${API_URL}/api/articles?filters[publishedAt][$gte]=${date}&filters[publishedAt][$lt]=${lastDate}&sort[0]=publishedAt:desc&filters[title][$containsi]=${seachEl}&populate=cover,shows.play.scene,gallery.media`
+  )
+
+  if (result.status === 200) {
+    return result.data
+  }
+}
+
+async function lastNews() {
+  const result = await axios.get(
+    `${API_URL}/api/articles?sort[0]=publishedAt:desc&populate=cover,shows.play.scene,gallery.media&pagination[pageSize]=4`
+  )
+
+  if (result.status === 200) {
+    return result.data
+  }
+}
+async function news(calDate, calLastDate) {
+  const result = await axios.get(
+    `${API_URL}/api/articles?filters[publishedAt][$gte]=${calDate}&filters[publishedAt][$lt]=${calLastDate}&sort[0]=publishedAt:desc&populate=cover,shows.play.scene,gallery.media`
+  )
+
+  if (result.status === 200) {
+    return result.data
+  }
+}
+
+async function newsElNews(id_article) {
+  const result = await axios.get(
+    `${API_URL}/api/articles${
+      '/' + id_article
+    }?sort[0]=publishedAt:desc&populate=cover,shows.play.scene,gallery.media`
+  )
+
+  if (result.status === 200) {
+    return result.data
+  }
+}
+
+async function documents(activeFilter) {
+  const result = await axios.get(
+    `${API_URL}/api/docs?filters[category][title][$eq]=${activeFilter}&populate=file`
+  )
+
+  if (result.status === 200) {
+    return result.data
+  }
+}
 export const api = {
   exportShows,
   exportArticles,
@@ -233,4 +295,10 @@ export const api = {
   exportShowPersons,
   exportSceneDocs,
   exportGetDetailInfoActor,
+  searchPosters,
+  searchNews,
+  lastNews,
+  news,
+  newsElNews,
+  documents,
 }

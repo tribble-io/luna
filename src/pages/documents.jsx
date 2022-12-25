@@ -1,6 +1,7 @@
 import React from 'react'
-import DocumetsEl from './documentsElem/documetsEl'
-import styles from './documets_main.module.scss'
+import { api } from '../api'
+import DocumetsEl from '../components/documents/documentsElem/documetsEl'
+import styles from '../components/documents/documets_main.module.scss'
 
 class Documets extends React.Component {
   constructor() {
@@ -32,15 +33,11 @@ class Documets extends React.Component {
 
   componentDidMount() {
     setTimeout(() => {
-      fetch(
-        `http://theatre.restomatik.ru:1337/api/docs?filters[category][title][$eq]=${this.state.activeFilter}&populate=file`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          this.setState({
-            item: result.data,
-          })
+      api.documents(this.state.activeFilter).then((response) => {
+        this.setState({
+          item: response.data,
         })
+      })
     }, 100)
   }
 
