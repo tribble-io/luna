@@ -31,6 +31,15 @@ class Documets extends React.Component {
     }
   }
 
+  externalLinks() {
+    let links = document.getElementsByTagName('a')
+    for (let i = 0; i < links.length; i++) {
+      let link = links[i]
+      if (link.getAttribute('href') && link.getAttribute('rel') == 'external')
+        link.target = '_blank'
+    }
+  }
+
   componentDidMount() {
     setTimeout(() => {
       api.documents(this.state.activeFilter).then((response) => {
@@ -39,6 +48,7 @@ class Documets extends React.Component {
         })
       })
     }, 100)
+    this.externalLinks()
   }
 
   changeFilter(value) {
