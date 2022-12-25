@@ -54,7 +54,7 @@ export function Home() {
           <>
             <Calendar setFirstDate={setFirstDate} items={itemsAffiche} />
             <VideoBlock link={videoLink} />
-            <News itemsNews={itemsNews} setItemsNews={setItemsNews} />
+            <News itemsNews={itemsNews} />
           </>
         )}
         <Partners />

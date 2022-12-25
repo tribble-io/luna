@@ -1,101 +1,67 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { API_URL } from '../../../api'
-import { Separator } from '../../mainPage'
 import { getDateStr } from '../../../assets'
+import ReactMarkdown from 'react-markdown'
 
 import styles from './news.module.scss'
 
-function cutToLength(s, l) {
-  const words = s.split(' ')
-  let i = 1
-
-  while (words.slice(0, i).join(' ').length < l) {
-    i += 1
-
-    if (i > words.length) {
-      break
-    }
-  }
-
-  const res = words.slice(0, i - 1).join(' ')
-
-  if (res.length < s.length) {
-    return res + '...'
-  } else {
-    return s
-  }
+function cutToLength(string, maxlength) {
+  return string.length > maxlength
+    ? string.substr(0, maxlength) + '\u2026'
+    : string
 }
 
 export function News({ itemsNews }) {
   return (
     <>
-      <section id='mainNews'>
+      <section id='mainNews' className={styles.mainNews}>
         <div className={styles.wrapper}>
-          <div className={styles.header}>
-            <div className={styles.title}>
-              <p>
-                НОВОСТИ <br className={styles.mobileVisible} /> ТЕАТРА
-              </p>
-            </div>
-            <Link to='/news'>
-              <div className={styles.btn}>
-                <p>ЧИТАТЬ ВСЕ</p>
+          <div className={styles.newsContent}>
+            <div className={styles.header}>
+              <div className={styles.title}>
+                <h2>НОВОСТИ ТЕАТРА</h2>
               </div>
-            </Link>
-          </div>
-          {itemsNews.length === 0 ? (
-            'Loading..'
-          ) : (
-            <div className={styles.newsContent}>
-              <Link
-                className={styles.bigNewsImage}
-                to={`/news/${itemsNews[0].id}`}
-              >
-                <img src={API_URL + itemsNews[0].cover.url} alt='' />
-              </Link>
-              <Link
-                className={styles.bigNewsText}
-                to={`/news/${itemsNews[0].id}`}
-              >
-                <div className={styles.title}>
-                  {cutToLength(itemsNews[0].title, 70)}
-                </div>
-                <div className={styles.date}>
-                  {getDateStr(itemsNews[0].createdAt).date}{' '}
-                  {getDateStr(itemsNews[0].createdAt).month_name_case}
-                </div>
-              </Link>
-              {[0, 1].map((i) => {
-                const item = itemsNews[i + 1]
-                const st = [styles.smallNewsItem1, styles.smallNewsItem2][i]
-                return (
-                  <Link key={i} className={st} to={`/news/${item.id}`}>
-                    <img src={API_URL + item.cover.url} alt='' />
-                    <div className={styles.boxWrapper}>
-                      <div className={styles.box}>
-                        <div className={styles.title}>
-                          {cutToLength(item.title, 70)}
-                        </div>
-                        <div className={styles.date}>
-                          {getDateStr(item.createdAt).date}{' '}
-                          {getDateStr(item.createdAt).month_name_case}
-                        </div>
-                        <div className={styles.text}>
-                          {cutToLength(item.text, 150)}
-                        </div>
+              <div className={styles.btn}>
+                <Link to='/news'>ЧИТАТЬ ВСЕ</Link>
+              </div>
+            </div>
+            {itemsNews.length === 0 ? (
+              'Loading..'
+            ) : (
+              <div className={styles.newsList}>
+                {itemsNews.map((data) => (
+                  <div className={styles.newsBlock} key={data.id}>
+                    <div className={styles.newsImage}>
+                      <div className={styles.imageLink}>
+                        <img src={API_URL + data.cover.url} alt='' />
                       </div>
                     </div>
-                  </Link>
-                )
-              })}
+                    <div className={styles.newsInfo}>
+                      <p className={styles.newsTitle}>{data.title}</p>
+                      <p className={styles.newsDate}>
+                        {getDateStr(data.createdAt).date}{' '}
+                        {getDateStr(data.createdAt).month_name_case}{' '}
+                        {getDateStr(data.createdAt).year}
+                      </p>
+                      <div className={styles.newsText}>
+                        <ReactMarkdown children={cutToLength(data.text, 22)} />
+                      </div>
+                      <Link className={styles.readMore} to={`/news/${data.id}`}>
+                        Читать
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className={styles.mobileButton}>
+              <Link to='/news'>ЧИТАТЬ ВСЕ</Link>
             </div>
-          )}
-          <div className={styles.mobileButton}>
-            <Link to='/news'>ЧИТАТЬ ВСЕ</Link>
           </div>
         </div>
-        <Separator />
+        <div className={`${styles.decorationLine} ${styles.lineFirst}`}></div>
+        <div className={`${styles.decorationLine} ${styles.lineSecond}`}></div>
       </section>
     </>
   )
