@@ -24,6 +24,7 @@ export function Home() {
   const [itemsAffiche, setItemsAffiche] = useState([])
   const [videoLink, setvideoLink] = useState('')
   const [itemsNews, setItemsNews] = useState([])
+  const [partners, setpartners] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [firstDate, setFirstDate] = useState()
 
@@ -32,6 +33,7 @@ export function Home() {
       .then((values) => {
         setItemsSlider(values[0].plays)
         setvideoLink(getVideoLink(values[0].youtubeLink))
+        setpartners(values[0].partners)
         setItemsAffiche(
           uniqueBy(values[1], (o1, o2) => o1.play.id === o2.play.id)
         )
@@ -55,9 +57,9 @@ export function Home() {
             <Calendar setFirstDate={setFirstDate} items={itemsAffiche} />
             <VideoBlock link={videoLink} />
             <News itemsNews={itemsNews} />
+            <Partners partners={partners} />
           </>
         )}
-        <Partners />
       </main>
     </>
   )

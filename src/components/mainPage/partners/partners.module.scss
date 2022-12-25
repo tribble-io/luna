@@ -1,31 +1,19 @@
 @import '../../../assets/main.scss';
 
-.frame {
+.wrapper {
   @include container;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $text-color;
+  cursor: default;
+}
 
-  padding-bottom: 60px;
+.partnersContent {
+  padding-bottom: 160px;
 
-  .header {
-    color: white;
-    margin-bottom: 80px;
-    font-family: 'Montserrat';
-    font-weight: 500;
-    font-size: 50px;
-
-    @media (max-width: 1200px) {
-      font-size: 40px;
-      margin-bottom: 50px;
-    }
-    @media (max-width: 576px) {
-      font-size: 30px;
-    }
-
-    .mobileVisible {
-      display: none;
-      @media (max-width: 576px) {
-        display: block;
-      }
-    }
+  h2 {
+    @include headline_second;
+    margin-bottom: 120px;
   }
 
   .sponsors {
@@ -39,19 +27,18 @@
     max-height: 100%;
 
     img {
+      max-width: 100%;
       width: auto;
-      height: 88px;
+      height: 85px;
     }
 
     a {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 550;
-      font-size: 16px;
-      line-height: 24px;
-      text-transform: lowercase;
-
-      color: #f4f4f4;
+      font-size: 0;
+      line-height: 0;
     }
+  }
+
+  .cityRecommendations {
+    margin-bottom: 130px;
   }
 }
