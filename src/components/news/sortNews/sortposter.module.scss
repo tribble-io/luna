@@ -65,21 +65,18 @@
   }
 
   .moth_el {
+    height: 32px;
     margin-right: 60px;
     font-family: 'Montserrat';
     font-size: 14px;
     font-weight: 600;
-    line-height: 17px;
     letter-spacing: 0em;
     text-align: left;
-    padding: 10px 10px;
+    padding: 10px 0;
+    padding-bottom: 0;
     border-bottom: 0.1px solid #ffffff00;
     text-transform: uppercase;
 
-    @media (max-width: 1200px) {
-      font-size: 12px;
-      padding: 8px 10px;
-    }
     @media (max-width: 1200px) {
       font-size: 13px;
       margin-right: 20px;
@@ -90,6 +87,7 @@
     }
   }
   .moth_el_active {
+    height: 32px;
     margin-right: 60px;
     font-family: 'Montserrat';
     font-size: 14px;
@@ -97,27 +95,19 @@
     line-height: 17px;
     letter-spacing: 0em;
     text-align: left;
-    padding: 10px 10px;
+    padding: 10px 0;
+    padding-bottom: 0;
     border-bottom: 0.1px solid #8cabfa;
     color: #8cabfa;
     cursor: default;
     text-transform: uppercase;
-    line-height: 148.5%;
 
-    @media (max-width: 1200px) {
-      font-size: 13px;
-      padding: 8px 10px;
-    }
     @media (max-width: 1200px) {
       font-size: 13px;
       margin-right: 20px;
     }
   }
   .sortBlock {
-    // @media (max-width: 1000px) {
-    //     width: 400px;
-    //     overflow-x: auto;
-    // }
     @media (max-width: 770px) {
       width: 400px;
       overflow-x: auto;

@@ -20,7 +20,6 @@ export function PhotoSlider(props) {
   const pagination = IsMobile
     ? { clickable: true, dynamicBullets: true }
     : false
-
   return (
     <>
       <Swiper

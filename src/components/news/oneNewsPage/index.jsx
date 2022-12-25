@@ -7,6 +7,9 @@ import MiniMews from './miniNews'
 import tg from './img/telegram.svg'
 import vk from './img/vk.svg'
 import { getDateStr } from '../../../assets'
+import Loader from '../../loader'
+import { ShowPhoto } from '../../play'
+import { api } from '../../../api'
 
 class OneOageNews extends React.Component {
   constructor() {
@@ -26,72 +29,73 @@ class OneOageNews extends React.Component {
         'Вы успешно подписаны.',
         'Подтвердите согласие.',
       ],
+      photo: [],
     }
+  }
+
+  getSliderPhoto(a) {
+    const photo = a.map((item) => {
+      return {
+        id: item.id,
+        href: this.state.URL + item.media?.formats?.medium?.url,
+        src: this.state.URL + item.media?.formats?.small?.url,
+        caption: '',
+      }
+    })
+    return photo
   }
 
   componentDidUpdate() {
-    if (this.state.id_article != window.location.href.split('/').pop()) {
-      this.setState({
-        id_article: window.location.href.split('/').pop(),
-        items: this.props.stateNew,
-      })
-      fetch(
-        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=publishedAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
-      )
-        .then((res) => res.json())
-        .then((result) =>
+    setTimeout(() => {
+      if (this.state.id_article != window.location.href.split('/').pop()) {
+        this.setState({
+          id_article: window.location.href.split('/').pop(),
+          items: this.props.stateNew,
+          photo: this.props.stateNew.gallery,
+        })
+        api.lastNews().then((response) =>
           this.setState({
-            itemsMiniNews: result.data,
+            itemsMiniNews: response.data,
           })
         )
-    }
+      }
+    }, 1000)
   }
 
   componentDidMount() {
-    if (!this.props.stateNew) {
-      fetch(
-        `  http://theatre.restomatik.ru:1337/api/articles${
-          '/' + this.state.id_article
-        }?sort[0]=publishedAt:desc&populate=cover,shows.play.scene
-          `
-      )
-        .then((res) => res.json())
-        .then((result) =>
+    setTimeout(() => {
+      if (!this.props.stateNew) {
+        api.newsElNews(this.state.id_article).then((response) =>
           this.setState({
-            items: result.data,
+            items: response.data,
             id_article: window.location.href.split('/').pop(),
+            photo: response.data.gallery,
           })
         )
-      fetch(
-        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=publishedAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
-      )
-        .then((res) => res.json())
-        .then((result) =>
+        api.lastNews().then((response) =>
           this.setState({
-            itemsMiniNews: result.data,
+            itemsMiniNews: response.data,
           })
         )
-    } else {
-      this.setState({
-        items: this.props.stateNew,
-      })
-      fetch(
-        `http://theatre.restomatik.ru:1337/api/articles?sort[0]=publishedAt:desc&populate=cover,shows.play&pagination[pageSize]=4`
-      )
-        .then((res) => res.json())
-        .then((result) =>
+      } else {
+        this.setState({
+          items: this.props.stateNew,
+          photo: this.props.stateNew.gallery,
+        })
+        api.lastNews().then((response) =>
           this.setState({
-            itemsMiniNews: result.data,
+            itemsMiniNews: response.data,
+            photo: this.props.stateNew.gallery,
           })
         )
-    }
+      }
+    }, 1000)
   }
 
   changeMail(value) {
     this.setState({
       mail: value,
     })
-    console.log(this.state.mail)
   }
 
   subscribe() {
@@ -218,6 +222,14 @@ class OneOageNews extends React.Component {
               ) : (
                 <div className={styles.spectakles}></div>
               )}
+              {this.state.photo != null ? (
+                <ShowPhoto
+                  photo={this.getSliderPhoto(this.state.items.gallery)}
+                  tage={'ФОТОГРАФИИ'}
+                />
+              ) : (
+                <div className={styles.spectakles}></div>
+              )}
               <div className={styles.mainBlockNewsConstMGreat}>
                 <div className={styles.mainBlockNewsConst}>
                   <h2 className={styles.share}>ПОДЕЛИТЬСЯ НОВОСТЬЮ</h2>
@@ -306,15 +318,16 @@ class OneOageNews extends React.Component {
       } catch {
         return (
           <div className={styles.zagl}>
-            <h1>
-              К сожалению, ссылка недействительна или данная новость была
-              удалена.
-            </h1>
+            <Loader />
           </div>
         )
       }
     } else {
-      return <div className={styles.zagl}></div>
+      return (
+        <div className={styles.zagl}>
+          <Loader />
+        </div>
+      )
     }
   }
 }

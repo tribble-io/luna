@@ -41,6 +41,11 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
+    .arrowDisable {
+      filter: brightness(0) saturate(100%) invert(50%) sepia(10%) saturate(16%)
+        hue-rotate(8deg) brightness(97%) contrast(88%);
+      cursor: default;
+    }
 
     img {
       max-width: 60px;

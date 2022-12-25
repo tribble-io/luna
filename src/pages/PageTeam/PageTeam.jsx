@@ -126,7 +126,7 @@ const PageTeam = () => {
           ) : null}
         </div>
         {!isLoading && actorsResult?.length ? (
-          <Actors roles={getShowRoles(actorsResult)} />
+          <Actors roles={getShowRoles(actorsResult)} troupeGrig={true} />
         ) : null}
       </div>
     </section>

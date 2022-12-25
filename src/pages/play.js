@@ -166,7 +166,11 @@ export function Play() {
         <Actors roles={roles} title={'Действующие лица и исполнители'} />
       )}
       {isLoading ? <Loader /> : <Press press={press} />}
-      {isLoading ? <Loader /> : <ShowPhoto photo={photo} />}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <ShowPhoto photo={photo} tage={'ФОТОГРАФИИ СО СПЕКТАКЛЯ'} />
+      )}
       {isLoading ? <Loader /> : <Review review={review} />}
       <CommentForm showID={showID} />
     </main>

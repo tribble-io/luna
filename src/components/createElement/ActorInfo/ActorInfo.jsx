@@ -28,7 +28,7 @@ const ActorInfo = ({ img, name, body, rank, romashka }) => {
           <div className={styles.actorCardRomashka}>
             <div className={styles.cardRomashka}>
               <p className={styles.romashkaTitle}>
-                {`Лауреат премии "Ромашка":`}
+                {`Лауреат премии «Ромашка»:`}
               </p>
 
               {romashka?.map((item, index) => (
