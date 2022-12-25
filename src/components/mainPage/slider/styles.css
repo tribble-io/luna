@@ -37,7 +37,8 @@
   z-index: 2;
 }
 
-.mySwiper.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+.mySwiper.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
   top: 65%;
   width: auto;
   bottom: unset;
