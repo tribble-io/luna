@@ -9,7 +9,7 @@ import vk from './img/vk.svg'
 import { getDateStr } from '../../../assets'
 import Loader from '../../loader'
 import { ShowPhoto } from '../../play'
-import { api } from '../../../api'
+import { api, API_URL } from '../../../api'
 
 class OneOageNews extends React.Component {
   constructor() {
@@ -18,7 +18,7 @@ class OneOageNews extends React.Component {
     this.state = {
       items: {},
       itemsMiniNews: [],
-      URL: 'http://theatre.restomatik.ru:1337',
+      URL: API_URL,
       id_article: window.location.href.split('/').pop(),
       checked: false,
       el_id: false,
@@ -33,12 +33,25 @@ class OneOageNews extends React.Component {
     }
   }
 
+  externalLinks() {
+    let links = document.getElementsByTagName('a')
+    for (let i = 0; i < links.length; i++) {
+      let link = links[i]
+      if (link.getAttribute('href') && link.getAttribute('rel') == 'external')
+        link.target = '_blank'
+    }
+  }
+
   getSliderPhoto(a) {
     const photo = a.map((item) => {
+      let a
+      item.media?.formats?.small?.url
+        ? (a = item.media?.formats?.small?.url)
+        : (a = item.media?.formats?.thumbnail?.url)
       return {
         id: item.id,
-        href: this.state.URL + item.media?.formats?.medium?.url,
-        src: this.state.URL + item.media?.formats?.small?.url,
+        href: this.state.URL + item.media?.formats?.thumbnail?.url,
+        src: this.state.URL + a,
         caption: '',
       }
     })
@@ -60,6 +73,7 @@ class OneOageNews extends React.Component {
         )
       }
     }, 1000)
+    this.externalLinks()
   }
 
   componentDidMount() {
@@ -90,6 +104,7 @@ class OneOageNews extends React.Component {
         )
       }
     }, 1000)
+    this.externalLinks()
   }
 
   changeMail(value) {
@@ -239,6 +254,7 @@ class OneOageNews extends React.Component {
                       href={
                         'https://t.me/share/url?url=' + window.location.href
                       }
+                      rel='external'
                     >
                       <img src={tg} />
                       <p>Рассказать</p>
@@ -248,6 +264,7 @@ class OneOageNews extends React.Component {
                       href={
                         'https://vk.com/share.php?url=' + window.location.href
                       }
+                      rel='external'
                     >
                       <img src={vk} />
                       <p>Рассказать</p>
