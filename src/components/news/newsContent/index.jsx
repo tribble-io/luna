@@ -29,6 +29,7 @@ let NewsContent = (props) => {
             location={'/news/' + item.id}
             shows={item.shows.data}
             itemsMiniNews={props.itemsMiniNews}
+            gallery={props.filterState.gallery}
           />
         ))}
       </section>

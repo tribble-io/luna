@@ -16,13 +16,13 @@ import {
   Contacts,
   Scenes,
 } from './pages'
-import HistoryTheathre from './components/historyTheathre'
-import Poster from './components/poster/poster'
 import PageTeam from './pages/PageTeam/PageTeam'
-import News from './components/news/news'
+import News from './pages/news'
 import PageDetailActor from './pages/PageDetailActor/PageDetailActor'
 import NewsConroller from './components/news/oneNewsPage/newsController'
-import Documets from './components/documents'
+import Poster from './pages/poster'
+import HistoryTheathre from './pages/historyTheathre'
+import Documets from './pages/documents'
 
 function App() {
   return (
