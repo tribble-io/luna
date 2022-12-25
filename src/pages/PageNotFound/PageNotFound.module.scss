@@ -8,6 +8,8 @@
   background-repeat: no-repeat;
   background-position: 50% 10%;
   height: 801px;
+  width: 100%;
+  background-size: 100% auto;
 }
 .notFound {
   @include container;
@@ -20,12 +22,12 @@
     text-transform: uppercase;
   }
   p {
-    font-family: 'Raleway';
+    font-family: 'Raleway', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 164.57%;
-    max-width: 459px;
+    max-width: 471px;
     margin-top: 50px;
     .link {
       color: #8cabfa;
@@ -52,7 +54,7 @@
         line-height: 36px;
       }
       p {
-        font-family: 'Raleway';
+        font-family: 'Raleway', sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;

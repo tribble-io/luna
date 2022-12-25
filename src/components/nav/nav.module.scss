@@ -26,6 +26,7 @@ nav {
 
     padding-left: 30px;
     box-sizing: border-box;
+    position: relative;
   }
 
   ul {
@@ -130,25 +131,106 @@ nav {
     }
   }
 
+  // .logoContainer {
+  //   width: 25%;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+
+  //   @media (max-width: 1200px) {
+  //     width: 150px;
+  //   }
+
+  //   img {
+  //     max-width: 100%;
+  //     width: auto;
+  //     max-height: 88px;
+  //     height: 90%;
+  //     transition: all 0.3s linear;
+
+  //     @media (max-width: 1200px) {
+  //       opacity: 1 !important;
+  //     }
+  //   }
+  // }
+
   .logoContainer {
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none;
+    position: absolute;
+    bottom: 10%;
+    right: 0px;
+    z-index: 10;
 
     @media (max-width: 1200px) {
-      width: 150px;
+      bottom: -55%;
     }
 
-    img {
-      max-width: 100%;
-      width: auto;
-      max-height: 88px;
-      height: 90%;
-      transition: all 0.3s linear;
+    @media (min-width: 770px) {
+      display: block;
+    }
+
+    .back_elipse {
+      z-index: 2;
+      height: 241px;
+      width: 241px;
+      bottom: 0;
+      right: 0;
+      background-color: #13132d;
+      border-radius: 50%;
+      position: absolute;
+      @media (max-width: 1200px) {
+        display: none;
+      }
+    }
+
+    .moon_logo {
+      position: absolute;
+      z-index: 3;
+      // bottom: 10%;
+      bottom: 0;
+      right: -3%;
+      right: 0;
+      width: 227px;
+      height: 241px;
 
       @media (max-width: 1200px) {
-        opacity: 1 !important;
+        display: none;
+      }
+    }
+
+    .moon_logo:hover {
+      animation: swing 2s 1 ease-out;
+    }
+
+    @keyframes swing {
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      10%,
+      50%,
+      90% {
+        transform: rotate(20deg);
+      }
+
+      30%,
+      70% {
+        transform: rotate(-20deg);
+      }
+    }
+
+    .text_logo {
+      position: absolute;
+      z-index: 3;
+      width: 260px;
+      height: 175px;
+
+      bottom: 50px;
+      right: 40%;
+
+      @media (max-width: 1200px) {
+        display: none;
       }
     }
   }
