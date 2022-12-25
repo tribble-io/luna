@@ -1,5 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom'
 import { ScrollToTop } from './assets'
 
 import './App.css'
@@ -23,6 +28,7 @@ import NewsConroller from './components/news/oneNewsPage/newsController'
 import Poster from './pages/poster'
 import HistoryTheathre from './pages/historyTheathre'
 import Documets from './pages/documents'
+import PageNotFound from './pages/PageNotFound/PageNotFound'
 
 function App() {
   return (
@@ -47,6 +53,8 @@ function App() {
           <Route path='/scenes' element={<Scenes />} />
           <Route path='/actor/:id' element={<PageDetailActor />} />
           <Route path='/documents' element={<Documets />} />
+          <Route path='*' element={<Navigate to='/404' replace />} />
+          <Route path='/404' element={<PageNotFound />} />
         </Routes>
         <Footer />
       </Router>
