@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { API_URL, api } from '../api/index'
 import { useMatch } from 'react-router-dom'
 import { getDateStr } from '../assets'
+import noPhoto from '../assets/img/no-photo-actor.jpg'
 
 import {
   TitleBlock,
@@ -35,10 +36,7 @@ function getShowRoles(arr) {
           id: actor.id,
           role: role.roleTitle,
           name: actor.fullname,
-          src:
-            actor.cover !== null
-              ? API_URL + actor.cover?.url
-              : '/img/actor-photo.png',
+          src: actor.cover !== null ? API_URL + actor.cover?.url : noPhoto,
         }
       })
     )

@@ -11,7 +11,13 @@ export function ChildrenNextShows(props) {
     <>
       <section id={id}>
         <div className={styles.wrapper}>
-          <div className={styles.nextShowsContent}>
+          <div
+            className={
+              actor
+                ? `${styles.nextShowsContent} ${styles.nextShowsContentActors}`
+                : `${styles.nextShowsContent}`
+            }
+          >
             <div className={styles.nextShowsTitle}>
               <h2>ближайшие постановки</h2>
             </div>

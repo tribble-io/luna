@@ -35,7 +35,10 @@ export function Home() {
         setvideoLink(getVideoLink(values[0].youtubeLink))
         setpartners(values[0].partners)
         setItemsAffiche(
-          uniqueBy(values[1], (o1, o2) => o1.play.id === o2.play.id)
+          uniqueBy(
+            values[1],
+            (o1, o2) => o1.play.id === o2.play.id && o1.date === o2.date
+          )
         )
         setItemsNews(values[2])
         setIsLoading(false)

@@ -5,6 +5,7 @@ import DirectorCard from '../../components/createElement/DirectorCard'
 import { Actors } from '../../components/play'
 import { content, positionsArrayFilters } from './fields'
 import collectiveImg from './img/collective.webp'
+import noPhoto from '../../assets/img/no-photo-actor.jpg'
 
 import styles from './PageTeam.module.scss'
 
@@ -83,7 +84,7 @@ const PageTeam = () => {
         return {
           id: item?.id,
           name: item?.fullname,
-          src: API_URL + item?.cover?.url,
+          src: item?.cover?.url ? API_URL + item?.cover?.url : noPhoto,
           role: item?.title,
         }
       })
