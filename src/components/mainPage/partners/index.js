@@ -1,47 +1,67 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Marquee from 'react-fast-marquee'
+import { API_URL } from '../../../api/index'
 import styles from './partners.module.scss'
 
-const SPONSORS = [
-  { href: 'http://www.lunatheatre.ru/', img: '/img/sponsor/7.png' },
-  { href: 'http://hrculturemos.ru/bank/', img: '/img/sponsor/5.png' },
-  { href: 'http://персональныеданные.дети/', img: '/img/sponsor/1.png' },
-  {
-    href: 'https://organizations.kultura.mos.ru/organizations/gbuk_gmoskvy_moskovskii_teatr_teatr_luny.html',
-    img: '/img/sponsor/2.png',
-  },
-  { href: 'http://ag.mos.ru/', img: '/img/sponsor/4.jpeg' },
-  {
-    href: 'https://bus.gov.ru/pub/info-card/137565?activeTab=3',
-    img: '/img/sponsor/3.png',
-  },
-  { href: 'https://historydepositarium.ru/', img: '/img/sponsor/6.jpeg' },
-  {
-    href: 'https://grants.culture.ru/helpful_information/',
-    img: '/img/sponsor/8.jpeg',
-  },
-  {
-    href: 'http://www.lunatheatre.ru/pages/otkrytaya-informaciya',
-    img: '/img/sponsor/9.png',
-  },
-  { href: '', img: '' },
-]
+export function Partners({ partners }) {
+  useEffect(() => {
+    const script = document.createElement('script')
 
-export function Partners() {
+    script.src = `https://www.mos.ru/otrasli-static/outer/mosTizer.js`
+    script.id = 'mosru'
+    script.async = true
+
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  })
+
   return (
-    <div className={styles.frame}>
-      <div className={styles.header}>
-        НАШИ <br className={styles.mobileVisible} /> ПАРТНЁРЫ
-      </div>
-      <Marquee speed={25} gradient={false} pauseOnHover={true}>
-        <div className={styles.sponsors}>
-          {SPONSORS.map(({ href, img }, i) => (
-            <a key={i} href={href}>
-              <img src={img} alt='' />
-            </a>
-          ))}
+    <section id='partners' className={styles.partners}>
+      <div className={styles.wrapper}>
+        <div className={styles.partnersContent}>
+          <h2>НАШИ ПАРТНЁРЫ</h2>
+          <div className={styles.cityRecommendations}>
+            <div className={styles.tizerBlock}>
+              <div className={styles.tizerBlockCol}>
+                <div
+                  className={styles.tizerBlockBanner}
+                  data-mos-teaser='{ "scroll":false,"adaptive":null,"placementParams":{ "p1":"bxdrg","p2":"fpkh"}}'
+                ></div>
+                <div
+                  className={styles.tizerBlockBanner}
+                  data-mos-teaser='{ "scroll":false,"adaptive":null,"placementParams":{ "p1":"bxdrh","p2":"fpkh"}}'
+                ></div>
+                <div
+                  className={styles.tizerBlockBanner}
+                  data-mos-teaser='{ "scroll":false,"adaptive":null,"placementParams":{ "p1":"bxdri","p2":"fpkh"}}'
+                ></div>
+                <div
+                  className={styles.tizerBlockBanner}
+                  data-mos-teaser='{ "scroll":false,"adaptive":null,"adaptiveOptions":{ "tabletWidth":1200,"phoneWidth":810},"placementParams":{ "p1":"bxdrj","p2":"fpkh"}}'
+                ></div>
+              </div>
+            </div>
+          </div>
+          <Marquee speed={25} gradient={false} pauseOnHover={true}>
+            <div className={styles.sponsors}>
+              {partners.map((partner) => (
+                <a key={partner.id} href={partner?.link}>
+                  <img
+                    src={API_URL + partner?.logo?.url}
+                    alt={partner?.alternativeText}
+                  />
+                </a>
+              ))}
+              <a></a>
+            </div>
+          </Marquee>
         </div>
-      </Marquee>
-    </div>
+      </div>
+      <div className={`${styles.decorationLine} ${styles.lineFirst}`}></div>
+      <div className={`${styles.decorationLine} ${styles.CircleFirst}`}></div>
+    </section>
   )
 }

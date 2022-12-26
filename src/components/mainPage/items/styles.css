@@ -1,15 +1,12 @@
+/* padding for display box-shadow in items */
 .posterSlider {
-  padding: 4rem 1rem 2rem;
+  padding: 1rem;
 }
-
-@media (max-width: 992px) {
-  .posterSlider .swiper-slide {
-    width: auto;
+@media (max-width: 500px) {
+  .posterSlider {
+    padding: 0;
   }
-}
-
-@media (max-width: 576px) {
-  .posterSlider .posterSlider {
-    padding-top: 2rem;
+  .posterSlider .swiper-slide {
+    max-width: 300px;
   }
 }

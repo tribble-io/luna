@@ -70,7 +70,7 @@ export function Item({ items, selected }) {
         onSwiper={setSwiper}
         slidesPerView='auto'
         centeredSlides={true}
-        spaceBetween={25}
+        spaceBetween={20}
         className='posterSlider'
         breakpoints={{
           500: {
@@ -79,7 +79,8 @@ export function Item({ items, selected }) {
           },
           992: {
             slidesPerView: 3,
-            spaceBetween: 30,
+            spaceBetween: 40,
+            centeredSlides: false,
           },
           1400: {
             slidesPerView: 4,
@@ -90,7 +91,7 @@ export function Item({ items, selected }) {
         {items.map((item) => (
           <SwiperSlide key={item?.id}>
             <div
-              className={styles.mainBlock}
+              className={styles.posterBlock}
               style={{
                 '--text-color': itemCheckPlace(item)?.text_color,
               }}
@@ -102,14 +103,10 @@ export function Item({ items, selected }) {
                   alt=''
                 />
               </Link>
-              <div className={styles.meta}>
-                <img
-                  src='/img/item_curtain.png'
-                  alt=''
-                  className={styles.curtain}
-                />
-                <div className={styles.mid}>
-                  <div className={styles.dateTimeContainer}>
+              <div className={styles.posterInfo}>
+                <div className={styles.mainInfo}>
+                  <div className={styles.title}>{item?.play?.title}</div>
+                  <div className={styles.dateRatingContainer}>
                     <div className={styles.date}>
                       {getDateStr(item?.date).date}
                       {'.'}
@@ -120,19 +117,16 @@ export function Item({ items, selected }) {
                         className={styles.moonPoster}
                       />
                     </div>
-                    <div className={styles.time}>{item?.time.slice(0, 5)}</div>
+                    <div className={styles.rating}>{item?.play?.rating}+</div>
                   </div>
-                  <div className={styles.title}>{item?.play?.title}</div>
                 </div>
-                <div className={styles.bottom}>
+                <div className={styles.buyTicket}>
                   <div className={styles.place}>
                     {itemCheckPlace(item).name}
                   </div>
-                  <div className={styles.buy}>
-                    <a className={styles.link} href={item?.tickets_link}>
-                      БИЛЕТЫ
-                    </a>
-                  </div>
+                  <button type='button' className={styles.buy}>
+                    БИЛЕТЫ
+                  </button>
                 </div>
               </div>
             </div>

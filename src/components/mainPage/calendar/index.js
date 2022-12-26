@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Item, Separator } from '../../mainPage'
-import { getDateStr } from '../../../assets'
+import { Item } from '../../mainPage'
+import { WINDOW_SCREEN, IsMobile, getDateStr } from '../../../assets'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
@@ -11,12 +11,12 @@ import './styles.css'
 import { Navigation } from 'swiper'
 
 import styles from './calendar.module.scss'
-const CALENDAR_WIDTH = window.screen.width
 const ARR_OFFSET = 3
 const DAY = 1000 * 60 * 60 * 24
-const DATE_NUMBER = CALENDAR_WIDTH > 573 ? 15 : 8
+const DATE_NUMBER = WINDOW_SCREEN > 573 ? 15 : 8
 const DATE_LOAD_LENGTH = DATE_NUMBER + 20 * ARR_OFFSET
-const SLIDER_HEIGHT = CALENDAR_WIDTH > 573 ? 33 : 40
+const SLIDER_HEIGHT = WINDOW_SCREEN > 573 ? 33 : 40
+const IsShortSwipes = IsMobile ? true : false
 
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
   const getDate = getDateStr(date)
@@ -75,78 +75,94 @@ export function Calendar({ setFirstDate, items }) {
 
   const initialSlide = dates.map((date) => date.free).indexOf(false)
 
-  function moveDate(index) {
-    setFirstDate(dates[index].date)
-  }
-
   return (
     <>
-      <div
-        className={styles.datesStrip}
-        style={{
-          '--strip-height': `${SLIDER_HEIGHT}px`,
-        }}
-      >
-        <img
-          src='/img/larr.png'
-          alt='<'
-          className={styles.larr}
-          ref={navigationPrevRef}
-        />
-        <div className={styles.dateWindow}>
-          <Swiper
-            slidesPerView={5}
-            slidesPerGroup={5}
-            spaceBetween={10}
-            grabCursor={true}
-            longSwipesRatio={0.4}
-            shortSwipes={false}
-            navigation={{
-              prevEl: navigationPrevRef.current,
-              nextEl: navigationNextRef.current,
+      <section id='affiche' className={styles.affiche}>
+        <div className={styles.afficheContent}>
+          <div className={`${styles.curtain} ${styles.curtainsLenf}`}>
+            <img src='/img/curtainsLeft.png' />
+          </div>
+          <div className={`${styles.curtain} ${styles.curtainsRight}`}>
+            <img src='/img/curtainsRight.png' />
+          </div>
+          <div
+            className={styles.datesStrip}
+            style={{
+              '--strip-height': `${SLIDER_HEIGHT}px`,
             }}
-            initialSlide={initialSlide}
-            modules={[Navigation]}
-            breakpoints={{
-              640: {
-                slidesPerView: 10,
-                spaceBetween: 20,
-              },
-              1024: {
-                slidesPerView: 15,
-              },
-            }}
-            onActiveIndexChange={(swiper) => moveDate(swiper.activeIndex)}
-            className='calendarSlider'
           >
-            {dates.map((date, i) => (
-              <SwiperSlide key={i}>
-                {
-                  <DateBtn
-                    key={i}
-                    date={date}
-                    isselected={date.date.getTime() === selected.getTime()}
-                    setSelected={setSelected}
-                  />
-                }
-              </SwiperSlide>
-            ))}
-          </Swiper>
+            <div className={styles.wrapper}>
+              <img
+                src='/img/larr.png'
+                alt='<'
+                className={styles.larr}
+                ref={navigationPrevRef}
+              />
+              <div className={styles.dateWindow}>
+                <Swiper
+                  slidesPerView={5}
+                  slidesPerGroup={5}
+                  spaceBetween={10}
+                  grabCursor={true}
+                  longSwipesRatio={0.4}
+                  shortSwipes={IsShortSwipes}
+                  navigation={{
+                    prevEl: navigationPrevRef.current,
+                    nextEl: navigationNextRef.current,
+                  }}
+                  initialSlide={initialSlide}
+                  modules={[Navigation]}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 10,
+                      spaceBetween: 20,
+                    },
+                    1024: {
+                      slidesPerView: 15,
+                    },
+                  }}
+                  onInit={(swiper) =>
+                    setFirstDate(dates[swiper.activeIndex].date)
+                  }
+                  onActiveIndexChange={(swiper) =>
+                    setFirstDate(dates[swiper.activeIndex].date)
+                  }
+                  className='calendarSlider'
+                >
+                  {dates.map((date, i) => (
+                    <SwiperSlide key={i}>
+                      {
+                        <DateBtn
+                          key={i}
+                          date={date}
+                          isselected={
+                            date.date.getTime() === selected.getTime()
+                          }
+                          setSelected={setSelected}
+                        />
+                      }
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              <img
+                src='/img/rarr.png'
+                alt='>'
+                className={styles.rarr}
+                ref={navigationNextRef}
+              />
+            </div>
+          </div>
+          <div className={styles.wrapper}>
+            <div className={styles.cardsWindowContainer}>
+              <Item items={items} selected={selected} />
+              <div className={styles.mobileButton}>
+                <Link to={'/plays'}>все спектакли</Link>
+              </div>
+            </div>
+          </div>
         </div>
-        <img
-          src='/img/rarr.png'
-          alt='>'
-          className={styles.rarr}
-          ref={navigationNextRef}
-        />
-      </div>
-      <div className={styles.cardsWindowContainer}>
-        <Item items={items} selected={selected} />
-        <div className={styles.mobileButton}>
-          <Link to={'/plays'}>все спектакли</Link>
-        </div>
-      </div>
-      <Separator />
+      </section>
     </>
   )
 }

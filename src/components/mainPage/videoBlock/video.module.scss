@@ -1,0 +1,60 @@
+@import '../../../assets/main.scss';
+
+.wrapper {
+  @include container;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+.videoContent {
+  padding-bottom: 170px;
+  @media (max-width: 567px) {
+    padding-bottom: 120px;
+  }
+
+  h2 {
+    @include headline_first;
+    margin-bottom: 100px;
+    @media (max-width: 567px) {
+      margin-bottom: 90px;
+    }
+  }
+
+  .videoPadding {
+    padding-right: 100px;
+    padding-left: 100px;
+
+    @media (max-width: 991px) {
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+
+    @media (max-width: 567px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .videoContainer {
+    // to properly display video size
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

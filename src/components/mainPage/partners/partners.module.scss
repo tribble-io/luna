@@ -1,30 +1,53 @@
 @import '../../../assets/main.scss';
 
-.frame {
-  @include container;
+.partners {
+  position: relative;
 
-  padding-bottom: 60px;
+  .decorationLine {
+    position: absolute;
+    z-index: 1;
 
-  .header {
-    color: white;
-    margin-bottom: 80px;
-    font-family: 'Montserrat';
-    font-weight: 500;
-    font-size: 50px;
-
-    @media (max-width: 1200px) {
-      font-size: 40px;
-      margin-bottom: 50px;
-    }
-    @media (max-width: 576px) {
-      font-size: 30px;
+    &.lineFirst {
+      height: 2px;
+      width: 380px;
+      top: 190px;
+      right: 7%;
+      background-color: #323254;
     }
 
-    .mobileVisible {
+    &.CircleFirst {
+      width: 45px;
+      height: 45px;
+      top: 5%;
+      background-color: transparent;
+      border: 2px solid #323254;
+      border-radius: 50%;
+      right: 30%;
+    }
+
+    @media (max-width: 500px) {
       display: none;
-      @media (max-width: 576px) {
-        display: block;
-      }
+    }
+  }
+}
+
+.wrapper {
+  @include container;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $text-color;
+  cursor: default;
+}
+
+.partnersContent {
+  padding-bottom: 160px;
+
+  h2 {
+    @include headline_first;
+    margin-bottom: 120px;
+
+    @media (max-width: 500px) {
+      margin-bottom: 70px;
     }
   }
 
@@ -39,19 +62,87 @@
     max-height: 100%;
 
     img {
+      max-width: 100%;
       width: auto;
-      height: 88px;
+      height: 85px;
     }
 
     a {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 550;
-      font-size: 16px;
-      line-height: 24px;
-      text-transform: lowercase;
+      font-size: 0;
+      line-height: 0;
+    }
+  }
 
-      color: #f4f4f4;
+  .cityRecommendations {
+    margin-bottom: 130px;
+    max-width: 740px;
+    position: relative;
+    z-index: 2;
+
+    .tizerBlock {
+      text-align: center;
+      background-color: #f3f5f7;
+    }
+    .tizerBlockCol {
+      max-width: 100%;
+      padding: 16px 8px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -ms-flex-preferred-size: 0;
+      -webkit-flex-basis: 0;
+      flex-basis: 0;
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
+      -ms-flex-wrap: wrap;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+    }
+    .tizerBlockBanner {
+      display: inline-block;
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
+      max-width: 380px;
+      height: 365px;
+      margin: 8px;
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      -webkit-flex-grow: 1;
+      flex-grow: 1;
+      -ms-flex-negative: 1;
+      -webkit-flex-shrink: 1;
+      flex-shrink: 1;
+    }
+    .tizerBlockBanner:empty {
+      display: none;
+    }
+    @media screen and (max-width: 1024px) {
+      .tizerBlockBanner {
+        height: 332px;
+      }
+      .tizerBlockBanner:last-child {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 759px) {
+      .tizerBlockBanner {
+        min-width: 235px;
+        height: 355px;
+      }
+      .tizerBlockBanner:last-child {
+        display: block;
+      }
+    }
+
+    @media (max-width: 567px) {
+      display: none;
     }
   }
 }
