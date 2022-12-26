@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { API_URL } from '../../../api'
-import { getDateStr } from '../../../assets'
 import ReactMarkdown from 'react-markdown'
+import { API_URL } from '../../../api'
+import { IsMobile, getDateStr } from '../../../assets'
+import { NewsLine } from '../../createElement'
 
 import styles from './news.module.scss'
 
@@ -27,30 +28,49 @@ export function News({ itemsNews }) {
               </div>
             </div>
             {itemsNews.length === 0 ? (
-              'Loading..'
+              <p>Loading</p>
             ) : (
               <div className={styles.newsList}>
                 {itemsNews.map((data) => (
                   <div className={styles.newsBlock} key={data.id}>
-                    <div className={styles.newsImage}>
-                      <div className={styles.imageLink}>
-                        <img src={API_URL + data.cover.url} alt='' />
-                      </div>
-                    </div>
-                    <div className={styles.newsInfo}>
-                      <p className={styles.newsTitle}>{data.title}</p>
-                      <p className={styles.newsDate}>
-                        {getDateStr(data.createdAt).date}{' '}
-                        {getDateStr(data.createdAt).month_name_case}{' '}
-                        {getDateStr(data.createdAt).year}
-                      </p>
-                      <div className={styles.newsText}>
-                        <ReactMarkdown children={cutToLength(data.text, 22)} />
-                      </div>
-                      <Link className={styles.readMore} to={`/news/${data.id}`}>
-                        Читать
-                      </Link>
-                    </div>
+                    {IsMobile ? (
+                      <NewsLine
+                        key={data.id}
+                        date={getDateStr(data.createdAt).date}
+                        month={getDateStr(data.createdAt).month_name_case}
+                        title={data?.title}
+                        cover={data?.cover?.url}
+                        items={data}
+                        location={'/news/' + data.id}
+                      />
+                    ) : (
+                      <>
+                        <div className={styles.newsImage}>
+                          <div className={styles.imageLink}>
+                            <img src={API_URL + data.cover.url} alt='' />
+                          </div>
+                        </div>
+                        <div className={styles.newsInfo}>
+                          <p className={styles.newsTitle}>{data.title}</p>
+                          <p className={styles.newsDate}>
+                            {getDateStr(data.createdAt).date}{' '}
+                            {getDateStr(data.createdAt).month_name_case}{' '}
+                            {getDateStr(data.createdAt).year}
+                          </p>
+                          <div className={styles.newsText}>
+                            <ReactMarkdown
+                              children={cutToLength(data.text, 22)}
+                            />
+                          </div>
+                          <Link
+                            className={styles.readMore}
+                            to={`/news/${data.id}`}
+                          >
+                            Читать
+                          </Link>
+                        </div>
+                      </>
+                    )}
                   </div>
                 ))}
               </div>

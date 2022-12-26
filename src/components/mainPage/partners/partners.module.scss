@@ -1,5 +1,35 @@
 @import '../../../assets/main.scss';
 
+.partners {
+  position: relative;
+
+  .decorationLine {
+    position: absolute;
+
+    &.lineFirst {
+      height: 2px;
+      width: 380px;
+      top: 190px;
+      right: 7%;
+      background-color: #323254;
+    }
+
+    &.CircleFirst {
+      width: 45px;
+      height: 45px;
+      top: 5%;
+      background-color: transparent;
+      border: 2px solid #323254;
+      border-radius: 50%;
+      right: 30%;
+    }
+
+    @media(max-width: 500px) {
+      display: none;
+    }
+  }
+}
+
 .wrapper {
   @include container;
   font-family: 'Montserrat', sans-serif;
@@ -14,6 +44,10 @@
   h2 {
     @include headline_second;
     margin-bottom: 120px;
+
+    @media(max-width: 500px) {
+      margin-bottom: 70px;
+    }
   }
 
   .sponsors {
@@ -40,5 +74,10 @@
 
   .cityRecommendations {
     margin-bottom: 130px;
+    max-width: 740px;
+
+    @media(max-width: 500px) {
+      display: none;
+    }
   }
 }

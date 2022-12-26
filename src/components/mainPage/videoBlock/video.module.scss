@@ -8,15 +8,32 @@
 }
 
 .videoContent {
-  margin-bottom: 170px;
+  padding-bottom: 170px;
+  @media(max-width: 567px) {
+    padding-bottom: 120px;
+  }
+
   h2 {
     @include headline_second;
     margin-bottom: 100px;
+    @media(max-width: 567px) {
+      margin-bottom: 90px;
+    }
   }
 
   .videoPadding {
     padding-right: 100px;
     padding-left: 100px;
+
+    @media(max-width: 991px) {
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+
+    @media(max-width: 567px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
 
   .videoContainer {
