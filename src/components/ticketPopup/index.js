@@ -65,7 +65,11 @@ export function TicketPopUp(props) {
                 <>
                   <div className={styles.playsList}>
                     {data.map((data) => (
-                      <PlaysLine data={data} key={data.id} />
+                      <PlaysLine
+                        data={data}
+                        key={data.id}
+                        smallPadding={true}
+                      />
                     ))}
                   </div>
                   <div className={styles.allDates}>

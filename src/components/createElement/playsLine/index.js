@@ -2,11 +2,17 @@ import React from 'react'
 import { IsMobile } from '../../../assets'
 import styles from './line.module.scss'
 
-export function PlaysLine({ data, actor = false }) {
+export function PlaysLine({ data, actor = false, smallPadding = false }) {
   if (data.day) {
     return (
       <div className={styles.posterContent}>
-        <div className={styles.posterContent_el_content}>
+        <div
+          className={
+            smallPadding
+              ? `${styles.smallPadding} ${styles.posterContent_el_content}`
+              : styles.posterContent_el_content
+          }
+        >
           <div className={styles.posterContent_el_content_2}>
             {actor && !IsMobile ? (
               <div className={styles.boxPerformanceDate}>
