@@ -70,7 +70,7 @@ export function Item({ items, selected }) {
         onSwiper={setSwiper}
         slidesPerView='auto'
         centeredSlides={true}
-        spaceBetween={25}
+        spaceBetween={20}
         className='posterSlider'
         breakpoints={{
           500: {
