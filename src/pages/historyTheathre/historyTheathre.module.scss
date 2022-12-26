@@ -340,7 +340,7 @@
     letter-spacing: 0em;
     text-align: left;
     max-width: 427px;
-    margin-top: 500px;
+    margin-top: 380px;
     margin-left: -100px;
 
     @media (max-width: 1600px) {
@@ -571,7 +571,7 @@
       display: inline-block;
       overflow: hidden;
       width: 610px;
-      margin-bottom: 50px;
+      margin-bottom: 100px;
 
       @media (max-width: 770px) {
         width: 100%;
@@ -596,7 +596,7 @@
       display: inline-block;
       overflow: hidden;
       width: 610px;
-      margin-bottom: 50px;
+      margin-bottom: 100px;
 
       @media (max-width: 770px) {
         width: 100%;
@@ -644,7 +644,7 @@
 .infoBlock_2_2 {
   display: flex;
   margin-left: 60px;
-  margin-top: 150px;
+  margin-top: 200px;
   flex-wrap: wrap;
 
   @media (max-width: 1400px) {
@@ -727,7 +727,7 @@
 .infoBlock_2_3 {
   display: flex;
   margin-left: 60px;
-  margin-top: 150px;
+  margin-top: 200px;
   flex-wrap: wrap;
 
   @media (max-width: 1400px) {
@@ -1108,12 +1108,14 @@
   h2 {
     font-family: 'Montserrat';
     font-size: 22px;
-    font-weight: 500;
-    line-height: 36px;
     letter-spacing: 0em;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 164%;
     text-align: center;
     max-width: 736px;
     position: absolute;
+    text-transform: inherit;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -1379,7 +1381,7 @@
   }
 
   .infoBlock_2_7_info_1 {
-    max-width: 553px;
+    max-width: 522px;
     font-family: 'Montserrat';
     font-size: 16px;
     font-weight: 400;
@@ -1496,7 +1498,7 @@
       line-height: 30px;
       letter-spacing: 0em;
       text-align: left;
-      max-width: 490px;
+      max-width: 483px;
       margin-left: auto;
       margin-right: 200px;
       padding-top: 15px;
@@ -1518,7 +1520,7 @@
 }
 
 .promoTage2 {
-  margin-top: 100px;
+  margin-top: 200px;
   width: 100%;
   display: inline-block;
   overflow: hidden;
@@ -1555,7 +1557,7 @@
 }
 
 .infoBlock_2_8 {
-  margin-top: 150px;
+  margin-top: 250px;
 
   div {
     display: flex;
@@ -1678,7 +1680,7 @@
 }
 
 .infoBlock_2_9 {
-  padding-bottom: 350px;
+  padding-bottom: 150px;
 
   @media (max-width: 1000px) {
     padding-bottom: 250px;
@@ -1696,5 +1698,5 @@
   line-height: 37px;
   letter-spacing: 0em;
   text-align: left;
-  margin-top: 150px;
+  margin-top: 250px;
 }

@@ -21,8 +21,7 @@ function getSliderPhoto(arr) {
       caption: '',
     }
   })
-  /* eslint-disable */
-  debugger
+
   return photo
 }
 
