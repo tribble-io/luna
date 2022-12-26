@@ -14,6 +14,18 @@ $reg-font-size: 25px;
 $sel-font-size: 37px;
 $wk-font-size: 23px;
 
+.affiche {
+  padding-bottom: 170px;
+
+  @media (max-width: 991px) {
+    padding-bottom: 150px;
+  }
+
+  @media (max-width: 567px) {
+    padding-bottom: 125px;
+  }
+}
+
 .datesStrip {
   width: 100%;
   height: $strip-height;
@@ -28,8 +40,8 @@ $wk-font-size: 23px;
     z-index: 1;
 
     @media (min-width: 991px) {
-      padding-right: 50px;
-      padding-left: 50px;
+      padding-right: 20px;
+      padding-left: 30px;
     }
   }
 }
@@ -43,7 +55,7 @@ $wk-font-size: 23px;
   margin-top: -20px;
   height: 100px;
   overflow: hidden;
-  width: calc(100% - 100px);
+  width: calc(100% - 53px);
 
   @media (max-width: 991px) {
     width: 100%;
@@ -221,14 +233,11 @@ $wk-font-size: 23px;
 }
 
 .cardsWindowContainer {
-  padding: 40px 70px 170px;
+  padding: 40px 0 0 10px;
 
   @media (max-width: 991px) {
-    padding: 40px 0 150px;
-  }
-
-  @media (max-width: 567px) {
-    padding-bottom: 125px;
+    padding-right: 0;
+    padding-left: 0;
   }
 
   .mobileButton {

@@ -77,7 +77,7 @@ export function Calendar({ setFirstDate, items }) {
 
   return (
     <>
-      <section id='affiche'>
+      <section id='affiche' className={styles.affiche}>
         <div className={styles.afficheContent}>
           <div className={`${styles.curtain} ${styles.curtainsLenf}`}>
             <img src='/img/curtainsLeft.png' />

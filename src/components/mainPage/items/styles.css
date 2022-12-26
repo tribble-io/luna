@@ -1,3 +1,8 @@
+/* padding for display box-shadow in items */
+.posterSlider {
+  padding: 1rem;
+}
+
 @media (max-width: 992px) {
   .posterSlider .swiper-slide {
     width: auto;
