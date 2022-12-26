@@ -14,7 +14,7 @@
   }
 
   h2 {
-    @include headline_second;
+    @include headline_first;
     margin-bottom: 100px;
     @media (max-width: 567px) {
       margin-bottom: 90px;

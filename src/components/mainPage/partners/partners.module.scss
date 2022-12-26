@@ -43,7 +43,7 @@
   padding-bottom: 160px;
 
   h2 {
-    @include headline_second;
+    @include headline_first;
     margin-bottom: 120px;
 
     @media (max-width: 500px) {
