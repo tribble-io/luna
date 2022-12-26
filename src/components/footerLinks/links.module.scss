@@ -8,24 +8,29 @@
 
   .linksList {
     padding-top: 30px;
-    padding-bottom: 60px;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: stretch;
+    justify-content: space-between;
 
     @media (min-width: 576px) {
       padding-top: 100px;
+      padding-bottom: 60px;
     }
   }
 
   .linkBlock {
     max-width: 200px;
     width: 100%;
+    margin-bottom: 60px;
 
-    &:not(:last-child) {
-      margin-right: 80px;
-      margin-bottom: 60px;
+    &:last-child {
+      max-width: 10px;
+      margin-bottom: 0;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
 
     .linkTitle {

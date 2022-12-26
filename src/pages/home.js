@@ -13,10 +13,14 @@ import Loader from '../components/loader'
 
 // We create a link of a /embed/ format for the correct display of the video by API
 function getVideoLink(link) {
-  const linkSplit = link.split(['/watch?v='])
-  const newLink = linkSplit[0] + '/embed/' + linkSplit[1]
+  if (link) {
+    const linkSplit = link.split(['/watch?v='])
+    const newLink = linkSplit[0] + '/embed/' + linkSplit[1]
 
-  return newLink
+    return newLink
+  } else {
+    return ''
+  }
 }
 
 export function Home() {

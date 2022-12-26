@@ -1,6 +1,5 @@
 .posterBlock {
   height: 450px;
-  max-width: 295px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -36,6 +35,7 @@
 
   @media (max-width: 576px) {
     height: 200px;
+    padding: 10px 20px 15px 20px;
   }
 
   .mainInfo {
@@ -56,15 +56,6 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 160%;
-
-      @media (max-width: 576px) {
-        text-align: left;
-        justify-content: flex-start;
-        font-size: 16px;
-        line-height: 24px;
-        padding-left: 20px;
-        padding-right: 20px;
-      }
     }
 
     .dateRatingContainer {
@@ -73,10 +64,6 @@
       align-items: center;
       justify-content: space-between;
       margin-left: auto;
-
-      @media (max-width: 576px) {
-        font-size: 28px;
-      }
 
       .date {
         color: #f7e99f;
@@ -125,7 +112,7 @@
     .buy {
       background-color: #6f1616;
       border: 0;
-      padding: 10px 15px;
+      padding: 10px 0;
       width: 50%;
 
       color: #bbbbbb;

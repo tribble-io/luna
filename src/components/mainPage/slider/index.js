@@ -56,7 +56,7 @@ export function Slider({ items, firstDate }) {
                     <p className={styles.description}>{offer?.description}</p>
                     <div className={styles.ticket}>
                       <ScrollIntoView
-                        selector={`#comingShow`}
+                        selector={`#affiche`}
                         className={styles.buy}
                       >
                         <button type='button' className={styles.link}>
