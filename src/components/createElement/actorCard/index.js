@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import noPhoto from '../../../assets/img/no-photo-actor.jpg'
 import styles from './card.module.scss'
 
 export function CreateActorCard({ data }) {
@@ -12,7 +13,7 @@ export function CreateActorCard({ data }) {
             to={'/actor/' + data?.id}
             title='Перейти в профиль актера'
           >
-            <img src={data?.src} alt={data?.name} />
+            <img src={data?.src ?? noPhoto} alt={data?.name} />
           </Link>
         </div>
         <div className={styles.actorCardText}>

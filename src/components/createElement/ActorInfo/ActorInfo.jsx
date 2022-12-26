@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
 import styles from './ActorInfo.module.scss'
 
@@ -14,14 +15,15 @@ const ActorInfo = ({ img, name, body, rank, romashka }) => {
           <span className={styles.actorName}>{name.toUpperCase()}</span>
         ) : null}
         {body ? (
-          <p className={styles.actorBody}>
-            {body?.split(/\n/).map((r, i) => (
+          <div className={styles.actorBody}>
+            {/* {body?.split(/\n/).map((r, i) => (
               <React.Fragment key={i + 1}>
                 {r}
                 <br />
               </React.Fragment>
-            ))}
-          </p>
+            ))} */}
+            <ReactMarkdown children={body} />
+          </div>
         ) : null}
         {rank ? <p className={styles.actorRank}>{rank}</p> : null}
         {romashka?.length ? (

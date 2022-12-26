@@ -2,7 +2,12 @@
 @import '../../../assets/utils/fonts.scss';
 
 .documentBlock {
-  max-width: 715px;
+  width: 715px;
+
+  @media (max-width: 770px) {
+    max-width: 715px;
+    width: auto;
+  }
 
   h2 {
     color: white;

@@ -315,23 +315,110 @@ header {
     @extend .mobileMenuContainer;
     transform: translateY(0);
     opacity: 1;
+    height: 87vh;
+    overflow: auto;
+    max-height: 100vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    .socialLinks {
+      margin-top: 100px;
+      .socialLink {
+        margin-right: 16px;
+        &:last-child {
+          margin-left: 8px;
+          margin-right: 0px;
+        }
+      }
+    }
+    .info_blind {
+      display: flex;
+      margin-top: 50px;
+      .info_icon {
+        width: 40px;
+        height: 40px;
+        margin-right: 30px;
+      }
+      .info_text {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        color: #ffffff;
+        text-decoration: none;
+      }
+    }
   }
 
   .mobileMenuList {
     display: flex;
     flex-direction: column;
     list-style: none;
-
     align-items: left;
 
     li {
+      .openAccordion {
+        span {
+          &:after {
+            transform: rotateZ(180deg);
+          }
+        }
+      }
+      .linkAccordion {
+        display: inline-block;
+        width: 100%;
+        span {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 24px;
+          text-transform: lowercase;
+          color: #ffffff !important;
+          display: inline-block;
+          width: 100%;
+          position: relative;
+          &:after {
+            font-family: 'FontAwesome';
+            content: url('../../assets/img/arrow-bot.svg');
+            position: absolute;
+            right: 10px;
+            top: 0px;
+            display: block;
+            transition: transform 200ms;
+          }
+        }
+        div {
+          div {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+            padding-left: 20px;
+          }
+        }
+        a {
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 160%;
+          color: #ffffff;
+          margin-top: 16px;
+          text-transform: unset;
+          &:first-child {
+            margin-top: 0px;
+          }
+        }
+      }
+
       a {
         font-family: 'Montserrat';
-        font-weight: 400;
-        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
         text-transform: lowercase;
-
-        color: #f4f4f4;
+        color: #ffffff;
       }
 
       a:hover {
