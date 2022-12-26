@@ -4,6 +4,30 @@ import { PlaysLine } from '../createElement'
 import styles from './popup.module.scss'
 import Loader from '../../components/loader'
 
+/*
+Example of adding the PopUp component to a page, you can see a demo on this page src\components\mainPage\slider\index.js
+Add required React Hook on the parent page
+const [open, setOpen] = useState(false)
+
+Add component tag and props to the parent page where ticketData is array with info for PlaysLine
+<TicketPopUp
+  closePopup={() => setOpen(false)}
+  open={open}
+  data={ticketData}
+/>
+
+Trigger button example where offer.id is a play ID
+<button
+  type='button'
+  onClick={() => {
+    setOpen(true)
+    setTicketPlayID(offer.id)
+  }}
+>
+  БИЛЕТЫ
+</button>
+*/
+
 export function TicketPopUp(props) {
   const { closePopup, open, data } = props
 
