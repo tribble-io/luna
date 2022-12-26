@@ -11,8 +11,8 @@
     padding-bottom: 60px;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: stretch;
+    justify-content: space-between;
 
     @media (min-width: 576px) {
       padding-top: 100px;
@@ -22,18 +22,11 @@
   .linkBlock {
     max-width: 200px;
     width: 100%;
+    margin-bottom: 60px;
 
-    &:not(:last-child) {
-      margin-right: 160px;
-      margin-bottom: 60px;
-
-      @media (max-width: 1400px) {
-        margin-right: 100px;
-      }
-
-      @media (max-width: 991px) {
-        margin-right: 40px;
-      }
+    &:last-child {
+      max-width: 10px;
+      margin-bottom: 0;
     }
 
     .linkTitle {
