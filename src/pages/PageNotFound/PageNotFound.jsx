@@ -13,16 +13,19 @@ const PageNotFound = () => {
       <div className={styles.notFound}>
         <h2>{`упс... ${'  '} ошибка`}</h2>
         <p>
-          К сожалению, страница, которую Вы пытаетесь найти, удалена или
-          недоступна. Мы скоро разберемся с этой проблемой, а пока Вы можете
-          вернуться на{' '}
+          К сожалению, запрашиваемая страница не найдена. Возможно, Вы перешли
+          по ссылке, в которой была допущена ошибка, или ресурс был удален.
+          <br />
+          <br />
+          Попробуйте перейти на <br />
           <Link className={styles.link} to={'/'}>
             главную
           </Link>{' '}
-          или на{' '}
-          <span className={styles.linkBack} onClick={() => handelClickBack()}>
-            предыдущую страницу.
-          </span>{' '}
+          или{' '}
+          <Link className={styles.link} onClick={() => handelClickBack()}>
+            предыдущую страницу
+          </Link>
+          .{' '}
         </p>
         <img src={imgLunaMobile} className={styles.imageLuna} alt={'Луна'} />
       </div>
