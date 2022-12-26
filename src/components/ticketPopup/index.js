@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { PlaysLine } from '../createElement'
 import styles from './popup.module.scss'
-import Loader from '../../components/loader'
 
 /*
 Example of adding the PopUp component to a page, you can see a demo on this page src\components\mainPage\slider\index.js
@@ -80,7 +79,7 @@ export function TicketPopUp(props) {
                 </p>
               )
             ) : (
-              <Loader />
+              <div className={styles.loader}>Loading...</div>
             )}
           </div>
         </div>

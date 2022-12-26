@@ -77,14 +77,15 @@ export function Home() {
 
   useEffect(() => {
     ticketPlayID
-      ? api
+      ? (setTicketData(null),
+        api
           .exportTicketData(ticketPlayID)
           .then((response) => {
             setTicketData(createTicketData(response))
           })
           .catch((error) => {
             console.log(error)
-          })
+          }))
       : null
   }, [ticketPlayID])
 
