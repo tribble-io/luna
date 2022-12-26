@@ -160,16 +160,18 @@ export function Calendar(props) {
             className={styles.rarr}
             ref={navigationNextRef}
           />
-        </div>
-        <div className={styles.cardsWindowContainer}>
-          <Item
-            items={items}
-            selected={selected}
-            setTicketPlayID={setTicketPlayID}
-            ticketData={ticketData}
-          />
-          <div className={styles.mobileButton}>
-            <Link to={'/plays'}>все спектакли</Link>
+          <div className={styles.wrapper}>
+            <div className={styles.cardsWindowContainer}>
+              <Item
+                items={items}
+                selected={selected}
+                setTicketPlayID={setTicketPlayID}
+                ticketData={ticketData}
+              />
+              <div className={styles.mobileButton}>
+                <Link to={'/plays'}>все спектакли</Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
