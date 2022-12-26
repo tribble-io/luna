@@ -24,7 +24,7 @@ export function News({ itemsNews }) {
                 <h2>НОВОСТИ ТЕАТРА</h2>
               </div>
               <div className={styles.btn}>
-                <Link to='/news'>ЧИТАТЬ ВСЕ</Link>
+                <Link to='/news'>Читать все</Link>
               </div>
             </div>
             {itemsNews.length === 0 ? (

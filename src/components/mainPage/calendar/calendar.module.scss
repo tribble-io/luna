@@ -16,17 +16,26 @@ $wk-font-size: 23px;
 
 .datesStrip {
   width: 100%;
-  margin: auto;
   height: $strip-height;
   background: #631818;
 
-  display: flex;
-  flex-direction: row;
-
-  // align-items: center;
-  // place-content: center;
-
   margin-bottom: 80px;
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 1;
+
+    @media(min-width: 991px) {
+      padding-right: 50px;
+      padding-left: 50px;
+    }
+  }
+}
+
+.wrapper {
+  @include container;
 }
 
 .dateWindow {
@@ -34,9 +43,9 @@ $wk-font-size: 23px;
   margin-top: -20px;
   height: 100px;
   overflow: hidden;
-  width: calc(100% - 53px);
+  width: calc(100% - 100px);
 
-  @media (max-width: 567px) {
+  @media(max-width: 991px) {
     width: 100%;
   }
 }
@@ -183,15 +192,44 @@ $wk-font-size: 23px;
 }
 
 .afficheContent {
-  padding-bottom: 170px;
+  position: relative;
+
+  .curtain {
+    position: absolute;
+    user-select: none;
+    top: 0;
+    bottom: 0;
+
+    &.curtainsLenf {
+      left: 0;
+    }
+
+    &.curtainsRight {
+      right: 0;
+    }
+
+    img {
+      max-width: 100%;
+      width: auto;
+      height: 100%
+    }
+
+    @media(max-width: 991px) {
+      display: none;
+    }
+  } 
+}
+
+.cardsWindowContainer {
+  padding: 40px 70px 170px;
+
+  @media(max-width: 991px) {
+    padding: 40px 0 150px;
+  }
 
   @media (max-width: 567px) {
     padding-bottom: 125px;
   }
-}
-
-.cardsWindowContainer {
-  @include container;
 
   .mobileButton {
     display: block;

@@ -1,15 +1,5 @@
-.posterSlider {
-  padding: 4rem 1rem 1rem;
-}
-
 @media (max-width: 992px) {
   .posterSlider .swiper-slide {
     width: auto;
-  }
-}
-
-@media (max-width: 576px) {
-  .posterSlider .posterSlider {
-    padding-top: 2rem;
   }
 }
