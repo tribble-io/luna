@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { API_URL } from '../../../api'
 import { getDateStr } from '../../../assets'
-import ScrollIntoView from 'react-scroll-into-view'
+import { TicketPopUp } from '../../ticketPopup'
 import styles from './slider.module.scss'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -14,10 +14,17 @@ import './styles.css'
 // import required modules
 import { Pagination, Autoplay, EffectFade } from 'swiper'
 
-export function Slider({ items, firstDate }) {
+export function Slider(props) {
+  const { items, firstDate, setTicketPlayID, ticketData } = props
+  const [open, setOpen] = useState(false)
   return (
     <>
       <section id='mainSlider'>
+        <TicketPopUp
+          closePopup={() => setOpen(false)}
+          open={open}
+          data={ticketData}
+        />
         <Swiper
           effect={'fade'}
           centeredSlides={true}
@@ -55,14 +62,16 @@ export function Slider({ items, firstDate }) {
                     <p className={styles.title}>{offer?.title}</p>
                     <p className={styles.description}>{offer?.description}</p>
                     <div className={styles.ticket}>
-                      <ScrollIntoView
-                        selector={`#affiche`}
-                        className={styles.buy}
+                      <button
+                        type='button'
+                        className={styles.link}
+                        onClick={() => {
+                          setOpen(true)
+                          setTicketPlayID(offer.id)
+                        }}
                       >
-                        <button type='button' className={styles.link}>
-                          БИЛЕТЫ
-                        </button>
-                      </ScrollIntoView>
+                        БИЛЕТЫ
+                      </button>
                       <div className={styles.rating}>{offer?.rating}+</div>
                     </div>
                   </div>
