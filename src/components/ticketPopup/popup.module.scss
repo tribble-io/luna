@@ -13,7 +13,7 @@
   transition: opacity 0.5s;
   will-change: opacity;
   padding: 18px;
-  overflow-y: auto
+  overflow-y: auto;
 }
 
 .popup {
@@ -21,7 +21,7 @@
   margin-right: auto;
   margin-left: auto;
   padding: 40px 40px 60px;
-  background: #20223D;
+  background: #20223d;
   width: 90%;
   position: relative;
   transition: all 0.5s linear;
@@ -32,7 +32,7 @@
 
   .close {
     text-align: end;
-    
+
     svg {
       fill: #fff;
     }
@@ -48,7 +48,7 @@
 
   .playsList {
     margin-bottom: 60px;
-    padding: 65px 25px 20px
+    padding: 65px 25px 20px;
   }
 
   .allDates {
