@@ -49,7 +49,8 @@ function DateBtn({ date: { date, free }, isselected, setSelected }) {
   )
 }
 
-export function Calendar({ setFirstDate, items }) {
+export function Calendar(props) {
+  const { items, setFirstDate, setTicketPlayID, ticketData } = props
   const navigationPrevRef = React.useRef(null)
   const navigationNextRef = React.useRef(null)
 
@@ -155,7 +156,12 @@ export function Calendar({ setFirstDate, items }) {
           </div>
           <div className={styles.wrapper}>
             <div className={styles.cardsWindowContainer}>
-              <Item items={items} selected={selected} />
+              <Item
+                items={items}
+                selected={selected}
+                setTicketPlayID={setTicketPlayID}
+                ticketData={ticketData}
+              />
               <div className={styles.mobileButton}>
                 <Link to={'/plays'}>все спектакли</Link>
               </div>
