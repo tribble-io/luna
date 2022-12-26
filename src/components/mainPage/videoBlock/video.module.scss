@@ -1,0 +1,43 @@
+@import '../../../assets/main.scss';
+
+.wrapper {
+  @include container;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #fff;
+}
+
+.videoContent {
+  margin-bottom: 170px;
+  h2 {
+    @include headline_second;
+    margin-bottom: 100px;
+  }
+
+  .videoPadding {
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+
+  .videoContainer {
+    // to properly display video size
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

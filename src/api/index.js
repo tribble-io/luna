@@ -3,6 +3,18 @@ export const API_URL = 'http://theatre.restomatik.ru:1337'
 
 const TODAY_DAY = new Date().toISOString().slice(0, 10)
 
+async function exportMainPage() {
+  const result = await axios.get(
+    `${API_URL}/api/main-page?populate=plays.cover,partners.logo`
+  )
+
+  if (result.status === 200) {
+    return result.data.data
+  }
+
+  throw new Error("Can't export main page info")
+}
+
 async function exportShows() {
   const result = await axios.get(
     `${API_URL}/api/shows?filters[date][$gt]=${TODAY_DAY}&sort[0]=date&populate=play.cover,play.director,play.scene`
@@ -17,7 +29,7 @@ async function exportShows() {
 
 async function exportArticles() {
   const result = await axios.get(
-    `${API_URL}/api/articles?sort[0]=publishedAt%3Adesc&populate=cover&pagination[pageSize]=3`
+    `${API_URL}/api/articles?sort[0]=publishedAt%3Adesc&populate=cover&pagination[pageSize]=4`
   )
 
   if (result.status === 200) {
@@ -279,6 +291,7 @@ async function documents(activeFilter) {
   }
 }
 export const api = {
+  exportMainPage,
   exportShows,
   exportArticles,
   exportPlayShows,
