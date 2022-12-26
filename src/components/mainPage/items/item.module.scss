@@ -36,6 +36,7 @@
 
   @media (max-width: 576px) {
     height: 200px;
+    padding: 10px 20px 15px 20px;
   }
 
   .mainInfo {
@@ -56,15 +57,6 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 160%;
-
-      @media (max-width: 576px) {
-        text-align: left;
-        justify-content: flex-start;
-        font-size: 16px;
-        line-height: 24px;
-        padding-left: 20px;
-        padding-right: 20px;
-      }
     }
 
     .dateRatingContainer {
@@ -73,10 +65,6 @@
       align-items: center;
       justify-content: space-between;
       margin-left: auto;
-
-      @media (max-width: 576px) {
-        font-size: 28px;
-      }
 
       .date {
         color: #f7e99f;
