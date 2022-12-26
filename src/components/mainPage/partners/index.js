@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import Marquee from 'react-fast-marquee'
 import { API_URL } from '../../../api/index'
 import styles from './partners.module.scss'
-import './tizer.css'
 
 export function Partners({ partners }) {
   useEffect(() => {
@@ -25,26 +24,24 @@ export function Partners({ partners }) {
         <div className={styles.partnersContent}>
           <h2>НАШИ ПАРТНЁРЫ</h2>
           <div className={styles.cityRecommendations}>
-            <div className={'tizer-block container-fluid container'}>
-              <div className='tizer-block__row'>
-                <div className='tizer-block__col'>
-                  <div
-                    className='tizer-block__banner'
-                    data-mos-teaser='{ "scroll":false,"adaptive":null,"placementParams":{ "p1":"bxdrg","p2":"fpkh"}}'
-                  ></div>
-                  <div
-                    className='tizer-block__banner'
-                    data-mos-teaser='{ "scroll":false,"adaptive":null,"placementParams":{ "p1":"bxdrh","p2":"fpkh"}}'
-                  ></div>
-                  <div
-                    className='tizer-block__banner'
-                    data-mos-teaser='{ "scroll":false,"adaptive":null,"placementParams":{ "p1":"bxdri","p2":"fpkh"}}'
-                  ></div>
-                  <div
-                    className='tizer-block__banner'
-                    data-mos-teaser='{ "scroll":false,"adaptive":["phone","desktop"],"adaptiveOptions":{ "tabletWidth":1200,"phoneWidth":810},"placementParams":{ "p1":"bxdrj","p2":"fpkh"}}'
-                  ></div>
-                </div>
+            <div className={styles.tizerBlock}>
+              <div className={styles.tizerBlockCol}>
+                <div
+                  className={styles.tizerBlockBanner}
+                  data-mos-teaser='{ "scroll":false,"adaptive":null,"placementParams":{ "p1":"bxdrg","p2":"fpkh"}}'
+                ></div>
+                <div
+                  className={styles.tizerBlockBanner}
+                  data-mos-teaser='{ "scroll":false,"adaptive":null,"placementParams":{ "p1":"bxdrh","p2":"fpkh"}}'
+                ></div>
+                <div
+                  className={styles.tizerBlockBanner}
+                  data-mos-teaser='{ "scroll":false,"adaptive":null,"placementParams":{ "p1":"bxdri","p2":"fpkh"}}'
+                ></div>
+                <div
+                  className={styles.tizerBlockBanner}
+                  data-mos-teaser='{ "scroll":false,"adaptive":null,"adaptiveOptions":{ "tabletWidth":1200,"phoneWidth":810},"placementParams":{ "p1":"bxdrj","p2":"fpkh"}}'
+                ></div>
               </div>
             </div>
           </div>
