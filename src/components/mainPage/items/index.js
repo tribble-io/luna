@@ -30,6 +30,9 @@ export function Item(props) {
   const [swiper, setSwiper] = useState(null)
   const [addSliders, setAddSliders] = useState([])
   const [open, setOpen] = useState(false)
+  //Needed to filter the data for ticketPopUp by the day indicated on the play card
+  const [ticketDate, setTicketDate] = useState(null)
+  const [ticketFilterData, setTicketFilterData] = useState(ticketData)
 
   function getSelectedDate(element, index) {
     const selectedDate = getDateStr(selected)
@@ -63,6 +66,14 @@ export function Item(props) {
     swiper && swiper.slideTo(selectedSlideIndex)
   }, [selected])
 
+  useEffect(() => {
+    //Filtering by day, which is indicated in the play card
+    const filterData = ticketData
+      ? ticketData.filter((data) => data.item.date === ticketDate)
+      : ticketData
+    setTicketFilterData(filterData)
+  }, [ticketData, ticketDate])
+
   function itemCheckPlace(item) {
     return PLACES[item.play.scene.name]
   }
@@ -72,7 +83,7 @@ export function Item(props) {
       <TicketPopUp
         closePopup={() => setOpen(false)}
         open={open}
-        data={ticketData}
+        data={ticketFilterData}
       />
       <Swiper
         onSwiper={setSwiper}
@@ -138,6 +149,7 @@ export function Item(props) {
                     onClick={() => {
                       setOpen(true)
                       setTicketPlayID(item?.play?.id)
+                      setTicketDate(item?.date)
                     }}
                   >
                     БИЛЕТЫ
