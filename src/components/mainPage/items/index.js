@@ -89,7 +89,7 @@ export function Item(props) {
         onSwiper={setSwiper}
         slidesPerView='auto'
         centeredSlides={true}
-        spaceBetween={25}
+        spaceBetween={20}
         className='posterSlider'
         breakpoints={{
           500: {
@@ -98,7 +98,7 @@ export function Item(props) {
           },
           992: {
             slidesPerView: 3,
-            spaceBetween: 30,
+            spaceBetween: 40,
             centeredSlides: false,
           },
           1400: {
