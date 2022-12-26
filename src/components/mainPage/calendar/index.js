@@ -154,12 +154,6 @@ export function Calendar(props) {
               />
             </div>
           </div>
-          <img
-            src='/img/rarr.png'
-            alt='>'
-            className={styles.rarr}
-            ref={navigationNextRef}
-          />
           <div className={styles.wrapper}>
             <div className={styles.cardsWindowContainer}>
               <Item
