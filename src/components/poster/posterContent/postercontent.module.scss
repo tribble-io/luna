@@ -17,7 +17,7 @@
   color: white;
 }
 .posterContent:last-child {
-  padding-bottom: 200px;
+  padding-bottom: 350px;
 }
 
 .data {
@@ -111,6 +111,7 @@
       color: white;
       &:hover {
         text-decoration: underline;
+        transition: all 0.2s;
       }
     }
   }
@@ -225,6 +226,7 @@
 
   &:hover {
     padding: 14px 59px;
+    transition: all 0.2s;
     border: 2px solid #7396ea;
   }
 

@@ -317,7 +317,16 @@ class OneOageNews extends React.Component {
                       }
                       htmlFor='checked'
                     ></label>
-                    <p>Согласен (-на) на хранение и обработку данных</p>
+                    <p>
+                      Согласен (-на) на хранение и{' '}
+                      <a
+                        className={styles.linkData}
+                        href=' http://www.lunatheatre.ru/pages/polzovatelskoe-soglashenie'
+                        target={'_blank'}
+                      >
+                        обработку данных
+                      </a>
+                    </p>
                   </div>
                   <div
                     className={styles.blockForShare_el_but_mob}

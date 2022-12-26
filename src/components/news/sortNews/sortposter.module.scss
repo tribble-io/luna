@@ -33,6 +33,12 @@
     margin-top: 60px;
     position: relative;
     cursor: default;
+    img {
+      &:hover {
+        filter: brightness(0) saturate(100%) invert(58%) sepia(87%)
+          saturate(948%) hue-rotate(196deg) brightness(106%) contrast(96%);
+      }
+    }
 
     @media (max-width: 1200px) {
       margin-left: 0;
@@ -57,7 +63,7 @@
   }
   .moth {
     display: flex;
-    margin-top: 60px;
+    margin-top: 76px;
 
     @media (max-width: 1000px) {
       width: 900px;
@@ -83,6 +89,7 @@
     }
     &:hover {
       color: #8cabfa;
+      transition: all 0.2s;
       cursor: default;
     }
   }
@@ -97,7 +104,9 @@
     text-align: left;
     padding: 10px 0;
     padding-bottom: 0;
-    border-bottom: 0.1px solid #8cabfa;
+    // border-bottom: 0.1px solid #8cabfa;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
     color: #8cabfa;
     cursor: default;
     text-transform: uppercase;
@@ -181,7 +190,7 @@
     }
   }
   .search {
-    margin-top: 100px;
+    margin-top: 56px;
     margin-bottom: 100px;
     width: 460px;
     height: 50px;
