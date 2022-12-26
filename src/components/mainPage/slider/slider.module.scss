@@ -108,14 +108,11 @@
       }
     }
 
-    .buy {
-      margin-right: 38px;
-    }
-
     .link {
       @include button_white;
       border: none;
       text-align: center;
+      margin-right: 38px;
 
       font-size: 16px;
       font-weight: 500;
