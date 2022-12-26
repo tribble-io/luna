@@ -30,6 +30,11 @@
   font-weight: 400;
   color: $text-color;
 
+  @media (max-width: 567px) {
+    width: 100%;
+    padding: 30px 20px 40px;
+  }
+
   .close {
     text-align: end;
 
@@ -49,6 +54,11 @@
   .playsList {
     margin-bottom: 60px;
     padding: 65px 25px 20px;
+
+    @media (max-width: 567px) {
+      padding: 30px 0 20px;
+      margin-bottom: 30px;
+    }
   }
 
   .allDates {
