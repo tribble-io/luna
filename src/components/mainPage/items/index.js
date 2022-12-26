@@ -79,7 +79,7 @@ export function Item({ items, selected }) {
           },
           992: {
             slidesPerView: 3,
-            spaceBetween: 30,
+            spaceBetween: 40,
             centeredSlides: false,
           },
           1400: {
