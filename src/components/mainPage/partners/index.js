@@ -21,6 +21,7 @@ export function Partners({ partners }) {
                 />
               </a>
             ))}
+            <a></a>
           </div>
         </Marquee>
       </div>
