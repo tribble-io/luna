@@ -133,6 +133,18 @@ async function exportComingShow(showID) {
   throw new Error("Can't export coming show")
 }
 
+async function exportTicketData(showID) {
+  const result = await axios.get(
+    `${API_URL}/api/shows?filters[date][$gte]=${TODAY_DAY}&sort[0]=date&filters[play][id][$eq]=${showID}&populate=play,play.scene`
+  )
+
+  if (result.status === 200) {
+    return result.data.data
+  }
+
+  throw new Error("Can't export ticket data")
+}
+
 async function exportShowData(showID) {
   const result = await axios.get(
     `${API_URL}/api/plays/${showID}?populate=cover,roles.actors.cover,gallery,pressItems,directors.person,comments,scene`
@@ -300,6 +312,7 @@ export const api = {
   exportChildrenStudioPhoto,
   exportHistoryTheathrePhoto,
   exportComingShow,
+  exportTicketData,
   exportShowData,
   createNewComment,
   exportRomaskaData,

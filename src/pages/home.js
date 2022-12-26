@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { api } from '../api/index'
-import { uniqueBy } from '../assets/utils/usable-function'
+import { uniqueBy, getDateStr } from '../assets/utils/usable-function'
 
 import {
   Slider,
@@ -19,6 +19,30 @@ function getVideoLink(link) {
   return newLink
 }
 
+function createTicketData(arr) {
+  if (arr !== null) {
+    // Display only first 3 items
+    const ticketData = arr.slice(0, 3).map((data) => {
+      return {
+        item: data,
+        id: data.id,
+        date: getDateStr(data?.date).date,
+        time: data?.time,
+        month: getDateStr(data?.date).month_name,
+        day: getDateStr(data?.date).day_of_week,
+        title: data?.play?.title,
+        isPremiere: data?.play?.isPremiere,
+        place: data?.play?.scene.name,
+        rating: data?.play?.rating,
+        buy: data?.tickets_link,
+      }
+    })
+    return ticketData
+  } else {
+    return []
+  }
+}
+
 export function Home() {
   const [itemsSlider, setItemsSlider] = useState([])
   const [itemsAffiche, setItemsAffiche] = useState([])
@@ -27,6 +51,8 @@ export function Home() {
   const [partners, setpartners] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [firstDate, setFirstDate] = useState()
+  const [ticketPlayID, setTicketPlayID] = useState(null)
+  const [ticketData, setTicketData] = useState(null)
 
   useEffect(() => {
     Promise.all([api.exportMainPage(), api.exportShows(), api.exportArticles()])
@@ -49,15 +75,38 @@ export function Home() {
       })
   }, [])
 
+  useEffect(() => {
+    ticketPlayID
+      ? api
+          .exportTicketData(ticketPlayID)
+          .then((response) => {
+            setTicketData(createTicketData(response))
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      : null
+  }, [ticketPlayID])
+
   return (
     <>
-      <Slider firstDate={firstDate} items={itemsSlider} />
+      <Slider
+        firstDate={firstDate}
+        items={itemsSlider}
+        setTicketPlayID={setTicketPlayID}
+        ticketData={ticketData}
+      />
       <main>
         {isLoading ? (
           <Loader />
         ) : (
           <>
-            <Calendar setFirstDate={setFirstDate} items={itemsAffiche} />
+            <Calendar
+              setFirstDate={setFirstDate}
+              items={itemsAffiche}
+              setTicketPlayID={setTicketPlayID}
+              ticketData={ticketData}
+            />
             <VideoBlock link={videoLink} />
             <News itemsNews={itemsNews} />
             <Partners partners={partners} />

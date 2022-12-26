@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getDateStr, WINDOW_SCREEN } from '../../../assets'
-import { Swiper, SwiperSlide } from 'swiper/react'
-
 import { API_URL } from '../../../api'
+import { TicketPopUp } from '../../ticketPopup'
+import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
 import './styles.css'
@@ -25,9 +25,12 @@ const PLACES = {
   },
 }
 
-export function Item({ items, selected }) {
+export function Item(props) {
+  const { items, selected, setTicketPlayID, ticketData } = props
   const [swiper, setSwiper] = useState(null)
   const [addSliders, setAddSliders] = useState([])
+  const [open, setOpen] = useState(false)
+
   function getSelectedDate(element, index) {
     const selectedDate = getDateStr(selected)
     const getDateHref =
@@ -66,6 +69,11 @@ export function Item({ items, selected }) {
 
   return (
     <>
+      <TicketPopUp
+        closePopup={() => setOpen(false)}
+        open={open}
+        data={ticketData}
+      />
       <Swiper
         onSwiper={setSwiper}
         slidesPerView='auto'
@@ -124,7 +132,14 @@ export function Item({ items, selected }) {
                   <div className={styles.place}>
                     {itemCheckPlace(item).name}
                   </div>
-                  <button type='button' className={styles.buy}>
+                  <button
+                    type='button'
+                    className={styles.buy}
+                    onClick={() => {
+                      setOpen(true)
+                      setTicketPlayID(item?.play?.id)
+                    }}
+                  >
                     БИЛЕТЫ
                   </button>
                 </div>

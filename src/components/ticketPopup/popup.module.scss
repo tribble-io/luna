@@ -1,0 +1,67 @@
+@import '../../assets/main.scss';
+
+.overlay {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  transition: opacity 0.5s;
+  will-change: opacity;
+  padding: 18px;
+  overflow-y: auto
+}
+
+.popup {
+  margin-top: 15vh;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 40px 40px 60px;
+  background: #20223D;
+  width: 90%;
+  position: relative;
+  transition: all 0.5s linear;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $text-color;
+
+  .close {
+    text-align: end;
+    
+    svg {
+      fill: #fff;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .noResult {
+    font-size: 20px;
+  }
+
+  .playsList {
+    margin-bottom: 60px;
+    padding: 65px 25px 20px
+  }
+
+  .allDates {
+    text-align: center;
+    a {
+      @include button_white;
+      max-width: 250px;
+      margin-right: auto;
+      margin-left: auto;
+
+      color: inherit;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+  }
+}
