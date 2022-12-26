@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Item } from '../../mainPage'
-import { getDateStr } from '../../../assets'
+import { WINDOW_SCREEN, IsMobile, getDateStr } from '../../../assets'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
@@ -11,12 +11,12 @@ import './styles.css'
 import { Navigation } from 'swiper'
 
 import styles from './calendar.module.scss'
-const CALENDAR_WIDTH = window.screen.width
 const ARR_OFFSET = 3
 const DAY = 1000 * 60 * 60 * 24
-const DATE_NUMBER = CALENDAR_WIDTH > 573 ? 15 : 8
+const DATE_NUMBER = WINDOW_SCREEN > 573 ? 15 : 8
 const DATE_LOAD_LENGTH = DATE_NUMBER + 20 * ARR_OFFSET
-const SLIDER_HEIGHT = CALENDAR_WIDTH > 573 ? 33 : 40
+const SLIDER_HEIGHT = WINDOW_SCREEN > 573 ? 33 : 40
+const IsShortSwipes = IsMobile ? true : false
 
 function DateBtn({ date: { date, free }, isselected, setSelected }) {
   const getDate = getDateStr(date)
@@ -105,7 +105,7 @@ export function Calendar({ setFirstDate, items }) {
                   spaceBetween={10}
                   grabCursor={true}
                   longSwipesRatio={0.4}
-                  shortSwipes={false}
+                  shortSwipes={IsShortSwipes}
                   navigation={{
                     prevEl: navigationPrevRef.current,
                     nextEl: navigationNextRef.current,
