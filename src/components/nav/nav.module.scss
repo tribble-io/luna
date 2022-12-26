@@ -154,12 +154,23 @@ nav {
   //   }
   // }
 
+  .logoContainerMini {
+    width: 132px !important;
+    height: 78px !important;
+    bottom: 8px !important;
+    right: 4.25% !important;
+  }
+
   .logoContainer {
     display: none;
     position: absolute;
-    bottom: 10%;
-    right: 0px;
     z-index: 10;
+    height: 269px;
+    width: 440px;
+    bottom: 21px;
+    right: -3.75%;
+    transition: all 0.5s !important;
+    display: flex;
 
     @media (max-width: 1200px) {
       bottom: -55%;
@@ -169,39 +180,14 @@ nav {
       display: block;
     }
 
-    .back_elipse {
-      z-index: 2;
-      height: 241px;
-      width: 241px;
-      bottom: 0;
-      right: 0;
-      background-color: #13132d;
-      border-radius: 50%;
-      position: absolute;
-      @media (max-width: 1200px) {
-        display: none;
-      }
-    }
-
     .moon_logo {
-      position: absolute;
-      z-index: 3;
-      // bottom: 10%;
-      bottom: 0;
-      right: -3%;
-      right: 0;
-      width: 227px;
-      height: 241px;
+      width: 100%;
+      height: 100%;
 
       @media (max-width: 1200px) {
         display: none;
       }
     }
-
-    .moon_logo:hover {
-      animation: swing 2s 1 ease-out;
-    }
-
     @keyframes swing {
       0%,
       100% {
