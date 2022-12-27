@@ -55,12 +55,14 @@
   .close {
     text-align: end;
 
-    svg {
-      fill: #fff;
+    span {
+      &:hover {
+        cursor: pointer;
+      }
     }
 
-    &:hover {
-      cursor: pointer;
+    svg {
+      fill: #fff;
     }
   }
 
@@ -74,6 +76,7 @@
 
   .noResult {
     font-size: 20px;
+    padding: 10px 20px 40px;
   }
 
   .playsList {
