@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './scene.module.scss'
-
+import { IsMobile } from '../../../assets'
 import { CreatePlaysCard } from '../../createElement'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
@@ -10,9 +10,8 @@ import './styles.css'
 // import required modules
 import { Pagination } from 'swiper'
 
-export function ChildrenScene({ id, items }) {
-  const screen_width = window.screen.width
-  const isMobile = screen_width > 500 ? false : true
+export function ChildrenScene(props) {
+  const { id, items, popupOpen } = props
 
   return (
     <>
@@ -22,7 +21,7 @@ export function ChildrenScene({ id, items }) {
             <div className={styles.sceneTitle}>
               <h2>спектакли на сцене «маленькой луны»</h2>
             </div>
-            {isMobile ? (
+            {IsMobile ? (
               <div className={styles.sceneSlider}>
                 <Swiper
                   slidesPerView={'auto'}
@@ -42,7 +41,11 @@ export function ChildrenScene({ id, items }) {
                 >
                   {items.map((data, key) => (
                     <SwiperSlide key={key}>
-                      <CreatePlaysCard data={data} key={data.id} />
+                      <CreatePlaysCard
+                        data={data}
+                        key={data.id}
+                        popupOpen={popupOpen}
+                      />
                     </SwiperSlide>
                   ))}
                 </Swiper>
@@ -50,7 +53,11 @@ export function ChildrenScene({ id, items }) {
             ) : (
               <div className={styles.sceneGrid}>
                 {items.map((data) => (
-                  <CreatePlaysCard data={data} key={data.id} />
+                  <CreatePlaysCard
+                    data={data}
+                    key={data.id}
+                    popupOpen={popupOpen}
+                  />
                 ))}
               </div>
             )}
