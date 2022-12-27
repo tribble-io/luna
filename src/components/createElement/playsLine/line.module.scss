@@ -20,7 +20,7 @@
     column-gap: 40px;
 
     @media (max-width: 991px) {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr auto;
       grid-template-rows: 1fr auto;
       row-gap: 40px;
       align-items: flex-start;
@@ -53,6 +53,7 @@
     .date {
       font-size: 44px;
       font-weight: 300;
+      white-space: nowrap;
 
       @media (max-width: 991px) {
         font-size: 38px;
@@ -97,6 +98,7 @@
       align-items: flex-start;
       row-gap: 10px;
       margin-left: 15px;
+      grid-column: span 2;
     }
 
     @media (max-width: 567px) {
@@ -182,6 +184,12 @@
     }
   }
 
+  .playButton {
+    @media (max-width: 991px) {
+      grid-column: span 2;
+    }
+  }
+
   .buy {
     @include button_white;
     cursor: default;
@@ -190,6 +198,35 @@
     font-size: 14px;
 
     @media (max-width: 567px) {
+      font-size: 12px;
+    }
+  }
+
+  &.smallCard {
+    .playLineConetnt {
+      padding: 30px 5px;
+    }
+
+    .playDate {
+      padding-left: 5px;
+    }
+
+    .date {
+      font-size: 33px;
+    }
+
+    .title,
+    .rating {
+      font-size: 18px;
+    }
+
+    .monthTime {
+      margin-left: 14px;
+    }
+
+    .monthTime,
+    .premier,
+    .scene {
       font-size: 12px;
     }
   }

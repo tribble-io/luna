@@ -3,12 +3,12 @@ import styles from './line.module.scss'
 
 export function PlaysLine(props) {
   const { data, smallCard = false } = props
-  let playClass = styles.playLineConetnt
+  let playClass = `${styles.playLine}`
   playClass += smallCard === true ? ` ${styles.smallCard}` : ''
   return (
     <>
-      <div className={styles.playLine}>
-        <div className={playClass}>
+      <div className={playClass}>
+        <div className={styles.playLineConetnt}>
           <div className={styles.playDate}>
             <div className={styles.date}>{data?.date} /</div>
             <div className={styles.monthTime}>
@@ -32,7 +32,7 @@ export function PlaysLine(props) {
           <div>
             <p className={styles.rating}>{data?.rating}+</p>
           </div>
-          <div>
+          <div className={styles.playButton}>
             <a className={styles.buy} href={data?.buy}>
               Купить билет
             </a>
