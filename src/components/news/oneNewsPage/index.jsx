@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './oneNewsPage.module.scss'
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 import PosterEl from '../../poster/posterContent/posterEl'
 import MiniMews from './miniNews'
 
@@ -203,7 +204,10 @@ class OneOageNews extends React.Component {
 
                   <div className={styles.contentBlock}>
                     <div className={styles.textContent}>
-                      <ReactMarkdown children={this.state.items.text} />
+                      <ReactMarkdown
+                        children={this.state.items.text}
+                        rehypePlugins={[rehypeRaw]}
+                      />
                     </div>
                     <div className={styles.newsMiniBlock}>
                       <h2>ДРУГИЕ НОВОСТИ</h2>
