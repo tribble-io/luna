@@ -1,16 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './shows.module.scss'
 import { CreatePlaysCard } from '../../createElement'
-import { TicketPopUp } from '../../ticketPopup'
-
 export function ShowsCards(props) {
-  const { items, setTicketPlayID, ticketData } = props
-  const [open, setOpen] = useState(false)
-
-  const popupOpen = (playID) => {
-    setOpen(true)
-    setTicketPlayID(playID)
-  }
+  const { items, popupOpen } = props
 
   return (
     <>
@@ -26,11 +18,6 @@ export function ShowsCards(props) {
                 />
               </div>
             ))}
-            <TicketPopUp
-              closePopup={() => setOpen(false)}
-              open={open}
-              data={ticketData}
-            />
           </div>
         </div>
       </section>

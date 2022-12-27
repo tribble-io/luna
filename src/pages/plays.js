@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { api, API_URL } from '../api/index'
-
+import { TicketPopUp } from '../components/ticketPopup'
 import { ShowsFilter, ShowsCards } from '../components/plays'
 import Loader from '../components/loader'
 import { getDateStr } from '../assets/utils/usable-function'
@@ -60,6 +60,7 @@ export function Plays() {
 
   const [ticketPlayID, setTicketPlayID] = useState(null)
   const [ticketData, setTicketData] = useState(null)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     api
@@ -88,18 +89,24 @@ export function Plays() {
       : null
   }, [ticketPlayID])
 
+  const popupOpen = (playID) => {
+    setOpen(true)
+    setTicketPlayID(playID)
+  }
+
   return (
     <main>
       <ShowsFilter setEditValue={setEditValue} editValue={editValue} />
       {isLoading ? (
         <Loader />
       ) : (
-        <ShowsCards
-          items={items}
-          setTicketPlayID={setTicketPlayID}
-          ticketData={ticketData}
-        />
+        <ShowsCards items={items} popupOpen={popupOpen} />
       )}
+      <TicketPopUp
+        closePopup={() => setOpen(false)}
+        open={open}
+        data={ticketData}
+      />
     </main>
   )
 }
