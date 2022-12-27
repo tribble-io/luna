@@ -2,10 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { api, API_URL } from '../../api'
 import { getDateStr } from '../../assets'
-import {
-  ChildrenNextShows,
-  ChildrenPhoto,
-} from '../../components/childrensStudio'
+import { PhotosSlider } from '../../components/actorDetail/PhotosSlider/PhotosSlider'
+import { UpcomingPerformances } from '../../components/actorDetail/UpcomingPerformances/UpcomingPerformances'
 import ActorInfo from '../../components/createElement/ActorInfo/ActorInfo'
 import MovieRoles from '../../components/createElement/MovieRoles/MovieRoles'
 import TheaterRoles from '../../components/createElement/TheaterRoles/TheaterRoles'
@@ -114,7 +112,7 @@ const PageDetailActor = () => {
         )}
         {!isLoading ? (
           theatricalPerformance?.length ? (
-            <ChildrenNextShows items={theatricalPerformance} actor={true} />
+            <UpcomingPerformances items={theatricalPerformance} actor={true} />
           ) : null
         ) : null}
 
@@ -124,7 +122,7 @@ const PageDetailActor = () => {
         {movies?.length ? <MovieRoles movies={movies} /> : null}
         {press_items ? <Press press={press_items} actor={true} /> : null}
         {galleryPhotos?.length ? (
-          <ChildrenPhoto items={galleryPhotos} id={12} />
+          <PhotosSlider items={galleryPhotos} id={12} />
         ) : null}
       </div>
     </section>

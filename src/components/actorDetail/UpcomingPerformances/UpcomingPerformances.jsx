@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './nextShows.module.scss'
+import styles from './UpcomingPerformances.module.scss'
 import { PlaysLine } from '../../createElement'
 
-export function ChildrenNextShows(props) {
-  const { id, items } = props
+export function UpcomingPerformances(props) {
+  const { id, items, actor = false } = props
   // Check if we have shows in little moon
   const isItems = items?.length > 0 ? true : false
 
@@ -11,7 +11,13 @@ export function ChildrenNextShows(props) {
     <>
       <section id={id}>
         <div className={styles.wrapper}>
-          <div className={styles.nextShowsContent}>
+          <div
+            className={
+              actor
+                ? `${styles.nextShowsContent} ${styles.nextShowsContentActors}`
+                : `${styles.nextShowsContent}`
+            }
+          >
             <div className={styles.nextShowsTitle}>
               <h2>ближайшие постановки</h2>
             </div>
@@ -24,12 +30,14 @@ export function ChildrenNextShows(props) {
                         <PlaysLine
                           data={data}
                           key={`lays-line-${data.id}-${index}`}
+                          actor={actor}
                         />
                       ))
                   : items?.map((data, index) => (
                       <PlaysLine
                         data={data}
                         key={`lays-line-${data.id}-${index}`}
+                        actor={actor}
                       />
                     ))}
               </div>
