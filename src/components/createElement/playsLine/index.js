@@ -1,59 +1,44 @@
 import React from 'react'
-import { IsMobile } from '../../../assets'
 import styles from './line.module.scss'
 
-export function PlaysLine({ data, actor = false, smallPadding = false }) {
-  if (data.day) {
-    return (
-      <div className={styles.posterContent}>
-        <div
-          className={
-            smallPadding
-              ? `${styles.smallPadding} ${styles.posterContent_el_content}`
-              : styles.posterContent_el_content
-          }
-        >
-          <div className={styles.posterContent_el_content_2}>
-            {actor && !IsMobile ? (
-              <div className={styles.boxPerformanceDate}>
-                <p className={styles.dateDay}>{data?.date} /</p>
-                <div className={styles.performanceDate}>
-                  <p className={styles.dateMonth}>{data?.month}</p>
-                  <p className={styles.time}>
-                    {data?.day} {data?.time?.slice(0, -3)}
-                  </p>
-                </div>
-              </div>
-            ) : (
-              <div className={styles.data}>
-                <div className={styles.posterDay}>{data?.date} /</div>
-                <div className={styles.posterTime}>
-                  <p>{data?.day}</p>
-                  <p>{data?.time?.slice(0, -3)}</p>
-                </div>
-                <div className={styles.posterMonth}>{data?.month}</div>
-              </div>
-            )}
-            <div className={styles.name}>
-              <div className={styles.posterDescription}>
-                <div className={styles.title}>{data?.title}</div>
-                <div className={styles.place}>{data?.place}</div>
-              </div>
-              <div className={styles.premier}>
-                {data?.isPremiere ? <span>Премьера</span> : <></>}
+export function PlaysLine(props) {
+  const { data, smallCard = false } = props
+  let playClass = styles.playLineConetnt
+  playClass += smallCard === true ? ` ${styles.smallCard}` : ''
+  return (
+    <>
+      <div className={styles.playLine}>
+        <div className={playClass}>
+          <div className={styles.playDate}>
+            <div className={styles.date}>{data?.date} /</div>
+            <div className={styles.monthTime}>
+              <div className={styles.month}>{data?.month}</div>
+              <div className={styles.time}>
+                {data?.day_of_week} {data?.time}
               </div>
             </div>
           </div>
-          <div className={styles.restrictionBlock}>
-            <div className={styles.rating}>{data?.rating}+</div>
+          <div className={styles.playTitle}>
+            <div>
+              <p className={styles.title}>{data?.title}</p>
+            </div>
+            {data?.isPremiere ? (
+              <p className={styles.premier}>Премьера</p>
+            ) : (
+              <></>
+            )}
+            <div className={styles.scene}>{data?.scene}</div>
+          </div>
+          <div>
+            <p className={styles.rating}>{data?.rating}+</p>
+          </div>
+          <div>
             <a className={styles.buy} href={data?.buy}>
               Купить билет
             </a>
           </div>
         </div>
       </div>
-    )
-  } else {
-    return <div>По заданным фильтрам ничего не найдено</div>
-  }
+    </>
+  )
 }

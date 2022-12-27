@@ -84,4 +84,9 @@
   &:focus {
     box-shadow: 0px 0px 0px 2px #fff;
   }
+
+  @media (max-width: 567px) {
+    min-width: unset;
+    width: 100%;
+  }
 }
