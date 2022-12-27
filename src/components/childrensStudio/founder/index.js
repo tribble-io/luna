@@ -13,12 +13,12 @@ export function ChildrenStudioFounder(props) {
                 <div className={styles.founderImg}>
                   <a
                     data-fancybox='description-gallery'
-                    href='/img/studio-founder.png'
+                    href='/img/children-studio/founder.webp'
                     data-caption='Сергей Борисович Проханов'
                     className={styles.sliderLink}
                   >
                     <img
-                      src='/img/studio-founder.png'
+                      src='/img/children-studio/founder.webp'
                       className={styles.sliderImg}
                     />
                   </a>

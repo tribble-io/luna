@@ -11,7 +11,7 @@ import { Pagination } from 'swiper'
 import styles from './TheaterRoles.module.scss'
 import { CreatePlaysCard } from '../playsCard'
 
-const TheaterRoles = ({ content, isLoading }) => {
+const TheaterRoles = ({ content, isLoading, popupOpen }) => {
   return (
     <section className={styles.boxTheaterRoles}>
       <p className={styles.theatricalRolesTitle}>РОЛИ В ТЕАТРЕ ЛУНЫ</p>
@@ -34,7 +34,11 @@ const TheaterRoles = ({ content, isLoading }) => {
             >
               {content?.map((item) => (
                 <SwiperSlide key={item?.id}>
-                  <CreatePlaysCard data={item} role={true} />
+                  <CreatePlaysCard
+                    data={item}
+                    role={true}
+                    popupOpen={popupOpen}
+                  />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -49,6 +53,7 @@ const TheaterRoles = ({ content, isLoading }) => {
                   data={item}
                   role={true}
                   key={`roles-card-${item?.id}`}
+                  popupOpen={popupOpen}
                 />
               ))}
         </div>

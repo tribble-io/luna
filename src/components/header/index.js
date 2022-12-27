@@ -144,23 +144,6 @@ function Header() {
             </div>
           </div>
         </div>
-        {/* <Link
-          to='/'
-          className={styles.logoContainer}
-          style={{
-            transition: 'all 0.3s linear',
-            opacity: opacityEl,
-          }}
-        >
-          <div className={styles.back_elipse} />
-          <img className={styles.moon_logo} src='/img/moon_logo.png' alt='' />
-          <img
-            className={styles.text_logo}
-            id={'href'}
-            src='/img/text_logo.png'
-            alt=''
-          />
-        </Link> */}
       </div>
     </header>
   )

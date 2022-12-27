@@ -13,7 +13,7 @@
 
   h2 {
     @include headline_second;
-    padding-bottom: 90px;
+    padding-bottom: 100px;
     @media (max-width: 500px) {
       padding-bottom: 40px;
     }
@@ -24,12 +24,6 @@
   }
 
   .reviewGrid {
-    padding-top: 90px;
-
-    @media (max-width: 500px) {
-      padding-top: 40px;
-    }
-
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;

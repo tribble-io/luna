@@ -78,10 +78,11 @@
 
   background-color: transparent;
   transition: box-shadow 0.6s linear;
+  border: none;
+  cursor: default;
 
   @media (max-width: 567px) {
-    min-width: unset;
-    width: 100%;
+    min-width: 100px;
   }
 }
 
