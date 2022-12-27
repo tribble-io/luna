@@ -290,6 +290,19 @@ async function documents(activeFilter) {
     return result.data
   }
 }
+
+async function exportContacData() {
+  const result = await axios.get(
+    `${API_URL}/api/contacts-page?populate=contact.person,contact.phone,contact.email`
+  )
+
+  if (result.status === 200) {
+    return result.data.data.contact
+  }
+
+  throw new Error("Can't export contact data")
+}
+
 export const api = {
   exportMainPage,
   exportShows,
@@ -314,4 +327,5 @@ export const api = {
   news,
   newsElNews,
   documents,
+  exportContacData,
 }
