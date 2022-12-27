@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './form.module.scss'
 import { CustomCheckbox } from '../../createElement'
 
-import { api } from '../../../api/index'
+import { api, API_URL } from '../../../api/index'
 
 import ReCAPTCHA from 'react-google-recaptcha'
 
@@ -123,7 +123,11 @@ export function CommentForm({ showID }) {
                     isActive={isActive}
                   />
                   <div className={styles.terms}>
-                    <a href='http://www.lunatheatre.ru/pages/polzovatelskoe-soglashenie'>
+                    <a
+                      href={`${API_URL}/uploads/Polzovatelskoe_soglashenie_f2e7e1a9d7.pdf`}
+                      target={'_blank'}
+                      rel='noreferrer'
+                    >
                       Пользовательское соглашение
                     </a>
                   </div>

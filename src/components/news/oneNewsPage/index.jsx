@@ -325,8 +325,9 @@ class OneOageNews extends React.Component {
                       Согласен (-на) на хранение и{' '}
                       <a
                         className={styles.linkData}
-                        href=' http://www.lunatheatre.ru/pages/polzovatelskoe-soglashenie'
+                        href={`${API_URL}/uploads/Polzovatelskoe_soglashenie_f2e7e1a9d7.pdf`}
                         target={'_blank'}
+                        rel='noreferrer'
                       >
                         обработку данных
                       </a>
