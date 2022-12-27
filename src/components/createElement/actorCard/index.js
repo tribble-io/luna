@@ -10,7 +10,7 @@ export function CreateActorCard({ data }) {
         <div className={styles.cardImg}>
           <Link
             className={styles.imageLink}
-            to={'/actor/' + data?.id}
+            to={'/person/' + data?.id}
             title='Перейти в профиль актера'
           >
             <img src={data?.src ?? noPhoto} alt={data?.name} />
@@ -19,7 +19,7 @@ export function CreateActorCard({ data }) {
         <div className={styles.actorCardText}>
           <Link
             className={styles.actorName}
-            to={'/actor/' + data?.id}
+            to={'/person/' + data?.id}
             title='Перейти в профиль актера'
           >
             {data?.name}

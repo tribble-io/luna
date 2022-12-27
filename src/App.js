@@ -51,7 +51,7 @@ function App() {
           <Route exact path='/news/*' element={<NewsConroller />} />
           <Route path='/contacts' element={<Contacts />} />
           <Route path='/scenes' element={<Scenes />} />
-          <Route path='/actor/:id' element={<PageDetailActor />} />
+          <Route path='/person/:id' element={<PageDetailActor />} />
           <Route path='/documents' element={<Documets />} />
           <Route path='*' element={<Navigate to='/404' replace />} />
           <Route path='/404' element={<PageNotFound />} />
