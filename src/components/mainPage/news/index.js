@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 import { API_URL } from '../../../api'
 import { IsMobile, getDateStr } from '../../../assets'
 import { NewsLine } from '../../createElement'
@@ -60,6 +61,7 @@ export function News({ itemsNews }) {
                           <div className={styles.newsText}>
                             <ReactMarkdown
                               children={cutToLength(data.text, 22)}
+                              rehypePlugins={[rehypeRaw]}
                             />
                           </div>
                           <Link
