@@ -40,7 +40,13 @@ function Nav() {
                 <div className={styles.subMenuBlock}>
                   <Link to='/romaska-awards'>Премия &#171;Ромашка&#187;</Link>
                   <Link to='/scenes'>Сцены</Link>
-                  <Link to='/'>Вакансии</Link>
+                  <a
+                    href='https://hh.ru/search/vacancy?from=employerPage&employer_id=3977447&hhtmFrom=employer'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Вакансии
+                  </a>
                   <Link to='/press'>Пресса о театре</Link>
                 </div>
               </div>
