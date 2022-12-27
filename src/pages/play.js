@@ -24,7 +24,7 @@ function getShowData(item) {
     rating: item?.rating,
     durationStr: item?.durationStr,
     premiereDateStr: item?.premiereDateStr,
-    scene: item?.scene.name,
+    scene: item?.scene?.name,
     body: item?.body,
   }
 }
@@ -110,6 +110,29 @@ function getPlayPress(arr) {
   }
 }
 
+function getComingShow(arr) {
+  if (arr !== null && arr.length > 0) {
+    const comingShow = arr.map((item) => {
+      return {
+        item: item,
+        id: item.id,
+        date: getDateStr(item?.date).date,
+        time: item?.time.slice(0, -3),
+        month: getDateStr(item?.date).month_name,
+        day_of_week: getDateStr(item?.date).day_of_week,
+        title: item?.play?.title,
+        isPremiere: item?.play?.isPremiere,
+        scene: item?.play?.scene?.name,
+        rating: item?.play?.rating,
+        buy: item?.tickets_link,
+      }
+    })
+    return comingShow
+  } else {
+    return []
+  }
+}
+
 export function Play() {
   const match = useMatch('/play/:id')
   const showID = match.params.id
@@ -137,7 +160,7 @@ export function Play() {
   useEffect(() => {
     Promise.all([api.exportComingShow(showID), api.exportShowData(showID)])
       .then((values) => {
-        setShowItems(values[0])
+        setShowItems(getComingShow(values[0]))
 
         setShowData(getShowData(values[1]))
         setDirectors(values[1]?.directors)
