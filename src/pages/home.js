@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { api } from '../api/index'
 import { uniqueBy, getDateStr } from '../assets/utils/usable-function'
-
+import { TicketPopUp } from '../components/ticketPopup'
 import {
   Slider,
   Calendar,
@@ -23,7 +23,7 @@ function getVideoLink(link) {
   }
 }
 
-function createTicketData(arr) {
+function createTicketData(arr, type, ticketDate) {
   if (arr !== null) {
     // Display only first 3 items
     const ticketData = arr.slice(0, 3).map((data) => {
@@ -41,7 +41,9 @@ function createTicketData(arr) {
         buy: data?.tickets_link,
       }
     })
-    return ticketData
+    return type === 'affiche'
+      ? ticketData.filter((data) => data.item.date === ticketDate)
+      : ticketData
   } else {
     return []
   }
@@ -58,6 +60,9 @@ export function Home() {
 
   const [ticketPlayID, setTicketPlayID] = useState(null)
   const [ticketData, setTicketData] = useState(null)
+  const [ticketPlayDate, setTicketPlayDate] = useState(null)
+  const [ticketPlayType, setTicketPlayType] = useState(null)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     Promise.all([api.exportMainPage(), api.exportShows(), api.exportArticles()])
@@ -86,22 +91,26 @@ export function Home() {
         api
           .exportTicketData(ticketPlayID)
           .then((response) => {
-            setTicketData(createTicketData(response))
+            setTicketData(
+              createTicketData(response, ticketPlayType, ticketPlayDate)
+            )
           })
           .catch((error) => {
             console.log(error)
           }))
       : null
-  }, [ticketPlayID])
+  }, [ticketPlayID, ticketPlayDate])
+
+  const popupOpen = (playID, type, date) => {
+    setOpen(true)
+    setTicketPlayID(playID)
+    setTicketPlayType(type)
+    setTicketPlayDate(date ?? null)
+  }
 
   return (
     <>
-      <Slider
-        firstDate={firstDate}
-        items={itemsSlider}
-        setTicketPlayID={setTicketPlayID}
-        ticketData={ticketData}
-      />
+      <Slider firstDate={firstDate} items={itemsSlider} popupOpen={popupOpen} />
       <main>
         {isLoading ? (
           <Loader />
@@ -110,8 +119,7 @@ export function Home() {
             <Calendar
               setFirstDate={setFirstDate}
               items={itemsAffiche}
-              setTicketPlayID={setTicketPlayID}
-              ticketData={ticketData}
+              popupOpen={popupOpen}
             />
             <VideoBlock link={videoLink} />
             <News itemsNews={itemsNews} />
@@ -119,6 +127,12 @@ export function Home() {
           </>
         )}
       </main>
+
+      <TicketPopUp
+        closePopup={() => setOpen(false)}
+        open={open}
+        data={ticketData}
+      />
     </>
   )
 }

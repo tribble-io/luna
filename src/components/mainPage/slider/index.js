@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { API_URL } from '../../../api'
 import { getDateStr } from '../../../assets'
-import { TicketPopUp } from '../../ticketPopup'
 import styles from './slider.module.scss'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -15,16 +14,10 @@ import './styles.css'
 import { Pagination, Autoplay, EffectFade } from 'swiper'
 
 export function Slider(props) {
-  const { items, firstDate, setTicketPlayID, ticketData } = props
-  const [open, setOpen] = useState(false)
+  const { items, firstDate, popupOpen } = props
   return (
     <>
       <section id='mainSlider'>
-        <TicketPopUp
-          closePopup={() => setOpen(false)}
-          open={open}
-          data={ticketData}
-        />
         <Swiper
           effect={'fade'}
           centeredSlides={true}
@@ -66,8 +59,7 @@ export function Slider(props) {
                         type='button'
                         className={styles.link}
                         onClick={() => {
-                          setOpen(true)
-                          setTicketPlayID(offer.id)
+                          popupOpen(offer?.id, 'slider')
                         }}
                       >
                         БИЛЕТЫ
