@@ -19,14 +19,6 @@ footer {
   height: 100%;
 }
 
-.divider {
-  background: url('../public/img/divider.png');
-  height: 10px;
-  max-width: 100%;
-
-  border: none;
-}
-
 hr {
   height: 3px;
   max-width: 100%;
