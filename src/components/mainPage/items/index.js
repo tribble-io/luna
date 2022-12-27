@@ -12,11 +12,11 @@ import styles from './item.module.scss'
 
 const PLACES = {
   'Малая сцена': {
-    name: 'малый зал',
+    name: 'малaя сцена',
     text_color: '#FEFFBB',
   },
   'Большая сцена': {
-    name: 'большой зал',
+    name: 'большая сцена',
     text_color: '#C5C5C5',
   },
   'Зал «Маленькая Луна»': {
