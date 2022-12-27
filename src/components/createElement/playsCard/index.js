@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import styles from './card.module.scss'
 import { Ripple, TextFormatter } from '../../createElement'
 
-export function CreatePlaysCard({ data, role = false }) {
+export function CreatePlaysCard(props) {
+  const { data, role = false, popupOpen } = props
   return (
     <>
       <div className={styles.cardContent}>
@@ -34,10 +35,16 @@ export function CreatePlaysCard({ data, role = false }) {
           <div className={styles.place}>{data?.scene?.name}</div>
           <div className={styles.ticket}>
             <div className={styles.buy}>
-              <a className={styles.link}>
+              <button
+                className={styles.link}
+                type='button'
+                onClick={() => {
+                  popupOpen(data?.id)
+                }}
+              >
                 БИЛЕТЫ
                 <Ripple duration={1000} color='#fff' />
-              </a>
+              </button>
             </div>
             <div className={styles.premiere}>
               {data?.isPremiere ? <span>Премьера</span> : <></>}

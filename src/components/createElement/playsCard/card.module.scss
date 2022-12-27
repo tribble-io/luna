@@ -148,26 +148,14 @@
       }
 
       .link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 50px;
-        padding: 10px 15px;
-        text-align: center;
+        @include button_white;
+        min-width: auto;
+        width: 100%;
         font-size: 14px;
-        cursor: default;
-
-        box-shadow: 0px 0px 0px 1px #fff;
-        transition: box-shadow 0.2s linear;
-        outline: #fff;
-
-        &:hover,
-        &:focus {
-          box-shadow: 0px 0px 0px 2px #fff;
-        }
+        color: $text-color;
 
         @media (max-width: 500px) {
-          box-shadow: 0px 0px 0px 1px $compl-color;
+          @include button_blue;
           color: $compl-color;
         }
       }
