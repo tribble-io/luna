@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { PlaysLine } from '../createElement'
 import styles from './popup.module.scss'
-import Loader from '../loader'
 
 /*
 Example of adding the PopUp component to a page, you can see a demo on this page src\components\mainPage\slider\index.js
@@ -54,14 +53,13 @@ export function TicketPopUp(props) {
       }}
       className={styles.overlay}
     >
-      <div className={styles.popup}>
-        <div
-          className={styles.popupContent}
-          ref={ref}
-          style={{
-            transform: open ? 'scale3d(1, 1, 1)' : 'scale3d(0.3, 0.3, 0.3)',
-          }}
-        >
+      <div
+        className={styles.popup}
+        style={{
+          transform: open ? 'scale3d(1, 1, 1)' : 'scale3d(0.3, 0.3, 0.3)',
+        }}
+      >
+        <div className={styles.popupContent} ref={ref}>
           <div className={styles.close}>
             <span onClick={closePopup}>
               <svg
@@ -81,27 +79,22 @@ export function TicketPopUp(props) {
           </div>
 
           <div className={styles.content}>
-            {/* If there is data, we display result, if not, we display loader */}
-            {data ? (
-              data.length > 0 ? (
-                <>
-                  <div className={styles.playsList}>
-                    {data.map((data) => (
-                      <PlaysLine data={data} key={data.id} smallCard={true} />
-                    ))}
-                  </div>
-                  <div className={styles.allDates}>
-                    <Link to='/scenes'>смотреть все даты</Link>
-                  </div>
-                </>
-              ) : (
-                // if the data exists, but there are no results from back
-                <p className={styles.noResult}>
-                  Нет ближайших показов данного спектакля
-                </p>
-              )
+            {data?.length > 0 ? (
+              <>
+                <div className={styles.playsList}>
+                  {data?.map((data) => (
+                    <PlaysLine data={data} key={data.id} smallCard={true} />
+                  ))}
+                </div>
+                <div className={styles.allDates}>
+                  <Link to='/scenes'>смотреть все даты</Link>
+                </div>
+              </>
             ) : (
-              <Loader />
+              // if the data exists, but there are no results from back
+              <p className={styles.noResult}>
+                Нет ближайших показов данного спектакля
+              </p>
             )}
           </div>
         </div>

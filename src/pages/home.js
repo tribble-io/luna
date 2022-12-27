@@ -58,10 +58,12 @@ export function Home() {
   const [isLoading, setIsLoading] = useState(true)
   const [firstDate, setFirstDate] = useState()
 
-  const [ticketPlayID, setTicketPlayID] = useState(null)
   const [ticketData, setTicketData] = useState(null)
-  const [ticketPlayDate, setTicketPlayDate] = useState(null)
-  const [ticketPlayType, setTicketPlayType] = useState(null)
+  const [ticketPlay, setTicketPlay] = useState({
+    date: '',
+    type: '',
+    id: '',
+  })
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -86,26 +88,27 @@ export function Home() {
   }, [])
 
   useEffect(() => {
-    setTicketData(null)
-    ticketPlayID
+    ticketPlay.id
       ? api
-          .exportTicketData(ticketPlayID)
+          .exportTicketData(ticketPlay.id)
           .then((response) => {
             setTicketData(
-              createTicketData(response, ticketPlayType, ticketPlayDate)
+              createTicketData(response, ticketPlay.type, ticketPlay.date)
             )
           })
           .catch((error) => {
             console.log(error)
           })
       : null
-  }, [ticketPlayID, ticketPlayDate])
+  }, [ticketPlay])
 
-  const popupOpen = (playID, type, date) => {
-    setOpen(true)
-    setTicketPlayID(playID)
-    setTicketPlayType(type)
-    setTicketPlayDate(date ?? null)
+  const popupOpen = (id, type, date) => {
+    setTicketPlay({ date: date ?? null, type, id })
+
+    //timeout for smooth display popup
+    setTimeout(() => {
+      setOpen(true)
+    }, 400)
   }
 
   return (
