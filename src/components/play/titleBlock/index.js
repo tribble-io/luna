@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './titleblock.module.scss'
 import ReactMarkdown from 'react-markdown'
+import rehypeRaw from 'rehype-raw'
 import ScrollIntoView from 'react-scroll-into-view'
 
 export function TitleBlock({ data }) {
@@ -43,7 +44,10 @@ export function About({ data, directors }) {
             <div className={styles.intro}>
               {data.body ? (
                 <div className={styles.description}>
-                  <ReactMarkdown children={data.body} />
+                  <ReactMarkdown
+                    children={data.body}
+                    rehypePlugins={[rehypeRaw]}
+                  />
                 </div>
               ) : (
                 <></>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { PlaysLine } from '../createElement'
 import styles from './popup.module.scss'
@@ -29,6 +29,21 @@ Trigger button example where offer.id is a play ID
 
 export function TicketPopUp(props) {
   const { closePopup, open, data } = props
+  const ref = useRef(null)
+
+  //Close Popup if click outside the content
+  useEffect(() => {
+    if (!open) return
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        closePopup && closePopup()
+      }
+    }
+    document.addEventListener('click', handleClickOutside, true)
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true)
+    }
+  }, [open])
 
   return (
     <div
@@ -39,7 +54,7 @@ export function TicketPopUp(props) {
       className={styles.overlay}
     >
       <div className={styles.popup}>
-        <div className={styles.popupContent}>
+        <div className={styles.popupContent} ref={ref}>
           <div className={styles.close}>
             <span onClick={closePopup}>
               <svg
@@ -65,11 +80,7 @@ export function TicketPopUp(props) {
                 <>
                   <div className={styles.playsList}>
                     {data.map((data) => (
-                      <PlaysLine
-                        data={data}
-                        key={data.id}
-                        smallPadding={true}
-                      />
+                      <PlaysLine data={data} key={data.id} smallCard={true} />
                     ))}
                   </div>
                   <div className={styles.allDates}>

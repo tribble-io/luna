@@ -12,11 +12,11 @@ import styles from './item.module.scss'
 
 const PLACES = {
   'Малая сцена': {
-    name: 'малый зал',
+    name: 'малaя сцена',
     text_color: '#FEFFBB',
   },
   'Большая сцена': {
-    name: 'большой зал',
+    name: 'большая сцена',
     text_color: '#C5C5C5',
   },
   'Зал «Маленькая Луна»': {
@@ -124,7 +124,9 @@ export function Item(props) {
               </Link>
               <div className={styles.posterInfo}>
                 <div className={styles.mainInfo}>
-                  <div className={styles.title}>{item?.play?.title}</div>
+                  <Link to={`play/${item?.play?.id}`} className={styles.title}>
+                    {item?.play?.title}
+                  </Link>
                   <div className={styles.dateRatingContainer}>
                     <div className={styles.date}>
                       {getDateStr(item?.date).date}

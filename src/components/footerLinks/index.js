@@ -30,7 +30,13 @@ export function FooterLinks() {
           </div>
           <div className={styles.linkBlock}>
             <p className={styles.linkTitle}></p>
-            <Link to='/'>вакансии</Link>
+            <a
+              href='https://hh.ru/search/vacancy?from=employerPage&employer_id=3977447&hhtmFrom=employer'
+              target='_blank'
+              rel='noreferrer'
+            >
+              вакансии
+            </a>
             <Link to='/news'>новости</Link>
             <Link to='/press'>пресса</Link>
             <Link to='/contacts'>контакты</Link>

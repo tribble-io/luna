@@ -13,8 +13,10 @@
   color: #fff;
   cursor: default;
 
-  &:hover {
-    box-shadow: 0px 0px 15px #beb8a2;
+  @media (min-width: 576px) {
+    &:hover {
+      box-shadow: 0px 0px 15px #beb8a2;
+    }
   }
 
   .imgLink {
@@ -56,6 +58,10 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 160%;
+
+      &:hover {
+        color: #9fb2e6;
+      }
     }
 
     .dateRatingContainer {
