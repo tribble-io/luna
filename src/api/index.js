@@ -219,10 +219,12 @@ async function exportShowPersons() {
 }
 
 async function exportSceneDocs() {
-  const result = await axios.get(`${API_URL}/api/assets/3?populate=docs.file`)
+  const result = await axios.get(
+    `${API_URL}/api/scene-page?populate=bigScene.photos,bigScene.docs.file,smallScene.photos,smallScene.docs.file,childrenScene.photos,childrenScene.docs.file`
+  )
 
   if (result.status === 200) {
-    return result.data.data.docs
+    return result.data.data
   }
 
   throw new Error("Can't export scene docs")
@@ -302,6 +304,19 @@ async function documents(activeFilter) {
     return result.data
   }
 }
+
+async function exportContacData() {
+  const result = await axios.get(
+    `${API_URL}/api/contacts-page?populate=contact.person,contact.phone,contact.email`
+  )
+
+  if (result.status === 200) {
+    return result.data.data.contact
+  }
+
+  throw new Error("Can't export contact data")
+}
+
 export const api = {
   exportMainPage,
   exportShows,
@@ -327,4 +342,5 @@ export const api = {
   news,
   newsElNews,
   documents,
+  exportContacData,
 }

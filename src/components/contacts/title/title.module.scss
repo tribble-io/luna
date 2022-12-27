@@ -28,6 +28,7 @@
 .contactsInfo {
   padding-top: 200px;
   padding-bottom: 350px;
+  cursor: default;
 
   @media (max-width: 768px) {
     padding-top: 150px;
@@ -59,7 +60,6 @@
 
     h2 {
       @include headline_second;
-      margin-bottom: 30px;
       line-height: 160%;
 
       @media (min-width: 992px) {
@@ -71,21 +71,39 @@
       max-width: 500px;
     }
 
+    .contactItem {
+      margin-top: 30px;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      color: #ffffff;
+
+      @media (max-width: 500px) {
+        font-size: 14px;
+      }
+    }
+
     .subTitle {
       color: #797894;
       text-transform: uppercase;
       font-weight: 700;
       font-size: 14px;
-      line-height: 160%;
-      margin-top: 30px;
+      margin-bottom: 15px;
 
       @media (max-width: 500px) {
         font-size: 12px;
+        margin-bottom: 10px;
       }
     }
 
     .contactsLink {
-      margin-top: 1rem;
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+
       a {
         display: inline-block;
         text-transform: uppercase;
@@ -96,7 +114,6 @@
 
         @media (max-width: 500px) {
           font-size: 14px;
-          margin-top: 10px;
         }
       }
     }
@@ -106,30 +123,27 @@
       margin-left: 10px;
     }
 
-    .text {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 160%;
-      color: #ffffff;
+    .workHours {
       margin-top: 10px;
-
-      @media (max-width: 500px) {
-        font-size: 14px;
-      }
     }
 
     .proffActors {
       margin-top: 60px;
 
-      .text {
+      p {
         margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 160%;
+        color: #ffffff;
 
         @media (max-width: 500px) {
+          font-size: 14px;
           margin-bottom: 30px;
         }
       }
 
-      .proffActorsList {
+      ol {
         padding-left: 1rem;
 
         li {
