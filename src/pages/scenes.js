@@ -1,57 +1,71 @@
 import React, { useEffect, useState } from 'react'
 import { api, API_URL } from '../api/index'
+import Loader from '../components/loader'
 
-import { SceneBlock } from '../components/scenes'
+import { SceneBlock, SceneContainer } from '../components/scenes'
 
-function findSceneDoc(arr, index) {
-  const docs = arr.find((item) => item.id === index)
-  return docs.file.url
+const getScene = (scenes) => {
+  return {
+    docs: scenes?.docs?.map((doc) => {
+      return {
+        id: doc?.id,
+        title: doc?.title,
+        url: API_URL + doc?.file?.url,
+      }
+    }),
+    photos: scenes?.photos?.map((photo) => {
+      return {
+        id: photo?.id,
+        href: API_URL + photo?.url,
+        src: API_URL + photo?.formats?.thumbnail?.url,
+        caption: photo.caption ? photo?.caption : '',
+      }
+    }),
+  }
 }
 
-function getSceneDoc(arr) {
+const getScenesData = (arr) => {
   if (arr !== null) {
-    const sceneDoc = {
-      big: {
-        techn_plan: API_URL + findSceneDoc(arr, 1),
-        light_scheme: API_URL + findSceneDoc(arr, 2),
-        sound_scheme: API_URL + findSceneDoc(arr, 3),
-      },
-      small: {
-        techn_plan: API_URL + findSceneDoc(arr, 4),
-        light_scheme: API_URL + findSceneDoc(arr, 5),
-        sound_scheme: API_URL + findSceneDoc(arr, 6),
-      },
-      luna: {
-        techn_plan: API_URL + findSceneDoc(arr, 7),
-        sound_scheme: API_URL + findSceneDoc(arr, 8),
-      },
+    return {
+      bigScene: getScene(arr.bigScene),
+      smallScene: getScene(arr.smallScene),
+      childrenScene: getScene(arr.childrenScene),
     }
-    return sceneDoc
   } else {
     return []
   }
 }
 
 export function Scenes() {
-  const [items, setItems] = useState({
-    big: { techn_plan: '', light_scheme: '', sound_scheme: '' },
-    small: { techn_plan: '', light_scheme: '', sound_scheme: '' },
-    luna: { techn_plan: '', sound_scheme: '' },
-  })
+  const [items, setItems] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     api
       .exportSceneDocs()
       .then((response) => {
-        setItems(getSceneDoc(response))
+        setItems(getScenesData(response))
+        setIsLoading(false)
       })
       .catch((error) => {
         console.log(error)
+        setIsLoading(false)
       })
   }, [])
 
   return (
     <main>
-      <SceneBlock docs={items} />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <SceneContainer>
+          <SceneBlock items={items.bigScene} title='Большая сцена' />
+          <SceneBlock items={items.smallScene} title='малая сцена' />
+          <SceneBlock
+            items={items.childrenScene}
+            title='сцена «маленькая луна»'
+          />
+        </SceneContainer>
+      )}
     </main>
   )
 }

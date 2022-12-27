@@ -62,50 +62,12 @@
       }
     }
 
-    .scenePhotoList {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: repeat(2, 1fr);
-      column-gap: 20px;
-      row-gap: 16px;
-
+    .sceneSlider {
       margin-bottom: 100px;
 
       @media (max-width: 500px) {
-        grid-template-columns: 1fr 1fr;
         margin-bottom: 50px;
       }
-
-      .scenePhotoBig {
-        grid-row: span 2;
-
-        img {
-          width: auto;
-          height: 100%;
-        }
-      }
-    }
-
-    .photoLink {
-      display: block;
-      overflow: hidden;
-      height: 100%;
-    }
-
-    .photo {
-      object-fit: cover;
-      backface-visibility: hidden;
-      transition: transform 0.7s ease-in-out;
-
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
-
-    img {
-      max-width: 100%;
-      width: 100%;
-      height: auto;
     }
 
     .sceneScheme {

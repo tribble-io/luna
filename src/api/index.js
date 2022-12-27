@@ -207,10 +207,12 @@ async function exportShowPersons() {
 }
 
 async function exportSceneDocs() {
-  const result = await axios.get(`${API_URL}/api/assets/3?populate=docs.file`)
+  const result = await axios.get(
+    `${API_URL}/api/scene-page?populate=bigScene.photos,bigScene.docs.file,smallScene.photos,smallScene.docs.file,childrenScene.photos,childrenScene.docs.file`
+  )
 
   if (result.status === 200) {
-    return result.data.data.docs
+    return result.data.data
   }
 
   throw new Error("Can't export scene docs")
