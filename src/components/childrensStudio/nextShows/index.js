@@ -30,14 +30,12 @@ export function ChildrenNextShows(props) {
                         <PlaysLine
                           data={data}
                           key={`lays-line-${data.id}-${index}`}
-                          actor={actor}
                         />
                       ))
                   : items?.map((data, index) => (
                       <PlaysLine
                         data={data}
                         key={`lays-line-${data.id}-${index}`}
-                        actor={actor}
                       />
                     ))}
               </div>
