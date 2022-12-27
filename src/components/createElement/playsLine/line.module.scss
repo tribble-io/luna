@@ -5,6 +5,7 @@
   font-weight: 400;
   color: $text-color;
   border-bottom: 1px solid $text-color;
+  cursor: default;
 
   &:first-child {
     border-top: 1px solid $text-color;
@@ -191,10 +192,10 @@
   }
 
   .buy {
-    @include button_white;
+    @include button_blue;
     cursor: default;
 
-    color: inherit;
+    color: $compl-color;
     font-size: 14px;
 
     @media (max-width: 567px) {
