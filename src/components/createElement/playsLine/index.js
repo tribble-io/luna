@@ -1,6 +1,28 @@
 import React from 'react'
 import styles from './line.module.scss'
 
+/*
+Example of adding the PlayLine component to a page, you can see a demo on this page src\components\play\comingShow\index.js
+
+Add component tag and props to the parent page where data is array with parameters for the component
+<PlaysLine data={data} key={`play-line-${data.id}`} />
+
+smallCard is an optional boolet param for small version play card, by default is false
+
+Parameters List
+data: {
+  buy: 'httpls://',
+  date: 5,
+  day_of_week: 'пн',
+  isPremiere: true,
+  month: 'декабря',
+  place: 'Большая сцена',
+  rating: 12,
+  time: '19:00',
+  title: 'Эдит Пиаф. Гимн Любви'
+}
+*/
+
 export function PlaysLine(props) {
   const { data, smallCard = false } = props
   let playClass = `${styles.playLine}`
