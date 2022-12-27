@@ -86,9 +86,9 @@ export function Home() {
   }, [])
 
   useEffect(() => {
+    setTicketData(null)
     ticketPlayID
-      ? (setTicketData(null),
-        api
+      ? api
           .exportTicketData(ticketPlayID)
           .then((response) => {
             setTicketData(
@@ -97,7 +97,7 @@ export function Home() {
           })
           .catch((error) => {
             console.log(error)
-          }))
+          })
       : null
   }, [ticketPlayID, ticketPlayDate])
 

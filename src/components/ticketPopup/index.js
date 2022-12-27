@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { PlaysLine } from '../createElement'
 import styles from './popup.module.scss'
+import Loader from '../loader'
 
 /*
 Example of adding the PopUp component to a page, you can see a demo on this page src\components\mainPage\slider\index.js
@@ -54,7 +55,13 @@ export function TicketPopUp(props) {
       className={styles.overlay}
     >
       <div className={styles.popup}>
-        <div className={styles.popupContent} ref={ref}>
+        <div
+          className={styles.popupContent}
+          ref={ref}
+          style={{
+            transform: open ? 'scale3d(1, 1, 1)' : 'scale3d(0.3, 0.3, 0.3)',
+          }}
+        >
           <div className={styles.close}>
             <span onClick={closePopup}>
               <svg
@@ -94,7 +101,7 @@ export function TicketPopUp(props) {
                 </p>
               )
             ) : (
-              <div className={styles.loader}>Loading...</div>
+              <Loader />
             )}
           </div>
         </div>
