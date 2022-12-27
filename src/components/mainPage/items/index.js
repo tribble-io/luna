@@ -124,7 +124,9 @@ export function Item(props) {
               </Link>
               <div className={styles.posterInfo}>
                 <div className={styles.mainInfo}>
-                  <div className={styles.title}>{item?.play?.title}</div>
+                  <Link to={`play/${item?.play?.id}`} className={styles.title}>
+                    {item?.play?.title}
+                  </Link>
                   <div className={styles.dateRatingContainer}>
                     <div className={styles.date}>
                       {getDateStr(item?.date).date}
