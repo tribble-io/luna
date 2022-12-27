@@ -55,7 +55,7 @@ export function PlaysLine(props) {
             <p className={styles.rating}>{data?.rating}+</p>
           </div>
           <div className={styles.playButton}>
-            <a className={styles.buy} href={data?.buy}>
+            <a className={styles.buy} href={data?.buy} target='_self'>
               Купить билет
             </a>
           </div>
