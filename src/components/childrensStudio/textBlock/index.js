@@ -33,12 +33,12 @@ export function ChildrenDescription() {
                 <div className={styles.descriptionImg}>
                   <a
                     data-fancybox='description-gallery'
-                    href='/img/children-studio/description-1.png'
+                    href='/img/children-studio/description-1.webp'
                     data-caption='Спектакль «Алые паруса»'
                     className={styles.sliderLink}
                   >
                     <img
-                      src='/img/children-studio/description-1.png'
+                      src='/img/children-studio/description-1.webp'
                       className={styles.sliderImg}
                     />
                   </a>
@@ -52,12 +52,12 @@ export function ChildrenDescription() {
                 <div className={styles.descriptionImg}>
                   <a
                     data-fancybox='description-gallery'
-                    href='/img/children-studio/description-2.png'
+                    href='/img/children-studio/description-2.webp'
                     data-caption='Спектакль «Оскар и Розовая Дама»'
                     className={styles.sliderLink}
                   >
                     <img
-                      src='/img/children-studio/description-2.png'
+                      src='/img/children-studio/description-2.webp'
                       className={styles.sliderImg}
                     />
                   </a>
@@ -86,12 +86,12 @@ export function ChildrenDescription() {
                 <div className={styles.descriptionImg}>
                   <a
                     data-fancybox='description-gallery'
-                    href='/img/children-studio/description-3.png'
+                    href='/img/children-studio/description-3.webp'
                     data-caption='Спектакль «Наш 9 «Б»»'
                     className={styles.sliderLink}
                   >
                     <img
-                      src='/img/children-studio/description-3.png'
+                      src='/img/children-studio/description-3.webp'
                       className={styles.sliderImg}
                     />
                   </a>
@@ -127,12 +127,12 @@ export function ChildrenStudioTask(props) {
               <div className={styles.descriptionImg}>
                 <a
                   data-fancybox='description-gallery'
-                  href='/img/children-studio/description-4.png'
+                  href='/img/children-studio/description-4.webp'
                   data-caption='Спектакль "Фанта-Инфанта"'
                   className={styles.sliderLink}
                 >
                   <img
-                    src='/img/children-studio/description-4.png'
+                    src='/img/children-studio/description-4.webp'
                     className={styles.sliderImg}
                   />
                 </a>
