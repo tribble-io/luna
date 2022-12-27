@@ -32,16 +32,16 @@ export function Slider(props) {
           }}
         >
           {items.map((offer) => (
-            <SwiperSlide
-              key={offer.id}
-              style={{
-                background: `url(${
-                  API_URL + offer?.cover?.url
-                }) no-repeat top / cover`,
-                backgroundColor: '#08091D',
-              }}
-            >
+            <SwiperSlide key={offer.id}>
               <div className={styles.slide}>
+                <Link to={`/play/${offer?.id}`} className={styles.bgContainer}>
+                  <div
+                    className={styles.sliderBgImage}
+                    style={{
+                      backgroundImage: `url(${API_URL + offer?.cover?.url})`,
+                    }}
+                  ></div>
+                </Link>
                 <div className={styles.wrapper}>
                   <div className={styles.sliderContent}>
                     <div className={styles.sliderTopCont}>
