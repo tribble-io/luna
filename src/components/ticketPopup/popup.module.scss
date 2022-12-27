@@ -1,20 +1,13 @@
 @import '../../assets/main.scss';
 
 .overlay {
-  visibility: hidden;
-  opacity: 0;
-
   position: fixed;
   z-index: 6;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-
   background: rgba(0, 0, 0, 0.3);
-  transition: opacity 0.5s;
-  will-change: opacity;
-
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -43,9 +36,17 @@
   padding: 25px 20px 38px;
   background: #20223d;
 
+  will-change: transform;
+  transition: transform 0.7s ease-out;
+
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: $text-color;
+
+  @media (min-width: 768px) {
+    min-width: 550px;
+    min-height: 180px;
+  }
 
   @media (max-width: 567px) {
     width: 100%;

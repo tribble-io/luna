@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { API_URL } from '../../../api'
 import { getDateStr } from '../../../assets'
-import { TicketPopUp } from '../../ticketPopup'
 import styles from './slider.module.scss'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -15,16 +14,10 @@ import './styles.css'
 import { Pagination, Autoplay, EffectFade } from 'swiper'
 
 export function Slider(props) {
-  const { items, firstDate, setTicketPlayID, ticketData } = props
-  const [open, setOpen] = useState(false)
+  const { items, firstDate, popupOpen } = props
   return (
     <>
       <section id='mainSlider'>
-        <TicketPopUp
-          closePopup={() => setOpen(false)}
-          open={open}
-          data={ticketData}
-        />
         <Swiper
           effect={'fade'}
           centeredSlides={true}
@@ -39,16 +32,16 @@ export function Slider(props) {
           }}
         >
           {items.map((offer) => (
-            <SwiperSlide
-              key={offer.id}
-              style={{
-                background: `url(${
-                  API_URL + offer?.cover?.url
-                }) no-repeat top / cover`,
-                backgroundColor: '#08091D',
-              }}
-            >
+            <SwiperSlide key={offer.id}>
               <div className={styles.slide}>
+                <Link to={`/play/${offer?.id}`} className={styles.bgContainer}>
+                  <div
+                    className={styles.sliderBgImage}
+                    style={{
+                      backgroundImage: `url(${API_URL + offer?.cover?.url})`,
+                    }}
+                  ></div>
+                </Link>
                 <div className={styles.wrapper}>
                   <div className={styles.sliderContent}>
                     <div className={styles.sliderTopCont}>
@@ -66,8 +59,7 @@ export function Slider(props) {
                         type='button'
                         className={styles.link}
                         onClick={() => {
-                          setOpen(true)
-                          setTicketPlayID(offer.id)
+                          popupOpen(offer?.id, 'slider')
                         }}
                       >
                         БИЛЕТЫ

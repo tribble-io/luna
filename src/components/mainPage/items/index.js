@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getDateStr, WINDOW_SCREEN } from '../../../assets'
 import { API_URL } from '../../../api'
-import { TicketPopUp } from '../../ticketPopup'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
 import 'swiper/css'
@@ -26,13 +25,9 @@ const PLACES = {
 }
 
 export function Item(props) {
-  const { items, selected, setTicketPlayID, ticketData } = props
+  const { items, selected, popupOpen } = props
   const [swiper, setSwiper] = useState(null)
   const [addSliders, setAddSliders] = useState([])
-  const [open, setOpen] = useState(false)
-  //Needed to filter the data for ticketPopUp by the day indicated on the play card
-  const [ticketDate, setTicketDate] = useState(null)
-  const [ticketFilterData, setTicketFilterData] = useState(ticketData)
 
   function getSelectedDate(element, index) {
     const selectedDate = getDateStr(selected)
@@ -66,25 +61,12 @@ export function Item(props) {
     swiper && swiper.slideTo(selectedSlideIndex)
   }, [selected])
 
-  useEffect(() => {
-    //Filtering by day, which is indicated in the play card
-    const filterData = ticketData
-      ? ticketData.filter((data) => data.item.date === ticketDate)
-      : ticketData
-    setTicketFilterData(filterData)
-  }, [ticketData, ticketDate])
-
   function itemCheckPlace(item) {
     return PLACES[item.play.scene.name]
   }
 
   return (
     <>
-      <TicketPopUp
-        closePopup={() => setOpen(false)}
-        open={open}
-        data={ticketFilterData}
-      />
       <Swiper
         onSwiper={setSwiper}
         slidesPerView='auto'
@@ -149,9 +131,7 @@ export function Item(props) {
                     type='button'
                     className={styles.buy}
                     onClick={() => {
-                      setOpen(true)
-                      setTicketPlayID(item?.play?.id)
-                      setTicketDate(item?.date)
+                      popupOpen(item?.play?.id, 'affiche', item?.date)
                     }}
                   >
                     БИЛЕТЫ
