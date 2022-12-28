@@ -64,9 +64,9 @@
       text-decoration: underline;
       text-underline-position: under;
       text-decoration-color: transparent;
-      
+
       &:hover {
-          text-decoration-color: $text-color;
+        text-decoration-color: $text-color;
       }
     }
 
