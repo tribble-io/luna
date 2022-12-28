@@ -26,7 +26,7 @@ nav {
 
     padding-left: 30px;
     box-sizing: border-box;
-    position: relative;
+    // position: relative;
   }
 
   ul {
@@ -76,7 +76,7 @@ nav {
     position: absolute;
     top: 100%;
     width: 100vw;
-    right: -5vw;
+    right: 0;
     // left: -60px;
 
     background: #08091d;
@@ -168,9 +168,14 @@ nav {
     height: 269px;
     width: 440px;
     bottom: 21px;
-    right: -3.75%;
+    right: 1%;
     transition: all 0.5s !important;
     display: flex;
+
+    @media (max-width: 1340px) {
+      right: -2%;
+
+    }
 
     @media (max-width: 1200px) {
       bottom: -55%;
