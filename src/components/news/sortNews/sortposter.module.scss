@@ -6,6 +6,14 @@
   @media (max-width: 1200px) {
     padding-top: 100px;
   }
+  .closeCaledar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
 }
 
 .sortHeader {
