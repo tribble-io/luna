@@ -200,6 +200,12 @@ const SortNews = (props) => {
 
   return (
     <section className={styles.sortHeaderSection}>
+      {open ? (
+        <div
+          className={styles.closeCaledar}
+          onClick={() => openClosedCalendar(false)}
+        ></div>
+      ) : null}
       <div className={styles.sortHeader}>
         <h1>НОВОСТИ ТЕАТРА</h1>
         <div className={styles.sortBlockMain}>

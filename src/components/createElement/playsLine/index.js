@@ -59,7 +59,12 @@ export function PlaysLine(props) {
             <p className={styles.rating}>{data?.rating}+</p>
           </div>
           <div className={styles.playButton}>
-            <a className={styles.buy} href={data?.buy} target='_self'>
+            <a
+              className={styles.buy}
+              href={data?.buy}
+              target='_blank'
+              rel='noreferrer'
+            >
               Купить билет
             </a>
           </div>

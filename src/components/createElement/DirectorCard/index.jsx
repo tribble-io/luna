@@ -9,7 +9,7 @@ const DirectorCard = ({ data }) => {
           <a
             className={styles.imageLink}
             href={'person/' + data?.id}
-            title='Перейти в профиль актера'
+            title={data.titleLink}
           >
             <img src={data?.src} alt={data?.name} />
           </a>
@@ -18,7 +18,7 @@ const DirectorCard = ({ data }) => {
           <a
             className={styles.actorName}
             href={'person/' + data?.id}
-            title='Перейти в профиль актера'
+            title={data.titleLink}
           >
             {data?.name}
           </a>
