@@ -23,7 +23,11 @@ export function Laureate({ data }) {
                       </p>
                       <div className={styles.actorsList}>
                         {plays.roles.map((role) => (
-                          <CreateActorCard data={role} key={role.id} />
+                          <CreateActorCard
+                            data={role}
+                            key={role.id}
+                            nameWrap={false}
+                          />
                         ))}
                       </div>
                     </div>

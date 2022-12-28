@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom'
 import noPhoto from '../../../assets/img/no-photo-actor.jpg'
 import styles from './card.module.scss'
 
-export function CreateActorCard({ data }) {
+/*
+  nameWrap param controls actor name wrapping (one line or two), by default is true
+*/
+
+export function CreateActorCard(props) {
+  const { data, nameWrap = true } = props
   return (
     <>
       <div className={styles.cardContent}>
@@ -19,6 +24,9 @@ export function CreateActorCard({ data }) {
         <div className={styles.actorCardText}>
           <Link
             className={styles.actorName}
+            style={{
+              display: nameWrap ? 'table-caption' : 'block',
+            }}
             to={'/person/' + data?.id}
             title='Перейти в профиль актера'
           >

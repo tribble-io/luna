@@ -45,7 +45,7 @@
     gap: 50px;
 
     &:not(:last-child) {
-      margin-bottom: 76px;
+      margin-bottom: 95px;
 
       @media (max-width: 500px) {
         margin-bottom: 100px;
@@ -130,12 +130,13 @@
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: auto;
       column-gap: 20px;
-      row-gap: 20px;
+      row-gap: 60px;
 
       padding-top: 60px;
 
       @media (max-width: 500px) {
         padding-top: 40px;
+        row-gap: 40px;
       }
     }
   }
