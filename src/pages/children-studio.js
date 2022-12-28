@@ -21,7 +21,7 @@ function getNextShow(arr) {
       item: item,
       id: item?.play?.id,
       date: getDateStr(item?.date).date,
-      time: item?.time,
+      time: item?.time.slice(0, -3),
       month: getDateStr(item?.date).month_name_case,
       day: getDateStr(item?.date).day_of_week,
       title: item?.play?.title,

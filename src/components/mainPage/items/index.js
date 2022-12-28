@@ -62,7 +62,7 @@ export function Item(props) {
   }, [selected])
 
   function itemCheckPlace(item) {
-    return PLACES[item.play.scene.name]
+    return PLACES[item?.scene]
   }
 
   return (
@@ -97,7 +97,7 @@ export function Item(props) {
                 '--text-color': itemCheckPlace(item)?.text_color,
               }}
             >
-              <Link to={`play/${item?.play?.id}`} className={styles.imgLink}>
+              <Link to={`play/${item?.id}`} className={styles.imgLink}>
                 <img
                   className={styles.cardImg}
                   src={API_URL + item?.play?.cover?.formats?.small?.url}
@@ -106,21 +106,21 @@ export function Item(props) {
               </Link>
               <div className={styles.posterInfo}>
                 <div className={styles.mainInfo}>
-                  <Link to={`play/${item?.play?.id}`} className={styles.title}>
+                  <Link to={`play/${item?.play_id}`} className={styles.title}>
                     {item?.play?.title}
                   </Link>
                   <div className={styles.dateRatingContainer}>
                     <div className={styles.date}>
-                      {getDateStr(item?.date).date}
+                      {item?.date}
                       {'.'}
-                      {getDateStr(item?.date).month}
+                      {item?.monthNum}
                       <img
                         src='/img/moon_poster.png'
                         alt=''
                         className={styles.moonPoster}
                       />
                     </div>
-                    <div className={styles.rating}>{item?.play?.rating}+</div>
+                    <div className={styles.rating}>{item?.rating}+</div>
                   </div>
                 </div>
                 <div className={styles.buyTicket}>
@@ -131,7 +131,7 @@ export function Item(props) {
                     type='button'
                     className={styles.buy}
                     onClick={() => {
-                      popupOpen(item?.play?.id, 'affiche', item?.date)
+                      popupOpen(item?.play_id, 'affiche', item?.full_date)
                     }}
                   >
                     БИЛЕТЫ

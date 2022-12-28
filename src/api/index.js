@@ -5,7 +5,7 @@ const TODAY_DAY = new Date().toISOString().slice(0, 10)
 
 async function exportMainPage() {
   const result = await axios.get(
-    `${API_URL}/api/main-page?populate=plays.cover,partners.logo`
+    `${API_URL}/api/main-page?populate=plays.cover,plays.shows,partners.logo`
   )
 
   if (result.status === 200) {
