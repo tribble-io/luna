@@ -17,7 +17,7 @@ import Loader from '../components/loader'
 
 // We create a link of a /embed/ format for the correct display of the video by API
 function getVideoLink(link) {
-  if (link) {
+  if (link && link.length > 0) {
     const linkSplit = link.split(['/watch?v='])
     const newLink = linkSplit[0] + '/embed/' + linkSplit[1]
 
