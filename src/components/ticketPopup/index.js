@@ -96,7 +96,7 @@ export function TicketPopUp(props) {
                     ))}
                   </div>
                   <div className={styles.allDates}>
-                    <Link to='/scenes' target='_blank'>
+                    <Link to='/scenes' target='_self'>
                       смотреть все даты
                     </Link>
                   </div>
