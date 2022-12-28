@@ -37,7 +37,7 @@ export function Item(props) {
       selectedDate.month < 10 ? '0' + selectedDate.month : selectedDate.month
     const selecteDate = `${selectedDate.year}-${getMonthHref}-${getDateHref}`
 
-    if (element.date !== selecteDate) {
+    if (element.full_date !== selecteDate) {
       return false
     }
 
