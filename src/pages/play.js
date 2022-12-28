@@ -51,9 +51,9 @@ function getShowPhoto(arr) {
     const photo = arr.map((item) => {
       return {
         id: item.id,
-        href: API_URL + item?.formats?.large?.url,
-        src: API_URL + item?.formats?.small?.url,
-        caption: '',
+        original: API_URL + item?.url,
+        preview: item?.formats,
+        caption: item?.caption,
       }
     })
     return photo

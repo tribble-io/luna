@@ -5,22 +5,26 @@ import Loader from '../components/loader'
 import { SceneBlock, SceneContainer } from '../components/scenes'
 
 const getScene = (scenes) => {
-  return {
-    docs: scenes?.docs?.map((doc) => {
-      return {
-        id: doc?.id,
-        title: doc?.title,
-        url: API_URL + doc?.file?.url,
-      }
-    }),
-    photos: scenes?.photos?.map((photo) => {
-      return {
-        id: photo?.id,
-        href: API_URL + photo?.url,
-        src: API_URL + photo?.formats?.thumbnail?.url,
-        caption: photo.caption ? photo?.caption : '',
-      }
-    }),
+  if (scenes !== null) {
+    return {
+      docs: scenes?.docs?.map((doc) => {
+        return {
+          id: doc?.id,
+          title: doc?.title,
+          url: API_URL + doc?.file?.url,
+        }
+      }),
+      photos: scenes?.photos?.map((photo) => {
+        return {
+          id: photo?.id,
+          original: API_URL + photo?.url,
+          preview: photo?.formats,
+          caption: photo?.caption ?? '',
+        }
+      }),
+    }
+  } else {
+    return []
   }
 }
 

@@ -27,6 +27,7 @@ export function Laureate({ data }) {
                             data={role}
                             key={role.id}
                             troupeGrig={true}
+
                           />
                         ))}
                       </div>

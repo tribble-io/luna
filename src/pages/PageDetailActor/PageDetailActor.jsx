@@ -106,9 +106,9 @@ const PageDetailActor = () => {
     gallery?.filter(({ media, caption }) => {
       if (media.id) {
         arr.push({
-          src: API_URL + media.url,
+          preview: media.formats,
           caption,
-          href: API_URL + media.url,
+          original: API_URL + media.url,
           ...media,
         })
       }

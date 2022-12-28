@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import noPhoto from '../../../assets/img/no-photo-actor.jpg'
 import styles from './card.module.scss'
 
+
 export function CreateActorCard({ data, troupeGrig = false }) {
   return (
     <>
@@ -18,6 +19,7 @@ export function CreateActorCard({ data, troupeGrig = false }) {
         </div>
         <div className={styles.actorCardText}>
           <Link
+
             className={
               troupeGrig
                 ? `${styles.actorName} ${styles.actorNameTroupe}`

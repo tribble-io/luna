@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from './photo-slider.module.scss'
+import { API_URL } from '../../../api/index'
+import noPhoto from '../../../assets/img/no-photo-actor.jpg'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
@@ -65,14 +67,19 @@ export function PhotoSlider(props) {
                       <div className={styles.cardImg}>
                         <a
                           data-fancybox='gallery'
-                          href={bigSlide.href}
-                          data-caption={bigSlide.caption}
+                          href={bigSlide.original}
+                          data-caption={bigSlide.caption ?? ''}
                           className={styles.sliderLink}
                         >
                           <img
                             className={styles.sliderImg}
                             alt=''
-                            src={bigSlide.src}
+                            src={
+                              API_URL +
+                              (bigSlide.preview?.medium?.url ??
+                                bigSlide.preview?.small?.url ??
+                                bigSlide.preview?.thumbnail?.url)
+                            }
                           />
                         </a>
                       </div>
@@ -87,14 +94,19 @@ export function PhotoSlider(props) {
                             <div className={styles.cardImg} key={item.id}>
                               <a
                                 data-fancybox='gallery'
-                                href={item.href}
-                                data-caption={item.caption}
+                                href={item.original ?? noPhoto}
+                                data-caption={item.caption ?? ''}
                                 className={styles.sliderLink}
                               >
                                 <img
                                   className={styles.sliderImg}
                                   alt=''
-                                  src={item.src}
+                                  src={
+                                    API_URL +
+                                      (item.preview?.medium?.url ??
+                                        item.preview?.small?.url ??
+                                        item.preview?.thumbnail?.url) ?? noPhoto
+                                  }
                                 />
                               </a>
                             </div>
