@@ -53,9 +53,9 @@ function getStudioPhoto(arr) {
   const photo = arr.map((item) => {
     return {
       id: item.id,
-      href: API_URL + item.media?.formats?.medium?.url,
-      src: API_URL + item.media?.formats?.small?.url,
-      caption: item.caption,
+      original: API_URL + item.media?.url,
+      preview: item.media?.formats,
+      caption: item.caption ?? '',
     }
   })
   return photo
