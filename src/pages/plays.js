@@ -3,27 +3,27 @@ import { api, API_URL } from '../api/index'
 import { TicketPopUp } from '../components/ticketPopup'
 import { ShowsFilter, ShowsCards } from '../components/plays'
 import Loader from '../components/loader'
-import { getDateStr } from '../assets/utils/usable-function'
+import { getDateStr, TODAY_DAY } from '../assets/utils/usable-function'
 
-function createTicketData(arr) {
-  if (arr !== null) {
-    // Display only first 3 items
-    const ticketData = arr.slice(0, 3).map((data) => {
-      return {
-        item: data,
-        id: data.id,
-        date: getDateStr(data?.date).date,
-        time: data?.time.slice(0, -3),
-        month: getDateStr(data?.date).month_name,
-        day_of_week: getDateStr(data?.date).day_of_week,
-        title: data?.play?.title,
-        isPremiere: data?.play?.isPremiere,
-        scene: data?.play?.scene.name,
-        rating: data?.play?.rating,
-        buy: data?.tickets_link,
-      }
-    })
-    return ticketData
+function createPopupData(item, shows) {
+  if (shows !== null && shows.length > 0) {
+    const ShowData = shows
+      ?.filter((show) => show.date >= TODAY_DAY)
+      .map((show) => {
+        return {
+          id: show.id,
+          title: item?.title,
+          isPremiere: item?.isPremiere,
+          scene: item?.scene?.name,
+          rating: item?.rating,
+          date: getDateStr(show?.date).date,
+          month: getDateStr(show?.date).month_name,
+          day_of_week: getDateStr(show?.date).day_of_week,
+          time: show?.time.slice(0, -3),
+          buy: show?.tickets_link,
+        }
+      })
+    return ShowData
   } else {
     return []
   }
@@ -34,12 +34,13 @@ function createPlayData(arr) {
     const playCardData = arr.map((item) => {
       return {
         id: item.id,
-        src: API_URL + item.cover.url,
-        title: item.title,
-        rating: item.rating,
-        description: item.description,
-        scene: item.scene,
-        isPremiere: item.isPremiere,
+        src: API_URL + item?.cover?.url,
+        title: item?.title,
+        rating: item?.rating,
+        description: item?.description,
+        scene: item?.scene,
+        isPremiere: item?.isPremiere,
+        shows: createPopupData(item, item.shows),
       }
     })
     return playCardData
@@ -77,21 +78,15 @@ export function Plays() {
 
   useEffect(() => {
     ticketPlayID
-      ? (setTicketData(null),
-        api
-          .exportTicketData(ticketPlayID)
-          .then((response) => {
-            setTicketData(createTicketData(response))
-          })
-          .catch((error) => {
-            console.log(error)
-          }))
+      ? setTicketData(
+          items.filter((item) => item.id === ticketPlayID).slice(0, 3)[0].shows
+        )
       : null
   }, [ticketPlayID])
 
   const popupOpen = (playID) => {
-    setOpen(true)
     setTicketPlayID(playID)
+    setOpen(true)
   }
 
   return (

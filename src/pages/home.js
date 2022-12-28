@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { api } from '../api/index'
-import { uniqueBy, getDateStr } from '../assets/utils/usable-function'
+import {
+  uniqueBy,
+  getDateStr,
+  TODAY_DAY,
+} from '../assets/utils/usable-function'
 import { TicketPopUp } from '../components/ticketPopup'
 import {
   Slider,
@@ -23,27 +27,59 @@ function getVideoLink(link) {
   }
 }
 
-function createTicketData(arr, type, ticketDate) {
+function getAfficheData(arr) {
   if (arr !== null) {
-    // Display only first 3 items
-    const ticketData = arr.slice(0, 3).map((data) => {
+    const afficheData = arr.map((item) => {
       return {
-        item: data,
-        id: data.id,
-        date: getDateStr(data?.date).date,
-        time: data?.time.slice(0, -3),
-        month: getDateStr(data?.date).month_name,
-        day_of_week: getDateStr(data?.date).day_of_week,
-        title: data?.play?.title,
-        isPremiere: data?.play?.isPremiere,
-        scene: data?.play?.scene.name,
-        rating: data?.play?.rating,
-        buy: data?.tickets_link,
+        item: item,
+        play: item.play,
+        id: item?.id,
+        play_id: item?.play?.id,
+        full_date: item?.date,
+        date: getDateStr(item?.date).date,
+        time: item?.time.slice(0, -3),
+        monthNum: getDateStr(item?.date).month,
+        month: getDateStr(item?.date).month_name_case,
+        day: getDateStr(item?.date).day_of_week,
+        title: item?.play?.title,
+        isPremiere: item?.play?.isPremiere,
+        scene: item?.play?.scene?.name,
+        rating: item?.play?.rating,
+        buy: item?.tickets_link,
       }
     })
-    return type === 'affiche'
-      ? ticketData.filter((data) => data.item.date === ticketDate)
-      : ticketData
+    return afficheData
+  } else {
+    return []
+  }
+}
+
+function getSliderData(arr) {
+  if (arr !== null) {
+    const sliderData = arr.map((play) => {
+      const sliderShows = play?.shows
+        ?.filter((show) => show.date >= TODAY_DAY)
+        ?.map((show) => {
+          return {
+            id: show.id,
+            title: play?.title,
+            isPremiere: play?.isPremiere,
+            scene: play?.scene?.name,
+            rating: play?.rating,
+            full_date: show?.date,
+            date: getDateStr(show?.date).date,
+            time: show?.time.slice(0, -3),
+            month: getDateStr(show?.date).month_name_case,
+            day: getDateStr(show?.date).day_of_week,
+            buy: show?.tickets_link,
+          }
+        })
+      return {
+        ...play,
+        shows: sliderShows,
+      }
+    })
+    return sliderData
   } else {
     return []
   }
@@ -69,15 +105,10 @@ export function Home() {
   useEffect(() => {
     Promise.all([api.exportMainPage(), api.exportShows(), api.exportArticles()])
       .then((values) => {
-        setItemsSlider(values[0].plays)
+        setItemsSlider(getSliderData(values[0].plays))
         setvideoLink(getVideoLink(values[0].youtubeLink))
         setpartners(values[0].partners)
-        setItemsAffiche(
-          uniqueBy(
-            values[1],
-            (o1, o2) => o1.play.id === o2.play.id && o1.date === o2.date
-          )
-        )
+        setItemsAffiche(getAfficheData(values[1]))
         setItemsNews(values[2])
         setIsLoading(false)
       })
@@ -88,27 +119,33 @@ export function Home() {
   }, [])
 
   useEffect(() => {
-    ticketPlay.id
-      ? api
-          .exportTicketData(ticketPlay.id)
-          .then((response) => {
-            setTicketData(
-              createTicketData(response, ticketPlay.type, ticketPlay.date)
-            )
-          })
-          .catch((error) => {
-            console.log(error)
-          })
-      : null
+    setTicketData(null)
+    setTicketData(createTicketData)
   }, [ticketPlay])
+
+  function createTicketData() {
+    if (ticketPlay.type === 'affiche') {
+      return itemsAffiche
+        .filter(
+          (item) =>
+            item.play_id === ticketPlay.id && item.full_date === ticketPlay.date
+        )
+        .slice(0, 3)
+    } else if (ticketPlay.type === 'slider') {
+      return itemsSlider
+        .filter((item) => item.id === ticketPlay.id)
+        .slice(0, 3)[0].shows
+    }
+  }
+
+  const afficheFilter = uniqueBy(
+    itemsAffiche,
+    (o1, o2) => o1.play_id === o2.play_id && o1.full_date === o2.full_date
+  )
 
   const popupOpen = (id, type, date) => {
     setTicketPlay({ date: date ?? null, type, id })
-
-    //timeout for smooth display popup
-    setTimeout(() => {
-      setOpen(true)
-    }, 400)
+    setOpen(true)
   }
 
   return (
@@ -121,7 +158,7 @@ export function Home() {
           <>
             <Calendar
               setFirstDate={setFirstDate}
-              items={itemsAffiche}
+              items={afficheFilter}
               popupOpen={popupOpen}
             />
             <VideoBlock link={videoLink} />

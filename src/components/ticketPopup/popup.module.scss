@@ -19,7 +19,7 @@
 
   will-change: transform;
   transition: transform 0.7s ease-out;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,6 +42,10 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: $text-color;
+
+  &.fullWidth {
+    width: 100%;
+  }
 
   @media (min-width: 768px) {
     min-width: 550px;
