@@ -19,10 +19,10 @@ export function Laureate({ data }) {
                   {item.plays.map((plays) => (
                     <div className={styles.plays} key={plays.id}>
                       <p className={styles.playName}>
-                        Спектакль &#171;{plays.play}&#187;
+                        Спектакль &#171;{plays.playTitle}&#187;
                       </p>
                       <div className={styles.actorsList}>
-                        {plays.role.map((role) => (
+                        {plays.roles.map((role) => (
                           <CreateActorCard data={role} key={role.id} />
                         ))}
                       </div>
