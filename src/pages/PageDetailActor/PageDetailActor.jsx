@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { api, API_URL } from '../../api'
-import { getDateStr } from '../../assets'
+import { getDateStr, TODAY_DAY } from '../../assets'
 import { PhotosSlider } from '../../components/actorDetail/PhotosSlider/PhotosSlider'
 import { UpcomingPerformances } from '../../components/actorDetail/UpcomingPerformances/UpcomingPerformances'
 import ActorInfo from '../../components/createElement/ActorInfo/ActorInfo'
@@ -51,60 +51,35 @@ const PageDetailActor = () => {
 
   useEffect(() => {
     ticketPlayID
-      ? (setTicketData(null),
-        api
-          .exportTicketData(ticketPlayID)
-          .then((response) => {
-            setTicketData(createTicketData(response))
-          })
-          .catch((error) => {
-            console.log(error)
-          }))
+      ? setTicketData(
+          theatricalPerformance
+            .filter((item) => item.id === ticketPlayID)
+            .slice(0, 3)
+        )
       : null
   }, [ticketPlayID])
-
-  function createTicketData(arr) {
-    if (arr !== null) {
-      // Display only first 3 items
-      const ticketData = arr.slice(0, 3).map((data) => {
-        return {
-          item: data,
-          id: data.id,
-          date: getDateStr(data?.date).date,
-          time: data?.time.slice(0, -3),
-          month: getDateStr(data?.date).month_name,
-          day_of_week: getDateStr(data?.date).day_of_week,
-          title: data?.play?.title,
-          isPremiere: data?.play?.isPremiere,
-          scene: data?.play?.scene.name,
-          rating: data?.play?.rating,
-          buy: data?.tickets_link,
-        }
-      })
-      return ticketData
-    } else {
-      return []
-    }
-  }
 
   const theatricalPerformance = useMemo(() => {
     let arr = []
     play_roles?.filter(({ play }) => {
       if (play.shows.length) {
-        const newShow = play.shows?.map((item) => {
-          const formatDate = getDateStr(item.date)
-          return {
-            rating: play?.rating,
-            title: play?.title,
-            isPremiere: play?.isPremiere,
-            buy: item?.tickets_link,
-            day_of_week: formatDate?.day_of_week,
-            scene: play?.scene?.name,
-            month: formatDate?.month_name_case,
-            date: formatDate?.date,
-            time: item?.time.slice(0, -3),
-          }
-        })
+        const newShow = play.shows
+          ?.filter((show) => show.date >= TODAY_DAY)
+          ?.map((item) => {
+            const formatDate = getDateStr(item.date)
+            return {
+              id: play?.id,
+              rating: play?.rating,
+              title: play?.title,
+              isPremiere: play?.isPremiere,
+              buy: item?.tickets_link,
+              day_of_week: formatDate?.day_of_week,
+              scene: play?.scene?.name,
+              month: formatDate?.month_name_case,
+              date: formatDate?.date,
+              time: item?.time.slice(0, -3),
+            }
+          })
         arr = [...arr, ...newShow]
       }
     })
