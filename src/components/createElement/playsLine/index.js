@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './line.module.scss'
+import { Link } from 'react-router-dom'
 
 /*
 Example of adding the PlayLine component to a page, you can see a demo on this page src\components\play\comingShow\index.js
@@ -11,6 +12,7 @@ smallCard is an optional boolet param for small version play card, by default is
 
 Parameters List
 data: {
+  id: 1,
   buy: 'httpls://',
   date: 5,
   day_of_week: 'пн',
@@ -42,7 +44,9 @@ export function PlaysLine(props) {
           </div>
           <div className={styles.playTitle}>
             <div>
-              <p className={styles.title}>{data?.title}</p>
+              <Link className={styles.title} to={`/play/${data?.id}`}>
+                {data?.title}
+              </Link>
             </div>
             {data?.isPremiere ? (
               <p className={styles.premier}>Премьера</p>

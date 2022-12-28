@@ -59,11 +59,14 @@
       display: table-caption;
       text-transform: uppercase;
       line-height: 160%;
-      // border-bottom: 1px solid transparent;
+
+      transition: text-decoration-color 0.4s linear;
+      text-decoration: underline;
+      text-underline-position: under;
+      text-decoration-color: transparent;
+
       &:hover {
-        // border-color: $text-color;
-        text-decoration-line: underline;
-        text-decoration-skip-ink: none;
+        text-decoration-color: $text-color;
       }
     }
 
