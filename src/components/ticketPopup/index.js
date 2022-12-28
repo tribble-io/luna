@@ -59,7 +59,14 @@ export function TicketPopUp(props) {
           transform: open ? 'scale3d(1, 1, 1)' : 'scale3d(0.3, 0.3, 0.3)',
         }}
       >
-        <div className={styles.popupContent} ref={ref}>
+        <div
+          className={
+            data?.length > 0
+              ? `${styles.fullWidth} ${styles.popupContent}`
+              : styles.popupContent
+          }
+          ref={ref}
+        >
           <div className={styles.close}>
             <span onClick={closePopup}>
               <svg
