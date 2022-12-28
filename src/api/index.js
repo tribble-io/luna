@@ -59,7 +59,7 @@ function getPlaysFilter(editValue) {
   }
 
   filters += filters[filters.length - 1] !== '&' ? '&' : ''
-  return `${API_URL}/api/plays?${filters}populate=cover,scene`
+  return `${API_URL}/api/plays?${filters}populate=cover,scene,shows`
 }
 
 async function exportPlayShows(editValue) {

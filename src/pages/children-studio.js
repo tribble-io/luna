@@ -88,6 +88,7 @@ function createTicketData(arr) {
 export function ChildrenStudio() {
   const [isLoading, setIsLoading] = useState(true)
   const [nextShows, setNextShows] = useState({})
+  console.log(nextShows, 'nextShows')
   const [scene, setScene] = useState({})
   const [photo, setPhoto] = useState({})
   const [open, setOpen] = useState(false)
