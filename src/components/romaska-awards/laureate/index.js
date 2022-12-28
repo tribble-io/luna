@@ -26,7 +26,8 @@ export function Laureate({ data }) {
                           <CreateActorCard
                             data={role}
                             key={role.id}
-                            nameWrap={false}
+                            troupeGrig={true}
+
                           />
                         ))}
                       </div>
