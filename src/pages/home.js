@@ -88,6 +88,7 @@ export function Home() {
   }, [])
 
   useEffect(() => {
+    setTicketData(null)
     ticketPlay.id
       ? api
           .exportTicketData(ticketPlay.id)

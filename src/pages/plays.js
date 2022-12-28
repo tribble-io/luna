@@ -76,6 +76,7 @@ export function Plays() {
   }, [editValue])
 
   useEffect(() => {
+    setTicketData(null)
     ticketPlayID
       ? (setTicketData(null),
         api
@@ -90,8 +91,11 @@ export function Plays() {
   }, [ticketPlayID])
 
   const popupOpen = (playID) => {
-    setOpen(true)
     setTicketPlayID(playID)
+    //timeout for smooth display popup
+    setTimeout(() => {
+      setOpen(true)
+    }, 400)
   }
 
   return (

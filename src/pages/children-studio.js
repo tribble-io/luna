@@ -114,6 +114,7 @@ export function ChildrenStudio() {
   }, [])
 
   useEffect(() => {
+    setTicketData(null)
     ticketPlayID
       ? (setTicketData(null),
         api
@@ -128,8 +129,11 @@ export function ChildrenStudio() {
   }, [ticketPlayID])
 
   const popupOpen = (playID) => {
-    setOpen(true)
     setTicketPlayID(playID)
+    //timeout for smooth display popup
+    setTimeout(() => {
+      setOpen(true)
+    }, 400)
   }
 
   return (
