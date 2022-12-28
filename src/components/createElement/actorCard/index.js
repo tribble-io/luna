@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import noPhoto from '../../../assets/img/no-photo-actor.jpg'
 import styles from './card.module.scss'
 
-export function CreateActorCard({ data }) {
+export function CreateActorCard({ data, troupeGrig = false }) {
   return (
     <>
       <div className={styles.cardContent}>
@@ -18,7 +18,11 @@ export function CreateActorCard({ data }) {
         </div>
         <div className={styles.actorCardText}>
           <Link
-            className={styles.actorName}
+            className={
+              troupeGrig
+                ? `${styles.actorName} ${styles.actorNameTroupe}`
+                : styles.actorName
+            }
             to={'/person/' + data?.id}
             title='Перейти в профиль актера'
           >

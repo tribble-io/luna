@@ -16,7 +16,11 @@ export function Actors({ roles, title, troupeGrig = false }) {
             >
               {roles?.map((item, key) => (
                 <div className={styles.actorsCard} key={key}>
-                  <CreateActorCard data={item} key={item.id} />
+                  <CreateActorCard
+                    data={item}
+                    key={item.id}
+                    troupeGrig={troupeGrig}
+                  />
                 </div>
               ))}
             </div>

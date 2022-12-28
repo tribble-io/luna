@@ -180,6 +180,12 @@ const SortPoster = (props) => {
 
   return (
     <section className={styles.sortHeaderSection}>
+      {open ? (
+        <div
+          className={styles.closeCaledar}
+          onClick={() => openClosedCalendar(false)}
+        ></div>
+      ) : null}
       <div className={styles.sortHeader}>
         <h1>Афиша</h1>
         <div className={styles.sortBlockMain}>
