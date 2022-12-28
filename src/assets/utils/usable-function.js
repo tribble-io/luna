@@ -32,16 +32,17 @@ export const IsMobile = WINDOW_SCREEN > 500 ? false : true
 // function for scroll page to top on every transition
 export function ScrollToTop() {
   const { pathname } = useLocation()
-
+  const { scrollY } = useWindowScrollPositions()
   useEffect(() => {
     // "document.documentElement.scrollTo" is the magic for React Router Dom v6
-    document.documentElement.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    })
+    if (window.screen.width > 1200 && scrollY >= 200) {
+      document.documentElement.scrollTo({
+        top: 200,
+        left: 0,
+        behavior: 'smooth',
+      })
+    }
   }, [pathname])
-
   return null
 }
 
