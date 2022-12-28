@@ -1,12 +1,3 @@
-@media (max-width: 500px) {
-  .photoSwiper.swiper {
-    padding-bottom: 40px;
-  }
-  .photoSwiper .swiper-slide {
-    max-width: 300px;
-  }
-}
-
 .photoSwiper.swiper {
   padding-bottom: 60px;
 }
@@ -45,4 +36,13 @@
 
 .photoSwiper .swiper-button-prev:after {
   background-image: url('../../../assets/slider/arr-prev.png');
+}
+
+@media (max-width: 500px) {
+  .photoSwiper.swiper {
+    padding-bottom: 40px;
+  }
+  .photoSwiper .swiper-slide {
+    max-width: 300px;
+  }
 }
