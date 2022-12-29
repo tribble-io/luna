@@ -79,8 +79,7 @@
   align-items: center;
   justify-content: center;
 
-  min-width: 200px;
-  min-height: 45px;
+  padding: 15px 40px;
 
   background-color: transparent;
   transition: box-shadow 0.3s linear;
@@ -94,20 +93,20 @@
 
 @mixin button_white {
   @include button_smooth;
-  box-shadow: 0px 0px 0px 1px #fff;
+  box-shadow: 0px 0px 0px 0.0625em #fff;
 
   &:hover,
   &:focus {
-    box-shadow: 0px 0px 0px 2px #fff;
+    box-shadow: 0px 0px 0px 0.125em #fff;
   }
 }
 
 @mixin button_blue {
   @include button_smooth;
-  box-shadow: 0px 0px 0px 1px #8cabfa;
+  box-shadow: 0px 0px 0px 0.0625em #8cabfa;
 
   &:hover,
   &:focus {
-    box-shadow: 0px 0px 0px 2px #8cabfa;
+    box-shadow: 0px 0px 0px 0.125em #8cabfa;
   }
 }

@@ -200,7 +200,7 @@
   margin: auto 0;
   margin-right: 0;
   margin-left: auto;
-  height: 50px;
+  min-height: 50px;
   width: 300px;
 
   @media (max-width: 1000px) {
