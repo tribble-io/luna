@@ -22,14 +22,52 @@ a {
   cursor: pointer;
 }
 main {
-  /* background: url('./background.svg');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover; */
   background-color: rgba(0, 0, 0, 0);
 }
 
 #root {
   position: relative;
+}
+
+/* Styles for version visually impaired */
+body.n3__wcag__color_black {
+  background-image: none;
+  filter: grayscale(1);
+  color: #fff !important;
+  fill: #ffffff !important;
+  border-color: #fff !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+body.n3__wcag__color_blue {
+  background-image: none;
+  background-color: #9dd1ff !important;
+  color: #063462 !important;
+  fill: #063462 !important;
+  border-color: #063462 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+body.n3__wcag__images_off img {
+  display: none !important;
+  position: relative;
+  border: 1px dashed;
+}
+body.n3__wcag__fontsize_small {
+  font-size: inherit !important;
+}
+body.n3__wcag__fontsize_average {
+  font-size: larger !important;
+}
+body.n3__wcag__fontsize_large {
+  font-size: x-large !important;
+}
+body.n3__wcag__kerning_small {
+  letter-spacing: 0px !important;
+}
+body.n3__wcag__kerning_average {
+  letter-spacing: 2px !important;
+}
+body.n3__wcag__kerning_large {
+  letter-spacing: 4px !important;
 }

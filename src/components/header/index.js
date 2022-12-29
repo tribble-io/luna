@@ -4,13 +4,12 @@ import { Link } from 'react-router-dom'
 import Collapsible from 'react-collapsible'
 import styles from './header.module.scss'
 import { linkMobileHeader } from './fields'
+import { openSettingsModal } from '@n3/react-vision-panel'
+import '@n3/react-vision-panel/dist/vision-panel.css'
 
 function Header() {
   const [open, setOpen] = useState(false)
   const [isOpenAccordion, setIsOpenAccordion] = useState(false)
-
-  // const { scrollY } = useWindowScrollPositions()
-  // const opacityEl = window.screen.width > 1200 ? (scrollY >= 200 ? 0 : 1) : 0
 
   const handleClickAccordion = () => {
     setIsOpenAccordion(!isOpenAccordion)
@@ -49,15 +48,19 @@ function Header() {
         </div>
         <div className={styles.header_info_blind}>
           <img
+            onClick={() => openSettingsModal()}
             className={styles.header_info_icon}
             src='/img/glasses.png'
             alt=''
             width='40px'
             height='40px'
           ></img>
-          <a href='/' className={styles.header_info_text}>
+          <button
+            onClick={() => openSettingsModal()}
+            className={styles.header_info_text}
+          >
             Версия для <br /> слабовидящих
-          </a>
+          </button>
         </div>
         <Link to='/' className={styles.mobileLogo}>
           <img
@@ -138,9 +141,12 @@ function Header() {
                 width='40px'
                 height='40px'
               ></img>
-              <a href='/' className={styles.info_text}>
+              <button
+                onClick={() => openSettingsModal()}
+                className={styles.info_text}
+              >
                 Версия для <br /> слабовидящих
-              </a>
+              </button>
             </div>
           </div>
         </div>
