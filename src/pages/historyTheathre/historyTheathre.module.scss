@@ -648,6 +648,10 @@
   flex-wrap: wrap;
 
   @media (max-width: 1400px) {
+    justify-content: space-between;
+  }
+
+  @media (max-width: 1400px) {
     margin: 0 auto;
     margin-top: 100px;
   }
@@ -659,6 +663,10 @@
     max-width: 611px;
     margin-left: 0;
     margin-right: auto;
+
+    @media (max-width: 1400px) {
+      margin-right: 0;
+    }
 
     @media (max-width: 1200px) {
       margin-left: auto;
@@ -699,11 +707,14 @@
     margin-right: 150px;
 
     @media (max-width: 1600px) {
-      max-width: 410px;
+      // max-width: 410px;
+      margin-right: 0;
+      margin-left: 0;
     }
 
     @media (max-width: 1400px) {
       margin: auto;
+      margin-top: 70px;
       // max-width: 300px;
     }
 
