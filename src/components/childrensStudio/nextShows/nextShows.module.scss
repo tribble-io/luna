@@ -65,17 +65,20 @@
         .title {
           margin-bottom: 16px;
           font-size: 24px;
+          font-size: 1.5em;
           line-height: 160%;
           text-transform: uppercase;
         }
 
         .description {
           font-size: 16px;
+          font-size: 1em;
         }
       }
 
       .raiting {
         font-size: 24px;
+        font-size: 1.5em;
       }
 
       .showsTicket {
@@ -84,6 +87,7 @@
         border: 1px solid $compl-color;
 
         font-size: 16px;
+        font-size: 1em;
         text-transform: uppercase;
         color: $compl-color;
       }
