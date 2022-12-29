@@ -58,11 +58,13 @@
 
     .pushkinCardText {
       font-size: 14px;
+      font-size: 0.875em;
       line-height: 180%;
       text-transform: uppercase;
 
       @media (max-width: 500px) {
         font-size: 10px;
+        font-size: 0.625em;
       }
     }
   }
