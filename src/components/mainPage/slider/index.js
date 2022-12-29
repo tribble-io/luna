@@ -85,7 +85,7 @@ export function Slider(props) {
                     <h1>{getDateStr(firstDate).month_name}</h1>
                     <div className={styles.buttons}>
                       <Link to='/plays' className={styles.allPost}>
-                        <p>Все спектакли</p>
+                        Все спектакли
                       </Link>
                     </div>
                   </div>

@@ -29,8 +29,14 @@ import Poster from './pages/poster'
 import HistoryTheathre from './pages/historyTheathre'
 import Documets from './pages/documents'
 import PageNotFound from './pages/PageNotFound/PageNotFound'
+import { defaultSetBodyClass, defaultGetSettings } from '@n3/react-vision-panel'
 
 function App() {
+  // For Accessibility plugin
+  const settings = defaultGetSettings()
+  Object.keys(settings).forEach((property) => {
+    defaultSetBodyClass(property, settings[property])
+  })
   return (
     <div>
       <Router>

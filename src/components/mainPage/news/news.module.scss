@@ -65,6 +65,7 @@
       a {
         font-weight: 500;
         font-size: 18px;
+        font-size: 1.125em;
         color: $text-color;
       }
     }
@@ -163,6 +164,7 @@
     height: 100%;
     padding: 30px 30px 35px;
     font-size: 18px;
+    font-size: 1.125em;
     line-height: 160%;
 
     transition: all 0.3s ease-in-out;
@@ -188,6 +190,7 @@
     @include button_white;
     color: $text-color;
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     text-transform: uppercase;
     position: absolute;
@@ -218,6 +221,7 @@
     color: #ffffff;
     border: 1px solid #ffffff;
     font-size: 14px;
+    font-size: 0.875em;
     font-weight: 600;
     padding: 15px;
     text-transform: uppercase;
