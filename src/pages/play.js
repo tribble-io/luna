@@ -115,7 +115,8 @@ function getComingShow(arr) {
     const comingShow = arr.map((item) => {
       return {
         item: item,
-        id: item.id,
+        id: item?.play?.id,
+        show_id: item?.id,
         date: getDateStr(item?.date).date,
         time: item?.time.slice(0, -3),
         month: getDateStr(item?.date).month_name,

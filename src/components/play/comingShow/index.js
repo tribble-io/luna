@@ -15,7 +15,7 @@ export function ComingShow({ items }) {
           {isItems ? (
             <div className={styles.comingShowsArea}>
               {items.slice(0, 3).map((item) => (
-                <PlaysLine data={item} key={`play-line-${item.id}`} />
+                <PlaysLine data={item} key={`play-line-${item.show_id}`} />
               ))}
               {isPushkinCard ? (
                 <div className={styles.pushkinCard}>
