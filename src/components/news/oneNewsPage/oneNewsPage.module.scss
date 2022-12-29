@@ -31,6 +31,7 @@
     .tageName {
       font-family: 'Montserrat';
       font-size: 30px;
+      font-size: 1.875em;
       font-weight: 600;
       line-height: 48px;
       letter-spacing: 0em;
@@ -40,12 +41,14 @@
 
       @media (max-width: 1200px) {
         font-size: 23px;
+        font-size: 1.34em;
         max-width: 400px;
         line-height: 32px;
       }
 
       @media (max-width: 1000px) {
         font-size: 22px;
+        font-size: 1.375em;
         max-width: 350px;
         line-height: 32px;
       }
@@ -59,6 +62,7 @@
     .data {
       font-family: 'Montserrat';
       font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       line-height: 32px;
       letter-spacing: 0em;
@@ -124,6 +128,7 @@
     width: 610px;
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -166,6 +171,7 @@
   h1 {
     font-family: 'Montserrat';
     font-size: 30px;
+    font-size: 1.875em;
     font-weight: 600;
     line-height: 37px;
     letter-spacing: 0em;
@@ -195,6 +201,7 @@
 
     @media (max-width: 1200px) {
       font-size: 20px;
+      font-size: 1.25em;
     }
   }
 }
@@ -207,6 +214,7 @@
 .share {
   font-family: 'Montserrat';
   font-size: 30px;
+  font-size: 1.875em;
   font-weight: 600;
   line-height: 48px;
   letter-spacing: 0em;
@@ -216,6 +224,7 @@
     margin-left: auto;
     margin-right: auto;
     font-size: 20px;
+    font-size: 1.25em;
     text-align: center;
   }
 }
@@ -261,6 +270,7 @@
       margin: auto 13%;
       font-family: 'Montserrat';
       font-size: 14px;
+      font-size: 0.875em;
       font-weight: 500;
       line-height: 17px;
       letter-spacing: 0em;
@@ -269,6 +279,7 @@
 
       @media (max-width: 480px) {
         font-size: 15px;
+        font-size: 0.95em;
         margin: auto 12px;
       }
     }
@@ -288,6 +299,7 @@
 .share_2 {
   font-family: 'Montserrat';
   font-size: 30px;
+  font-size: 1.875em;
   font-weight: 600;
   line-height: 48px;
   letter-spacing: 0em;
@@ -296,6 +308,7 @@
 
   @media (max-width: 770px) {
     font-size: 20px;
+    font-size: 1.25em;
     text-align: center;
   }
 
@@ -318,6 +331,7 @@
       margin: auto;
       font-family: 'Montserrat';
       font-size: 14px;
+      font-size: 0.875em;
       font-weight: 500;
       line-height: 17px;
       letter-spacing: 0em;
@@ -337,6 +351,7 @@
   color: #656565;
   font-family: 'Montserrat';
   font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   line-height: 20px;
   letter-spacing: 0em;
@@ -364,6 +379,7 @@
     margin: auto;
     font-family: 'Montserrat';
     font-size: 14px;
+    font-size: 0.875em;
     font-weight: 500;
     line-height: 17px;
     letter-spacing: 0em;
@@ -423,6 +439,7 @@
     height: 20px;
     width: 20px;
     font-size: 19px !important;
+    font-size: 1.18em !important;
     line-height: 22px !important;
     color: rgb(247, 247, 247);
     display: inline-block;
@@ -451,6 +468,7 @@
     margin: auto 0;
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -461,6 +479,7 @@
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
+      font-size: 1em;
       line-height: 159.9%;
       text-decoration: underline;
       color: #ffffff;
@@ -490,6 +509,7 @@
   margin-top: 20px;
   font-family: 'Montserrat';
   font-size: 17px;
+  font-size: 1.06em;
 }
 
 .subsWarnGood {
@@ -497,4 +517,5 @@
   margin-top: 20px;
   font-family: 'Montserrat';
   font-size: 17px;
+  font-size: 1.06em;
 }

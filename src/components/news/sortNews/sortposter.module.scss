@@ -23,6 +23,7 @@
 
   h1 {
     font-size: 50px;
+    font-size: 3.125em;
     font-family: 'Montserrat';
     font-weight: 600;
     line-height: 80px;
@@ -30,6 +31,7 @@
 
     @media (max-width: 770px) {
       font-size: 30px;
+      font-size: 1.875em;
     }
   }
   .sortBlockMain {
@@ -83,6 +85,7 @@
     margin-right: 60px;
     font-family: 'Montserrat';
     font-size: 14px;
+    font-size: 0.875em;
     font-weight: 600;
     letter-spacing: 0em;
     text-align: left;
@@ -93,6 +96,7 @@
 
     @media (max-width: 1200px) {
       font-size: 13px;
+      font-size: 0.81em;
       margin-right: 20px;
     }
     &:hover {
@@ -106,6 +110,7 @@
     margin-right: 60px;
     font-family: 'Montserrat';
     font-size: 14px;
+    font-size: 0.875em;
     font-weight: 600;
     line-height: 17px;
     letter-spacing: 0em;
@@ -121,6 +126,7 @@
 
     @media (max-width: 1200px) {
       font-size: 13px;
+      font-size: 0.81em;
       margin-right: 20px;
     }
   }
@@ -155,6 +161,7 @@
     margin-right: 60px;
     font-family: 'Montserrat';
     font-size: 14px;
+    font-size: 0.875em;
     font-weight: 600;
     line-height: 17px;
     letter-spacing: 0em;
@@ -164,6 +171,7 @@
 
     @media (max-width: 1200px) {
       font-size: 13px;
+      font-size: 0.81em;
       padding: 8px 10px;
     }
     &:hover {
@@ -172,6 +180,7 @@
     }
     @media (max-width: 1200px) {
       font-size: 13px;
+      font-size: 0.81em;
       margin-right: 20px;
     }
   }
@@ -179,6 +188,7 @@
     margin-right: 60px;
     font-family: 'Montserrat';
     font-size: 14px;
+    font-size: 0.875em;
     font-weight: 600;
     line-height: 17px;
     letter-spacing: 0em;
@@ -190,10 +200,12 @@
 
     @media (max-width: 1200px) {
       font-size: 13px;
+      font-size: 0.81em;
       padding: 8px 10px;
     }
     @media (max-width: 1200px) {
       font-size: 13px;
+      font-size: 0.81em;
       margin-right: 20px;
     }
   }
@@ -204,6 +216,7 @@
     height: 50px;
     font-family: 'Montserrat';
     font-size: 14px;
+    font-size: 0.875em;
     font-weight: 500;
     text-align: left;
     display: flex;
@@ -236,6 +249,7 @@
       height: 100%;
       font-family: 'Montserrat';
       font-size: 14px;
+      font-size: 0.875em;
       font-weight: 500;
       line-height: 17px;
       letter-spacing: 0em;
@@ -287,6 +301,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
+  font-size: 0.95em;
   padding-top: 30px;
 
   &:hover {
@@ -309,6 +324,7 @@
   @media (max-width: 500px) {
     width: 17px;
     font-size: 13px;
+    font-size: 0.81em;
   }
 
   &:hover {
@@ -328,6 +344,7 @@
   margin: 10px;
   color: white;
   font-size: 14px;
+  font-size: 0.875em;
   text-align: center;
   border-radius: 50px;
   -webkit-border-radius: 50px;
@@ -341,6 +358,7 @@
   @media (max-width: 500px) {
     width: 17px;
     font-size: 13px;
+    font-size: 0.81em;
   }
 }
 
