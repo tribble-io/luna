@@ -57,6 +57,7 @@
         box-shadow: none;
         padding: 8px 0;
         font-size: 14px;
+        font-size: 0.875em;
         font-weight: 400;
         color: $text-color;
         font-family: 'Montserrat', sans-serif;
@@ -137,6 +138,7 @@
 
       label {
         font-size: 16px;
+        font-size: 1em;
         line-height: 160%;
       }
     }
@@ -145,6 +147,7 @@
   .warningMes {
     color: #ff4646;
     font-size: 14px;
+    font-size: 0.875em;
     font-weight: 800;
     margin-bottom: 10px;
   }
@@ -166,6 +169,7 @@
       @include button_blue;
       font-family: 'Montserrat', sans-serif;
       font-size: 16px;
+      font-size: 1em;
       font-weight: 500;
       color: $compl-color;
       text-transform: uppercase;
@@ -181,6 +185,7 @@
   .sendesForm {
     padding-top: 50px;
     font-size: 20px;
+    font-size: 1.25em;
     color: $compl-color;
     text-transform: uppercase;
     text-align: center;

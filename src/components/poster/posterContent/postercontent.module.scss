@@ -64,16 +64,19 @@
 .dataNumber {
   font-family: 'Montserrat';
   font-size: 44px;
+  font-size: 2.75em;
   font-weight: 300;
   text-align: left;
 
   @media (max-width: 1200px) {
     font-size: 32px;
+    font-size: 2em;
   }
 }
 .dataTime {
   font-family: 'Montserrat';
   font-size: 16px;
+  font-size: 1em;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0em;
@@ -91,6 +94,7 @@
 
   @media (max-width: 1200px) {
     font-size: 11px;
+    font-size: 0.68em;
     padding: 0;
     padding-left: 10px;
     height: 40px;
@@ -131,6 +135,7 @@
   div:nth-child(1) {
     font-family: 'Montserrat';
     font-size: 24px;
+    font-size: 1.5em;
     font-weight: 400;
 
     div:nth-child(1) {
@@ -144,25 +149,30 @@
 
     @media (max-width: 1200px) {
       font-size: 20px;
+      font-size: 1.25em;
     }
     @media (max-width: 1000px) {
       font-size: 15px;
+      font-size: 0.95em;
     }
   }
 }
 .scien {
   font-family: 'Montserrat';
   font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   margin-top: 15px;
 
   @media (max-width: 1200px) {
     font-size: 12px;
+    font-size: 0.75em;
   }
 }
 .premier {
   font-family: 'Montserrat';
   font-size: 14px;
+  font-size: 0.875em;
   font-weight: 400;
   margin-left: 100px;
   position: absolute;
@@ -213,6 +223,7 @@
   display: block;
   font-family: 'Montserrat';
   font-size: 14px;
+  font-size: 0.875em;
   font-weight: 500;
   padding: 15px 60px;
   border: 0.1px solid #8cabfa;
@@ -232,6 +243,7 @@
 
   @media (max-width: 1000px) {
     font-size: 12px;
+    font-size: 0.75em;
     padding: 11px 25px;
     height: 40px;
 
@@ -249,6 +261,7 @@
 .restriction {
   font-family: 'Montserrat';
   font-size: 24px;
+  font-size: 1.5em;
   font-weight: 400;
   padding-top: 15px;
   margin-left: 0;
@@ -271,6 +284,7 @@
   text-align: left;
   font-family: 'Montserrat';
   font-size: 18px;
+  font-size: 1.125em;
   padding-bottom: 100px;
   margin-left: 0;
   margin-right: auto;
@@ -286,6 +300,7 @@
 .antiBlock_2 {
   text-transform: uppercase;
   font-size: 30px;
+  font-size: 1.875em;
   font-family: 'Montserrat';
   font-weight: 600;
   color: white;

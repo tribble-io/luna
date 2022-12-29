@@ -78,11 +78,13 @@
     p {
       font-weight: 400;
       font-size: 16px;
+      font-size: 1em;
       line-height: 160%;
       color: #ffffff;
 
       @media (max-width: 500px) {
         font-size: 14px;
+        font-size: 0.875em;
       }
     }
 
@@ -91,10 +93,12 @@
       text-transform: uppercase;
       font-weight: 700;
       font-size: 14px;
+      font-size: 0.875em;
       margin-bottom: 15px;
 
       @media (max-width: 500px) {
         font-size: 12px;
+        font-size: 0.75em;
         margin-bottom: 10px;
       }
     }
@@ -110,16 +114,19 @@
         color: #ffffff;
         font-weight: 600;
         font-size: 18px;
+        font-size: 1.125em;
         line-height: 160%;
 
         @media (max-width: 500px) {
           font-size: 14px;
+          font-size: 0.875em;
         }
       }
     }
 
     .linkText {
       font-size: 18px;
+      font-size: 1.125em;
       margin-left: 10px;
     }
 
@@ -134,11 +141,13 @@
         margin-bottom: 20px;
         font-weight: 400;
         font-size: 16px;
+        font-size: 1em;
         line-height: 160%;
         color: #ffffff;
 
         @media (max-width: 500px) {
           font-size: 14px;
+          font-size: 0.875em;
           margin-bottom: 30px;
         }
       }
@@ -149,6 +158,7 @@
         li {
           font-weight: 400;
           font-size: 16px;
+          font-size: 1em;
           line-height: 160%;
 
           &:not(:last-child) {
@@ -157,6 +167,7 @@
 
           @media (max-width: 500px) {
             font-size: 14px;
+            font-size: 0.875em;
           }
         }
       }
@@ -176,6 +187,7 @@
     p {
       font-weight: 300;
       font-size: 16px;
+      font-size: 1em;
       line-height: 160%;
 
       &.generalSubTitle {
@@ -186,6 +198,7 @@
 
       @media (max-width: 500px) {
         font-size: 14px;
+        font-size: 0.875em;
       }
     }
   }

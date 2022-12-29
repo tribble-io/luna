@@ -33,8 +33,8 @@ function getAfficheData(arr) {
       return {
         item: item,
         play: item.play,
-        id: item?.id,
-        play_id: item?.play?.id,
+        id: item?.play?.id,
+        show_id: item?.id,
         full_date: item?.date,
         date: getDateStr(item?.date).date,
         time: item?.time.slice(0, -3),
@@ -61,7 +61,7 @@ function getSliderData(arr) {
         ?.filter((show) => show.date >= TODAY_DAY)
         ?.map((show) => {
           return {
-            id: show.id,
+            id: play.id,
             title: play?.title,
             isPremiere: play?.isPremiere,
             scene: play?.scene?.name,
@@ -128,7 +128,7 @@ export function Home() {
       return itemsAffiche
         .filter(
           (item) =>
-            item.play_id === ticketPlay.id && item.full_date === ticketPlay.date
+            item.id === ticketPlay.id && item.full_date === ticketPlay.date
         )
         .slice(0, 3)
     } else if (ticketPlay.type === 'slider') {
@@ -140,7 +140,7 @@ export function Home() {
 
   const afficheFilter = uniqueBy(
     itemsAffiche,
-    (o1, o2) => o1.play_id === o2.play_id && o1.full_date === o2.full_date
+    (o1, o2) => o1.id === o2.id && o1.full_date === o2.full_date
   )
 
   const popupOpen = (id, type, date) => {

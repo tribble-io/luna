@@ -68,6 +68,7 @@
       border: 1px solid #fff;
       padding: 21px 30px 21px 90px;
       font-size: 14px;
+      font-size: 0.875em;
       color: $text-color;
       font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
@@ -101,11 +102,13 @@
     .checkbox {
       label {
         font-size: 14px;
+        font-size: 0.875em;
         color: $text-color;
         text-transform: uppercase;
 
         @media (max-width: 500px) {
           font-size: 12px;
+          font-size: 0.75em;
         }
       }
     }

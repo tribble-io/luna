@@ -121,38 +121,6 @@ header {
   }
 }
 
-// .phone_blind {
-//   margin-left: 50px;
-//   margin-top: 20px;
-
-//   display: flex;
-//   flex-direction: column;
-
-//   .phone {
-//     font-family: "Mohave";
-//     font-style: normal;
-//     font-weight: 500;
-//     font-size: 25px;
-//     line-height: 35px;
-//     text-decoration: none;
-
-//     margin-bottom: 40px;
-
-//     color: #ececec;
-//   }
-
-//   .blind {
-//     font-family: "Montserrat";
-//     font-style: normal;
-//     font-weight: 400;
-//     font-size: 14px;
-//     line-height: 18px;
-//     text-decoration: none;
-
-//     color: #ececec;
-//   }
-// }
-
 .header_info_gov {
   display: flex;
   flex-direction: row;
@@ -194,9 +162,12 @@ header {
   font-family: 'Montserrat';
   font-weight: 400;
   font-size: 16px;
+  font-size: 1em;
   line-height: 20px;
   margin-left: 21px;
   color: #ffffff;
+  background: transparent;
+  border: none;
 
   @media (max-width: 991px) {
     display: none;
@@ -343,9 +314,12 @@ header {
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
+        font-size: 1em;
         line-height: 20px;
         color: #ffffff;
         text-decoration: none;
+        background-color: transparent;
+        border: none;
       }
     }
   }
@@ -372,6 +346,7 @@ header {
           font-style: normal;
           font-weight: 600;
           font-size: 20px;
+          font-size: 1.25em;
           line-height: 24px;
           text-transform: lowercase;
           color: #ffffff !important;
@@ -401,6 +376,7 @@ header {
           font-style: normal;
           font-weight: 500;
           font-size: 14px;
+          font-size: 0.875em;
           line-height: 160%;
           color: #ffffff;
           margin-top: 16px;
@@ -416,6 +392,7 @@ header {
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
+        font-size: 1.25em;
         line-height: 24px;
         text-transform: lowercase;
         color: #ffffff;

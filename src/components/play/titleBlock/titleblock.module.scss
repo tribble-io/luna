@@ -60,33 +60,39 @@
 
     .typeShow {
       font-size: 20px;
+      font-size: 1.25em;
       line-height: 160%;
 
       text-transform: uppercase;
 
       @media (max-width: 500px) {
         font-size: 14px;
+        font-size: 0.875em;
       }
     }
 
     .title {
       font-size: 50px;
+      font-size: 3.125em;
       line-height: 160%;
 
       text-transform: uppercase;
 
       @media (max-width: 500px) {
         font-size: 30px;
+        font-size: 1.875em;
       }
     }
 
     .description {
       font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       margin-bottom: 50px;
 
       @media (max-width: 500px) {
         font-size: 14px;
+        font-size: 0.875em;
       }
     }
 
@@ -101,6 +107,7 @@
 
         .rating {
           font-size: 18px;
+          font-size: 1.125em;
         }
       }
     }
@@ -112,21 +119,25 @@
     .link {
       @include button_white;
       font-size: 16px;
+      font-size: 1em;
       font-weight: 500;
       color: $text-color;
 
       @media (max-width: 500px) {
         font-size: 12px;
+        font-size: 0.75em;
       }
     }
 
     .rating {
       font-size: 20px;
+      font-size: 1.25em;
       line-height: 120%;
 
       @media (max-width: 500px) {
         .rating {
           font-size: 18px;
+          font-size: 1.125em;
         }
       }
     }
@@ -164,6 +175,7 @@
 
   .intro {
     font-size: 16px;
+    font-size: 1em;
     line-height: 160%;
     font-weight: 400;
 
@@ -175,6 +187,7 @@
     @media (max-width: 767px) {
       margin-bottom: 50px;
       font-size: 14px;
+      font-size: 0.875em;
     }
 
     .description {
@@ -198,6 +211,7 @@
 
   .production {
     font-size: 16px;
+    font-size: 1em;
     line-height: 160%;
 
     max-width: 505px;
@@ -206,6 +220,7 @@
 
     @media (max-width: 500px) {
       font-size: 14px;
+      font-size: 0.875em;
     }
 
     .director {

@@ -48,6 +48,7 @@
 
   .directorCardText {
     font-size: 18px;
+    font-size: 1.125em;
     color: $text-color;
 
     padding-top: 30px;
@@ -57,6 +58,7 @@
       border-bottom: 1px solid transparent;
       font-weight: 500;
       font-size: 18px;
+      font-size: 1.125em;
       line-height: 164.9%;
       transition: all 0.2s;
 
@@ -69,6 +71,7 @@
       margin-top: 21px;
       font-weight: 500;
       font-size: 16px;
+      font-size: 1em;
       line-height: 20px;
     }
 
@@ -76,6 +79,7 @@
       margin-top: 21px;
       font-weight: 400;
       font-size: 16px;
+      font-size: 1em;
       line-height: 166.9%;
       max-width: 65%;
     }
@@ -104,6 +108,7 @@
     max-width: 50%;
     font-weight: 400;
     font-size: 12px;
+    font-size: 0.75em;
     line-height: 166.9%;
   }
   .directorCardText {
@@ -111,10 +116,12 @@
     width: 100%;
     .actorName {
       font-size: 12px !important;
+      font-size: 0.75em !important;
     }
     .actorRole {
       font-weight: 500;
       font-size: 12px !important;
+      font-size: 0.75em !important;
       line-height: 15px !important;
       margin-top: 10px !important;
     }

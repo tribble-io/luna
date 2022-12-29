@@ -10,6 +10,7 @@
     .movieName {
       font-weight: 400;
       font-size: 16px;
+      font-size: 1em;
       line-height: 160%;
       width: 100%;
       max-width: 600px;
@@ -18,12 +19,14 @@
     .movieRole {
       font-weight: 400;
       font-size: 16px;
+      font-size: 1em;
       line-height: 160%;
     }
   }
   .movieYear {
     font-weight: 400;
     font-size: 16px;
+    font-size: 1em;
     line-height: 160%;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -46,14 +49,17 @@
       .movieName {
         font-weight: 400;
         font-size: 14px;
+        font-size: 0.875em;
         line-height: 160%;
       }
       .movieRole {
         font-size: 14px;
+        font-size: 0.875em;
       }
     }
     .movieYear {
       font-size: 14px;
+      font-size: 0.875em;
     }
   }
 }

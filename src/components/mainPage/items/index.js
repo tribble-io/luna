@@ -90,7 +90,7 @@ export function Item(props) {
         }}
       >
         {items.map((item) => (
-          <SwiperSlide key={item?.id}>
+          <SwiperSlide key={item?.show_id}>
             <div
               className={styles.posterBlock}
               style={{
@@ -106,7 +106,7 @@ export function Item(props) {
               </Link>
               <div className={styles.posterInfo}>
                 <div className={styles.mainInfo}>
-                  <Link to={`play/${item?.play_id}`} className={styles.title}>
+                  <Link to={`play/${item?.id}`} className={styles.title}>
                     {item?.play?.title}
                   </Link>
                   <div className={styles.dateRatingContainer}>
@@ -131,7 +131,7 @@ export function Item(props) {
                     type='button'
                     className={styles.buy}
                     onClick={() => {
-                      popupOpen(item?.play_id, 'affiche', item?.full_date)
+                      popupOpen(item?.id, 'affiche', item?.full_date)
                     }}
                   >
                     БИЛЕТЫ

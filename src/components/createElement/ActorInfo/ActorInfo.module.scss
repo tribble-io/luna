@@ -10,6 +10,7 @@
   .actorNameMobile {
     font-weight: 600;
     font-size: 22px;
+    font-size: 1.375em;
     line-height: 36px;
     margin-bottom: 50px;
     display: none;
@@ -31,17 +32,20 @@
     .actorName {
       font-weight: 600;
       font-size: 30px;
+      font-size: 1.875em;
       line-height: 37px;
       margin-bottom: 30px;
     }
     .actorBody {
       font-weight: 400;
       font-size: 16px;
+      font-size: 1em;
       line-height: 160%;
     }
     .actorRank {
       font-weight: 500;
       font-size: 16px;
+      font-size: 1em;
       line-height: 160%;
     }
     .actorCardRomashka {
@@ -55,12 +59,14 @@
         .romashkaTitle {
           font-weight: 500;
           font-size: 16px;
+          font-size: 1em;
           line-height: 25.6px;
           color: #8cabfa;
         }
         .romashkaContent {
           font-weight: 400;
           font-size: 16px;
+          font-size: 1em;
           line-height: 25.6px;
         }
       }
@@ -91,11 +97,13 @@
       .actorBody {
         font-weight: 400;
         font-size: 14px;
+        font-size: 0.875em;
         line-height: 160%;
       }
       .actorRank {
         font-weight: 500;
         font-size: 14px;
+        font-size: 0.875em;
         line-height: 160%;
       }
       .actorCardRomashka {
@@ -106,12 +114,14 @@
         .romashkaTitle {
           font-weight: 500;
           font-size: 14px;
+          font-size: 0.875em;
           line-height: 160%;
           color: #8cabfa;
         }
         .romashkaContent {
           font-weight: 400;
           font-size: 14px;
+          font-size: 0.875em;
           line-height: 160%;
           margin-top: 20px;
         }

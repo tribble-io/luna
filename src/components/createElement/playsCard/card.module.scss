@@ -65,9 +65,11 @@
 
       p {
         font-size: 16px;
+        font-size: 1em;
 
         @media (max-width: 765px) {
           font-size: 14px;
+          font-size: 0.875em;
         }
       }
 
@@ -79,6 +81,7 @@
         cursor: default;
 
         font-size: 16px;
+        font-size: 1em;
         line-height: 160%;
         text-transform: uppercase;
 
@@ -89,6 +92,7 @@
 
         @media (max-width: 765px) {
           font-size: 14px;
+          font-size: 0.875em;
         }
 
         &:hover {
@@ -98,9 +102,11 @@
 
       .rating {
         font-size: 18px;
+        font-size: 1.125em;
 
         @media (max-width: 500px) {
           font-size: 16px;
+          font-size: 1em;
         }
       }
     }
@@ -111,11 +117,13 @@
     .shortDescription,
     .place {
       font-size: 16px;
+      font-size: 1em;
       line-height: 160%;
       margin-bottom: 10px;
 
       @media (max-width: 765px) {
         font-size: 14px;
+        font-size: 0.875em;
       }
     }
 
@@ -132,6 +140,7 @@
 
       @media (max-width: 765px) {
         font-size: 12px;
+        font-size: 0.75em;
       }
 
       .buy {
@@ -148,6 +157,7 @@
         min-width: auto;
         width: 100%;
         font-size: 14px;
+        font-size: 0.875em;
         color: $text-color;
 
         @media (max-width: 500px) {
@@ -161,11 +171,13 @@
         padding: 15px;
         text-align: center;
         font-size: 18px;
+        font-size: 1.125em;
         color: #fcefae;
         text-transform: uppercase;
 
         @media (max-width: 765px) {
           font-size: 12px;
+          font-size: 0.75em;
         }
       }
     }

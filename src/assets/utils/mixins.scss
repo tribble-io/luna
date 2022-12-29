@@ -36,6 +36,7 @@
 
 @mixin headline_first {
   font-size: 22px;
+  font-size: 1.375em;
   font-weight: 600;
   line-height: 160%;
   text-transform: uppercase;
@@ -43,26 +44,31 @@
 
   @media (min-width: 576px) {
     font-size: 30px;
+    font-size: 1.875em;
   }
 
   @media (min-width: 992px) {
     font-size: 50px;
+    font-size: 3.125em;
   }
 }
 
 @mixin headline_second {
   font-size: 22px;
+  font-size: 1.375em;
   font-weight: 600;
   text-transform: uppercase;
   cursor: default;
 
   @media (min-width: 576px) {
     font-size: 26px;
+    font-size: 1.625em;
     line-height: 160%;
   }
 
   @media (min-width: 992px) {
     font-size: 30px;
+    font-size: 1.875em;
     line-height: normal;
   }
 }

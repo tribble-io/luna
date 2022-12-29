@@ -24,6 +24,7 @@
     h2 {
       font-weight: 500;
       font-size: 36px;
+      font-size: 2.25em;
       line-height: 100%;
       text-transform: inherit;
 
@@ -31,6 +32,7 @@
 
       @media (max-width: 576px) {
         font-size: 24px;
+        font-size: 1.5em;
         margin-bottom: 15px;
       }
     }
@@ -47,6 +49,7 @@
 
         font-weight: 400;
         font-size: 38px;
+        font-size: 2.375em;
         letter-spacing: 0.05em;
 
         margin-bottom: 22px;
@@ -55,12 +58,14 @@
 
         @media (max-width: 500px) {
           font-size: 18px;
+          font-size: 1.125em;
         }
       }
 
       .schedule {
         font-weight: 400;
         font-size: 16px;
+        font-size: 1em;
         line-height: 146%;
 
         @media (max-width: 576px) {
@@ -70,6 +75,7 @@
       .scheduleMob {
         font-weight: 400;
         font-size: 16px;
+        font-size: 1em;
         line-height: 160%;
         display: none;
 

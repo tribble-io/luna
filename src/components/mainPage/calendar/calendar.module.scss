@@ -10,10 +10,6 @@ $ndate-height: 60px;
 
 $moon-size: 60px;
 
-$reg-font-size: 25px;
-$sel-font-size: 37px;
-$wk-font-size: 23px;
-
 .affiche {
   padding-bottom: 170px;
 
@@ -135,7 +131,8 @@ $wk-font-size: 23px;
 .dateNum {
   width: $date-width;
   height: $strip-height;
-  font-size: $reg-font-size;
+  font-size: 25px;
+  font-size: 1.56em;
   text-align: center;
 
   display: flex;
@@ -148,6 +145,7 @@ $wk-font-size: 23px;
 
   @media (max-width: 768px) {
     font-size: 20px;
+    font-size: 1.25em;
   }
 
   a {
@@ -182,13 +180,15 @@ $wk-font-size: 23px;
 .dateBtnContainerHover:hover > .dateContainer > .dateNum,
 .dateBtnContainerSelected > .dateContainer > .dateNum {
   font-weight: 450;
-  font-size: $sel-font-size;
+  font-size: 37px;
+  font-size: 2.31em;
   width: $date-width;
   height: $strip-height;
   margin-bottom: 15px;
 
   @media (max-width: 768px) {
     font-size: 32px;
+    font-size: 2em;
   }
 }
 
@@ -196,7 +196,8 @@ $wk-font-size: 23px;
   margin-top: 5px;
 
   font-family: 'Montserrat';
-  font-size: $wk-font-size;
+  font-size: 23px;
+  font-size: 1.43em;
   color: white;
   text-align: center;
 
@@ -258,6 +259,7 @@ $wk-font-size: 23px;
       color: #ffffff;
       border: 1px solid #ffffff;
       font-size: 14px;
+      font-size: 0.875em;
       font-weight: 600;
       padding: 15px;
       text-transform: uppercase;
