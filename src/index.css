@@ -51,7 +51,7 @@ body.n3__wcag__color_blue {
   box-shadow: none !important;
   text-shadow: none !important;
 }
-body.n3__wcag__images_off .swiper-slide div  {
+body.n3__wcag__images_off .swiper-slide div {
   background-image: none !important;
 }
 body.n3__wcag__images_off img {
