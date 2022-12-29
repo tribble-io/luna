@@ -84,12 +84,14 @@
 
         font-weight: 400;
         font-size: 14px;
+        font-size: 0.875em;
         line-height: 160%;
         text-transform: uppercase;
         color: $text-color;
 
         @media (max-width: 500px) {
           font-size: 12px;
+          font-size: 0.75em;
         }
       }
     }
