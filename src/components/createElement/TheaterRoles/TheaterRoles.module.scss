@@ -3,6 +3,7 @@
   .theatricalRolesTitle {
     font-weight: 600;
     font-size: 30px;
+    font-size: 1.875em;
     line-height: 37px;
     margin: 0px 0px 80px 0px;
   }
@@ -41,12 +42,14 @@
       .roleCardTitle {
         font-weight: 400;
         font-size: 16px;
+        font-size: 1em;
         line-height: 160%;
         text-transform: uppercase;
       }
       .roleCardAge {
         font-weight: 400;
         font-size: 18px;
+        font-size: 1.125em;
         line-height: 22px;
         text-transform: uppercase;
       }
@@ -54,6 +57,7 @@
     .roleCardRole {
       font-weight: 400;
       font-size: 16px;
+      font-size: 1em;
       line-height: 160%;
       margin-bottom: 30px;
     }
@@ -66,6 +70,7 @@
       color: #ffffff;
       font-weight: 500;
       font-size: 14px;
+      font-size: 0.875em;
       line-height: 17px;
     }
   }
@@ -109,6 +114,7 @@
 
     .pressFraction {
       font-size: 20px;
+      font-size: 1.25em;
 
       span:not(:last-child) {
         margin-right: 5px;
@@ -122,6 +128,7 @@
     margin-bottom: 100px;
     .theatricalRolesTitle {
       font-size: 22px;
+      font-size: 1.375em;
       line-height: 36px;
       margin: 100px 0px 50px 0px;
     }
@@ -145,17 +152,20 @@
         .roleCardTitle {
           font-weight: 400;
           font-size: 14px;
+          font-size: 0.875em;
           line-height: 160%;
         }
         .roleCardAge {
           font-weight: 400;
           font-size: 18px;
+          font-size: 1.125em;
           line-height: 22px;
         }
       }
       .roleCardRole {
         font-weight: 400;
         font-size: 16px;
+        font-size: 1em;
         line-height: 160%;
         margin-bottom: 30px;
       }
@@ -168,6 +178,7 @@
         color: #ffffff;
         font-weight: 500;
         font-size: 12px;
+        font-size: 0.75em;
         line-height: 15px;
       }
     }
