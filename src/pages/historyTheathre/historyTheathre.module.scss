@@ -12,6 +12,7 @@
   h1 {
     font-family: 'Montserrat';
     font-size: 50px;
+    font-size: 3.125em;
     font-weight: 600;
     margin-bottom: 146px;
     padding-top: 200px;
@@ -24,15 +25,18 @@
 
     @media (max-width: 520px) {
       font-size: 40px;
+      font-size: 2.5em;
       margin-bottom: 50px;
     }
 
     @media (max-width: 425px) {
       font-size: 35px;
+      font-size: 2.18em;
     }
 
     @media (max-width: 370px) {
       font-size: 30px;
+      font-size: 1.875em;
     }
   }
 
@@ -75,6 +79,7 @@
   div:nth-child(1) {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -84,6 +89,7 @@
 
     @media (max-width: 1000px) {
       font-size: 14px;
+      font-size: 0.875em;
       max-width: 400px;
     }
 
@@ -97,6 +103,7 @@
     span {
       font-family: 'Montserrat';
       font-size: 16px;
+      font-size: 1em;
       font-weight: 600;
       line-height: 26px;
       letter-spacing: 0em;
@@ -104,6 +111,7 @@
 
       @media (max-width: 1000px) {
         font-size: 14px;
+        font-size: 0.875em;
       }
     }
   }
@@ -111,6 +119,7 @@
   div:nth-child(2) {
     font-family: 'Montserrat';
     font-size: 18px;
+    font-size: 1.125em;
     font-weight: 400;
     line-height: 30px;
     letter-spacing: 0em;
@@ -126,6 +135,7 @@
 
     @media (max-width: 1000px) {
       font-size: 14px;
+      font-size: 0.875em;
       max-width: 300px;
       margin-right: 100px;
     }
@@ -172,6 +182,7 @@
   div:nth-child(4) {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -335,6 +346,7 @@
   div:nth-child(3) {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -357,6 +369,7 @@
 
     @media (max-width: 1000px) {
       font-size: 14px;
+      font-size: 0.875em;
       margin-left: 50px;
       margin-top: 100px;
     }
@@ -426,6 +439,7 @@
   div:nth-child(1) {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -443,6 +457,7 @@
     span {
       font-family: 'Montserrat';
       font-size: 14px;
+      font-size: 0.875em;
       font-weight: 600;
       line-height: 26px;
       letter-spacing: 0em;
@@ -453,6 +468,7 @@
   div:nth-child(2) {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -486,6 +502,7 @@
   div:nth-child(4) {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -519,6 +536,7 @@
   div:nth-child(6) {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -621,6 +639,7 @@
       width: 505px;
       font-family: 'Montserrat';
       font-size: 16px;
+      font-size: 1em;
       font-weight: 400;
       line-height: 26px;
       letter-spacing: 0em;
@@ -632,6 +651,7 @@
       @media (max-width: 770px) {
         width: 100%;
         font-size: 14px;
+        font-size: 0.875em;
       }
     }
   }
@@ -690,6 +710,7 @@
   div {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -720,6 +741,7 @@
     @media (max-width: 770px) {
       max-width: 100%;
       font-size: 14px;
+      font-size: 0.875em;
     }
   }
 }
@@ -773,6 +795,7 @@
   div:first-child {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -808,12 +831,14 @@
     @media (max-width: 770px) {
       max-width: 100%;
       font-size: 14px;
+      font-size: 0.875em;
     }
   }
 
   div:last-child {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -837,6 +862,7 @@
 
     @media (max-width: 770px) {
       font-size: 14px;
+      font-size: 0.875em;
       margin-right: 30%;
     }
   }
@@ -883,6 +909,7 @@
   div {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -892,6 +919,7 @@
     p {
       @media (max-width: 1200px) {
         font-size: 14px;
+        font-size: 0.875em;
       }
     }
 
@@ -922,6 +950,7 @@
       p:nth-child(1) {
         font-family: 'Montserrat';
         font-size: 18px;
+        font-size: 1.125em;
         font-weight: 500;
         text-transform: uppercase;
       }
@@ -929,12 +958,14 @@
       p:nth-child(2) {
         font-family: 'Montserrat';
         font-size: 16px;
+        font-size: 1em;
         font-weight: 500;
       }
 
       p:nth-child(3) {
         font-family: 'Montserrat';
         font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
       }
     }
@@ -954,6 +985,7 @@
       p:nth-child(1) {
         font-family: 'Montserrat';
         font-size: 18px;
+        font-size: 1.125em;
         font-weight: 500;
         text-transform: uppercase;
       }
@@ -961,12 +993,14 @@
       p:nth-child(2) {
         font-family: 'Montserrat';
         font-size: 16px;
+        font-size: 1em;
         font-weight: 500;
       }
 
       p:nth-child(3) {
         font-family: 'Montserrat';
         font-size: 16px;
+        font-size: 1em;
         font-weight: 400;
         max-width: 400px;
       }
@@ -978,6 +1012,7 @@
   display: none;
   font-family: 'Montserrat';
   font-size: 16px;
+  font-size: 1em;
   font-weight: 400;
   margin-top: 50px;
   line-height: 26px;
@@ -1011,6 +1046,7 @@
 
       @media (max-width: 550px) {
         font-size: 14px;
+        font-size: 0.875em;
       }
     }
   }
@@ -1058,22 +1094,26 @@
       p:first-child {
         font-family: 'Montserrat';
         font-size: 18px;
+        font-size: 1.125em;
         font-weight: 500;
         margin-bottom: 30px;
         text-transform: uppercase;
 
         @media (max-width: 550px) {
           font-size: 12px;
+          font-size: 0.75em;
         }
       }
 
       p:last-child {
         font-family: 'Montserrat';
         font-size: 18px;
+        font-size: 1.125em;
         font-weight: 400;
 
         @media (max-width: 550px) {
           font-size: 13px;
+          font-size: 0.81em;
         }
       }
     }
@@ -1108,6 +1148,7 @@
   h2 {
     font-family: 'Montserrat';
     font-size: 22px;
+    font-size: 1.375em;
     letter-spacing: 0em;
     font-style: normal;
     font-weight: 500;
@@ -1127,6 +1168,7 @@
 
     @media (max-width: 1000px) {
       font-size: 18px;
+      font-size: 1.125em;
     }
 
     @media (max-width: 770px) {
@@ -1134,6 +1176,7 @@
       max-width: 80%;
       font-family: Montserrat;
       font-size: 18px;
+      font-size: 1.125em;
       font-weight: 400;
       line-height: 30px;
       letter-spacing: 0em;
@@ -1180,6 +1223,7 @@
   .infoBlock_2_5_tage {
     font-family: 'Montserrat';
     font-size: 30px;
+    font-size: 1.875em;
     font-weight: 600;
     line-height: 37px;
     letter-spacing: 0em;
@@ -1191,6 +1235,7 @@
   .infoBlock_2_5_inf {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -1208,6 +1253,7 @@
   .infoBlock_2_5_infName {
     font-family: 'Montserrat';
     font-size: 22px;
+    font-size: 1.375em;
     font-weight: 400;
     line-height: 36px;
     letter-spacing: 0em;
@@ -1232,6 +1278,7 @@
     p:first-child {
       font-family: 'Montserrat';
       font-size: 120px;
+      font-size: 7.5em;
       font-weight: 400;
       line-height: 197px;
       letter-spacing: 0em;
@@ -1242,6 +1289,7 @@
     p:last-child {
       font-family: 'Montserrat';
       font-size: 18px;
+      font-size: 1.125em;
       font-weight: 400;
       line-height: 197px;
       letter-spacing: 0em;
@@ -1267,6 +1315,7 @@
   .infoBlock_2_5_tage {
     font-family: 'Montserrat';
     font-size: 27px;
+    font-size: 1.68em;
     font-weight: 600;
     line-height: 37px;
     letter-spacing: 0em;
@@ -1276,6 +1325,7 @@
   .infoBlock_2_5_inf {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 600;
     letter-spacing: 0em;
     text-align: left;
@@ -1314,12 +1364,14 @@
     p:first-child {
       margin-bottom: 0;
       font-size: 100px;
+      font-size: 6.25em;
       font-family: 'Montserrat';
       text-align: right;
     }
 
     p:last-child {
       font-size: 15px;
+      font-size: 0.95em;
       font-family: 'Montserrat';
       text-align: right;
     }
@@ -1384,6 +1436,7 @@
     max-width: 522px;
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -1427,6 +1480,7 @@
   .infoBlock_2_7_info_2 {
     font-family: 'Montserrat';
     font-size: 16px;
+    font-size: 1em;
     font-weight: 400;
     line-height: 26px;
     letter-spacing: 0em;
@@ -1475,6 +1529,7 @@
     div:first-child {
       font-family: 'Montserrat';
       font-size: 80px;
+      font-size: 5em;
       font-weight: 400;
       line-height: 131px;
       letter-spacing: 0em;
@@ -1488,12 +1543,14 @@
 
       @media (max-width: 600px) {
         font-size: 60px;
+        font-size: 3.75em;
       }
     }
 
     div:last-child {
       font-family: 'Montserrat';
       font-size: 18px;
+      font-size: 1.125em;
       font-weight: 400;
       line-height: 30px;
       letter-spacing: 0em;
@@ -1609,6 +1666,7 @@
     .infoBlock_2_8_txt {
       font-family: 'Montserrat';
       font-size: 18px;
+      font-size: 1.125em;
       font-weight: 400;
       line-height: 30px;
       letter-spacing: 0em;
@@ -1694,6 +1752,7 @@
 .archivePhotoTage {
   font-family: 'Montserrat';
   font-size: 30px;
+  font-size: 1.875em;
   font-weight: 600;
   line-height: 37px;
   letter-spacing: 0em;
