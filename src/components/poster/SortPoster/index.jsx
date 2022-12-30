@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './sortposter.module.scss'
-import searchImg from './img/search.svg'
+// import searchImg from './img/search.svg'
 import calendarImg from './img/calendar.svg'
 
 let MONTHS = [
@@ -194,7 +194,7 @@ const SortPoster = (props) => {
               <div className={styles.moth}>{moths}</div>
               <div className={styles.position}>{buttons}</div>
             </div>
-            <div className={styles.search}>
+            {/* <div className={styles.search}>
               <img src={searchImg} alt='search' />
               <input
                 id='search_el'
@@ -203,7 +203,21 @@ const SortPoster = (props) => {
                   searck(document.getElementById('search_el').value)
                 }}
               />
-            </div>
+            </div> */}
+            <div className={styles.filterGroup}>
+                <div className={styles.inputFilter}>
+                  <input
+                    type='text'
+                    name='nameSearch'
+                    // id='nameSearch'
+                    id='search_el'
+                    placeholder='поиск по названию'
+                    onChange={() => {
+                      searck(document.getElementById('search_el').value)
+                    }}
+                  />
+                </div>
+              </div>
           </div>
           <div className={styles.calendar}>
             <img

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './postercontent.module.scss'
 
 let PosterEl = (props) => {
+  const [isFocusLink, setFocusLink] = useState(false)
   if (props.day) {
     let location
 
@@ -11,6 +12,19 @@ let PosterEl = (props) => {
     } else {
       location = props.location
     }
+
+    let timer
+
+    const focusLink = () => {
+      timer = setTimeout(() => setFocusLink((prev) => !prev), 150)
+    }
+
+    useEffect(() => {
+      return () => {
+        clearTimeout(timer)
+      }
+    }, [])
+
     return (
       <div className={styles.posterContent}>
         <div className={styles.posterContent_el}>
@@ -25,7 +39,14 @@ let PosterEl = (props) => {
               </div>
               <div className={styles.name}>
                 <div>
-                  <Link to={'../play/' + props.id}>{props.title}</Link>
+                  <Link
+                    className={isFocusLink ? styles.linkName : ''}
+                    to={'../play/' + props.id}
+                    onMouseOver={() => focusLink()}
+                    onMouseOut={() => focusLink()}
+                  >
+                    {props.title}
+                  </Link>
                   <div className={styles.premier}>{props.premier}</div>
                 </div>
                 <div className={styles.scien}>{location}</div>
