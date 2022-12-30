@@ -40,7 +40,6 @@ export function FooterLinks() {
             <Link to='/news'>новости</Link>
             <Link to='/press'>пресса</Link>
             <Link to='/contacts'>контакты</Link>
-            <Link to='/scenes'>сцены</Link>
           </div>
           {/* Empty div to correct calculate the spacing between blocks */}
           <div className={styles.linkBlock}></div>

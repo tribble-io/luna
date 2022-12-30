@@ -8,7 +8,7 @@ export function Actors({ roles, title, troupeGrig = false }) {
       <div className={styles.wrapper}>
         {roles.length > 0 && (
           <div className={styles.actorsContent}>
-            {title ? <h2>{title}</h2> : null}
+            {title ? <h2>{title}</h2> : ''}
             <div
               className={
                 troupeGrig ? styles.actorsGridTroupe : styles.actorsGrid

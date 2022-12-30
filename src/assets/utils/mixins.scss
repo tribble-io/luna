@@ -57,6 +57,7 @@
   font-size: 22px;
   font-size: 1.375em;
   font-weight: 600;
+  line-height: 160%;
   text-transform: uppercase;
   cursor: default;
 
@@ -78,6 +79,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  text-align: center;
 
   padding: 15px 40px;
 
@@ -87,7 +89,7 @@
   cursor: default;
 
   @media (max-width: 567px) {
-    min-width: 100px;
+    padding: 15px 20px;
   }
 }
 

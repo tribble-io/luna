@@ -29,12 +29,10 @@ export function PhotoSlider(props) {
         spaceBetween={20}
         navigation={navigation}
         pagination={pagination}
-        centeredSlides={true}
         modules={[Navigation, Pagination]}
         breakpoints={{
           500: {
             slidesPerView: 2,
-            centeredSlides: false,
           },
         }}
         className='photoSwiper'
@@ -51,11 +49,20 @@ export function PhotoSlider(props) {
                   <div className={styles.cardImg}>
                     <a
                       data-fancybox='gallery'
-                      href={item.href}
-                      data-caption={item.caption}
+                      href={item.original ?? noPhoto}
+                      data-caption={item.caption ?? ''}
                       className={styles.sliderLink}
                     >
-                      <img className={styles.sliderImg} alt='' src={item.src} />
+                      <img
+                        className={styles.sliderImg}
+                        alt={item.caption ?? ''}
+                        src={
+                          API_URL +
+                            (item.preview?.medium?.url ??
+                              item.preview?.small?.url ??
+                              item.preview?.thumbnail?.url) ?? noPhoto
+                        }
+                      />
                     </a>
                   </div>
                 </SwiperSlide>
@@ -73,7 +80,7 @@ export function PhotoSlider(props) {
                         >
                           <img
                             className={styles.sliderImg}
-                            alt=''
+                            alt={bigSlide.caption ?? ''}
                             src={
                               API_URL +
                               (bigSlide.preview?.medium?.url ??
@@ -100,7 +107,7 @@ export function PhotoSlider(props) {
                               >
                                 <img
                                   className={styles.sliderImg}
-                                  alt=''
+                                  alt={item.caption ?? ''}
                                   src={
                                     API_URL +
                                       (item.preview?.medium?.url ??
