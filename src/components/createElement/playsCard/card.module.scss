@@ -62,7 +62,7 @@
       .titleContainer {
         max-width: 328px;
       }
-      
+
       .title {
         margin-bottom: 10px;
       }
@@ -149,7 +149,7 @@
         @media (max-width: 500px) {
           @include button_blue;
           color: $compl-color;
-          
+
           font-size: 12px;
           font-size: 0.75em;
         }
