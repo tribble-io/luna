@@ -71,12 +71,15 @@ function Header() {
           />
         </Link>
         <div className={styles.mobileMenu}>
-          <div className={styles.mobileMenuIcon} onClick={() => setOpen(!open)}>
-            <div
-              className={
-                open ? styles.mobileMenuIconOpen : styles.mobileMenuIconClose
-              }
-            ></div>
+          <div
+            className={
+              open
+                ? `${styles.mobileMenuIcon} ${styles.mobileMenuIconOpen}`
+                : styles.mobileMenuIcon
+            }
+            onClick={() => setOpen(!open)}
+          >
+            <div className={styles.mobileMenuLine}></div>
           </div>
           <div
             className={

@@ -7,14 +7,14 @@
   color: #fff;
 }
 
-h2 {
-  @include headline_second;
-}
-
 .actorsContent {
   padding-bottom: 200px;
   overflow: hidden;
   cursor: default;
+
+  h2 {
+    @include headline_second;
+  }
 
   @media (max-width: 500px) {
     padding-bottom: 70px;

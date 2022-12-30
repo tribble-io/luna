@@ -43,11 +43,9 @@ export function PlaysLine(props) {
             </div>
           </div>
           <div className={styles.playTitle}>
-            <div>
-              <Link className={styles.title} to={`/play/${data?.id}`}>
-                {data?.title}
-              </Link>
-            </div>
+            <Link className={styles.title} to={`/play/${data?.id}`}>
+              {data?.title}
+            </Link>
             {data?.isPremiere ? (
               <p className={styles.premier}>Премьера</p>
             ) : (

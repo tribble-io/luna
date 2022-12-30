@@ -1,11 +1,5 @@
 @import '../../../assets/main.scss';
 
-@media (max-width: 500px) {
-  .pressLine {
-    height: 100%;
-  }
-}
-
 .lineContent {
   display: flex;
   flex-direction: row;
@@ -18,11 +12,14 @@
 
   color: $text-color;
 
-  &:hover {
-    .arrow {
-      transform: translateX(20px);
+  @media (min-width: 500px) {
+    &:hover {
+      .arrow {
+        transform: translateX(20px);
+      }
     }
   }
+
   @media (max-width: 500px) {
     flex-direction: column;
     align-items: stretch;
@@ -58,6 +55,7 @@
   .publisher {
     color: $compl-color;
     margin-right: 30px;
+    line-height: 150%;
   }
 
   .date {
@@ -74,12 +72,14 @@
     align-items: center;
 
     @media (max-width: 500px) {
-      justify-content: space-between;
+      justify-content: flex-start;
+      align-items: baseline;
     }
 
     .arrowRead {
       font-size: 14px;
       font-size: 0.875em;
+      margin-right: 25px;
       @media (min-width: 500px) {
         display: none;
       }

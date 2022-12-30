@@ -104,23 +104,24 @@
     }
 
     .contactsLink {
+      font-weight: 600;
+      font-size: 18px;
+      font-size: 1.125em;
+      line-height: 160%;
+
       &:not(:last-child) {
         margin-bottom: 1rem;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 14px;
+        font-size: 0.875em;
       }
 
       a {
         display: inline-block;
         text-transform: uppercase;
         color: #ffffff;
-        font-weight: 600;
-        font-size: 18px;
-        font-size: 1.125em;
-        line-height: 160%;
-
-        @media (max-width: 500px) {
-          font-size: 14px;
-          font-size: 0.875em;
-        }
       }
     }
 

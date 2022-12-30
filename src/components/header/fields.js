@@ -23,7 +23,7 @@ export const linkMobileHeader = [
       },
       {
         link: '/children-studio',
-        label: 'Детская театральная студия «Маленькая Луна»',
+        label: 'Детская театральная студия \u000A«Маленькая Луна»',
       },
       {
         link: '/romaska-awards',

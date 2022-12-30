@@ -36,7 +36,6 @@ export function Press({ press, actor = false }) {
             <div className={styles.pressSlider}>
               <Swiper
                 slidesPerView='auto'
-                centeredSlides={true}
                 grid={grid}
                 spaceBetween={20}
                 pagination={pagination}
@@ -45,7 +44,6 @@ export function Press({ press, actor = false }) {
                 breakpoints={{
                   500: {
                     slidesPerView: 1,
-                    centeredSlides: false,
                   },
                 }}
                 className='pressSwiper'
