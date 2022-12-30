@@ -40,6 +40,7 @@ let PosterContent = (props) => {
             rating={item.play.rating}
             buy={item.tickets_link}
             id={item.play.id}
+            month={getDateStr(item.date).month_name}
           />
         ))}
       </section>
@@ -62,6 +63,7 @@ let PosterContent = (props) => {
             rating={item.play.rating}
             buy={item.tickets_link}
             id={item.play.id}
+            month={getDateStr(item.date).month_name}
           />
         ))}
       </section>
@@ -81,6 +83,7 @@ let PosterContent = (props) => {
             rating={item.play.rating}
             buy={item.tickets_link}
             id={item.play.id}
+            month={getDateStr(item.date).month_name}
           />
         ))}
       </section>
