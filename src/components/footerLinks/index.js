@@ -54,7 +54,9 @@ export function FooterCopyright() {
     <>
       <div className={styles.wrapper}>
         <div className={styles.copyright}>
-          <p>Театр Луны © Все права защищены. 1994–2022</p>
+          <p>
+            Театр Луны © Все права защищены. 1994–{new Date().getFullYear()}
+          </p>
         </div>
       </div>
     </>
