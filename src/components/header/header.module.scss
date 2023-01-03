@@ -258,25 +258,11 @@ header {
     right: 0;
     left: 0;
     background-color: #08091d;
-    z-index: 5;
-    padding: 40px 50px;
-  }
-
-  .mobileMenuContainerClose {
-    @extend .mobileMenuContainer;
-    transform: translateX(-200%);
-    opacity: 0;
-  }
-
-  .mobileMenuContainerOpen {
-    @extend .mobileMenuContainer;
-    transform: translateX(0);
-    opacity: 1;
     height: 87vh;
     overflow: auto;
     max-height: 100vh;
-    padding-left: 20px;
-    padding-right: 20px;
+    z-index: 5;
+    padding: 40px 20px;
 
     .socialLinks {
       margin-top: 90px;
@@ -326,6 +312,18 @@ header {
         text-align: left;
       }
     }
+  }
+
+  .mobileMenuContainerClose {
+    @extend .mobileMenuContainer;
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+
+  .mobileMenuContainerOpen {
+    @extend .mobileMenuContainer;
+    transform: translateX(0);
+    opacity: 1;
   }
 
   .mobileMenuList {
