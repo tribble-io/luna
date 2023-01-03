@@ -24,7 +24,7 @@ import {
 import PageTeam from './pages/PageTeam/PageTeam'
 import News from './pages/news'
 import PageDetailActor from './pages/PageDetailActor/PageDetailActor'
-import NewsConroller from './components/news/singeNews/newsController'
+import NewsController from './components/news/singleNews/newsController'
 import Poster from './pages/poster'
 import HistoryTheathre from './pages/historyTheathre'
 import Documets from './pages/documents'
@@ -55,7 +55,7 @@ function App() {
           <Route path='/press' element={<Press />} />
           <Route path='/troupe' element={<PageTeam />} />
           <Route path='/news' element={<News />} />
-          <Route exact path='/news/*' element={<NewsConroller />} />
+          <Route exact path='/news/*' element={<NewsController />} />
           <Route path='/contacts' element={<Contacts />} />
           <Route path='/scenes' element={<Scenes />} />
           <Route path='/person/:id' element={<PageDetailActor />} />

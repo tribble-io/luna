@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './singeNews.module.scss'
+import styles from './singleNews.module.scss'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import PosterEl from '../../poster/posterContent/posterEl'
@@ -12,7 +12,7 @@ import Loader from '../../loader'
 import { ShowPhoto } from '../../play'
 import { api, API_URL } from '../../../api'
 
-class SingeNews extends React.Component {
+class SingleNews extends React.Component {
   constructor() {
     super()
 
@@ -362,4 +362,4 @@ class SingeNews extends React.Component {
     }
   }
 }
-export default SingeNews
+export default SingleNews

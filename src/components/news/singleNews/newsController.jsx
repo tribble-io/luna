@@ -1,16 +1,16 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import SingeNews from '.'
+import SingleNews from '.'
 
-let NewsConroller = () => {
+let NewsController = () => {
   const location = useLocation()
   const newsContState = location.state
 
   return (
     <div>
-      <SingeNews stateNew={newsContState} />
+      <SingleNews stateNew={newsContState} />
     </div>
   )
 }
 
-export default NewsConroller
+export default NewsController
