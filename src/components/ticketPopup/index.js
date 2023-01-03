@@ -100,8 +100,8 @@ export function TicketPopUp(props) {
                     ))}
                   </div>
                   <div className={styles.allDates}>
-                    <Link to='/scenes' target='_self'>
-                      смотреть все даты
+                    <Link to='/playbill' target='_self'>
+                      все спектакли
                     </Link>
                   </div>
                 </>
