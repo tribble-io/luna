@@ -16,7 +16,7 @@ import {
   ChildrenStudio,
   Plays,
   Play,
-  RomaskaAwards,
+  RomashkaAwards,
   Press,
   Contacts,
   Scenes,
@@ -30,6 +30,7 @@ import HistoryTheathre from './pages/historyTheathre'
 import Documets from './pages/documents'
 import PageNotFound from './pages/PageNotFound/PageNotFound'
 import { defaultSetBodyClass, defaultGetSettings } from '@n3/react-vision-panel'
+import { SiteMap } from './pages/sitemap'
 
 function App() {
   // For Accessibility plugin
@@ -50,7 +51,7 @@ function App() {
           <Route path='/playbill' element={<Poster />} />
           <Route path='/plays' element={<Plays />} />
           <Route path='/play/:id' element={<Play />} />
-          <Route path='/romaska-awards' element={<RomaskaAwards />} />
+          <Route path='/romashka-awards' element={<RomashkaAwards />} />
           <Route path='/press' element={<Press />} />
           <Route path='/troupe' element={<PageTeam />} />
           <Route path='/news' element={<News />} />
@@ -59,6 +60,7 @@ function App() {
           <Route path='/scenes' element={<Scenes />} />
           <Route path='/person/:id' element={<PageDetailActor />} />
           <Route path='/documents' element={<Documets />} />
+          <Route path='/sitemap' element={<SiteMap />} />
           <Route path='*' element={<Navigate to='/404' replace />} />
           <Route path='/404' element={<PageNotFound />} />
         </Routes>

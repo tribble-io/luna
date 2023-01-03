@@ -38,7 +38,7 @@ function Nav() {
                   </Link>
                 </div>
                 <div className={styles.subMenuBlock}>
-                  <Link to='/romaska-awards'>Премия &#171;Ромашка&#187;</Link>
+                  <Link to='/romashka-awards'>Премия &#171;Ромашка&#187;</Link>
                   <Link to='/scenes'>Сцены</Link>
                   <a
                     href='https://hh.ru/search/vacancy?from=employerPage&employer_id=3977447&hhtmFrom=employer'

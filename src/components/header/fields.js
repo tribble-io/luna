@@ -26,7 +26,7 @@ export const linkMobileHeader = [
         label: 'Детская театральная студия \u000A«Маленькая Луна»',
       },
       {
-        link: '/romaska-awards',
+        link: '/romashka-awards',
         label: 'Премия «Ромашка»',
       },
       {

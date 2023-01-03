@@ -25,7 +25,7 @@ export function FooterLinks() {
             <Link to='/children-studio'>
               детская театральная студия &#171;Маленькая Луна&#187;
             </Link>
-            <Link to='/romaska-awards'>премия &#171;Ромашка&#187;</Link>
+            <Link to='/romashka-awards'>премия &#171;Ромашка&#187;</Link>
             <Link to='/scenes'>сцены</Link>
           </div>
           <div className={styles.linkBlock}>

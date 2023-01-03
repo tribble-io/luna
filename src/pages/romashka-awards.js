@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { API_URL, api } from '../api/index'
 
-import { Title, Laureate } from '../components/romaska-awards'
+import { Title, Laureate } from '../components/romashka-awards'
 import noPhoto from '../assets/img/no-photo-actor.jpg'
 import Loader from '../components/loader'
 
@@ -51,13 +51,13 @@ function getLaureatesData(arr) {
   }
 }
 
-export function RomaskaAwards() {
+export function RomashkaAwards() {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     api
-      .exportRomaskaData()
+      .exportRomashkaData()
       .then((response) => {
         setData(getLaureatesData(response))
         setIsLoading(false)

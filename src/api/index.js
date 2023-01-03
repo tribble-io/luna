@@ -167,7 +167,7 @@ async function createNewComment(data) {
   throw new Error("Can't create new comment")
 }
 
-async function exportRomaskaData() {
+async function exportRomashkaData() {
   const result = await axios.get(
     `${API_URL}/api/seasons?populate=awards.artist.cover&sort[0]=year:desc`
   )
@@ -176,7 +176,7 @@ async function exportRomaskaData() {
     return result.data.data
   }
 
-  throw new Error("Can't export romaska awards data")
+  throw new Error("Can't export romashka awards data")
 }
 
 async function exportPressData(year) {
@@ -330,7 +330,7 @@ export const api = {
   exportTicketData,
   exportShowData,
   createNewComment,
-  exportRomaskaData,
+  exportRomashkaData,
   exportPressData,
   exportShowActors,
   exportShowPersons,
