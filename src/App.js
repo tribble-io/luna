@@ -24,7 +24,7 @@ import {
 import PageTeam from './pages/PageTeam/PageTeam'
 import News from './pages/news'
 import PageDetailActor from './pages/PageDetailActor/PageDetailActor'
-import NewsConroller from './components/news/oneNewsPage/newsController'
+import NewsConroller from './components/news/singeNews/newsController'
 import Poster from './pages/poster'
 import HistoryTheathre from './pages/historyTheathre'
 import Documets from './pages/documents'

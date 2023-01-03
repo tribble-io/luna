@@ -1,6 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import OneOageNews from '.'
+import SingeNews from '.'
 
 let NewsConroller = () => {
   const location = useLocation()
@@ -8,7 +8,7 @@ let NewsConroller = () => {
 
   return (
     <div>
-      <OneOageNews stateNew={newsContState} />
+      <SingeNews stateNew={newsContState} />
     </div>
   )
 }

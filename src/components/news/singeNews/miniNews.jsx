@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './newsEl.module.scss'
 
-let MiniMews = (props) => {
+let MiniNews = (props) => {
   return (
     <Link to={props.locationNew} state={props.newState}>
-      <div className={styles.miniMewsEl}>
+      <div className={styles.MiniNewsEl}>
         <div className={styles.data}>
           {props.date} {props.month}
         </div>
@@ -14,4 +14,4 @@ let MiniMews = (props) => {
     </Link>
   )
 }
-export default MiniMews
+export default MiniNews

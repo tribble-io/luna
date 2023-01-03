@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './oneNewsPage.module.scss'
+import styles from './singeNews.module.scss'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import PosterEl from '../../poster/posterContent/posterEl'
-import MiniMews from './miniNews'
+import MiniNews from './miniNews'
 
 import tg from './img/telegram.svg'
 import vk from './img/vk.svg'
@@ -12,7 +12,7 @@ import Loader from '../../loader'
 import { ShowPhoto } from '../../play'
 import { api, API_URL } from '../../../api'
 
-class OneOageNews extends React.Component {
+class SingeNews extends React.Component {
   constructor() {
     super()
 
@@ -169,7 +169,7 @@ class OneOageNews extends React.Component {
     if (this.state.itemsMiniNews.length != 0) {
       try {
         const itemsNews = this.state.itemsMiniNews.map((item) => (
-          <MiniMews
+          <MiniNews
             title={item.title}
             date={getDateStr(item.publishedAt).date}
             month={getDateStr(item.publishedAt).month_name_case}
@@ -362,4 +362,4 @@ class OneOageNews extends React.Component {
     }
   }
 }
-export default OneOageNews
+export default SingeNews
