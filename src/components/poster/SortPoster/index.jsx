@@ -205,19 +205,19 @@ const SortPoster = (props) => {
               />
             </div> */}
             <div className={styles.filterGroup}>
-                <div className={styles.inputFilter}>
-                  <input
-                    type='text'
-                    name='nameSearch'
-                    // id='nameSearch'
-                    id='search_el'
-                    placeholder='поиск по названию'
-                    onChange={() => {
-                      searck(document.getElementById('search_el').value)
-                    }}
-                  />
-                </div>
+              <div className={styles.inputFilter}>
+                <input
+                  type='text'
+                  name='nameSearch'
+                  // id='nameSearch'
+                  id='search_el'
+                  placeholder='поиск по названию'
+                  onChange={() => {
+                    searck(document.getElementById('search_el').value)
+                  }}
+                />
               </div>
+            </div>
           </div>
           <div className={styles.calendar}>
             <img
