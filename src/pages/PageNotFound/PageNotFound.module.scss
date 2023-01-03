@@ -11,10 +11,11 @@
   width: 100%;
   background-size: 100% auto;
 }
+
 .notFound {
   @include container;
 
-  h1 {
+  h2 {
     font-family: 'Montserrat';
     font-weight: 600;
     font-size: 30px;
@@ -22,6 +23,7 @@
     line-height: 160%;
     text-transform: uppercase;
   }
+
   p {
     font-family: 'Raleway', sans-serif;
     font-style: normal;
@@ -31,11 +33,13 @@
     line-height: 164.57%;
     max-width: 471px;
     margin-top: 50px;
+
     .link {
       color: #8cabfa;
       text-decoration: underline;
     }
   }
+
   .imageLuna {
     display: none;
   }
@@ -47,15 +51,19 @@
     height: 901px;
     background: #000000;
     padding-top: 100px;
+
     .notFound {
       padding-left: 20px;
       padding-right: 20px;
-      h1 {
+
+      h2 {
         font-weight: 600;
         font-size: 22px;
         font-size: 1.375em;
         line-height: 36px;
+        text-transform: uppercase;
       }
+
       p {
         font-family: 'Raleway', sans-serif;
         font-style: normal;
@@ -64,11 +72,13 @@
         font-size: 0.875em;
         line-height: 164.57%;
         margin-top: 40px;
+
         .link {
           color: #8cabfa;
           text-decoration: underline;
         }
       }
+
       .imageLuna {
         display: block;
         margin-top: 90px;

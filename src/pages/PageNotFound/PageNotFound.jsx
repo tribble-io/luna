@@ -17,11 +17,12 @@ const PageNotFound = () => {
           по ссылке, в которой была допущена ошибка, или ресурс был удален.
           <br />
           <br />
-          Попробуйте перейти на <br />
+          Попробуйте перейти на{' '}
           <Link className={styles.link} to={'/'}>
             главную
           </Link>{' '}
-          или{' '}
+          или
+          <br />
           <Link className={styles.link} onClick={() => handelClickBack()}>
             предыдущую страницу
           </Link>
