@@ -34,9 +34,7 @@ class HistoryTheathre extends React.Component {
   }
 
   componentDidMount() {
-    fetch(
-      `http://theatre.restomatik.ru:1337/api/assets/2?populate=gallery,gallery.media`
-    )
+    fetch(`${API_URL}/api/assets/2?populate=gallery,gallery.media`)
       .then((res) => res.json())
       .then((result) => {
         // api.exportHistoryTheathrePhoto().then((result) => {

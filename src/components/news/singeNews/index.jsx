@@ -121,7 +121,7 @@ class SingeNews extends React.Component {
       })
     }
     if (this.state.checked) {
-      fetch('http://theatre.restomatik.ru:1337/api/subscribers', {
+      fetch(`${API_URL}/api/subscribers`, {
         method: 'POST',
         body: JSON.stringify({
           data: {

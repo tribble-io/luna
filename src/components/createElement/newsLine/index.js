@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './news-line.module.scss'
+import { API_URL as URL } from '../../../api'
 
 export function NewsLine(props) {
-  let URL = 'http://theatre.restomatik.ru:1337'
   if (props.date) {
     return (
       <Link to={props.location} state={props.items}>
