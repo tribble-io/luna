@@ -250,11 +250,11 @@ header {
   .mobileMenuContainer {
     transition: all 0.5s linear;
     position: absolute;
-    top: 90px;
+    top: 95px;
     right: 0;
     left: 0;
     background-color: #08091d;
-    height: 87vh;
+    min-height: calc(100vh - 95px);
     overflow: auto;
     max-height: 100vh;
     z-index: 5;
