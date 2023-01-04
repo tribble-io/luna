@@ -1,41 +1,51 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './news-line.module.scss'
-import { API_URL as URL } from '../../../api'
+import { API_URL } from '../../../api'
+import noPhoto from '../../../assets/img/no-photo-actor.jpg'
+
+/*
+Example of adding the New Line component (mobile version) to a page, you can see a demo on this page src\components\mainPage\news\index.js
+
+Add component tag and props to the parent page where data is array with parameters for the component
+<NewsLine data={data} key={`news-line-${data.id}`} />
+
+Parameters List
+data: {
+  id: 1,
+  image: cover: {formats: {...}},
+  title: 'Эдит Пиаф. Гимн Любви'
+  date: 5,
+  month: 'декабря',
+  year: '2022'
+}
+
+*/
 
 export function NewsLine(props) {
-  if (props.date) {
-    return (
-      <Link to={props.location} state={props.items}>
-        <div className={styles.posterContent}>
-          <div className={styles.posterContent_el}>
-            <div className={styles.posterContent_el_content}>
-              <div className={styles.posterContent_el_content_2}>
-                <div className={styles.data}>
-                  <img
-                    src={URL + props.cover}
-                    alt=''
-                    className={styles.cover}
-                  />
-                </div>
-                <div className={styles.name}>
-                  <div>
-                    <div>{props.title}</div>
-                  </div>
-                  <div className={styles.scien}>
-                    {props.date} {props.month}
-                  </div>
-                </div>
-              </div>
-              <div className={styles.restrictionBlock}>
-                <div className={styles.buy}>Читать</div>
-              </div>
-            </div>
-          </div>
+  const { item } = props
+  return (
+    <div className={styles.newsLine}>
+      <Link to={`/play/${item?.id}`} className={styles.newsLineContent}>
+        <div className={styles.newsImage}>
+          <img
+            src={
+              API_URL +
+                (item.image?.formats?.medium?.url ??
+                  item.image?.formats?.small?.url ??
+                  item.image?.formats?.thumbnail?.url ??
+                  item.image?.url) ?? noPhoto
+            }
+            alt={item.title ?? ''}
+          />
+        </div>
+        <div className={styles.newsText}>
+          <p className={styles.title}>{item?.title}</p>
+          <p className={styles.date}>
+            {item?.date} {item?.month} {item?.year}
+          </p>
         </div>
       </Link>
-    )
-  } else {
-    return <div>По фильтра ничего не найдно</div>
-  }
+    </div>
+  )
 }

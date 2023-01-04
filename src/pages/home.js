@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { api } from '../api/index'
-import {
-  uniqueBy,
-  getDateStr,
-  TODAY_DAY,
-} from '../assets/utils/usable-function'
+import { uniqueBy, getDateStr, TODAY_DAY, IsMobile } from '../assets'
 import { TicketPopUp } from '../components/ticketPopup'
 import {
   Slider,
@@ -85,6 +81,26 @@ function getSliderData(arr) {
   }
 }
 
+function getNewsData(arr) {
+  if (arr !== null) {
+    const newsData = arr.map((news) => {
+      const newsDate = getDateStr(news?.createdAt)
+      return {
+        id: news.id,
+        title: news?.title,
+        image: news?.cover,
+        date: newsDate.date,
+        month: newsDate.month_name_case,
+        year: newsDate.year,
+        text: news?.text,
+      }
+    })
+    return newsData
+  } else {
+    return []
+  }
+}
+
 export function Home() {
   const [itemsSlider, setItemsSlider] = useState([])
   const [itemsAffiche, setItemsAffiche] = useState([])
@@ -93,6 +109,8 @@ export function Home() {
   const [partners, setpartners] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [firstDate, setFirstDate] = useState()
+  // Set news length
+  const articlesLength = IsMobile ? 3 : 4
 
   const [ticketData, setTicketData] = useState(null)
   const [ticketPlay, setTicketPlay] = useState({
@@ -103,13 +121,17 @@ export function Home() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    Promise.all([api.exportMainPage(), api.exportShows(), api.exportArticles()])
+    Promise.all([
+      api.exportMainPage(),
+      api.exportShows(),
+      api.exportArticles(articlesLength),
+    ])
       .then((values) => {
         setItemsSlider(getSliderData(values[0].plays))
         setvideoLink(getVideoLink(values[0].youtubeLink))
         setpartners(values[0].partners)
         setItemsAffiche(getAfficheData(values[1]))
-        setItemsNews(values[2])
+        setItemsNews(getNewsData(values[2]))
         setIsLoading(false)
       })
       .catch((error) => {
@@ -147,7 +169,6 @@ export function Home() {
     setTicketPlay({ date: date ?? null, type, id })
     setOpen(true)
   }
-
   return (
     <>
       <Slider firstDate={firstDate} items={itemsSlider} popupOpen={popupOpen} />

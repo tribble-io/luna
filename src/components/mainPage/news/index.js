@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import { API_URL } from '../../../api'
-import { IsMobile, getDateStr } from '../../../assets'
+import { IsMobile } from '../../../assets/index'
+import noPhoto from '../../../assets/img/no-photo-actor.jpg'
 import { NewsLine } from '../../createElement'
 
 import styles from './news.module.scss'
@@ -14,7 +15,8 @@ function cutToLength(string, maxlength) {
     : string
 }
 
-export function News({ itemsNews }) {
+export function News(props) {
+  const { itemsNews } = props
   return (
     <>
       <section id='mainNews' className={styles.mainNews}>
@@ -32,49 +34,51 @@ export function News({ itemsNews }) {
               <p>Loading</p>
             ) : (
               <div className={styles.newsList}>
-                {itemsNews.map((data) => (
-                  <div className={styles.newsBlock} key={data.id}>
-                    {IsMobile ? (
-                      <NewsLine
-                        key={data.id}
-                        date={getDateStr(data.createdAt).date}
-                        month={getDateStr(data.createdAt).month_name_case}
-                        title={data?.title}
-                        cover={data?.cover?.url}
-                        items={data}
-                        location={'/news/' + data.id}
-                      />
-                    ) : (
-                      <>
+                {IsMobile
+                  ? itemsNews
+                      .slice(0, 3)
+                      .map((item) => (
+                        <NewsLine item={item} key={`news-line-${item.id}`} />
+                      ))
+                  : itemsNews.map((item) => (
+                      <div
+                        className={styles.newsBlock}
+                        key={`news-line-${item.id}`}
+                      >
                         <div className={styles.newsImage}>
                           <div className={styles.imageLink}>
-                            <img src={API_URL + data.cover.url} alt='' />
+                            <img
+                              src={
+                                API_URL +
+                                  (item.image?.formats?.medium?.url ??
+                                    item.image?.formats?.small?.url ??
+                                    item.image?.formats?.thumbnail?.url ??
+                                    item.image?.url) ?? noPhoto
+                              }
+                              alt={item.title ?? ''}
+                            />
                           </div>
                         </div>
                         <div className={styles.newsInfo}>
-                          <p className={styles.newsTitle}>{data.title}</p>
+                          <p className={styles.newsTitle}>{item.title}</p>
                           <p className={styles.newsDate}>
-                            {getDateStr(data.createdAt).date}{' '}
-                            {getDateStr(data.createdAt).month_name_case}{' '}
-                            {getDateStr(data.createdAt).year}
+                            {item.date} {item.month_name_case} {item.year}
                           </p>
                           <div className={styles.newsText}>
                             <ReactMarkdown
-                              children={cutToLength(data.text, 22)}
+                              children={cutToLength(item.text, 22)}
                               rehypePlugins={[rehypeRaw]}
                             />
                           </div>
                           <Link
                             className={styles.readMore}
-                            to={`/news/${data.id}`}
+                            to={`/news/${item.id}`}
                           >
                             Читать
                           </Link>
                         </div>
-                      </>
-                    )}
-                  </div>
-                ))}
+                      </div>
+                    ))}
               </div>
             )}
             <div className={styles.mobileButton}>
