@@ -33,7 +33,7 @@ function Header() {
           <a href='http://kultura.mos.ru/' target='_blank' rel='noreferrer'>
             <img
               className={styles.header_info_icon}
-              src='/img/header-gov.png'
+              src='/img/header-gov.webp'
               alt=''
             ></img>
           </a>
@@ -50,7 +50,7 @@ function Header() {
           <img
             onClick={() => openSettingsModal()}
             className={styles.header_info_icon}
-            src='/img/glasses.png'
+            src='/img/glasses.webp'
             alt=''
             width='40px'
             height='40px'
@@ -139,7 +139,7 @@ function Header() {
             <div className={styles.info_blind}>
               <img
                 className={styles.info_icon}
-                src='/img/glasses.png'
+                src='/img/glasses.webp'
                 alt=''
                 width='40px'
                 height='40px'
