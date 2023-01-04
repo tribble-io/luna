@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './sortposter.module.scss'
-import searchImg from './img/search.svg'
 import calendarImg from './img/calendar.svg'
 import arrow from './img/arrow.svg'
+import { TextInput } from '../../createElement'
 
 let MONTHS = [
   '',
@@ -214,8 +214,8 @@ const SortNews = (props) => {
               <div className={styles.moth}>{moths}</div>
             </div>
             <div className={styles.search}>
-              <img src={searchImg} alt='search' />
-              <input
+              <TextInput
+                name='search'
                 id='search_el'
                 placeholder='ПОИСК ПО НАЗВАНИЮ'
                 onChange={() => {

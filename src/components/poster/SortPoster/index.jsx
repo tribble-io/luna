@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './sortposter.module.scss'
 // import searchImg from './img/search.svg'
 import calendarImg from './img/calendar.svg'
+import { TextInput } from '../../createElement'
 
 let MONTHS = [
   '',
@@ -194,22 +195,10 @@ const SortPoster = (props) => {
               <div className={styles.moth}>{moths}</div>
               <div className={styles.position}>{buttons}</div>
             </div>
-            {/* <div className={styles.search}>
-              <img src={searchImg} alt='search' />
-              <input
-                id='search_el'
-                placeholder='ПОИСК ПО НАЗВАНИЮ'
-                onChange={() => {
-                  searck(document.getElementById('search_el').value)
-                }}
-              />
-            </div> */}
             <div className={styles.filterGroup}>
               <div className={styles.inputFilter}>
-                <input
-                  type='text'
+                <TextInput
                   name='nameSearch'
-                  // id='nameSearch'
                   id='search_el'
                   placeholder='поиск по названию'
                   onChange={() => {
