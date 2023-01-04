@@ -98,23 +98,28 @@
       }
 
       .socialLink {
-        margin-right: 17px;
         display: inline-block;
         vertical-align: middle;
 
-        @media (max-width: 576px) {
-          margin-right: 15px;
+        &:not(:last-child) {
+          margin-right: 17px;
+
+          @media (max-width: 576px) {
+            margin-right: 15px;
+          }
         }
-      }
 
-      img {
-        max-width: 100%;
-        width: 100%;
-        height: 40px;
+        img {
+          max-width: 100%;
+          width: 100%;
+          height: 40px;
+        }
 
-        @media (max-width: 576px) {
-          max-width: 112px;
-          height: auto;
+        &:last-child img {
+          @media (max-width: 576px) {
+            max-width: 112px;
+            height: auto;
+          }
         }
       }
     }
