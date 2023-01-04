@@ -57,8 +57,15 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.31.11",
     "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
     "prettier": "^2.8.1",
     "sass": "^1.55.0",
     "swiper": "^8.4.4"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "eslint . --fix",
+      "prettier --write ."
+    ]
   }
 }
