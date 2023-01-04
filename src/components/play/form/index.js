@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import styles from './form.module.scss'
 import { CustomCheckbox } from '../../createElement'
+import { Link } from 'react-router-dom'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 import { api } from '../../../api/index'
-
-import ReCAPTCHA from 'react-google-recaptcha'
 
 const sendInfo = (inValue, setsendedForm) => {
   api
@@ -117,11 +117,22 @@ export function CommentForm({ showID }) {
                   <CustomCheckbox
                     id='storage'
                     name='storage'
-                    label='Согласен на хранение и обработку данных'
                     checked={true}
                     className={styles.checkboxInput}
                     isActive={isActive}
-                  />
+                  >
+                    <p>
+                      Согласен (-на) на хранение и{' '}
+                      <Link
+                        className={styles.linkData}
+                        to={'/user-agreement'}
+                        target={'_blank'}
+                        rel='noreferrer'
+                      >
+                        обработку данных
+                      </Link>
+                    </p>
+                  </CustomCheckbox>
                   <div className={styles.terms}>
                     <a
                       href={'/user-agreement'}

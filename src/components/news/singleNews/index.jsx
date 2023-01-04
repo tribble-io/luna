@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import PosterEl from '../../poster/posterContent/posterEl'
 import MiniNews from './miniNews'
+import { CustomCheckbox } from '../../createElement'
 
 import tg from './img/telegram.svg'
 import vk from './img/vk.svg'
@@ -11,6 +12,7 @@ import { getDateStr } from '../../../assets'
 import Loader from '../../loader'
 import { ShowPhoto } from '../../play'
 import { api, API_URL } from '../../../api'
+import { Link } from 'react-router-dom'
 
 class SingleNews extends React.Component {
   constructor() {
@@ -152,9 +154,9 @@ class SingleNews extends React.Component {
     }
   }
 
-  chageCheck() {
+  chageCheck(state) {
     this.setState({
-      checked: !this.state.checked,
+      checked: state,
       messSubs: '',
     })
   }
@@ -307,31 +309,27 @@ class SingleNews extends React.Component {
                     {this.state.messSubs}
                   </div>
                   <div className={styles.checkBlock}>
-                    <input
-                      className={styles.checkbox}
-                      type='checkbox'
-                      value='checked'
-                    ></input>
-                    <label
-                      onClick={() => {
-                        this.chageCheck()
+                    <CustomCheckbox
+                      id='storage'
+                      name='storage'
+                      checked={true}
+                      className={styles.checkboxInput}
+                      isActive={(state) => {
+                        this.chageCheck(state)
                       }}
-                      className={
-                        this.state.checked ? styles.labelAct : styles.label
-                      }
-                      htmlFor='checked'
-                    ></label>
-                    <p>
-                      Согласен (-на) на хранение и{' '}
-                      <a
-                        className={styles.linkData}
-                        href={'/user-agreement'}
-                        target={'_blank'}
-                        rel='noreferrer'
-                      >
-                        обработку данных
-                      </a>
-                    </p>
+                    >
+                      <p>
+                        Согласен (-на) на хранение и{' '}
+                        <Link
+                          className={styles.linkData}
+                          to={'/user-agreement'}
+                          target={'_blank'}
+                          rel='noreferrer'
+                        >
+                          обработку данных
+                        </Link>
+                      </p>
+                    </CustomCheckbox>
                   </div>
                   <div
                     className={styles.blockForShare_el_but_mob}
