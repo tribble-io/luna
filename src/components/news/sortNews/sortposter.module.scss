@@ -28,7 +28,7 @@
   }
 
   h1 {
-    @include headline_first
+    @include headline_first;
   }
 
   .sortBlockMain {
@@ -43,7 +43,7 @@
     justify-content: space-between;
     align-items: center;
 
-    @media(max-width: 500px) {
+    @media (max-width: 500px) {
       flex-direction: row-reverse;
       justify-content: flex-end;
     }
@@ -55,14 +55,14 @@
         &:not(:last-child) {
           margin-right: 60px;
         }
-    
+
         font-size: 14px;
         font-size: 0.875em;
         font-weight: 500;
         text-transform: uppercase;
         text-align: left;
         cursor: default;
-        
+
         transition: all 0.3s;
         text-decoration: underline;
         text-underline-position: under;
@@ -83,7 +83,7 @@
       position: relative;
       cursor: default;
 
-      @media(max-width: 500px) {
+      @media (max-width: 500px) {
         margin-right: 30px;
       }
 
