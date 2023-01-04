@@ -73,10 +73,11 @@
     font-weight: 600;
 
     @media (max-width: 500px) {
-      padding-left: 5px;
-      padding-right: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
       padding-bottom: 60px;
       justify-content: flex-end;
+      width: 100%;
     }
 
     .sliderTopCont {
