@@ -26,7 +26,7 @@ export function NewsLine(props) {
   const { item } = props
   return (
     <div className={styles.newsLine}>
-      <Link to={`/play/${item?.id}`} className={styles.newsLineContent}>
+      <Link to={`/news/${item?.id}`} className={styles.newsLineContent}>
         <div className={styles.newsImage}>
           <img
             src={
