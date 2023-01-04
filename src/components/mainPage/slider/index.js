@@ -45,7 +45,6 @@ export function Slider(props) {
                 <div className={styles.wrapper}>
                   <div className={styles.sliderContent}>
                     <div className={styles.sliderTopCont}>
-                      <p className={styles.typeShow}>спектакль</p>
                       {offer?.isPremiere ? (
                         <p className={styles.premiere}>Премьера</p>
                       ) : (
