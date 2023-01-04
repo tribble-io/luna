@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './sortposter.module.scss'
-import calendarImg from './img/calendar.svg'
 import arrow from './img/arrow.svg'
 import { TextInput } from '../../createElement'
 
@@ -150,12 +149,14 @@ const SortNews = (props) => {
     props.search(value)
   }
 
-  const moths = rez.map((item) => (
+  const moths = rez.map((item, index) => (
     <div
       className={
-        props.filterState === item ? styles.moth_el_active : styles.moth_el
+        props.filterState === item
+          ? `${styles.moth_el} ${styles.active}`
+          : styles.moth_el
       }
-      key={item}
+      key={index}
       onClick={() => {
         props.filterStateUpdate(item)
       }}
@@ -207,11 +208,74 @@ const SortNews = (props) => {
         ></div>
       ) : null}
       <div className={styles.sortHeader}>
-        <h1>НОВОСТИ ТЕАТРА</h1>
-        <div className={styles.sortBlockMain}>
-          <div className={styles.sort}>
+        <div className={styles.sortNewsContent}>
+          <h1>НОВОСТИ ТЕАТРА</h1>
+          <div className={styles.sortBlockMain}>
             <div className={styles.sortBlock}>
-              <div className={styles.moth}>{moths}</div>
+              <div className={styles.monthGroup}>{moths}</div>
+              <div className={styles.calendar}>
+                <svg
+                  width='30'
+                  height='30'
+                  viewBox='0 0 30 30'
+                  fill='none'
+                  xmlns='http://www.w3.org/2000/svg'
+                  onClick={() => {
+                    openClosedCalendar(!open)
+                  }}
+                >
+                  <path
+                    d='M22.5 5H7.5C4.73858 5 2.5 7.23858 2.5 10V22.5C2.5 25.2614 4.73858 27.5 7.5 27.5H22.5C25.2614 27.5 27.5 25.2614 27.5 22.5V10C27.5 7.23858 25.2614 5 22.5 5Z'
+                    stroke='#fff'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                  />
+                  <path
+                    d='M10 2.5V7.5M20 2.5V7.5M2.5 12.5H27.5'
+                    stroke='#fff'
+                    strokeWidth='2'
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                  />
+                </svg>
+                <div
+                  className={open ? styles.calendarComp : styles.calendarBodyNo}
+                >
+                  <div className={styles.mothSelect}>
+                    <div
+                      className={styles.thisMonth}
+                      onClick={() => {
+                        openClosedCalendarSel(!openSel)
+                      }}
+                    >
+                      <div className={styles.selEl}>
+                        {b}
+                        <span>{props.dataArr[2]}г</span>
+                      </div>
+                      <span>
+                        <img src={arrow} alt='' />
+                      </span>
+                    </div>
+                    <div
+                      className={
+                        openSel ? styles.selectMoth : styles.selectMothNoActive
+                      }
+                    >
+                      {monthDataListCal}
+                    </div>
+                  </div>
+                  <div
+                    className={styles.defaultCalendar}
+                    onClick={() => {
+                      props.calendarDefault()
+                      openClosedCalendar(!open)
+                    }}
+                  >
+                    Сбросить дату
+                  </div>
+                </div>
+              </div>
             </div>
             <div className={styles.search}>
               <TextInput
@@ -222,49 +286,6 @@ const SortNews = (props) => {
                   searck(document.getElementById('search_el').value)
                 }}
               />
-            </div>
-          </div>
-          <div className={styles.calendar}>
-            <img
-              src={calendarImg}
-              alt='calendar'
-              onClick={() => {
-                openClosedCalendar(!open)
-              }}
-            />
-            <div className={open ? styles.calendarComp : styles.calendarBodyNo}>
-              <div className={styles.mothSelect}>
-                <div
-                  className={styles.thisMonth}
-                  onClick={() => {
-                    openClosedCalendarSel(!openSel)
-                  }}
-                >
-                  <div className={styles.selEl}>
-                    {b}
-                    <span>{props.dataArr[2]}г</span>
-                  </div>
-                  <span>
-                    <img src={arrow} alt='' />
-                  </span>
-                </div>
-                <div
-                  className={
-                    openSel ? styles.selectMoth : styles.selectMothNoActive
-                  }
-                >
-                  {monthDataListCal}
-                </div>
-              </div>
-              <div
-                className={styles.defaultCalendar}
-                onClick={() => {
-                  props.calendarDefault()
-                  openClosedCalendar(!open)
-                }}
-              >
-                Сбросить дату
-              </div>
             </div>
           </div>
         </div>
