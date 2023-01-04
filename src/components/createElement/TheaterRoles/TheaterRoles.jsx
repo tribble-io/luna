@@ -12,6 +12,7 @@ import styles from './TheaterRoles.module.scss'
 import { CreatePlaysCard } from '../playsCard'
 
 const TheaterRoles = ({ content, isLoading, popupOpen }) => {
+  const centeredSlides = content.length > 1 ? false : true
   return (
     <section className={styles.boxTheaterRoles}>
       <p className={styles.theatricalRolesTitle}>РОЛИ В ТЕАТРЕ ЛУНЫ</p>
@@ -21,7 +22,7 @@ const TheaterRoles = ({ content, isLoading, popupOpen }) => {
           {isLoading ? null : (
             <Swiper
               slidesPerView='auto'
-              centeredSlides={true}
+              centeredSlides={centeredSlides}
               spaceBetween={20}
               pagination={{ clickable: true, dynamicBullets: true }}
               modules={[Pagination]}

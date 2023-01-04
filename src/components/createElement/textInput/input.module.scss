@@ -1,0 +1,46 @@
+@import '../../../assets/main.scss';
+
+.textInput {
+  input {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #fff;
+    padding: 21px 30px 21px 90px;
+    font-size: 14px;
+    font-size: 0.875em;
+    color: $text-color;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    outline: none;
+
+    &:hover,
+    &:focus {
+      border-color: $compl-color;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 12px;
+      font-size: 0.75em;
+      padding: 12px 30px 12px 70px;
+    }
+  }
+
+  &:before {
+    content: '';
+    z-index: 2;
+    user-select: none;
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    width: 30px;
+    height: 30px;
+    background: transparent url('./icon_search.png') no-repeat center / cover;
+
+    @media (max-width: 500px) {
+      width: 17px;
+      height: 17px;
+      top: 12px;
+    }
+  }
+}

@@ -27,9 +27,11 @@ async function exportShows() {
   throw new Error("Can't export shows")
 }
 
-async function exportArticles() {
+async function exportArticles(length) {
   const result = await axios.get(
-    `${API_URL}/api/articles?sort[0]=publishedAt%3Adesc&populate=cover&pagination[pageSize]=4`
+    `${API_URL}/api/articles?sort[0]=publishedAt%3Adesc&populate=cover&pagination[pageSize]=${
+      length ?? 4
+    }`
   )
 
   if (result.status === 200) {

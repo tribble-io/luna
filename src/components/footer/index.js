@@ -38,7 +38,7 @@ export default function Footer() {
             </div>
             <div className={styles.footerLogoBlock}>
               <img
-                src='/img/logo_footer_1.png'
+                src='/img/logo.png'
                 alt='Театр Луны'
                 className={styles.footerLogo}
               />

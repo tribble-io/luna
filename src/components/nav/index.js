@@ -70,7 +70,7 @@ function Nav() {
         >
           <img
             className={styles.moon_logo}
-            src='/img/moon_logo.png'
+            src='/img/header_logo.png'
             alt=''
             style={{
               transition: 'all 0.3s linear',

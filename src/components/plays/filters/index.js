@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './filter.module.scss'
-import { CustomCheckbox, CreateButton } from '../../createElement'
+import { CustomCheckbox, CreateButton, TextInput } from '../../createElement'
 
 export function ShowsFilter(props) {
   const [activeButton, setActiveButtons] = useState('Все сцены')
@@ -50,8 +50,7 @@ export function ShowsFilter(props) {
               </div>
               <div className={styles.filterGroup}>
                 <div className={styles.inputFilter}>
-                  <input
-                    type='text'
+                  <TextInput
                     name='nameSearch'
                     id='nameSearch'
                     placeholder='поиск по названию'

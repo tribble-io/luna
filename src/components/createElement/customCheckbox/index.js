@@ -37,7 +37,7 @@ export function CustomCheckbox(props) {
             stroke={isChecked ? '#fff' : 'none'}
           />
         </svg>
-        {label}
+        {props.children ?? label}
       </label>
     </div>
   )
