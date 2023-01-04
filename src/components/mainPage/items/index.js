@@ -70,22 +70,18 @@ export function Item(props) {
       <Swiper
         onSwiper={setSwiper}
         slidesPerView='auto'
-        centeredSlides={true}
         spaceBetween={20}
         className='posterSlider'
         breakpoints={{
           500: {
             slidesPerView: 2,
-            centeredSlides: false,
           },
           992: {
             slidesPerView: 3,
             spaceBetween: 40,
-            centeredSlides: false,
           },
           1400: {
             slidesPerView: 4,
-            centeredSlides: false,
           },
         }}
       >

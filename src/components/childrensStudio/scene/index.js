@@ -25,7 +25,6 @@ export function ChildrenScene(props) {
               <div className={styles.sceneSlider}>
                 <Swiper
                   slidesPerView={'auto'}
-                  centeredSlides={true}
                   spaceBetween={20}
                   pagination={{
                     clickable: true,
