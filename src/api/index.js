@@ -317,6 +317,16 @@ async function exportContacData() {
   throw new Error("Can't export contact data")
 }
 
+async function getUserAgreementLink() {
+  const result = await axios.get(`${API_URL}/api/user-agreement?populate=pdf`)
+
+  if (result.status === 200) {
+    return result.data.data.pdf.url
+  }
+
+  throw new Error("Can't get user agreement link")
+}
+
 export const api = {
   exportMainPage,
   exportShows,
@@ -343,4 +353,5 @@ export const api = {
   newsElNews,
   documents,
   exportContacData,
+  getUserAgreementLink,
 }

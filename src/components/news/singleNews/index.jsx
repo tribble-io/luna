@@ -325,7 +325,7 @@ class SingleNews extends React.Component {
                       Согласен (-на) на хранение и{' '}
                       <a
                         className={styles.linkData}
-                        href={`${API_URL}/uploads/Polzovatelskoe_soglashenie_f2e7e1a9d7.pdf`}
+                        href={'/user-agreement'}
                         target={'_blank'}
                         rel='noreferrer'
                       >

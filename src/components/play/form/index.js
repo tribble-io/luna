@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './form.module.scss'
 import { CustomCheckbox } from '../../createElement'
 
-import { api, API_URL } from '../../../api/index'
+import { api } from '../../../api/index'
 
 import ReCAPTCHA from 'react-google-recaptcha'
 
@@ -124,7 +124,7 @@ export function CommentForm({ showID }) {
                   />
                   <div className={styles.terms}>
                     <a
-                      href={`${API_URL}/uploads/Polzovatelskoe_soglashenie_f2e7e1a9d7.pdf`}
+                      href={'/user-agreement'}
                       target={'_blank'}
                       rel='noreferrer'
                     >

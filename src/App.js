@@ -31,6 +31,7 @@ import Documets from './pages/documents'
 import PageNotFound from './pages/PageNotFound/PageNotFound'
 import { defaultSetBodyClass, defaultGetSettings } from '@n3/react-vision-panel'
 import { SiteMap } from './pages/sitemap'
+import { UserAgreement } from './pages/user-agreement'
 
 function App() {
   // For Accessibility plugin
@@ -60,6 +61,7 @@ function App() {
           <Route path='/scenes' element={<Scenes />} />
           <Route path='/person/:id' element={<PageDetailActor />} />
           <Route path='/documents' element={<Documets />} />
+          <Route path='/user-agreement' element={<UserAgreement />} />
           <Route path='/sitemap' element={<SiteMap />} />
           <Route path='*' element={<Navigate to='/404' replace />} />
           <Route path='/404' element={<PageNotFound />} />
