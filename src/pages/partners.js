@@ -4,7 +4,7 @@ import Loader from '../components/loader'
 
 import { PartnersTitle, PartnersList } from '../components/partners'
 
-export function Partner() {
+export function Partners() {
   const [items, setItems] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
