@@ -217,11 +217,11 @@
 .posterList {
   padding-bottom: 200px;
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     padding-bottom: 160px;
   }
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     padding-bottom: 120px;
   }
 }

@@ -1,9 +1,26 @@
 import React from 'react'
-import PosterEl from './posterEl'
 import styles from './postercontent.module.scss'
 import { getDateStr } from '../../../assets'
+import { PlaysLine } from '../../createElement'
 
 let PosterContent = (props) => {
+  const getPlaysInfo = (item) => {
+    const playInfo = {
+      id: item?.play?.id,
+      show_id: item?.id,
+      date: getDateStr(item?.date).date,
+      time: item?.time.slice(0, -3),
+      month: getDateStr(item?.date).month_name,
+      day_of_week: getDateStr(item?.date).day_of_week,
+      title: item?.play?.title,
+      isPremiere: item?.play?.isPremiere,
+      scene: item?.play?.scene?.name,
+      rating: item?.play?.rating,
+      buy: item?.tickets_link,
+    }
+    return playInfo
+  }
+
   if (props.filterState.items.length === 0) {
     return (
       <div className={styles.antibBlockBlock}>
@@ -28,21 +45,16 @@ let PosterContent = (props) => {
             Ближайшие к вашей дате постановки
           </div>
         </div>
-        {props.filterState.items.map((item) => (
-          <PosterEl
-            key={item.id}
-            date={getDateStr(item.date).date}
-            time={item.time}
-            day={getDateStr(item.date).day_of_week}
-            title={item.play.title}
-            premier={item.play.isPremiere ? 'ПРЕМЬЕРА' : ''}
-            location={item.play.scene.name}
-            rating={item.play.rating}
-            buy={item.tickets_link}
-            id={item.play.id}
-            month={getDateStr(item.date).month_name}
-          />
-        ))}
+        <div className={styles.wrapper}>
+          <div className={styles.posterList}>
+            {props.filterState.items.map((item, index) => (
+              <PlaysLine
+                key={`play-line-${item?.id ?? index}-${index}`}
+                data={getPlaysInfo(item)}
+              />
+            ))}
+          </div>
+        </div>
       </section>
     )
   } else if (
@@ -51,41 +63,31 @@ let PosterContent = (props) => {
   ) {
     return (
       <section>
-        {props.filterState.itemsCal.map((item) => (
-          <PosterEl
-            key={item.id}
-            date={getDateStr(item.date).date}
-            time={item.time}
-            day={getDateStr(item.date).day_of_week}
-            title={item.play.title}
-            premier={item.play.isPremiere ? 'ПРЕМЬЕРА' : ''}
-            location={item.play.scene.name}
-            rating={item.play.rating}
-            buy={item.tickets_link}
-            id={item.play.id}
-            month={getDateStr(item.date).month_name}
-          />
-        ))}
+        <div className={styles.wrapper}>
+          <div className={styles.posterList}>
+            {props.filterState.itemsCal.map((item, index) => (
+              <PlaysLine
+                key={`play-line-${item?.id ?? index}-${index}`}
+                data={getPlaysInfo(item)}
+              />
+            ))}
+          </div>
+        </div>
       </section>
     )
   } else {
     return (
       <section>
-        {props.filterState.items.map((item) => (
-          <PosterEl
-            key={item.id}
-            date={getDateStr(item.date).date}
-            time={item.time}
-            day={getDateStr(item.date).day_of_week}
-            title={item.play.title}
-            premier={item.play.isPremiere ? 'ПРЕМЬЕРА' : ''}
-            location={item.play.scene.name}
-            rating={item.play.rating}
-            buy={item.tickets_link}
-            id={item.play.id}
-            month={getDateStr(item.date).month_name}
-          />
-        ))}
+        <div className={styles.wrapper}>
+          <div className={styles.posterList}>
+            {props.filterState.items.map((item, index) => (
+              <PlaysLine
+                key={`play-line-${item?.id ?? index}-${index}`}
+                data={getPlaysInfo(item)}
+              />
+            ))}
+          </div>
+        </div>
       </section>
     )
   }
