@@ -329,6 +329,16 @@ async function getUserAgreementLink() {
   throw new Error("Can't get user agreement link")
 }
 
+async function getPartnersData() {
+  const result = await axios.get(`${API_URL}/api/partner?populate=partner.logo`)
+
+  if (result.status === 200) {
+    return result.data.data.partner
+  }
+
+  throw new Error("Can't get partners data")
+}
+
 export const api = {
   exportMainPage,
   exportShows,
@@ -356,4 +366,5 @@ export const api = {
   documents,
   exportContacData,
   getUserAgreementLink,
+  getPartnersData,
 }

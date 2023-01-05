@@ -1,0 +1,26 @@
+@import '../../../assets/main.scss';
+
+.wrapper {
+  @include container;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $text-color;
+}
+
+.partnersContent {
+  .partnersTitle {
+    padding-top: 200px;
+
+    @media (max-width: 768px) {
+      padding-top: 150px;
+    }
+
+    @media (max-width: 500px) {
+      padding-top: 100px;
+    }
+
+    h1 {
+      @include headline_first;
+    }
+  }
+}
