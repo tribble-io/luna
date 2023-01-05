@@ -2,9 +2,8 @@ import React from 'react'
 import styles from './singleNews.module.scss'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
-import PosterEl from '../../poster/posterContent/posterEl'
 import MiniNews from './miniNews'
-import { CustomCheckbox } from '../../createElement'
+import { CustomCheckbox, PlaysLine } from '../../createElement'
 
 import tg from './img/telegram.svg'
 import vk from './img/vk.svg'
@@ -59,6 +58,23 @@ class SingleNews extends React.Component {
       }
     })
     return photo
+  }
+
+  getPlaysInfo(item) {
+    const playInfo = {
+      id: item?.play?.id,
+      show_id: item?.id,
+      date: getDateStr(item?.date).date,
+      time: item?.time.slice(0, -3),
+      month: getDateStr(item?.date).month_name,
+      day_of_week: getDateStr(item?.date).day_of_week,
+      title: item?.play?.title,
+      isPremiere: item?.play?.isPremiere,
+      scene: item?.play?.scene?.name,
+      rating: item?.play?.rating,
+      buy: item?.tickets_link,
+    }
+    return playInfo
   }
 
   componentDidUpdate() {
@@ -226,18 +242,16 @@ class SingleNews extends React.Component {
                     <h1>ПОСТАНОВКИ</h1>
                   </div>
                   <section className={styles.posterBlock}>
-                    {this.state.items.shows.map((item) => (
-                      <PosterEl
-                        day={getDateStr(item.date).month_name_case}
-                        key={item.id}
-                        date={getDateStr(item.date).date}
-                        time={item.time}
-                        title={item.play.title}
-                        location={item.play.scene.name}
-                        rating={item.play.rating}
-                        buy={item.tickets_link}
-                      />
-                    ))}
+                    <div className={styles.wrapper}>
+                      <div className={styles.posterList}>
+                        {this.state.items.shows.map((item, index) => (
+                          <PlaysLine
+                            key={`play-line-${item?.id ?? index}-${index}`}
+                            data={this.getPlaysInfo(item)}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </section>
                 </div>
               ) : (

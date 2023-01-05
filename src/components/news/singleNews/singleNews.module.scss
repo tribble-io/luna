@@ -1,5 +1,4 @@
-@import '../../../assets/utils/mixins.scss';
-@import '../../../assets/utils/fonts.scss';
+@import '../../../assets/main.scss';
 
 @keyframes button {
   0% {
@@ -209,6 +208,22 @@
 .newsMiniBlock_content {
   display: flex;
   flex-direction: column;
+}
+
+.wrapper {
+  @include container;
+}
+
+.posterList {
+  padding-bottom: 200px;
+
+  @media(max-width: 768px) {
+    padding-bottom: 160px;
+  }
+
+  @media(max-width: 500px) {
+    padding-bottom: 120px;
+  }
 }
 
 .share {
