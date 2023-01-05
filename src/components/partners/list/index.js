@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './list.module.scss'
-import noPhoto from '../../../assets/img/no-photo-actor.jpg'
 import { API_URL } from '../../../api'
 
 export function PartnersList(props) {
@@ -22,10 +21,10 @@ export function PartnersList(props) {
                     alt={item?.alternativeText ?? 'Наш партнер'}
                     src={
                       API_URL +
-                        (item?.logo?.formats?.medium?.url ??
-                          item?.logo?.formats?.small?.url ??
-                          item?.logo?.formats?.thumbnail?.url ??
-                          item?.logo?.url) ?? noPhoto
+                      (item?.logo?.formats?.medium?.url ??
+                        item?.logo?.formats?.small?.url ??
+                        item?.logo?.formats?.thumbnail?.url ??
+                        item?.logo?.url)
                     }
                   />
                 </a>
