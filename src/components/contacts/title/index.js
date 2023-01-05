@@ -89,9 +89,9 @@ export function ContactsList(props) {
                 )}
 
                 {item.workHours ? (
-                  <p className={styles.workHours}>
+                  <div className={styles.workHours}>
                     <ReactMarkdown children={item.workHours} />
-                  </p>
+                  </div>
                 ) : (
                   <></>
                 )}
