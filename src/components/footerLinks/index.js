@@ -14,6 +14,7 @@ export function FooterLinks() {
           </div>
           <div className={styles.linkBlock}>
             <p className={styles.linkTitle}>зрителям</p>
+            <Link to='/sitemap'>карта сайта</Link>
             <Link to='/'>пользовательское соглашение</Link>
             <Link to='/'>политика конфиденциальности</Link>
             <Link to='/documents'>документы</Link>
@@ -37,6 +38,7 @@ export function FooterLinks() {
             >
               вакансии
             </a>
+            <Link to='/partners'>партнеры</Link>
             <Link to='/news'>новости</Link>
             <Link to='/press'>пресса</Link>
             <Link to='/contacts'>контакты</Link>
