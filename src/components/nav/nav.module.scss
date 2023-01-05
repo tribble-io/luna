@@ -146,17 +146,17 @@ nav {
     height: 269px;
     width: 440px;
     bottom: 21px;
-    right: 1%;
-    transition: all 0.5s !important;
+    right: 4%;
+    transition: all 0.5s;
     display: flex;
 
     @media (max-width: 1340px) {
-      right: -2%;
+      width: 320px;
+      height: 209px;
     }
 
     @media (max-width: 1200px) {
       bottom: -15%;
-      right: 5%;
       width: 240px;
       height: 145px;
     }

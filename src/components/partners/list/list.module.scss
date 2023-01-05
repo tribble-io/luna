@@ -1,0 +1,52 @@
+@import '../../../assets/main.scss';
+
+.wrapper {
+  @include container;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $text-color;
+}
+
+.partnersContent {
+  padding-top: 100px;
+  padding-bottom: 350px;
+
+  @media (max-width: 768px) {
+    padding-top: 80px;
+    padding-bottom: 230px;
+  }
+
+  @media (max-width: 500px) {
+    padding-top: 60px;
+    padding-bottom: 100px;
+  }
+
+  .partnersList {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(125px, 1fr));
+    grid-template-rows: auto;
+    gap: 70px 100px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, minmax(125px, 1fr));
+      column-gap: 46px;
+    }
+
+    img {
+      max-width: 155px;
+      width: 100%;
+      height: auto;
+      font-size: initial;
+    }
+
+    .partnerBlock {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .partreLink {
+      font-size: 0;
+    }
+  }
+}

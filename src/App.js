@@ -20,6 +20,7 @@ import {
   Press,
   Contacts,
   Scenes,
+  Partner,
 } from './pages'
 import PageTeam from './pages/PageTeam/PageTeam'
 import News from './pages/news'
@@ -65,6 +66,7 @@ function App() {
           <Route path='/sitemap' element={<SiteMap />} />
           <Route path='*' element={<Navigate to='/404' replace />} />
           <Route path='/404' element={<PageNotFound />} />
+          <Route path='/partner' element={<Partner />} />
         </Routes>
         <Footer />
       </Router>
