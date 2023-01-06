@@ -31,6 +31,10 @@
   width: 100vw;
   height: 44vw;
 
+  @media (max-width: 500px) {
+    min-height: 500px;
+  }
+
   .bgShows {
     margin: 0;
     padding: 0;
@@ -41,10 +45,6 @@
     cursor: default;
     width: 100%;
     height: 100%;
-
-    @media (max-width: 500px) {
-      min-height: 500px;
-    }
 
     &::before {
       content: '';
