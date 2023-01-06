@@ -6,6 +6,7 @@ import { API_URL } from '../../../api'
 import { IsMobile } from '../../../assets/index'
 import noPhoto from '../../../assets/img/no-photo-actor.jpg'
 import { NewsLine } from '../../createElement'
+import Loader from '../../loader'
 
 import styles from './news.module.scss'
 
@@ -21,18 +22,19 @@ export function News(props) {
     <>
       <section id='mainNews' className={styles.mainNews}>
         <div className={styles.wrapper}>
-          <div className={styles.newsContent}>
-            <div className={styles.header}>
-              <div className={styles.title}>
-                <h2>НОВОСТИ ТЕАТРА</h2>
+          {itemsNews.length === 0 ? (
+            <Loader />
+          ) : (
+            <div className={styles.newsContent}>
+              <div className={styles.header}>
+                <div className={styles.title}>
+                  <h2>НОВОСТИ ТЕАТРА</h2>
+                </div>
+                <div className={styles.btn}>
+                  <Link to='/news'>Читать все</Link>
+                </div>
               </div>
-              <div className={styles.btn}>
-                <Link to='/news'>Читать все</Link>
-              </div>
-            </div>
-            {itemsNews.length === 0 ? (
-              <p>Loading</p>
-            ) : (
+
               <div className={styles.newsList}>
                 {IsMobile
                   ? itemsNews
@@ -80,11 +82,11 @@ export function News(props) {
                       </div>
                     ))}
               </div>
-            )}
-            <div className={styles.mobileButton}>
-              <Link to='/news'>ЧИТАТЬ ВСЕ</Link>
+              <div className={styles.mobileButton}>
+                <Link to='/news'>ЧИТАТЬ ВСЕ</Link>
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div className={`${styles.decorationLine} ${styles.lineFirst}`}></div>
         <div className={`${styles.decorationLine} ${styles.lineSecond}`}></div>

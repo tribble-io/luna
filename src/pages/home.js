@@ -176,18 +176,16 @@ export function Home() {
         {isLoading ? (
           <Loader />
         ) : (
-          <>
-            <Calendar
-              setFirstDate={setFirstDate}
-              items={afficheFilter}
-              popupOpen={popupOpen}
-            />
-            <VideoBlock link={videoLink} />
-            <News itemsNews={itemsNews} />
-            <Partners partners={partners} />
-          </>
+          <Calendar
+            setFirstDate={setFirstDate}
+            items={afficheFilter}
+            popupOpen={popupOpen}
+          />
         )}
       </main>
+      <VideoBlock link={videoLink} />
+      <News itemsNews={itemsNews} />
+      <Partners partners={partners} />
 
       <TicketPopUp
         closePopup={() => setOpen(false)}
