@@ -41,7 +41,7 @@ export function ScrollToTop() {
       document.documentElement.scrollTo({
         top: scrollTop,
         left: 0,
-        behavior: 'smooth',
+        behavior: 'auto',
       })
     }
   }, [pathname])
