@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { API_URL, api } from '../api/index'
-import { useMatch } from 'react-router-dom'
+import { useLocation, useMatch } from 'react-router-dom'
 import { getDateStr } from '../assets'
 import noPhoto from '../assets/img/no-photo-actor.jpg'
 
@@ -26,6 +26,7 @@ function getShowData(item) {
     premiereDateStr: item?.premiereDateStr,
     scene: item?.scene?.name,
     body: item?.body,
+    directors: item?.directors,
   }
 }
 function getShowRoles(arr) {
@@ -138,6 +139,9 @@ export function Play() {
   const match = useMatch('/play/:id')
   const showID = match.params.id
   const [isLoading, setIsLoading] = useState(true)
+  const location = useLocation()
+  const mainSliderInfo = location.state ?? null
+  const aboutRef = useRef(null)
 
   const [showData, setShowData] = useState({
     bgImage: '',
@@ -149,11 +153,11 @@ export function Play() {
     premiereDateStr: '',
     scene: '',
     body: '',
+    directors: '',
   })
 
   const [showItems, setShowItems] = useState({})
   const [roles, setRoles] = useState({})
-  const [directors, setDirectors] = useState({})
   const [press, setPress] = useState({})
   const [photo, setPhoto] = useState({})
   const [review, setReview] = useState({})
@@ -164,7 +168,6 @@ export function Play() {
         setShowItems(getComingShow(values[0]))
 
         setShowData(getShowData(values[1]))
-        setDirectors(values[1]?.directors)
         setRoles(getShowRoles(values[1]?.roles))
         setPress(getPlayPress(values[1]?.pressItems))
         setPhoto(getShowPhoto(values[1]?.gallery))
@@ -175,25 +178,31 @@ export function Play() {
         console.log(error)
         setIsLoading(false)
       })
+    scrollToAbout()
   }, [])
+
+  //If user moved to this page from a (Big) Slider on the main, then we should scroll the page to About block
+  function scrollToAbout() {
+    mainSliderInfo?.from &&
+      aboutRef.current &&
+      aboutRef.current.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <main>
-      {isLoading ? <Loader /> : <TitleBlock data={showData} />}
-      {isLoading ? <Loader /> : <About data={showData} directors={directors} />}
-      {isLoading ? <Loader /> : <ComingShow items={showItems} />}
+      <TitleBlock data={showData} mainSliderInfo={mainSliderInfo} />
+      <About data={showData} aboutRef={aboutRef} />
       {isLoading ? (
         <Loader />
       ) : (
-        <Actors roles={roles} title={'Действующие лица и исполнители'} />
+        <>
+          <ComingShow items={showItems} />
+          <Actors roles={roles} title={'Действующие лица и исполнители'} />
+          <Press press={press} />
+          <ShowPhoto photo={photo} tage={'ФОТОГРАФИИ СО СПЕКТАКЛЯ'} />
+          <Review review={review} />
+        </>
       )}
-      {isLoading ? <Loader /> : <Press press={press} />}
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <ShowPhoto photo={photo} tage={'ФОТОГРАФИИ СО СПЕКТАКЛЯ'} />
-      )}
-      {isLoading ? <Loader /> : <Review review={review} />}
       <CommentForm showID={showID} />
     </main>
   )

@@ -43,9 +43,9 @@ function App() {
   return (
     <div>
       <Router>
+        <ScrollToTop />
         <Header />
         <Nav />
-        <ScrollToTop />
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route path='/history' element={<HistoryTheathre />} />

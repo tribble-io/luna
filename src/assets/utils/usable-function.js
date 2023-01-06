@@ -34,12 +34,14 @@ export function ScrollToTop() {
   const { pathname } = useLocation()
   const { scrollY } = useWindowScrollPositions()
   useEffect(() => {
-    // "document.documentElement.scrollTo" is the magic for React Router Dom v6
-    if (window.screen.width > 1200 && scrollY >= 200) {
+    // scrollTop is the value by which the page should be scrolled, depends on the height of header
+    const scrollTop = WINDOW_SCREEN >= 991 ? 200 : 70
+    // if user doesn't scrolled the page, then we do not use the scrollTo
+    if (scrollY >= scrollTop) {
       document.documentElement.scrollTo({
-        top: 200,
+        top: scrollTop,
         left: 0,
-        behavior: 'smooth',
+        behavior: 'auto',
       })
     }
   }, [pathname])

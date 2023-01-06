@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import Marquee from 'react-fast-marquee'
 import { API_URL } from '../../../api/index'
+import Loader from '../../loader'
 import styles from './partners.module.scss'
 
 export function Partners({ partners }) {
@@ -46,17 +47,20 @@ export function Partners({ partners }) {
             </div>
           </div>
           <Marquee speed={25} gradient={false} pauseOnHover={true}>
-            <div className={styles.sponsors}>
-              {partners.map((partner) => (
-                <a key={partner.id} href={partner?.link}>
-                  <img
-                    src={API_URL + partner?.logo?.url}
-                    alt={partner?.alternativeText}
-                  />
-                </a>
-              ))}
-              <a></a>
-            </div>
+            {partners.length > 0 ? (
+              <div className={styles.sponsors}>
+                {partners.map((partner) => (
+                  <a key={partner.id} href={partner?.link}>
+                    <img
+                      src={API_URL + partner?.logo?.url}
+                      alt={partner?.alternativeText}
+                    />
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <Loader />
+            )}
           </Marquee>
         </div>
       </div>
