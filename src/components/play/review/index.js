@@ -59,7 +59,6 @@ export function Review({ review }) {
                   slidesPerView={1}
                   centeredSlides={true}
                   spaceBetween={20}
-                  autoHeight={true}
                   pagination={{ clickable: true, dynamicBullets: true }}
                   modules={[Pagination]}
                   className='reviewSwiper'
