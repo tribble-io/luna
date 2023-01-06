@@ -20,6 +20,7 @@ function cutToLength(text, length) {
 }
 
 export function Review({ review }) {
+  const [swiper, setSwiper] = useState(null)
   const [reviewArr, setReviewArr] = useState(review)
   const reviewLineaAmount = IsMobile ? 1 : 2
   const [actPage, setActPage] = useState(1)
@@ -56,9 +57,11 @@ export function Review({ review }) {
             {IsMobile ? (
               <div className={styles.pressSlider}>
                 <Swiper
+                  onSwiper={setSwiper}
                   slidesPerView={1}
                   centeredSlides={true}
                   spaceBetween={20}
+                  autoHeight={true}
                   pagination={{ clickable: true, dynamicBullets: true }}
                   modules={[Pagination]}
                   className='reviewSwiper'
@@ -91,7 +94,13 @@ export function Review({ review }) {
                                 className={`${styles.fullReview} ${
                                   data.id === openReviewId ? styles.hidden : ''
                                 }`}
-                                onClick={() => setOpenReviewId(data.id)}
+                                onClick={() => {
+                                  setOpenReviewId(data.id)
+                                  //setTimeout because updateAutoHeight not updating immediately after click
+                                  setTimeout(() => {
+                                    swiper && swiper.updateAutoHeight(400)
+                                  }, 200)
+                                }}
                               >
                                 Развернуть полностью
                               </span>
