@@ -32,7 +32,8 @@ export function TitleBlock({ data }) {
   )
 }
 
-export function About({ data, directors }) {
+export function About(props) {
+  const { data, directors } = props
   return (
     <section className={styles.about} id='about'>
       <div className={styles.wrapper}>
@@ -80,9 +81,9 @@ export function About({ data, directors }) {
               )}
             </div>
 
-            <div className={styles.production}>
-              {directors && directors.length > 0 ? (
-                directors.map((director) => (
+            {directors && directors.length > 0 ? (
+              <div className={styles.production}>
+                {directors.map((director) => (
                   <div key={director.id}>
                     <span className={styles.director}>
                       {director.position} —{' '}
@@ -94,11 +95,11 @@ export function About({ data, directors }) {
                       )}
                     </span>
                   </div>
-                ))
-              ) : (
-                <></>
-              )}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

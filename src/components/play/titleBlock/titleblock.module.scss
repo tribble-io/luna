@@ -142,6 +142,7 @@
 
     @media (max-width: 500px) {
       padding-top: 100px;
+      padding-bottom: 0;
     }
   }
 
@@ -175,7 +176,6 @@
     margin-right: 30px;
 
     @media (max-width: 767px) {
-      margin-bottom: 50px;
       font-size: 14px;
       font-size: 0.875em;
     }
@@ -209,6 +209,7 @@
     min-width: 300px;
 
     @media (max-width: 500px) {
+      margin-top: 50px;
       font-size: 14px;
       font-size: 0.875em;
     }
