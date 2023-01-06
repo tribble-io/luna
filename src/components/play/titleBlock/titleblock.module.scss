@@ -7,7 +7,30 @@
   color: #fff;
 }
 
+.loaderBlock {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #171943 0%, #0e1030 60%, #171943 100%);
+  animation: gradientBG 3s infinite linear;
+  background-size: 200%;
+}
+
+@keyframes gradientBG {
+  0% {
+      background-position: 0% 0%;
+  }
+  50% {
+      background-position: 100% 100%;
+  }
+  100% {
+      background-position: 0% 0%;
+  }
+}
+
 .titleBlock {
+  width: 100vw;
+  height: 44vw;
+
   .bgShows {
     margin: 0;
     padding: 0;
@@ -16,9 +39,8 @@
     background-size: cover;
     position: relative;
     cursor: default;
-
-    width: 100vw;
-    height: 44vw;
+    width: 100%;
+    height: 100%;
 
     @media (max-width: 500px) {
       min-height: 500px;

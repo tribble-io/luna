@@ -38,6 +38,10 @@ export function Slider(props) {
                 <div className={styles.slide}>
                   <Link
                     to={`/play/${offer?.id}`}
+                    state={{
+                      from: 'mainSlider',
+                      img: API_URL + offer?.cover?.url,
+                    }}
                     className={styles.bgContainer}
                   >
                     <div
