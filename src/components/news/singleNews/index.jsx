@@ -1,7 +1,5 @@
 import React from 'react'
 import styles from './singleNews.module.scss'
-import ReactMarkdown from 'react-markdown'
-import rehypeRaw from 'rehype-raw'
 import MiniNews from './miniNews'
 import { CustomCheckbox, PlaysLine } from '../../createElement'
 
@@ -222,10 +220,7 @@ class SingleNews extends React.Component {
 
                   <div className={styles.contentBlock}>
                     <div className={styles.textContent}>
-                      <ReactMarkdown
-                        children={this.state.items.text}
-                        rehypePlugins={[rehypeRaw]}
-                      />
+                      {this.state.items.text}
                     </div>
                     <div className={styles.newsMiniBlock}>
                       <h2>ДРУГИЕ НОВОСТИ</h2>

@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './title.module.scss'
-import ReactMarkdown from 'react-markdown'
 
 export function ContactsTitle() {
   return (
@@ -89,9 +88,7 @@ export function ContactsList(props) {
                 )}
 
                 {item.workHours ? (
-                  <div className={styles.workHours}>
-                    <ReactMarkdown children={item.workHours} />
-                  </div>
+                  <div className={styles.workHours}>{item.workHours}</div>
                 ) : (
                   <></>
                 )}
@@ -113,9 +110,7 @@ export function ContactsList(props) {
                 )}
 
                 {item.text ? (
-                  <div className={styles.proffActors}>
-                    <ReactMarkdown children={item.text} />
-                  </div>
+                  <div className={styles.proffActors}>{item.text}</div>
                 ) : (
                   <></>
                 )}
