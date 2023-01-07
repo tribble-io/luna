@@ -23,27 +23,26 @@ export function CommentForm({ showID }) {
     title: '',
     text: '',
     play: showID,
-    recaptcha: null,
   })
-  const { name, title, text, recaptcha } = inValue
+  const { name, title, text } = inValue
   const [error, setError] = useState(false)
   const [sendedForm, setsendedForm] = useState(false)
   const [setCheckbox, setsetCheckbox] = useState(true)
+  const [recaptchaState, setRecaptchaState] = useState(null)
 
   const updateInput = (e) => {
     const { name, value } = e.target
     setInValue((inValue) => ({ ...inValue, [name]: value }))
-    console.log(inValue, 'inValue')
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (name && title && text && setCheckbox && recaptcha) {
+    if (name && title && text && setCheckbox) {
       sendInfo(inValue, setsendedForm)
       setError(false)
 
       // For clear inputs after submit
-      setInValue({ name: '', title: '', text: '', recaptcha: '' })
+      setInValue({ name: '', title: '', text: '' })
     } else {
       setError(true)
     }
@@ -51,6 +50,11 @@ export function CommentForm({ showID }) {
 
   const isActive = (state) => {
     setsetCheckbox(state)
+  }
+
+  const recaptchaChange = (state) => {
+    setRecaptchaState(state)
+    console.log(recaptchaState, 'recaptchaState')
   }
 
   return (
@@ -150,7 +154,8 @@ export function CommentForm({ showID }) {
                 <div className={styles.warningMes}>
                   <span
                     style={{
-                      visibility: error && !recaptcha ? 'visible' : 'hidden',
+                      visibility:
+                        error && recaptchaState === null ? 'visible' : 'hidden',
                     }}
                   >
                     Установите флажок
@@ -161,7 +166,7 @@ export function CommentForm({ showID }) {
                   hl='ru'
                   theme='dark'
                   name='recaptcha'
-                  onChange={updateInput}
+                  onChange={recaptchaChange}
                 />
               </div>
               <div className={styles.buttonSubmit}>
