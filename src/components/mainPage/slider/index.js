@@ -40,7 +40,10 @@ export function Slider(props) {
                     to={`/play/${offer?.id}`}
                     state={{
                       from: 'mainSlider',
-                      img: API_URL + offer?.cover?.url,
+                      bgImage: API_URL + offer?.cover?.url,
+                      title: offer?.title,
+                      description: offer?.description,
+                      rating: offer?.rating,
                     }}
                     className={styles.bgContainer}
                   >
