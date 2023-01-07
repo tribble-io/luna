@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { api, API_URL } from '../../api'
-import { CreateButton, CustomCheckbox } from '../../components/createElement'
+import {
+  CreateButton,
+  CustomCheckbox,
+  CreateActorCard,
+} from '../../components/createElement'
 import DirectorCard from '../../components/createElement/DirectorCard'
-import { Actors } from '../../components/play'
 import { content, positionsArrayFilters } from './fields'
 import collectiveImg from './img/collective.webp'
 import noPhoto from '../../assets/img/no-photo-actor.jpg'
@@ -21,7 +24,7 @@ const PageTeam = () => {
     api
       .exportShowActors(editValue)
       .then((response) => {
-        setActorsResult(response)
+        setActorsResult(getShowRoles(response))
         setIsLoading(false)
       })
       .catch((error) => {
@@ -73,30 +76,42 @@ const PageTeam = () => {
             : null}
         </div>
         <div className={styles.filters}>
-          {!isLoading && positionsArrayFilters?.length ? (
-            <CreateButton
-              buttonArray={positionsArrayFilters}
-              updateFilter={updateFilter}
-              activeButton={editValue.actors}
-              className={styles.nameButtonFilter}
-            />
-          ) : null}
-        </div>
-        <div className={styles.filters}>
-          {!isLoading ? (
-            <CustomCheckbox
-              id='guest'
-              name='guest'
-              label='приглашенные артисты'
-              isActive={isActive}
-              className={styles.checkbox}
-            />
-          ) : (
-            <></>
-          )}
+          <div className={styles.filterGroup}>
+            {!isLoading && positionsArrayFilters?.length ? (
+              <CreateButton
+                buttonArray={positionsArrayFilters}
+                updateFilter={updateFilter}
+                activeButton={editValue.actors}
+                className={styles.nameButtonFilter}
+              />
+            ) : null}
+          </div>
+
+          <div className={styles.filterGroup}>
+            {!isLoading ? (
+              <CustomCheckbox
+                id='guest'
+                name='guest'
+                label='приглашенные артисты'
+                isActive={isActive}
+                className={styles.checkbox}
+              />
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
         {!isLoading && actorsResult?.length ? (
-          <Actors roles={getShowRoles(actorsResult)} troupeGrig={true} />
+          <div className={styles.actorsGridTroupe}>
+            {actorsResult?.map((item, key) => (
+              <div
+                className={styles.actorsCard}
+                key={`troupActorCard-${item.id ?? key}`}
+              >
+                <CreateActorCard data={item} key={item.id} troupeGrig={true} />
+              </div>
+            ))}
+          </div>
         ) : (
           <div className={styles.noActorsResult}>
             <p>Данные отсутствуют</p>

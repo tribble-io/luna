@@ -16,7 +16,7 @@
     max-height: 671px;
     object-fit: cover;
   }
-  .filters {
+  .filterGroup {
     display: flex;
     overflow: scroll;
     flex-direction: row;
@@ -35,6 +35,31 @@
     font-size: 22px;
     font-size: 1.375em;
     padding-top: 100px;
+  }
+  .actorsGridTroupe {
+    padding-top: 100px;
+
+    @media (max-width: 500px) {
+      padding-top: 50px;
+    }
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 55px;
+
+    @media (max-width: 500px) {
+      overflow: scroll;
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 30px;
+    }
+    .actorsCard {
+      max-width: 295px;
+      @media (max-width: 500px) {
+        min-width: 130px;
+      }
+    }
   }
   .collectiveImg:hover {
     transform: none;
@@ -70,7 +95,7 @@
       opacity: 100%;
       margin-bottom: 120px;
     }
-    .filters {
+    .filterGroup {
       display: flex;
       overflow: scroll;
       flex-wrap: nowrap;
