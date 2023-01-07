@@ -23,8 +23,9 @@ export function CommentForm({ showID }) {
     title: '',
     text: '',
     play: showID,
+    recaptcha: null,
   })
-  const { name, title, text } = inValue
+  const { name, title, text, recaptcha } = inValue
   const [error, setError] = useState(false)
   const [sendedForm, setsendedForm] = useState(false)
   const [setCheckbox, setsetCheckbox] = useState(true)
@@ -32,16 +33,17 @@ export function CommentForm({ showID }) {
   const updateInput = (e) => {
     const { name, value } = e.target
     setInValue((inValue) => ({ ...inValue, [name]: value }))
+    console.log(inValue, 'inValue')
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (name && title && text && setCheckbox) {
+    if (name && title && text && setCheckbox && recaptcha) {
       sendInfo(inValue, setsendedForm)
       setError(false)
 
       // For clear inputs after submit
-      setInValue({ name: '', title: '', text: '' })
+      setInValue({ name: '', title: '', text: '', recaptcha: '' })
     } else {
       setError(true)
     }
@@ -49,10 +51,6 @@ export function CommentForm({ showID }) {
 
   const isActive = (state) => {
     setsetCheckbox(state)
-  }
-
-  var verifyCallback = (state) => {
-    console.log(state)
   }
 
   return (
@@ -106,7 +104,7 @@ export function CommentForm({ showID }) {
                   onChange={updateInput}
                 ></textarea>
                 {error && !text && (
-                  <span className={styles.warningMes}>Заполните поле</span>
+                  <p className={styles.warningMes}>Заполните поле</p>
                 )}
                 <div className={styles.warningMes}>
                   <span
@@ -149,11 +147,21 @@ export function CommentForm({ showID }) {
                 </div>
               </div>
               <div className={styles.recaptcha}>
+                <div className={styles.warningMes}>
+                  <span
+                    style={{
+                      visibility: error && !recaptcha ? 'visible' : 'hidden',
+                    }}
+                  >
+                    Установите флажок
+                  </span>
+                </div>
                 <ReCAPTCHA
                   sitekey='6LeC1WQjAAAAAP8Wmgn5hs06R7hwOfsmlj8OCKfb'
                   hl='ru'
                   theme='dark'
-                  onChange={verifyCallback}
+                  name='recaptcha'
+                  onChange={updateInput}
                 />
               </div>
               <div className={styles.buttonSubmit}>
