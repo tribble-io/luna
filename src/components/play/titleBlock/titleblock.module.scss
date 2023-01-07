@@ -127,6 +127,7 @@
 
     .link {
       @include button_white;
+      text-align: center;
       font-size: 16px;
       font-size: 1em;
       font-weight: 500;
@@ -137,7 +138,6 @@
         font-size: 12px;
         font-size: 0.75em;
         min-width: 200px;
-        margin-right: 0;
       }
     }
 

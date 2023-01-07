@@ -12,21 +12,27 @@ export function TitleBlock(props) {
       <div
         className={styles.bgShows}
         style={{
-          backgroundImage: `url('${mainSliderInfo?.img ?? data?.bgImage}')`,
+          backgroundImage: `url('${mainSliderInfo?.bgImage ?? data?.bgImage}')`,
         }}
       >
         <div className={styles.wrapper}>
-          {data.title.length > 0 ? (
+          {mainSliderInfo?.title?.length > 0 || data.title.length > 0 ? (
             <div className={styles.mainContent}>
-              <p className={styles.title}>{data.title}</p>
-              <p className={styles.description}>{data.description}</p>
+              <p className={styles.title}>
+                {mainSliderInfo?.title ?? data.title}
+              </p>
+              <p className={styles.description}>
+                {mainSliderInfo?.description ?? data.description}
+              </p>
               <div className={styles.ticket}>
                 <ScrollIntoView selector={`#comingShow`} className={styles.buy}>
                   <button type='button' className={styles.link}>
                     БИЛЕТЫ
                   </button>
                 </ScrollIntoView>
-                <div className={styles.rating}>{data.rating}+</div>
+                <div className={styles.rating}>
+                  {mainSliderInfo?.rating ?? data.rating}+
+                </div>
               </div>
             </div>
           ) : (
