@@ -51,6 +51,10 @@ export function CommentForm({ showID }) {
     setsetCheckbox(state)
   }
 
+  var verifyCallback = (state) => {
+    console.log(state)
+  }
+
   return (
     <section id='commentForm'>
       <div className={styles.wrapper}>
@@ -149,6 +153,7 @@ export function CommentForm({ showID }) {
                   sitekey='6LeC1WQjAAAAAP8Wmgn5hs06R7hwOfsmlj8OCKfb'
                   hl='ru'
                   theme='dark'
+                  onChange={verifyCallback}
                 />
               </div>
               <div className={styles.buttonSubmit}>
