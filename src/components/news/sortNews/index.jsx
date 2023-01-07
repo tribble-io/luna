@@ -188,7 +188,6 @@ const SortNews = (props) => {
           key={i}
           onClick={() => {
             props.calendar(daysAll[i])
-            console.log('props: ' + props.d)
           }}
           className={
             d === daysAll[i] ? styles.calendarItemAct : styles.calendarItem

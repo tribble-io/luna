@@ -336,7 +336,6 @@ class Poster extends React.Component {
                 isLoaded: true,
                 items: response.data,
               })
-              console.log(response)
             } else {
               this.setState({
                 isLoaded: true,

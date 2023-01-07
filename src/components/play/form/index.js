@@ -54,8 +54,6 @@ export function CommentForm({ showID }) {
 
   const recaptchaChange = (state) => {
     setRecaptchaState(state)
-    console.log(state, 'state')
-    console.log(recaptchaState, 'recaptchaState')
   }
 
   return (

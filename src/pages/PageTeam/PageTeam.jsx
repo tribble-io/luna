@@ -55,7 +55,6 @@ const PageTeam = () => {
   }
 
   const isActive = (state, name) => {
-    console.log(state, name)
     setEditValue((editValue) => ({ ...editValue, [name]: state }))
   }
 
