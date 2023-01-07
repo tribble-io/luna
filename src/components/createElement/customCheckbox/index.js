@@ -8,9 +8,8 @@ import styles from './checkbox.module.scss'
 }
 
 export function CustomCheckbox(props) {
-  const { id, name, label, checked, isActive, className } = props
-  const defaultChecked = checked ? checked : false
-  const [isChecked, setIsChecked] = useState(defaultChecked)
+  const { id, name, label, checked = false, isActive, className } = props
+  const [isChecked, setIsChecked] = useState(checked)
   function spanClass() {
     return isChecked
       ? `${styles.checkbox} ${styles.checkboxActive}`

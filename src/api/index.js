@@ -196,28 +196,30 @@ async function exportPressData(year) {
   throw new Error("Can't export press data")
 }
 
-async function exportShowActors(filter) {
-  const result = await axios.get(
-    `${API_URL}/api/persons?filters[positions][category][$eq]=${filter}&filters[isGuest][$eq]=false&populate=cover`
-  )
+function getActorsFilter(editValue) {
+  let filters = ''
 
-  if (result.status === 200) {
-    return result.data.data
+  if (editValue.actors.length > 0) {
+    filters += `filters[positions][category][$eq]=${editValue.actors}&`
   }
 
-  throw new Error("Can't export show data")
+  if (editValue.guest === true) {
+    filters += `filters[isGuest][$eq]=true&`
+  }
+
+  filters += filters[filters.length - 1] !== '&' ? '&' : ''
+  return `${API_URL}/api/persons?${filters}populate=cover`
 }
 
-async function exportShowPersons() {
-  const result = await axios.get(
-    `${API_URL}/api/persons?filters[isGuest][$eq]=true&populate=cover`
-  )
+async function exportShowActors(editValue) {
+  const url = getActorsFilter(editValue)
+  const result = await axios.get(url)
 
   if (result.status === 200) {
     return result.data.data
   }
 
-  throw new Error("Can't export persons data")
+  throw new Error("Can't export troupe actors data")
 }
 
 async function exportSceneDocs() {
@@ -355,7 +357,6 @@ export const api = {
   exportRomashkaData,
   exportPressData,
   exportShowActors,
-  exportShowPersons,
   exportSceneDocs,
   exportGetDetailInfoActor,
   searchPosters,
