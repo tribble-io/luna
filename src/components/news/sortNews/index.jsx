@@ -21,16 +21,17 @@ let MONTHS = [
 
 // Строим кнопки на этот и 4 месяца вперёд
 let a = new Date()
+let actualMonth = a.getMonth()
 let rez = []
 
 for (let i = 0; i < 5; i++) {
-  rez.push(MONTHS[((a.getMonth() - i) % 12) + 1])
+  rez.push(MONTHS[((actualMonth - i) % 12) + 1])
+  actualMonth === 0 ? (actualMonth = 12) : actualMonth
 }
-//
+
 const SortNews = (props) => {
   const [open, openClosedCalendar] = React.useState(false)
   const [openSel, openClosedCalendarSel] = React.useState(false)
-
   let c = props.dataArr[0]
 
   if (c === '01') {
