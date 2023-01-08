@@ -88,7 +88,12 @@ export function ContactsList(props) {
                 )}
 
                 {item.workHours ? (
-                  <div className={styles.workHours}>{item.workHours}</div>
+                  <div
+                    className={styles.workHours}
+                    dangerouslySetInnerHTML={{
+                      __html: item.workHours,
+                    }}
+                  ></div>
                 ) : (
                   <></>
                 )}
@@ -110,7 +115,12 @@ export function ContactsList(props) {
                 )}
 
                 {item.text ? (
-                  <div className={styles.proffActors}>{item.text}</div>
+                  <div
+                    className={styles.proffActors}
+                    dangerouslySetInnerHTML={{
+                      __html: item.text,
+                    }}
+                  ></div>
                 ) : (
                   <></>
                 )}

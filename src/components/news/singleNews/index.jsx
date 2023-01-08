@@ -215,9 +215,12 @@ class SingleNews extends React.Component {
                   </div>
 
                   <div className={styles.contentBlock}>
-                    <div className={styles.textContent}>
-                      {this.state.items.text}
-                    </div>
+                    <div
+                      className={styles.textContent}
+                      dangerouslySetInnerHTML={{
+                        __html: this.state.items.text,
+                      }}
+                    ></div>
                     <div className={styles.newsMiniBlock}>
                       <h2>ДРУГИЕ НОВОСТИ</h2>
                       <div className={styles.newsMiniBlock_content}>

@@ -13,7 +13,14 @@ const ActorInfo = ({ img, name, body, rank, romashka }) => {
         {name ? (
           <span className={styles.actorName}>{name.toUpperCase()}</span>
         ) : null}
-        {body ? <div className={styles.actorBody}>{body}</div> : null}
+        {body ? (
+          <div
+            className={styles.actorBody}
+            dangerouslySetInnerHTML={{
+              __html: body,
+            }}
+          ></div>
+        ) : null}
         {rank ? <p className={styles.actorRank}>{rank}</p> : null}
         {romashka?.length ? (
           <div className={styles.actorCardRomashka}>

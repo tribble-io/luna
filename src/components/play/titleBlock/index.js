@@ -54,7 +54,12 @@ export function About(props) {
             <div className={styles.aboutInfo}>
               <div className={styles.intro}>
                 {data.body ? (
-                  <div className={styles.description}>{data.body}</div>
+                  <div
+                    className={styles.description}
+                    dangerouslySetInnerHTML={{
+                      __html: data.body,
+                    }}
+                  ></div>
                 ) : (
                   <></>
                 )}
