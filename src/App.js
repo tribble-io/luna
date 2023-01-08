@@ -21,6 +21,7 @@ import {
   Contacts,
   Scenes,
   Partners,
+  SiteMap,
 } from './pages'
 import PageTeam from './pages/PageTeam/PageTeam'
 import News from './pages/news'
@@ -31,7 +32,6 @@ import HistoryTheathre from './pages/historyTheathre'
 import Documets from './pages/documents'
 import PageNotFound from './pages/PageNotFound/PageNotFound'
 import { defaultSetBodyClass, defaultGetSettings } from '@n3/react-vision-panel'
-import { SiteMap } from './pages/sitemap'
 import { UserAgreement } from './pages/user-agreement'
 
 function App() {
