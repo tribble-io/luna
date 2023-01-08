@@ -30,6 +30,20 @@
     &:not(:last-child) {
       margin-bottom: 40px;
     }
+    .checkbox {
+      label {
+        font-size: 14px;
+        font-size: 0.875em;
+        color: $text-color;
+        text-transform: uppercase;
+        align-items: center;
+
+        @media (max-width: 500px) {
+          font-size: 12px;
+          font-size: 0.75em;
+        }
+      }
+    }
   }
   .noActorsResult {
     font-size: 22px;
