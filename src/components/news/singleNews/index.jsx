@@ -1,7 +1,5 @@
 import React from 'react'
 import styles from './singleNews.module.scss'
-import ReactMarkdown from 'react-markdown'
-import rehypeRaw from 'rehype-raw'
 import MiniNews from './miniNews'
 import { CustomCheckbox, PlaysLine } from '../../createElement'
 
@@ -46,14 +44,10 @@ class SingleNews extends React.Component {
 
   getSliderPhoto(a) {
     const photo = a.map((item) => {
-      let a
-      item.media?.formats?.small?.url
-        ? (a = item.media?.formats?.small?.url)
-        : (a = item.media?.formats?.thumbnail?.url)
       return {
         id: item.id,
-        href: this.state.URL + item.media?.formats?.thumbnail?.url,
-        src: this.state.URL + a,
+        original: this.state.URL + item.media?.url,
+        preview: item.media?.formats,
         caption: '',
       }
     })
@@ -221,12 +215,12 @@ class SingleNews extends React.Component {
                   </div>
 
                   <div className={styles.contentBlock}>
-                    <div className={styles.textContent}>
-                      <ReactMarkdown
-                        children={this.state.items.text}
-                        rehypePlugins={[rehypeRaw]}
-                      />
-                    </div>
+                    <div
+                      className={styles.textContent}
+                      dangerouslySetInnerHTML={{
+                        __html: this.state.items.text,
+                      }}
+                    ></div>
                     <div className={styles.newsMiniBlock}>
                       <h2>ДРУГИЕ НОВОСТИ</h2>
                       <div className={styles.newsMiniBlock_content}>

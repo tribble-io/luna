@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { api, API_URL } from '../../api'
-import { CreateButton } from '../../components/createElement'
+import {
+  CreateButton,
+  CustomCheckbox,
+  CreateActorCard,
+} from '../../components/createElement'
 import DirectorCard from '../../components/createElement/DirectorCard'
-import { Actors } from '../../components/play'
 import { content, positionsArrayFilters } from './fields'
 import collectiveImg from './img/collective.webp'
 import noPhoto from '../../assets/img/no-photo-actor.jpg'
@@ -12,71 +15,28 @@ import styles from './PageTeam.module.scss'
 const PageTeam = () => {
   const [actorsResult, setActorsResult] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const [activeFilter, setActiveFilter] = useState('труппа')
-  const [activeFilterValue, setActiveFilterValue] = useState('труппа')
-
-  const getActors = () => {
-    api
-      .exportShowActors(activeFilterValue)
-      .then((values) => {
-        setActorsResult(values)
-        setIsLoading(false)
-      })
-      .catch(() => {
-        setIsLoading(false)
-      })
-  }
-
-  const getPersons = () => {
-    api
-      .exportShowPersons()
-      .then((values) => {
-        setActorsResult(values)
-        setIsLoading(false)
-      })
-      .catch(() => {
-        setIsLoading(false)
-      })
-  }
+  const [editValue, setEditValue] = useState({
+    actors: 'труппа',
+    guest: false,
+  })
 
   useEffect(() => {
-    if (activeFilterValue !== 'isGuest') {
-      getActors()
-    } else {
-      getPersons()
-    }
-  }, [activeFilterValue])
+    api
+      .exportShowActors(editValue)
+      .then((response) => {
+        setActorsResult(getShowRoles(response))
+        setIsLoading(false)
+      })
+      .catch((error) => {
+        console.log(error)
+        setIsLoading(false)
+      })
+  }, [editValue])
 
-  useEffect(() => {
-    switch (activeFilter) {
-      case 'труппа':
-        setActiveFilterValue('труппа')
-        break
-      case 'приглашенные артисты':
-        setActiveFilterValue('isGuest')
-        break
-      case 'режиссеры':
-        setActiveFilterValue('режиссёры')
-        break
-      case 'режиссеры-ассистенты':
-        setActiveFilterValue('')
-        break
-      case 'драматурги художники':
-        setActiveFilterValue('')
-        break
-      case 'музыка':
-        setActiveFilterValue('музыка')
-        break
-      case 'оркестр':
-        setActiveFilterValue('')
-        break
-      case 'хореографы и балетмейстеры':
-        setActiveFilterValue('')
-        break
-      default:
-        setActiveFilterValue('актёр/актриса')
-    }
-  }, [activeFilter])
+  const updateFilter = (e) => {
+    const value = e.target.name
+    setEditValue((editValue) => ({ ...editValue, actors: value }))
+  }
 
   const getShowRoles = (arr) => {
     if (arr !== null) {
@@ -94,9 +54,8 @@ const PageTeam = () => {
     }
   }
 
-  const handleUpdateFilter = (e) => {
-    const value = e.target.name
-    setActiveFilter(value)
+  const isActive = (state, name) => {
+    setEditValue((editValue) => ({ ...editValue, [name]: state }))
   }
 
   return (
@@ -116,19 +75,47 @@ const PageTeam = () => {
             : null}
         </div>
         <div className={styles.filters}>
-          {!isLoading && positionsArrayFilters?.length ? (
-            <CreateButton
-              buttonArray={positionsArrayFilters}
-              updateFilter={handleUpdateFilter}
-              activeButton={activeFilter}
-              activeUnderline={true}
-              className={styles.nameButtonFilter}
-            />
-          ) : null}
+          <div className={styles.filterGroup}>
+            {!isLoading && positionsArrayFilters?.length ? (
+              <CreateButton
+                buttonArray={positionsArrayFilters}
+                updateFilter={updateFilter}
+                activeButton={editValue.actors}
+                className={styles.nameButtonFilter}
+              />
+            ) : null}
+          </div>
+
+          <div className={styles.filterGroup}>
+            {!isLoading ? (
+              <CustomCheckbox
+                id='guest'
+                name='guest'
+                label='приглашенные артисты'
+                isActive={isActive}
+                className={styles.checkbox}
+              />
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
         {!isLoading && actorsResult?.length ? (
-          <Actors roles={getShowRoles(actorsResult)} troupeGrig={true} />
-        ) : null}
+          <div className={styles.actorsGridTroupe}>
+            {actorsResult?.map((item, key) => (
+              <div
+                className={styles.actorsCard}
+                key={`troupActorCard-${item.id ?? key}`}
+              >
+                <CreateActorCard data={item} key={item.id} troupeGrig={true} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className={styles.noActorsResult}>
+            <p>Данные отсутствуют</p>
+          </div>
+        )}
       </div>
     </section>
   )

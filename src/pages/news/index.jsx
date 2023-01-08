@@ -20,33 +20,35 @@ const MONTHS = [
 ]
 
 class News extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    this.daysInMonth = this.daysInMonth.bind(this)
+    this.calendar = this.calendar.bind(this)
+    this.calendarDefault = this.calendarDefault.bind(this)
+    this.search = this.search.bind(this)
+    this.filterStateUpdate = this.filterStateUpdate.bind(this)
+    this.getWeekDay = this.getWeekDay.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
 
     let actualDate = new Date()
     let actualMoth = actualDate.getMonth()
     let actualYear = actualDate.getFullYear()
     let month = Number(actualMoth)
-    let formatMoth
+    var lastDayDate = new Date(
+      actualDate.getFullYear(),
+      actualDate.getMonth() + 1,
+      0
+    ).getDate()
     let nextMonth = month + 1 === 12 ? 1 : month + 1
-    let actualDay_this_month = actualDate.getDate()
+    let actualDay_this_month =
+      actualDate.getDate() < 10
+        ? '0' + actualDate.getDate()
+        : actualDate.getDate()
 
-    if (actualDay_this_month.length === 1) {
-      actualDay_this_month = '0' + actualDay_this_month
-    }
-
-    let actualDateFormate = [
-      month + 1,
-      actualDay_this_month,
-      actualYear,
-      nextMonth,
-      '01',
-      month === 11 ? actualYear + 1 : actualYear,
-    ]
-    const go = 11
+    let actualDateFormate = { month, actualYear, lastDayDate }
+    const go = 12
 
     let monthName = [
-      '',
       'январь',
       'февраль',
       'март',
@@ -61,117 +63,33 @@ class News extends React.Component {
       'декабрь',
     ]
 
-    let actualMoth_str = monthName[actualDateFormate[0]]
-    let nextMoth_str =
-      monthName[actualDateFormate[0] === 12 ? 1 : actualDateFormate[0] - 1]
+    let actualMoth_str = monthName[month]
+    let nextMoth_str = monthName[nextMonth]
 
     const dateList = {}
 
     for (let i = 0; i < go; i++) {
-      if (actualDateFormate[0] === 13) {
-        actualDateFormate[0] = 1
-        actualDateFormate[3] = 1
-        actualDateFormate[3] = 11
+      let month = actualDateFormate.month
+      if (month === 11) {
+        actualDateFormate.actualYear -= 1
+      } else if (month === 0) {
+        actualDateFormate.month = 12
       }
-      if (actualDateFormate[3] === 13) {
-        actualDateFormate[3] = 0
-        actualDateFormate[3] += 1
-        actualDateFormate[5] += 1
-      }
-      switch (actualDateFormate[0]) {
-        case 1:
-          formatMoth = '01'
-          break
-        case 2:
-          formatMoth = '02'
-          break
-        case 3:
-          formatMoth = '03'
-          break
-        case 4:
-          formatMoth = '04'
-          break
-        case 5:
-          formatMoth = '05'
-          break
-        case 6:
-          formatMoth = '06'
-          break
-        case 7:
-          formatMoth = '07'
-          break
-        case 8:
-          formatMoth = '08'
-          break
-        case 9:
-          formatMoth = '09'
-          break
-        case 10:
-          formatMoth = '10'
-          break
-        case 11:
-          formatMoth = '11'
-          break
-        case 12:
-          formatMoth = '12'
-          break
-        default:
-          formatMoth = ''
-      }
-      switch (actualDateFormate[3]) {
-        case 1:
-          nextMonth = '01'
-          break
-        case 2:
-          nextMonth = '02'
-          break
-        case 3:
-          nextMonth = '03'
-          break
-        case 4:
-          nextMonth = '04'
-          break
-        case 5:
-          nextMonth = '05'
-          break
-        case 6:
-          nextMonth = '06'
-          break
-        case 7:
-          nextMonth = '07'
-          break
-        case 8:
-          nextMonth = '08'
-          break
-        case 9:
-          nextMonth = '09'
-          break
-        case 10:
-          nextMonth = '10'
-          break
-        case 11:
-          nextMonth = '11'
-          break
-        case 12:
-          nextMonth = '12'
-          break
-        default:
-          nextMonth = ''
-      }
-
-      dateList[monthName[actualDateFormate[0]]] = [
-        formatMoth,
+      let lastDayDate = new Date(
+        actualDateFormate.actualYear,
+        actualDateFormate.month + 1,
+        0
+      ).getDate()
+      const monthToList = month + 1 < 10 ? '0' + `${month + 1}` : `${month + 1}`
+      dateList[monthName[month]] = [
+        monthToList,
         '01',
-        actualDateFormate[2],
-        nextMonth,
-        actualDateFormate[4],
-        actualDateFormate[5],
+        actualDateFormate.actualYear,
+        monthToList,
+        lastDayDate,
+        actualDateFormate.actualYear,
       ]
-      actualDay_this_month = '01'
-      actualDateFormate[0] -= 1
-      actualDateFormate[3] = actualDateFormate[0] + 1
-      actualDateFormate[5] = actualYear
-      month += 1
+      actualDateFormate.month -= 1
     }
     const MONTHS_num = [
       '',
@@ -224,10 +142,10 @@ class News extends React.Component {
       nextDate: dateList[nextMoth_str],
     }
   }
-  daysInMonth = (month, year) => {
+  daysInMonth(month, year) {
     return new Date(year, month, 0).getDate()
   }
-  calendar = (d) => {
+  calendar(d) {
     this.setState(() => {
       return {
         dataArr: this.state.dataList[d],
@@ -237,7 +155,7 @@ class News extends React.Component {
     this.componentDidMount()
   }
 
-  calendarDefault = () => {
+  calendarDefault() {
     this.setState(() => {
       return {
         dataArr: this.state.thData,
@@ -249,13 +167,13 @@ class News extends React.Component {
     this.componentDidMount()
   }
 
-  search = (c) => {
+  search(c) {
     this.setState(() => {
       return { search: c }
     })
     this.componentDidMount()
   }
-  filterStateUpdate = (a) => {
+  filterStateUpdate(a) {
     this.setState(() => {
       return {
         filterState: a,

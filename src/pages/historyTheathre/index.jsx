@@ -16,8 +16,8 @@ function getSliderPhoto(arr) {
   const photo = arr.map((item) => {
     return {
       id: item.id,
-      href: API_URL + item.media?.formats?.small?.url,
-      src: API_URL + item.media?.formats?.small?.url,
+      original: API_URL + item.media?.url,
+      preview: item.media?.formats,
       caption: '',
     }
   })
@@ -37,7 +37,6 @@ class HistoryTheathre extends React.Component {
     fetch(`${API_URL}/api/assets/2?populate=gallery,gallery.media`)
       .then((res) => res.json())
       .then((result) => {
-        // api.exportHistoryTheathrePhoto().then((result) => {
         this.setState({
           items: result.data.gallery,
         })

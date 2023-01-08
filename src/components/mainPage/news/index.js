@@ -64,7 +64,7 @@ export function News(props) {
                         <div className={styles.newsInfo}>
                           <p className={styles.newsTitle}>{item.title}</p>
                           <p className={styles.newsDate}>
-                            {item.date} {item.month_name_case} {item.year}
+                            {item.date} {item.month} {item.year}
                           </p>
                           <div className={styles.newsText}>
                             <ReactMarkdown

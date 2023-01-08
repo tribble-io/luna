@@ -20,23 +20,29 @@ const MONTHS = [
 ]
 
 class Poster extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    this.daysInMonth = this.daysInMonth.bind(this)
+    this.calendar = this.calendar.bind(this)
+    this.calendarDefault = this.calendarDefault.bind(this)
+    this.search = this.search.bind(this)
+    this.filterLocation = this.filterLocation.bind(this)
+    this.filterStateUpdate = this.filterStateUpdate.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
 
     let actualDate = new Date()
     let actualMoth = actualDate.getMonth()
     let actualYear = actualDate.getFullYear()
-    let month = Number(actualMoth)
+    let month = Number(actualMoth) + 1
     let formatMoth
     let nextMonth = month + 1 === 12 ? 1 : month + 1
-    let actualDay_this_month = actualDate.getDate()
-
-    if (actualDay_this_month.length === 1) {
-      actualDay_this_month = '0' + actualDay_this_month
-    }
+    let actualDay_this_month =
+      actualDate.getDate() < 10
+        ? '0' + actualDate.getDate()
+        : actualDate.getDate()
 
     let actualDateFormate = [
-      month + 1,
+      month,
       '01',
       actualYear,
       nextMonth,
@@ -222,12 +228,11 @@ class Poster extends React.Component {
       dataArr: dateList[actualMoth_str],
       nextDate: dateList[nextMoth_str],
     }
-    console.log(this.state.actualData)
   }
-  daysInMonth = (month, year) => {
+  daysInMonth(month, year) {
     return new Date(year, month, 0).getDate()
   }
-  calendar = (d) => {
+  calendar(d) {
     if (d === 1) {
       d = '01'
     } else if (d === 2) {
@@ -256,7 +261,7 @@ class Poster extends React.Component {
     this.componentDidMount()
   }
 
-  calendarDefault = () => {
+  calendarDefault() {
     this.setState(() => {
       return {
         day: '01',
@@ -267,20 +272,21 @@ class Poster extends React.Component {
     this.componentDidMount()
   }
 
-  search = (c) => {
+  search(c) {
     this.setState(() => {
       return { search: c }
     })
     this.componentDidMount()
   }
-  filterLocation = (b) => {
+
+  filterLocation(b) {
     this.setState(() => {
       return { filerLocation: b }
     })
     this.componentDidMount()
   }
 
-  filterStateUpdate = (a) => {
+  filterStateUpdate(a) {
     this.setState(() => {
       return {
         filterState: a,
@@ -330,7 +336,6 @@ class Poster extends React.Component {
                 isLoaded: true,
                 items: response.data,
               })
-              console.log(response)
             } else {
               this.setState({
                 isLoaded: true,

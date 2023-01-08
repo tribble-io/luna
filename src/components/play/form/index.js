@@ -28,6 +28,7 @@ export function CommentForm({ showID }) {
   const [error, setError] = useState(false)
   const [sendedForm, setsendedForm] = useState(false)
   const [setCheckbox, setsetCheckbox] = useState(true)
+  const [recaptchaState, setRecaptchaState] = useState(null)
 
   const updateInput = (e) => {
     const { name, value } = e.target
@@ -49,6 +50,10 @@ export function CommentForm({ showID }) {
 
   const isActive = (state) => {
     setsetCheckbox(state)
+  }
+
+  const recaptchaChange = (state) => {
+    setRecaptchaState(state)
   }
 
   return (
@@ -102,7 +107,7 @@ export function CommentForm({ showID }) {
                   onChange={updateInput}
                 ></textarea>
                 {error && !text && (
-                  <span className={styles.warningMes}>Заполните поле</span>
+                  <p className={styles.warningMes}>Заполните поле</p>
                 )}
                 <div className={styles.warningMes}>
                   <span
@@ -145,10 +150,22 @@ export function CommentForm({ showID }) {
                 </div>
               </div>
               <div className={styles.recaptcha}>
+                <div className={styles.warningMes}>
+                  <span
+                    style={{
+                      visibility:
+                        error && recaptchaState === null ? 'visible' : 'hidden',
+                    }}
+                  >
+                    Установите флажок
+                  </span>
+                </div>
                 <ReCAPTCHA
                   sitekey='6LeC1WQjAAAAAP8Wmgn5hs06R7hwOfsmlj8OCKfb'
                   hl='ru'
                   theme='dark'
+                  name='recaptcha'
+                  onChange={recaptchaChange}
                 />
               </div>
               <div className={styles.buttonSubmit}>

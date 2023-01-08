@@ -22,7 +22,6 @@ export const content = [
 
 export const positionsArrayFilters = [
   'труппа',
-  'приглашенные артисты',
   'режиссеры',
   'продюсеры',
   'хореографы и балетмейстеры',

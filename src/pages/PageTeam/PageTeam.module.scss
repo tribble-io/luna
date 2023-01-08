@@ -16,7 +16,7 @@
     max-height: 671px;
     object-fit: cover;
   }
-  .filters {
+  .filterGroup {
     display: flex;
     overflow: scroll;
     flex-direction: row;
@@ -25,6 +25,54 @@
     &::-webkit-scrollbar {
       width: 0px;
       height: 0px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+    .checkbox {
+      label {
+        font-size: 14px;
+        font-size: 0.875em;
+        color: $text-color;
+        text-transform: uppercase;
+        align-items: center;
+
+        @media (max-width: 500px) {
+          font-size: 12px;
+          font-size: 0.75em;
+        }
+      }
+    }
+  }
+  .noActorsResult {
+    font-size: 22px;
+    font-size: 1.375em;
+    padding-top: 100px;
+  }
+  .actorsGridTroupe {
+    padding-top: 100px;
+
+    @media (max-width: 500px) {
+      padding-top: 50px;
+    }
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 55px;
+
+    @media (max-width: 500px) {
+      overflow: scroll;
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 30px;
+    }
+    .actorsCard {
+      max-width: 295px;
+      @media (max-width: 500px) {
+        min-width: 130px;
+      }
     }
   }
   .collectiveImg:hover {
@@ -61,7 +109,7 @@
       opacity: 100%;
       margin-bottom: 120px;
     }
-    .filters {
+    .filterGroup {
       display: flex;
       overflow: scroll;
       flex-wrap: nowrap;
