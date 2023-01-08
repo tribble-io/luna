@@ -44,14 +44,10 @@ class SingleNews extends React.Component {
 
   getSliderPhoto(a) {
     const photo = a.map((item) => {
-      let a
-      item.media?.formats?.small?.url
-        ? (a = item.media?.formats?.small?.url)
-        : (a = item.media?.formats?.thumbnail?.url)
       return {
         id: item.id,
-        href: this.state.URL + item.media?.formats?.thumbnail?.url,
-        src: this.state.URL + a,
+        original: this.state.URL + item.media?.url,
+        preview: item.media?.formats,
         caption: '',
       }
     })
