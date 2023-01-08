@@ -41,6 +41,11 @@
       font-size: 16px;
       font-size: 1em;
       line-height: 160%;
+
+      p,
+      figure {
+        margin-top: 1em;
+      }
     }
     .actorRank {
       font-weight: 500;
