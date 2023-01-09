@@ -169,13 +169,7 @@
   }
 
   h1 {
-    font-family: 'Montserrat';
-    font-size: 30px;
-    font-size: 1.875em;
-    font-weight: 600;
-    line-height: 37px;
-    letter-spacing: 0em;
-    text-align: left;
+    @include headline_first;
     margin-bottom: 80px;
   }
 }
