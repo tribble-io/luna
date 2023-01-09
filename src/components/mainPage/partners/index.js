@@ -49,6 +49,7 @@ export function Partners({ partners }) {
           <Marquee speed={25} gradient={false} pauseOnHover={true}>
             {partners.length > 0 ? (
               <div className={styles.sponsors}>
+                <a /> {/* хак что бы логотипы партнеров не слипались */}
                 {partners.map((partner) => (
                   <a key={partner.id} href={partner?.link}>
                     <img
