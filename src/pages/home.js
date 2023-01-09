@@ -26,18 +26,18 @@ function getVideoLink(link) {
 function getAfficheData(arr) {
   if (arr !== null) {
     const afficheData = arr.map((item) => {
-      const dateStr = getDateStr(item?.datetime.slice(0, 10))
+      const formatDate = getDateStr(item?.datetime.slice(0, 10))
       return {
         item: item,
         play: item.play,
         id: item?.play?.id,
         show_id: item?.id,
         full_date: item?.datetime.slice(0, 10),
-        date: dateStr.date,
+        date: formatDate.date,
         time: item?.datetime.slice(11, 16),
-        monthNum: dateStr.month,
-        month: dateStr.month_name_case,
-        day: dateStr.day_of_week,
+        monthNum: formatDate.month,
+        month: formatDate.month_name_case,
+        day: formatDate.day_of_week,
         title: item?.play?.title,
         isPremiere: item?.play?.isPremiere,
         scene: item?.play?.scene?.name,
@@ -57,7 +57,7 @@ function getSliderData(arr) {
       const sliderShows = play?.shows
         ?.filter((show) => show.datetime >= DATETIME_NOW)
         ?.map((show) => {
-          const dateStr = getDateStr(show?.datetime)
+          const formatDate = getDateStr(show?.datetime)
           return {
             id: play.id,
             title: play?.title,
@@ -65,10 +65,10 @@ function getSliderData(arr) {
             scene: play?.scene?.name,
             rating: play?.rating,
             full_date: show?.datetime.slice(0, 10),
-            date: dateStr.date,
+            date: formatDate.date,
             time: show?.datetime.slice(11, 16),
-            month: dateStr.month_name_case,
-            day: dateStr.day_of_week,
+            month: formatDate.month_name_case,
+            day: formatDate.day_of_week,
             buy: show?.tickets_link,
           }
         })

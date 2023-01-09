@@ -5,13 +5,14 @@ import { PlaysLine } from '../../createElement'
 
 let PosterContent = (props) => {
   const getPlaysInfo = (item) => {
+    const formatDate = getDateStr(item?.datetime)
     const playInfo = {
       id: item?.play?.id,
       show_id: item?.id,
-      date: getDateStr(item?.date).date,
-      time: item?.time.slice(0, -3),
-      month: getDateStr(item?.date).month_name,
-      day_of_week: getDateStr(item?.date).day_of_week,
+      date: formatDate.date,
+      time: item?.datetime.slice(11, 16),
+      month: formatDate.month_name,
+      day_of_week: formatDate.day_of_week,
       title: item?.play?.title,
       isPremiere: item?.play?.isPremiere,
       scene: item?.play?.scene?.name,

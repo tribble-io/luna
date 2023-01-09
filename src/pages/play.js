@@ -114,15 +114,15 @@ function getPlayPress(arr) {
 function getComingShow(arr) {
   if (arr !== null && arr.length > 0) {
     const comingShow = arr.map((item) => {
-      const dateStr = getDateStr(item?.datetime)
+      const formatDate = getDateStr(item?.datetime)
       return {
         item: item,
         id: item?.play?.id,
         show_id: item?.id,
-        date: dateStr.date,
+        date: formatDate.date,
         time: item?.datetime.slice(11, 16),
-        month: dateStr.month_name,
-        day_of_week: dateStr.day_of_week,
+        month: formatDate.month_name,
+        day_of_week: formatDate.day_of_week,
         title: item?.play?.title,
         isPremiere: item?.play?.isPremiere,
         scene: item?.play?.scene?.name,

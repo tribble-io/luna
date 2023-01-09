@@ -10,16 +10,16 @@ function createPopupData(item, shows) {
     const ShowData = shows
       ?.filter((show) => show.datetime >= DATETIME_NOW)
       .map((show) => {
-        const dateStr = getDateStr(show?.datetime)
+        const formatDate = getDateStr(show?.datetime)
         return {
           id: show.id,
           title: item?.title,
           isPremiere: item?.isPremiere,
           scene: item?.scene?.name,
           rating: item?.rating,
-          date: dateStr.date,
-          month: dateStr.month_name,
-          day_of_week: dateStr.day_of_week,
+          date: formatDate.date,
+          month: formatDate.month_name,
+          day_of_week: formatDate.day_of_week,
           time: show?.datetime.slice(11, 16),
           buy: show?.tickets_link,
         }

@@ -77,7 +77,7 @@ const PageDetailActor = () => {
               scene: play?.scene?.name,
               month: formatDate?.month_name_case,
               date: formatDate?.date,
-              time: item?.time.slice(0, -3),
+              time: item?.datetime.slice(11, 16),
             }
           })
         arr = [...arr, ...newShow]

@@ -17,13 +17,14 @@ import Loader from '../components/loader'
 
 function getNextShow(arr) {
   const nextShowData = arr.map((item) => {
+    const formatDate = getDateStr(item?.datetime)
     return {
       item: item,
       id: item?.play?.id,
-      date: getDateStr(item?.date).date,
-      time: item?.time.slice(0, -3),
-      month: getDateStr(item?.date).month_name_case,
-      day: getDateStr(item?.date).day_of_week,
+      date: formatDate.date,
+      time: item?.datetime.slice(11, 16),
+      month: formatDate.month_name_case,
+      day: formatDate.day_of_week,
       title: item?.play?.title,
       isPremiere: item?.play?.isPremiere,
       scene: item?.play?.scene?.name,
