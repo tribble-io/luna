@@ -97,10 +97,13 @@
         }
       }
 
-      .socialLink {
-        display: inline-block;
-        vertical-align: middle;
+      .socialLinksBlock {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
 
+      .socialLink {
         &:not(:last-child) {
           margin-right: 17px;
 
@@ -111,7 +114,7 @@
 
         img {
           max-width: 100%;
-          width: 100%;
+          width: auto;
           height: 40px;
         }
 
