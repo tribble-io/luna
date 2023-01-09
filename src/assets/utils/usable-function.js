@@ -48,7 +48,7 @@ export function ScrollToTop() {
   return null
 }
 
-export const TODAY_DAY = new Date().toISOString().slice(0, 10)
+export const DATETIME_NOW = new Date().toISOString()
 
 const WEEK_DAY = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
 const MONTH_NAMES = [

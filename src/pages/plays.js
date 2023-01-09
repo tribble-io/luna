@@ -3,23 +3,24 @@ import { api, API_URL } from '../api/index'
 import { TicketPopUp } from '../components/ticketPopup'
 import { ShowsFilter, ShowsCards } from '../components/plays'
 import Loader from '../components/loader'
-import { getDateStr, TODAY_DAY } from '../assets/utils/usable-function'
+import { getDateStr, DATETIME_NOW } from '../assets/utils/usable-function'
 
 function createPopupData(item, shows) {
   if (shows !== null && shows.length > 0) {
     const ShowData = shows
-      ?.filter((show) => show.date >= TODAY_DAY)
+      ?.filter((show) => show.datetime >= DATETIME_NOW)
       .map((show) => {
+        const dateStr = getDateStr(show?.datetime)
         return {
           id: show.id,
           title: item?.title,
           isPremiere: item?.isPremiere,
           scene: item?.scene?.name,
           rating: item?.rating,
-          date: getDateStr(show?.date).date,
-          month: getDateStr(show?.date).month_name,
-          day_of_week: getDateStr(show?.date).day_of_week,
-          time: show?.time.slice(0, -3),
+          date: dateStr.date,
+          month: dateStr.month_name,
+          day_of_week: dateStr.day_of_week,
+          time: show?.datetime.slice(11, 16),
           buy: show?.tickets_link,
         }
       })

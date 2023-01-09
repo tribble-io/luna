@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { api } from '../api/index'
-import { uniqueBy, getDateStr, TODAY_DAY, IsMobile } from '../assets'
+import { uniqueBy, getDateStr, DATETIME_NOW, IsMobile } from '../assets'
 import { TicketPopUp } from '../components/ticketPopup'
 import {
   Slider,
@@ -26,17 +26,18 @@ function getVideoLink(link) {
 function getAfficheData(arr) {
   if (arr !== null) {
     const afficheData = arr.map((item) => {
+      const dateStr = getDateStr(item?.datetime.slice(0, 10))
       return {
         item: item,
         play: item.play,
         id: item?.play?.id,
         show_id: item?.id,
-        full_date: item?.date,
-        date: getDateStr(item?.date).date,
-        time: item?.time.slice(0, -3),
-        monthNum: getDateStr(item?.date).month,
-        month: getDateStr(item?.date).month_name_case,
-        day: getDateStr(item?.date).day_of_week,
+        full_date: item?.datetime.slice(0, 10),
+        date: dateStr.date,
+        time: item?.datetime.slice(11, 16),
+        monthNum: dateStr.month,
+        month: dateStr.month_name_case,
+        day: dateStr.day_of_week,
         title: item?.play?.title,
         isPremiere: item?.play?.isPremiere,
         scene: item?.play?.scene?.name,
@@ -54,19 +55,20 @@ function getSliderData(arr) {
   if (arr !== null) {
     const sliderData = arr.map((play) => {
       const sliderShows = play?.shows
-        ?.filter((show) => show.date >= TODAY_DAY)
+        ?.filter((show) => show.datetime >= DATETIME_NOW)
         ?.map((show) => {
+          const dateStr = getDateStr(show?.datetime)
           return {
             id: play.id,
             title: play?.title,
             isPremiere: play?.isPremiere,
             scene: play?.scene?.name,
             rating: play?.rating,
-            full_date: show?.date,
-            date: getDateStr(show?.date).date,
-            time: show?.time.slice(0, -3),
-            month: getDateStr(show?.date).month_name_case,
-            day: getDateStr(show?.date).day_of_week,
+            full_date: show?.datetime.slice(0, 10),
+            date: dateStr.date,
+            time: show?.datetime.slice(11, 16),
+            month: dateStr.month_name_case,
+            day: dateStr.day_of_week,
             buy: show?.tickets_link,
           }
         })

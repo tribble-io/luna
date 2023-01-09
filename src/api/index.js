@@ -1,7 +1,7 @@
 import axios from 'axios'
 export const API_URL = 'http://theatre.restomatik.ru:1337'
 
-const TODAY_DAY = new Date().toISOString().slice(0, 10)
+const DATETIME_NOW = new Date().toISOString()
 
 async function exportMainPage() {
   const result = await axios.get(
@@ -17,7 +17,7 @@ async function exportMainPage() {
 
 async function exportShows() {
   const result = await axios.get(
-    `${API_URL}/api/shows?filters[date][$gt]=${TODAY_DAY}&sort[0]=date&populate=play.cover,play.director,play.scene`
+    `${API_URL}/api/shows?filters[datetime][$gt]=${DATETIME_NOW}&sort[0]=datetime&populate=play.cover,play.director,play.scene`
   )
 
   if (result.status === 200) {
@@ -77,7 +77,7 @@ async function exportPlayShows(editValue) {
 
 async function exportChildrenStudioNextShow() {
   const result = await axios.get(
-    `${API_URL}/api/shows?filters[date][$gte]=${TODAY_DAY}&filters[play][scene][name][$eq]=Зал «Маленькая Луна»&populate=play.scene`
+    `${API_URL}/api/shows?filters[datetime][$gte]=${DATETIME_NOW}&filters[play][scene][name][$eq]=Зал «Маленькая Луна»&populate=play.scene`
   )
 
   if (result.status === 200) {
@@ -125,7 +125,7 @@ async function exportHistoryTheathrePhoto() {
 
 async function exportComingShow(showID) {
   const result = await axios.get(
-    `${API_URL}/api/shows?filters[date][$gte]=${TODAY_DAY}&sort[0]=date&filters[play][id][$eq]=${showID}&populate=play.cover,play.scene`
+    `${API_URL}/api/shows?filters[datetime][$gte]=${DATETIME_NOW}&sort[0]=datetime&filters[play][id][$eq]=${showID}&populate=play.cover,play.scene`
   )
 
   if (result.status === 200) {
@@ -149,7 +149,7 @@ async function exportShowData(showID) {
 
 async function exportTicketData(showID) {
   const result = await axios.get(
-    `${API_URL}/api/shows?filters[date][$gte]=${TODAY_DAY}&sort[0]=date&filters[play][id][$eq]=${showID}&populate=play,play.scene`
+    `${API_URL}/api/shows?filters[datetime][$gte]=${DATETIME_NOW}&sort[0]=datetime&filters[play][id][$eq]=${showID}&populate=play,play.scene`
   )
 
   if (result.status === 200) {
@@ -186,7 +186,7 @@ async function exportPressData(year) {
     ? `filters[date][$gte]=${year}-01-01&filters[date][$lt]=${year + 1}-01-01&`
     : ''
   const result = await axios.get(
-    `${API_URL}/api/press-items?${pressFilter}sort[0]=date:desc`
+    `${API_URL}/api/press-items?${pressFilter}sort[0]=datetime:desc`
   )
 
   if (result.status === 200) {
@@ -248,7 +248,7 @@ async function exportGetDetailInfoActor(id) {
 
 async function searchPosters(date, lastDate, filtPathc, seachEl) {
   const result = await axios.get(
-    `${API_URL}/api/shows?filters[date][$gte]=${date}&filters[date][$lt]=${lastDate}&sort[0]=date&${filtPathc}populate=play.scene&filters[play][title][$containsi]=${seachEl}`
+    `${API_URL}/api/shows?filters[date][$gte]=${date}&filters[date][$lt]=${lastDate}&sort[0]=datetime&${filtPathc}populate=play.scene&filters[play][title][$containsi]=${seachEl}`
   )
 
   if (result.status === 200) {

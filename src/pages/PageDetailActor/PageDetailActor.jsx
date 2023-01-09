@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { api, API_URL } from '../../api'
-import { getDateStr, TODAY_DAY } from '../../assets'
+import { getDateStr, DATETIME_NOW } from '../../assets'
 import { PhotosSlider } from '../../components/actorDetail/PhotosSlider/PhotosSlider'
 import { UpcomingPerformances } from '../../components/actorDetail/UpcomingPerformances/UpcomingPerformances'
 import ActorInfo from '../../components/createElement/ActorInfo/ActorInfo'
@@ -64,7 +64,7 @@ const PageDetailActor = () => {
     play_roles?.filter(({ play }) => {
       if (play.shows.length) {
         const newShow = play.shows
-          ?.filter((show) => show.date >= TODAY_DAY)
+          ?.filter((show) => show.datetime >= DATETIME_NOW)
           ?.map((item) => {
             const formatDate = getDateStr(item.date)
             return {
