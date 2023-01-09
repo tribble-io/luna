@@ -19,10 +19,7 @@
     transform: none;
   }
   h1 {
-    font-family: 'Montserrat';
-    font-size: 50px;
-    font-size: 3.125em;
-    font-weight: 600;
+    @include headline_first;
     padding-bottom: 140px;
   }
   .directorCards {
@@ -39,10 +36,7 @@
     padding-bottom: 60px;
     h1 {
       padding-bottom: 50px;
-      font-weight: 600;
-      font-size: 22px;
-      font-size: 1.375em;
-      line-height: 36px;
+      @include headline_first;
     }
     .collectiveImg {
       opacity: 20%;

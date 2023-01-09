@@ -4,6 +4,14 @@
   color: white;
   padding-top: 200px;
   padding-bottom: 134px;
+
+  @media (max-width: 800px) {
+    padding-top: 150px;
+  }
+
+  @media (max-width: 500px) {
+    padding-top: 100px;
+  }
 }
 .promoTage {
   @include container;
@@ -79,12 +87,12 @@
     transform: none;
   }
   h1 {
-    font-family: 'Montserrat';
-    font-size: 50px;
-    font-size: 3.125em;
-    font-weight: 600;
+    @include headline_first;
     padding-bottom: 100px;
-    line-height: 160.9%;
+  
+    @media (max-width: 500px) {
+      padding-bottom: 60px;
+    }
   }
   .directorCards {
     padding-bottom: 120px;
@@ -98,13 +106,6 @@
   .containerTeam {
     padding-top: 100px;
     padding-bottom: 60px;
-    h1 {
-      padding-bottom: 50px;
-      font-weight: 600;
-      font-size: 22px;
-      font-size: 1.375em;
-      line-height: 36px;
-    }
     .collectiveImg {
       opacity: 100%;
       margin-bottom: 120px;

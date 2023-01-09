@@ -33,6 +33,10 @@
 
   .sortBlockMain {
     margin-top: 4.75em;
+
+    @media (max-width: 800px) {
+      margin-top: 2.5em;
+    }
   }
 
   .sortBlock {
@@ -46,10 +50,13 @@
     @media (max-width: 500px) {
       flex-direction: row-reverse;
       justify-content: flex-end;
+      margin-bottom: 2.5em;
     }
 
     .monthGroup {
       display: flex;
+      overflow-x: auto;
+      padding-bottom: 20px;
 
       .moth_el {
         &:not(:last-child) {

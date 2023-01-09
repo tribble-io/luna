@@ -1,5 +1,4 @@
-@import '../../assets/utils/mixins.scss';
-@import '../../assets/utils/fonts.scss';
+@import '../../assets/main.scss';
 
 .historyContainer {
   @include container;
@@ -9,34 +8,26 @@
 }
 
 .promoTage {
+  padding-top: 200px;
+
+  @media (max-width: 800px) {
+    padding-top: 150px;
+  }
+
+  @media (max-width: 500px) {
+    padding-top: 100px;
+  }
+
   h1 {
-    font-family: 'Montserrat';
-    font-size: 50px;
-    font-size: 3.125em;
-    font-weight: 600;
-    margin-bottom: 146px;
-    padding-top: 200px;
-    line-height: 160.9%;
+    @include headline_first;
+    padding-bottom: 150px;
 
-    @media (max-width: 1000px) {
-      padding-top: 100px;
-      margin-bottom: 120px;
+    @media (max-width: 800px) {
+      padding-bottom: 100px;
     }
 
-    @media (max-width: 520px) {
-      font-size: 40px;
-      font-size: 2.5em;
-      margin-bottom: 50px;
-    }
-
-    @media (max-width: 425px) {
-      font-size: 35px;
-      font-size: 2.18em;
-    }
-
-    @media (max-width: 370px) {
-      font-size: 30px;
-      font-size: 1.875em;
+    @media (max-width: 500px) {
+      padding-bottom: 60px;
     }
   }
 
