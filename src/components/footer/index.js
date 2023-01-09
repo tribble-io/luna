@@ -30,11 +30,13 @@ export default function Footer() {
             </div>
             <div className={styles.socialLinksList}>
               <h2>Мы в соцсетях</h2>
-              {social.map((filename, i) => (
-                <a key={i} href={links[i]} className={styles.socialLink}>
-                  <img src={`/img/${filename}.png`} alt={filename} />
-                </a>
-              ))}
+              <div className={styles.socialLinksBlock}>
+                {social.map((filename, i) => (
+                  <a key={i} href={links[i]} className={styles.socialLink}>
+                    <img src={`/img/${filename}.png`} alt={filename} />
+                  </a>
+                ))}
+              </div>
             </div>
             <div className={styles.footerLogoBlock}>
               <img

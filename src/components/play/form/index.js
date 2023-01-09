@@ -37,7 +37,7 @@ export function CommentForm({ showID }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (name && title && text && setCheckbox) {
+    if (name && title && text && setCheckbox && recaptchaState) {
       sendInfo(inValue, setsendedForm)
       setError(false)
 
