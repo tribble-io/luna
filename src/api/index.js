@@ -208,7 +208,7 @@ function getActorsFilter(editValue) {
   }
 
   filters += filters[filters.length - 1] !== '&' ? '&' : ''
-  return `${API_URL}/api/persons?${filters}populate=cover`
+  return `${API_URL}/api/persons?${filters}populate=cover&sort=fullname`
 }
 
 async function exportShowActors(editValue) {
