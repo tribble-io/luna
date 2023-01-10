@@ -128,6 +128,7 @@ function getComingShow(arr) {
         scene: item?.play?.scene?.name,
         rating: item?.play?.rating,
         buy: item?.tickets_link,
+        isPushkinCard: item?.play?.isPushkinCard,
       }
     })
     return comingShow
