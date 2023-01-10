@@ -35,7 +35,7 @@ export function ScrollToTop() {
   const { scrollY } = useWindowScrollPositions()
   useEffect(() => {
     // scrollTop is the value by which the page should be scrolled, depends on the height of header
-    const scrollTop = WINDOW_SCREEN >= 991 ? 200 : 70
+    const scrollTop = WINDOW_SCREEN >= 991 ? 200 : 0
     // if user doesn't scrolled the page, then we do not use the scrollTo
     if (scrollY >= scrollTop) {
       document.documentElement.scrollTo({
