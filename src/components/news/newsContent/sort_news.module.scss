@@ -5,6 +5,7 @@
   @include container;
   color: white;
 }
+
 .newsList {
   padding-bottom: 350px;
 }
@@ -12,6 +13,7 @@
 .data {
   display: flex;
 }
+
 .posterContent_el {
   width: 100%;
   height: 230px;
@@ -23,10 +25,12 @@
     height: 150px;
   }
 }
+
 .posterContent_el_content {
   display: flex;
   height: 100%;
 }
+
 .data {
   display: flex;
   margin-top: auto;
@@ -47,16 +51,19 @@
     width: 180px;
     height: 100px;
   }
+
   @media (max-width: 430px) {
     min-width: auto;
     width: 122px;
     height: 80px;
   }
+
   @media (max-width: 360px) {
     width: 100px;
     height: 80px;
   }
 }
+
 .posterContent_el_content_2 {
   display: flex;
 
@@ -68,6 +75,7 @@
     flex-direction: row;
   }
 }
+
 .dataNumber {
   font-family: 'Montserrat';
   font-size: 44px;
@@ -80,6 +88,7 @@
     font-size: 2em;
   }
 }
+
 .dataTime {
   font-family: 'Montserrat';
   font-size: 16px;
@@ -98,6 +107,7 @@
     padding-left: 10px;
   }
 }
+
 .name {
   display: flex;
   flex-direction: column;
@@ -118,6 +128,7 @@
 
   @media (max-width: 770px) {
     margin-left: 0;
+    line-height: 155%;
   }
 
   div:nth-child(1) {
@@ -135,25 +146,28 @@
       margin-left: 0;
       margin-right: auto;
     }
+
     @media (max-width: 1000px) {
       font-size: 15px;
-      font-size: 0.95em;
+      line-height: 155%;
     }
+
     @media (max-width: 770px) {
       max-width: 200px;
-      font-size: 13px;
-      font-size: 0.81em;
+      font-size: 14px;
+      line-height: 155%;
     }
+
     @media (max-width: 500px) {
-      font-size: 12px;
-      font-size: 0.75em;
+      font-size: 14px;
+      line-height: 155%;
     }
   }
 }
+
 .scien {
   font-family: 'Montserrat';
   font-size: 16px;
-  font-size: 1em;
   font-weight: 400;
   margin-top: 10px;
   text-transform: lowercase;
@@ -161,14 +175,12 @@
   line-height: 200%;
 
   @media (max-width: 1200px) {
-    font-size: 12px;
-    font-size: 0.75em;
-  }
-  @media (max-width: 500px) {
-    font-size: 12px;
-    font-size: 0.75em;
+    margin-top: 0.8em;
+    color: #929fcc;
+    font-size: 14px;
   }
 }
+
 .premier {
   font-family: 'Montserrat';
   font-size: 14px;
@@ -184,15 +196,18 @@
     left: 80%;
     top: 15%;
   }
+
   @media (max-width: 1000px) {
     left: 80%;
     top: 0%;
   }
+
   @media (max-width: 770px) {
     left: -46%;
     top: 115%;
     color: #8cabfa;
   }
+
   @media (max-width: 380px) {
     left: -50%;
     top: 115%;
@@ -222,6 +237,7 @@
     height: 100%;
   }
 }
+
 .buy {
   display: block;
   font-family: 'Montserrat';
@@ -251,12 +267,14 @@
       padding: 19px 24px;
     }
   }
+
   @media (max-width: 770px) {
     margin-top: auto;
     margin-bottom: 25px;
     min-width: 150px;
   }
 }
+
 .restriction {
   font-family: 'Montserrat';
   font-size: 24px;
@@ -276,6 +294,7 @@
 .antibBlockBlock {
   @include container;
 }
+
 .antiBlock {
   color: white;
   text-align: left;
@@ -322,11 +341,13 @@
     height: 100px;
     margin: 0;
   }
+
   @media (max-width: 430px) {
     width: 122px;
     height: 80px;
     margin: 0;
   }
+
   @media (max-width: 360px) {
     width: 100px;
     height: 80px;
