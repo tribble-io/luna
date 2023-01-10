@@ -218,7 +218,10 @@ class SingleNews extends React.Component {
                     <div
                       className={styles.textContent}
                       dangerouslySetInnerHTML={{
-                        __html: this.state.items.text,
+                        __html: this.state.items.text.replaceAll(
+                          '/uploads',
+                          API_URL + '/uploads'
+                        ),
                       }}
                     ></div>
                     <div className={styles.newsMiniBlock}>

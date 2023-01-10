@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './titleblock.module.scss'
 import ScrollIntoView from 'react-scroll-into-view'
 import Loader from '../../loader'
+import { API_URL } from '../../../api'
 
 export function TitleBlock(props) {
   const { data, mainSliderInfo } = props
@@ -57,7 +58,10 @@ export function About(props) {
                   <div
                     className={styles.description}
                     dangerouslySetInnerHTML={{
-                      __html: data.body,
+                      __html: data.body.replaceAll(
+                        '/uploads',
+                        API_URL + '/uploads'
+                      ),
                     }}
                   ></div>
                 ) : (

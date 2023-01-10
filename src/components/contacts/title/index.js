@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './title.module.scss'
+import { API_URL } from '../../../api'
 
 export function ContactsTitle() {
   return (
@@ -77,7 +78,6 @@ export function ContactsList(props) {
                           {returnNumberFormat(phone?.enum, 'number')}
                         </a>
                         <span className={styles.linkText}>
-                          {/* eslint-disable-next-line */}
                           {returnNumberFormat(phone?.enum, 'text')}
                         </span>
                       </p>
@@ -118,7 +118,10 @@ export function ContactsList(props) {
                   <div
                     className={styles.proffActors}
                     dangerouslySetInnerHTML={{
-                      __html: item.text,
+                      __html: item.text.replaceAll(
+                        '/uploads',
+                        API_URL + '/uploads'
+                      ),
                     }}
                   ></div>
                 ) : (

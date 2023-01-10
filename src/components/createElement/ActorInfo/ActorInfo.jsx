@@ -1,4 +1,5 @@
 import React from 'react'
+import { API_URL } from '../../../api'
 
 import styles from './ActorInfo.module.scss'
 
@@ -17,7 +18,7 @@ const ActorInfo = ({ img, name, body, rank, romashka }) => {
           <div
             className={styles.actorBody}
             dangerouslySetInnerHTML={{
-              __html: body,
+              __html: body.replaceAll('/uploads', API_URL + '/uploads'),
             }}
           ></div>
         ) : null}
