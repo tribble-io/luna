@@ -186,7 +186,7 @@ async function exportPressData(year) {
     ? `filters[date][$gte]=${year}-01-01&filters[date][$lt]=${year + 1}-01-01&`
     : ''
   const result = await axios.get(
-    `${API_URL}/api/press-items?${pressFilter}sort[0]=datetime:desc`
+    `${API_URL}/api/press-items?${pressFilter}sort[0]=date:desc`
   )
 
   if (result.status === 200) {

@@ -80,6 +80,7 @@
       max-width: 295px;
       @media (max-width: 500px) {
         min-width: 130px;
+        width: min-content;
       }
     }
   }

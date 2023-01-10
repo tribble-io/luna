@@ -55,7 +55,10 @@ function getSliderData(arr) {
   if (arr !== null) {
     const sliderData = arr.map((play) => {
       const sliderShows = play?.shows
+        // Filter shows from past days
         ?.filter((show) => show.datetime >= DATETIME_NOW)
+        // Sort by date ascending
+        ?.sort((a, b) => new Date(a.datetime) - new Date(b.datetime))
         ?.map((show) => {
           const formatDate = getDateStr(show?.datetime)
           return {
@@ -156,9 +159,10 @@ export function Home() {
         )
         .slice(0, 3)
     } else if (ticketPlay.type === 'slider') {
-      return itemsSlider
-        .filter((item) => item.id === ticketPlay.id)
-        .slice(0, 3)[0].shows
+      const result = itemsSlider
+        .filter((item) => item.id === ticketPlay.id)[0]
+        .shows.slice(0, 3)
+      return result
     }
   }
 

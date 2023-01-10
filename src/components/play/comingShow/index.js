@@ -5,7 +5,7 @@ import { PlaysLine, TextFormatter } from '../../createElement'
 export function ComingShow({ items }) {
   // Check if we have coming show
   const isItems = items.length > 0 ? true : false
-  const isPushkinCard = items[0]?.play?.isPushkinCard
+  const isPushkinCard = items[0]?.isPushkinCard
 
   return (
     <section id='comingShow'>

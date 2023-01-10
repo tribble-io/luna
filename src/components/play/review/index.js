@@ -194,29 +194,33 @@ export function Review({ review }) {
               </div>
             )}
 
-            <div className={styles.reviewNavigation}>
-              <img
-                src='/img/newsLarr.png'
-                alt='<'
-                className={styles.prev}
-                name='prev'
-                onClick={navigation}
-              />
+            {allPages > 1 ? (
+              <div className={styles.reviewNavigation}>
+                <img
+                  src='/img/newsLarr.png'
+                  alt='<'
+                  className={styles.prev}
+                  name='prev'
+                  onClick={navigation}
+                />
 
-              <div className={styles.reviewFraction}>
-                <span>{actPage}</span>
-                <span>/</span>
-                <span>{allPages}</span>
+                <div className={styles.reviewFraction}>
+                  <span>{actPage}</span>
+                  <span>/</span>
+                  <span>{allPages}</span>
+                </div>
+
+                <img
+                  src='/img/newsRarr.png'
+                  alt='>'
+                  className={styles.next}
+                  name='next'
+                  onClick={navigation}
+                />
               </div>
-
-              <img
-                src='/img/newsRarr.png'
-                alt='>'
-                className={styles.next}
-                name='next'
-                onClick={navigation}
-              />
-            </div>
+            ) : (
+              <></>
+            )}
           </div>
         )}
       </div>
